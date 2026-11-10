@@ -11,7 +11,7 @@ skills/khe-<name>/
   references/     files the agent opens one at a time
   scripts/        only where the skill ships a tool
   LICENSE
-external/         other people's skill repos, as git submodules. Never edit them.
+skills/<name>     no khe- prefix: someone else's skill, linked as a git submodule. Never edit it.
 skills.sh.json    groups the repo page on skills.sh
 scripts/check.mjs the checks CI runs
 ```
@@ -46,9 +46,10 @@ Sections, in this order. Leave one out only when the skill has nothing to put in
 
 Skills by Emil Kowalski and Benji Taylor are used next to these and are never copied in.
 
-- `external/emilkowalski-skills` and `external/benjitaylor-skills` are git submodules, so GitHub links each folder to the original repo at a pinned commit. Update the pin with `git submodule update --remote external/<name>`, then commit.
+- Each of their skills has its own entry in `skills/` (`skills/animate`, `skills/stageshow`), a git submodule of the author's repo, so GitHub shows it beside the khe skills and links it to the original at a pinned commit. A submodule can only point at a whole repo, so the link opens the repo, not the skill's subfolder; the README links the exact file.
+- To add one: add its block to `.gitmodules`, then `git update-index --add --cacheinfo 160000,<commit>,skills/<name>`. To move the pin, run the same command with the new commit. The folders stay empty locally on purpose.
 - The README links each of their skills to its original `SKILL.md`.
-- `khe-auto` routes to them by name and says whose each one is. A name without `khe-` in any skill here is someone else's skill.
+- `khe-auto` covers every skill in `skills/`, linked ones included, and says whose each one is. A name without `khe-` in any skill here is someone else's skill.
 - The skills CLI does not fetch submodules, so `npx skills add HKTITAN/skills` installs only the `khe-` skills.
 
 ## The router
@@ -67,7 +68,7 @@ The skills are not limited to design. A new domain is: its skills under `skills/
 
 ```bash
 node scripts/check.mjs
-npx -y markdownlint-cli@0.41.0 '**/*.md' --ignore external --config .github/markdownlint.jsonc
+npx -y markdownlint-cli@0.41.0 '**/*.md' --config .github/markdownlint.jsonc
 npx -y skills add ./ --list
 ```
 

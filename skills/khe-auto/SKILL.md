@@ -1,6 +1,6 @@
 ---
 name: khe-auto
-description: "Picks the right skill for a request and runs it. Routes to the khe skills (design tokens, SVG, diagrams, sound, launch films) and to the skills by Emil Kowalski and Benji Taylor that sit beside them (animation, gestures, UI polish, mobile feel, prototyping, faux product UI). Names one or two, says why in a line, then runs them in order. Use when a request names no skill, spans several, or someone asks \"which skill\", \"what should I use for this\", \"where do I start\", \"what order\", \"list the skills\", or just says \"make this better\". When the request already names a skill, use that skill."
+description: "Picks the right skill for a request and runs it. Covers every skill in this collection: the khe skills (design tokens, SVG, diagrams, sound, launch films) and the skills by Emil Kowalski and Benji Taylor linked beside them (animation, gestures, UI craft, mobile feel, prototyping, faux product UI, Swift). Names one or two, says why in a line, then runs them in order. Use when a request names no skill, spans several, or someone asks \"which skill\", \"what should I use for this\", \"where do I start\", \"what order\", \"list the skills\", or just says \"make this better\". When the request already names a skill, use that skill."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -55,12 +55,13 @@ When two skills both look right, the answer is one question from Overlaps, never
 | Domain | The request is about | Where it routes |
 |---|---|---|
 | Design | A screen, a component, motion, sound, a vector, a diagram, a product picture, a launch video | The Design table below |
+| Code | Writing, reviewing or migrating code in a language a skill here covers | The Code table below |
 
 A new domain adds one row here and one table below it. Nothing else in this file changes.
 
 ## Design
 
-Skills that start with `khe-` are in this repo. The others are by the people named, live in their repos, and are routed to by name.
+Skills that start with `khe-` are in this repo. The others are by the people named, live in their own repos, and are linked from this one. Every skill in the collection has a row here or under Code.
 
 | The job | Skill | Whose |
 |---|---|---|
@@ -87,6 +88,12 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | Which library for a frontend task | `pick-ui-library` | Emil Kowalski |
 | Motion in React Native or Expo | `animate-expo` | Emil Kowalski |
 | Sonner toasts: setup, styling, fixes | `ask-sonner` | Emil Kowalski |
+
+## Code
+
+| The job | Skill | Whose |
+|---|---|---|
+| Write, review or migrate Swift: value types, Swift 6 concurrency, generics, Swift Testing | `write-swift` | Emil Kowalski |
 
 ## How to run a skill
 
@@ -129,7 +136,7 @@ When a later skill exposes an earlier fault (sound reveals a cut that lands off 
 
 ## When nothing fits
 
-Say so. The skills here cover the domains in Domains and nothing else. Today that is design. Backend logic, data fetching, state management, build tooling and tests have no skill here yet. Answer normally and say no skill here applies.
+Say so. The skills here cover the domains in Domains and nothing else. Today that is design and Swift. Backend logic, data fetching, state management, build tooling and tests have no skill here yet. Answer normally and say no skill here applies.
 
 ## Never ship
 

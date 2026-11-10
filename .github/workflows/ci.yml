@@ -23,7 +23,7 @@ jobs:
         run: |
           for f in scripts/*.mjs skills/*/scripts/*.mjs; do node --check "$f"; done
       - name: Markdown lint
-        run: npx -y markdownlint-cli@0.41.0 '**/*.md' --ignore '**/node_modules/**' --ignore external --config .github/markdownlint.jsonc
+        run: npx -y markdownlint-cli@0.41.0 '**/*.md' --ignore '**/node_modules/**' --config .github/markdownlint.jsonc
       - name: The skills CLI finds every skill
         env:
           NO_COLOR: '1'

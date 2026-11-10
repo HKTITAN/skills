@@ -4,8 +4,8 @@ This repository is MIT licensed; see [LICENSE](LICENSE).
 
 ## Other people's work
 
-- `external/emilkowalski-skills` is a git submodule of [emilkowalski/skills](https://github.com/emilkowalski/skills) by Emil Kowalski (MIT). Nothing from it is copied into `skills/`.
-- `external/benjitaylor-skills` is a git submodule of [benjitaylor/skills](https://github.com/benjitaylor/skills) by Benji Taylor (MIT, with its own notices for third-party assets). Nothing from it is copied into `skills/`. The README image is built with Stageshow.
+- The entries in `skills/` without a `khe-` prefix, other than `stageshow`, are git submodules of [emilkowalski/skills](https://github.com/emilkowalski/skills) by Emil Kowalski (MIT). They are links; none of his files are copied into this repo.
+- `skills/stageshow` is a git submodule of [benjitaylor/skills](https://github.com/benjitaylor/skills) by Benji Taylor (MIT, with its own notices for third-party assets). It is a link; none of his files are copied into this repo. The README image is built with Stageshow.
 
 ## Sources cited inside the skills
 

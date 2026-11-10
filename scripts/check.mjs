@@ -13,7 +13,9 @@ const read = (p) => readFileSync(p, "utf8").replace(/\r\n/g, "\n");
 const problems = [];
 const bad = (where, what) => problems.push(`${where}: ${what}`);
 
-const names = readdirSync(SKILLS).filter((d) => statSync(join(SKILLS, d)).isDirectory()).sort();
+// Other people's skills are linked in skills/ as git submodules. They are not checked, only listed.
+const linked = [...read(join(ROOT, ".gitmodules")).matchAll(/^\s*path = skills\/(.+)$/gm)].map((m) => m[1].trim()).sort();
+const names = readdirSync(SKILLS).filter((d) => statSync(join(SKILLS, d)).isDirectory() && !linked.includes(d)).sort();
 const walk = (dir) => readdirSync(dir).flatMap((f) => {
   const p = join(dir, f);
   return statSync(p).isDirectory() ? walk(p) : [p];
@@ -79,9 +81,16 @@ for (const n of names) {
   if (n !== "khe-auto" && !router.includes(`\`${n}\``)) bad("khe-auto", `the router never names ${n}`);
 }
 
+// Linked skills: never prefixed khe-, each named by the router and linked from the README.
+for (const n of linked) {
+  if (n.startsWith("khe-")) bad(".gitmodules", `${n} is linked from another repo and must not use the khe- prefix`);
+  if (!router.includes(`\`${n}\``)) bad("khe-auto", `the router never names ${n}`);
+  if (!new RegExp(`\\[${n}\\]\\(https://github\\.com/`).test(readme)) bad("README.md", `${n} is not linked to its original`);
+}
+
 if (problems.length) {
   for (const p of problems) console.error(p);
   console.error(`\n${problems.length} problem(s).`);
   process.exit(1);
 }
-console.log(`${names.length} skills pass.`);
+console.log(`${names.length} skills pass, ${linked.length} linked.`);

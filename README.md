@@ -12,7 +12,7 @@ npx skills add HKTITAN/skills
 
 | Skill | What it does |
 |---|---|
-| [khe-auto](skills/khe-auto/README.md) | Picks the right skill for a request and runs it. Start here. |
+| [khe-auto](skills/khe-auto/README.md) | Picks the right skill for a request and runs it, mine or theirs. Start here. |
 | [khe-design-tokens](skills/khe-design-tokens/README.md) | Finds the project's `.design` file or DESIGN.md and threads its tokens through the UI. |
 | [khe-svg](skills/khe-svg/README.md) | Makes, cleans, animates and morphs SVG, or turns a flat clip into an editable vector. |
 | [khe-diagram](skills/khe-diagram/README.md) | Decides whether to draw at all, then draws a finished figure or edits a live tldraw canvas. |
@@ -29,7 +29,7 @@ Each skill includes its own licence. `references/pov.md` and `references/gotchas
 
 ## From others
 
-Skills by other people that I use next to mine. They are not copied here. Each link goes to the original file in its own repo, and `khe-auto` routes to them by name.
+Skills by other people that I use next to mine. They are not copied here. Each one is linked in [`skills/`](skills) as a git submodule pinned to the commit I last read, each link below goes to the original file, and `khe-auto` routes to all of them by name.
 
 ### Benji Taylor
 
@@ -66,8 +66,9 @@ npx skills add emilkowalski/skills
 | [pick-ui-library](https://github.com/emilkowalski/skills/blob/main/skills/pick-ui-library/SKILL.md) | Choosing a library for a frontend task. |
 | [animate-expo](https://github.com/emilkowalski/skills/blob/main/skills/animate-expo/SKILL.md) | Motion in React Native and Expo. |
 | [ask-sonner](https://github.com/emilkowalski/skills/blob/main/skills/ask-sonner/SKILL.md) | Working with Sonner. |
+| [write-swift](https://github.com/emilkowalski/skills/blob/main/skills/write-swift/SKILL.md) | Writing modern Swift. |
 
-Both repos are also linked under [`external/`](external) as git submodules, pinned to the commit I last read. `npx skills add HKTITAN/skills` installs only my skills.
+`npx skills add HKTITAN/skills` installs only my skills. Install theirs from their repos with the commands above.
 
 ## License
 

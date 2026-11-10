@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  skills:
+    name: Skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Every skill passes the spec and the repo's rules
+        run: node scripts/check.mjs
+      - name: Every script parses
+        run: |
+          for f in scripts/*.mjs skills/*/scripts/*.mjs; do node --check "$f"; done
+      - name: Markdown lint
+        run: npx -y markdownlint-cli@0.41.0 '**/*.md' --ignore '**/node_modules/**' --ignore external --config .github/markdownlint.jsonc
+      - name: The skills CLI finds every skill
+        env:
+          NO_COLOR: '1'
+          FORCE_COLOR: '0'
+          DISABLE_TELEMETRY: '1'
+        run: |
+          want=$(ls -d skills/*/SKILL.md | wc -l)
+          out=$(npx -y skills add ./ --list 2>&1)
+          echo "$out" | grep -Eq "Found[^0-9]*${want}[^0-9]*skills" || { echo "$out"; echo "::error::npx skills add must find ${want} skills"; exit 1; }

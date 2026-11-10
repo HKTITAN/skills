@@ -1,0 +1,6 @@
+[submodule "external/emilkowalski-skills"]
+	path = external/emilkowalski-skills
+	url = https://github.com/emilkowalski/skills.git
+[submodule "external/benjitaylor-skills"]
+	path = external/benjitaylor-skills
+	url = https://github.com/benjitaylor/skills.git

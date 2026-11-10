@@ -1,0 +1,23 @@
+{
+  "groupings": [
+    {
+      "title": "Start here",
+      "description": "Picks the right skill for a request and runs it.",
+      "skills": [
+        "khe-auto"
+      ]
+    },
+    {
+      "title": "Design",
+      "description": "Tokens, vectors, diagrams, sound and launch films.",
+      "skills": [
+        "khe-design-tokens",
+        "khe-svg",
+        "khe-diagram",
+        "khe-sound",
+        "khe-launch-film"
+      ]
+    }
+  ],
+  "notGrouped": "bottom"
+}

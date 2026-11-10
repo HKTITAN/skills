@@ -51,6 +51,7 @@ Sections, in this order. Leave one out only when the skill has nothing to put in
 Skills by Emil Kowalski and Benji Taylor are used next to these and are never copied in.
 
 - Each of their skills has its own entry in `skills/` (`skills/animate`, `skills/stageshow`), a git submodule of the author's repo, so GitHub shows it beside the khe skills and links it to the original at a pinned commit. A submodule can only point at a whole repo, so the link opens the repo, not the skill's subfolder; the README links the exact file.
+- The pins sync themselves. Dependabot checks both repos every day and opens one pull request that moves every pin; `.github/workflows/sync-linked-skills.yml` turns on auto-merge, and it lands once CI passes. A push to their repo cannot trigger anything here, so daily is as close to live as GitHub allows. A new skill in their repo is not picked up by the sync: it needs its own entry, added by hand.
 - To add one: add its block to `.gitmodules`, then `git update-index --add --cacheinfo 160000,<commit>,skills/<name>`. To move the pin, run the same command with the new commit. The folders stay empty locally on purpose.
 - The README links each of their skills to its original `SKILL.md`.
 - `khe-auto` covers every skill in `skills/`, linked ones included, and says whose each one is. A name without `khe-` in any skill here is someone else's skill.

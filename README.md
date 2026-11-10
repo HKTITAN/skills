@@ -75,7 +75,7 @@ The agent reads `SKILL.md` and opens a reference only when the job needs it, so 
 
 ## From others
 
-Skills by other people that I use next to mine. They are not copied here. Each one is linked in [`skills/`](skills) as a git submodule pinned to the commit I last read, each link below goes to the original file, and `khe-auto` routes to all of them by name.
+Skills by other people that I use next to mine. They are not copied here. Each one is linked in [`skills/`](skills) as a git submodule that follows its repo (checked daily), each link below goes to the original file, and `khe-auto` routes to all of them by name.
 
 ### Benji Taylor
 

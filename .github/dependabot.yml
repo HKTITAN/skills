@@ -4,3 +4,16 @@ updates:
     directory: /
     schedule:
       interval: weekly
+
+  # Other people's skills are linked in skills/ as git submodules. Check their repos every day and
+  # move every pin in one pull request; .github/workflows/sync-linked-skills.yml merges it once CI passes.
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: "Sync linked skills"
+    groups:
+      linked-skills:
+        patterns:
+          - "*"

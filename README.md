@@ -4,9 +4,9 @@
 [![CI](https://github.com/HKTITAN/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/HKTITAN/skills/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![What the skills produce: a UI review that ends in a verdict, a launch film beat sheet, a token ramp, an SVG path mid-draw, a sound placed on its contact frame, and a three-box diagram](.github/assets/kheskills.png)
+![What the skills produce: a UI review ending in Ship it, a launch film timeline, a sound on its frame, a token ramp, a vector path mid-draw and a diagram](.github/assets/kheskills.png)
 
-I'm [Harshit Khemani](https://github.com/HKTITAN). I design and build products with coding agents: the interface, the launch film, the docs and the pictures that go in them.
+I'm [Harshit Khemani](https://www.khe.money). I've been building products for five years, and these days I build them with coding agents: the interface, the launch film, the docs and the pictures that go in them.
 
 Agents can build a screen that looks right in a screenshot. They cannot tell when it feels right. They reach for a spinner on a 200ms call, pick an easing because it looked familiar, lay a music bed under a logo reveal to hide the sync work, and call it done.
 

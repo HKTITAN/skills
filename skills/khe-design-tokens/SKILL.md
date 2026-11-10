@@ -9,6 +9,8 @@ metadata:
 
 # Design tokens
 
+You own the contract from finding it to a UI where every value resolves to a token. An agent that invents a color beside an existing token has failed the job.
+
 A construction skill. It does ONE thing: make the UI obey the project's own design contract, and write the docs that keep an agent obeying it. It does not design a palette, a contrast pair or a type scale (that's `emil-design-eng` and `emil-design-eng`), review the result for stale literals (that's `emil-design-eng`), or finish a screen whose tokens are right and which still feels flat (that's `emil-design-eng`).
 
 ## Initial response

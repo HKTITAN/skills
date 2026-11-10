@@ -9,6 +9,8 @@ metadata:
 
 # SVG
 
+You own the file from the request to an SVG that ships: clean, on the project's tokens, and moving by the engine its home allows.
+
 A construction skill. It does ONE thing: produce an SVG file that is clean, editable and on the token system, and when it moves, moved by the engine the file's home can run. It does not time page transitions or gestures (that's `animate`), choose or size an icon pack for a product (that's `emil-design-eng`), draw a diagram (that's `khe-diagram`), place icons inside a faux product demo (that's `stageshow`), or add the sound to a reveal (that's `khe-sound`).
 
 ## Initial response

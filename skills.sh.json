@@ -2,15 +2,16 @@
   "groupings": [
     {
       "title": "Start here",
-      "description": "Picks the right skill for a request and runs it.",
+      "description": "The mode that picks the playbook and runs the rest.",
       "skills": [
         "khe-auto"
       ]
     },
     {
       "title": "Design",
-      "description": "Tokens, vectors, diagrams, sound and launch films.",
+      "description": "UI craft, tokens, vectors, diagrams, sound and launch films.",
       "skills": [
+        "khe-ui",
         "khe-design-tokens",
         "khe-svg",
         "khe-diagram",

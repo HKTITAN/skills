@@ -1,6 +1,6 @@
 ---
 name: khe-auto
-description: "Picks the right skill for a request and runs it. Covers every skill in this collection: the khe skills (design tokens, SVG, diagrams, sound, launch films) and the skills by Emil Kowalski and Benji Taylor linked beside them (animation, gestures, UI craft, mobile feel, prototyping, faux product UI, Swift). Names one or two, says why in a line, then runs them in order. Use when a request names no skill, spans several, or someone asks \"which skill\", \"what should I use for this\", \"where do I start\", \"what order\", \"list the skills\", or just says \"make this better\". When the request already names a skill, use that skill."
+description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films) and the skills by Emil Kowalski and Benji Taylor linked beside them. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"we ship Thursday\". When the request already names a skill, use that skill."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -9,46 +9,54 @@ metadata:
 
 # Auto
 
-A routing skill. It does ONE thing: read a request, name the one or two skills that own it, say why in one line each, then load them and run them in order. It holds no values or rules of its own. It does not answer from memory (the owning skill has the numbers), and it does not stretch a skill over work no skill here covers: it says so and answers normally.
+You own the request from the first line to the finished result. The user typed one sentence and went back to their work. Your job is to know which skills that sentence needs, in which order, and to run them without being asked twice.
+
+This file holds no design values. The skills have the numbers. You have the order.
 
 ## Initial response
 
 When this skill is invoked with no request, reply only with:
 
-> I'm ready to pick the one or two skills your request needs and run them in order. Usage: `/khe-auto [request | which <job> | list]`
+> I'm ready. Tell me the job and I'll pick the playbook, run the skills in order and tell you what I could not verify. Usage: `/khe-auto [request | which <job> | list]`
 
 Then wait. Give nothing else until the user asks.
 
-## Operating posture
+## Non-negotiables
 
-You are the dispatcher. You know what each skill is for and the order the work goes in, and nothing else.
-
-Two failure modes, and the first is worse:
-
-1. **Loading five skills at once.** Each skill is its own craft bar. Spread across five, the agent applies none of them properly, and the reply reads like a checklist nobody chose.
-2. **Routing to the wrong moment.** Sound placed on a film whose picture is not locked gets placed again. A logo animated before its paths are clean gets animated twice.
-
-When two skills both look right, the answer is one question from Overlaps, never reading both.
-
-## Hard rules
-
-1. **Name one or two skills, never more.** A third is a second request.
-2. **The contract goes first.** If the project has a `.design` file or a DESIGN.md, `khe-design-tokens` runs before any skill that picks a color, a size or a curve, because a project's contract outranks every default in every skill.
-3. **Find the domain before the skill.** A skill from the wrong domain gives a confident answer to a question nobody asked.
-4. **Name, reason, run.** One line per skill on why it owns the job, then load it and do the work. Stop after naming only when the user asked "which" or "list".
-5. **Run in sequence, never in parallel.** Look at the result between two skills. The second skill judges what the first one produced.
-6. **Never answer from this file.** A curve, a loudness target, a frame count: open the skill that owns it. A value recalled by the router looks exactly like a value from the reference and is not one.
-7. **A skill that is not installed is not improvised.** Say which skill owns the job, whose it is, and give its install line. Do not reconstruct its rules.
+1. **Restate the goal first.** Your first line says, in your own words, what the user wants and the result you expect to hand back. Do not wait for confirmation.
+2. **One or two skills at a time, never more.** Each skill is its own craft bar. Spread across five, the agent applies none of them properly.
+3. **The contract goes first.** If the project has a `.design` file or a DESIGN.md, `khe-design-tokens` runs before any skill that picks a color, a size or a curve.
+4. **Run in sequence and look between steps.** The second skill judges what the first one produced. Never two at once on the same work.
+5. **Go back to the earliest broken step.** When a later step exposes an earlier fault, fix it there and run forward again. Never patch it where you noticed it.
+6. **Never answer from this file.** A curve, a loudness target, a frame count: open the skill that owns it. A value recalled by the router looks exactly like a value from a reference and is not one.
+7. **A skill that is not installed is not improvised.** Name it, say whose it is, give its install line, and stop or continue with what is installed. Never reconstruct its rules.
 8. **When nothing fits, say so.** A skill stretched over the wrong problem produces confident nonsense the user cannot tell from a real answer.
+9. **Say what you could not verify.** Every reply ends with it.
 
 ## Steps
 
-1. **Find the domain** in Domains. A request outside every domain there gets "no skill here covers this" and a normal answer. Stop.
-2. **Check for a contract.** Look for a `.design` file, a `<name>.design` file or a DESIGN.md. If one exists and the job picks visual values, `khe-design-tokens` is first in the chain.
-3. **Find the job** in the domain's table. Use the user's own words.
+1. **Restate the goal** in one line.
+2. **Is it a whole job?** Find it in Playbooks. If one fits, open that file and follow it from the top. It names the skills, the order and the exit check for each step.
+3. **Otherwise it is one question.** Find the domain in Domains, then the job in that domain's table. One skill, sometimes two.
 4. **Torn between two?** Find the pair in Overlaps and ask its one question. Ask the user only when the request itself cannot answer it.
-5. **A job, not a question?** If it will touch three or more skills, take the order from Stacking and run it two skills at a time.
-6. **Reply** in the Output format, then load the first skill and follow it. Stop when the last skill in the chain reaches its own stop condition.
+5. **Do the work** by the skill's own rules, in its own output format.
+6. **Reply** in the Output format. Stop when the last step reaches its stop condition.
+
+## Playbooks
+
+A playbook is a whole job, start to finish. Open the file when the request matches. Never load more than one.
+
+| The user says | Playbook |
+|---|---|
+| "I need a launch video", "a teaser", "a README film" | [launch-film](playbooks/launch-film.md) |
+| "Animate our logo", "make the mascot move" | [logo-reveal](playbooks/logo-reveal.md) |
+| "Build the landing page", "the marketing site" | [landing-page](playbooks/landing-page.md) |
+| "Build this screen", "add a settings page" | [new-screen](playbooks/new-screen.md) |
+| "Make the app feel better", "it feels cheap" | [feel-better](playbooks/feel-better.md) |
+| "Add sound", "should this make a sound" | [sound-pass](playbooks/sound-pass.md) |
+| "Set up our design system", "document our tokens" | [design-system](playbooks/design-system.md) |
+| "We ship Thursday", "are we ready" | [launch-week](playbooks/launch-week.md) |
+| "Can you diagram this", "draw the architecture" | [explain-a-system](playbooks/explain-a-system.md) |
 
 ## Domains
 
@@ -65,15 +73,16 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 
 | The job | Skill | Whose |
 |---|---|---|
+| Build or judge a screen with exact values; a review that ends in a verdict; polish, AI tells, accessibility, mobile feel, the pass before shipping | `khe-ui` | here |
 | A project has a `.design` file or DESIGN.md, or needs one; "use our tokens", "make it on-brand" | `khe-design-tokens` | here |
 | Make, clean, animate or morph an SVG: an icon, a logo reveal, a mascot, a sticker, a clip turned into a vector | `khe-svg` | here |
 | Whether to draw a diagram at all, then a finished figure or a live tldraw canvas | `khe-diagram` | here |
 | Which moments earn a sound or a haptic, one family, generated and placed on the frame | `khe-sound` | here |
 | Plan, cut or review a launch video; "it feels like a slideshow" | `khe-launch-film` | here |
 | A picture of the product for a page: a product shot, a cursor demo, a bento grid | `stageshow` | Benji Taylor |
-| General UI craft: polish, component behavior, a review as a Before / After / Why table | `emil-design-eng` | Emil Kowalski |
+| Emil's own bar for UI polish and component design, by name | `emil-design-eng` | Emil Kowalski |
 | Build one animation with the right curve, duration and properties | `animate` | Emil Kowalski |
-| Review animation code before it merges | `review-animations` | Emil Kowalski |
+| A strict review of animation code before it merges | `review-animations` | Emil Kowalski |
 | Audit all the motion in a codebase into plans | `improve-animations` | Emil Kowalski |
 | Find the few places that should move | `find-animation-opportunities` | Emil Kowalski |
 | Remove motion the app does not need | `remove-animations` | Emil Kowalski |
@@ -82,8 +91,8 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | Drag, swipe and sheet interactions | `gestures` | Emil Kowalski |
 | Fluid, physical motion the way Apple builds it | `apple-design` | Emil Kowalski |
 | "What's it called when" for a motion effect | `animation-vocabulary` | Emil Kowalski |
-| A web app that feels like a website on a phone | `mobile-native` | Emil Kowalski |
-| Break a UI with worst-case data | `break-ui` | Emil Kowalski |
+| A web app that feels like a website on a phone, as its own full pass | `mobile-native` | Emil Kowalski |
+| Break a UI with worst-case data behind a toggle | `break-ui` | Emil Kowalski |
 | Undecided direction: several versions behind a picker | `prototype` | Emil Kowalski |
 | Which library for a frontend task | `pick-ui-library` | Emil Kowalski |
 | Motion in React Native or Expo | `animate-expo` | Emil Kowalski |
@@ -99,7 +108,7 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 
 Where the host has slash commands or a skill tool, invoke the skill by name with the user's request. Otherwise open its `SKILL.md`, which sits beside this skill's folder (`../<name>/SKILL.md`), and follow it from the top.
 
-If the folder is not there, the skill is not installed. Name it, give the line, and stop:
+If the folder is not there, the skill is not installed. Name it and give the line:
 
 - A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
@@ -111,28 +120,16 @@ Each pair is one question, not two skills to read.
 
 | Torn between | Ask | Then |
 |---|---|---|
-| `khe-svg` / `animate` | Does the motion live inside the file, or on the page around it? | Inside the SVG: svg. Transitions, gestures and timing on the page: animate. |
+| `khe-ui` / `emil-design-eng` | A screen judged across every area with a verdict, or Emil's own bar by name? | Across areas: khe-ui. The user named Emil's skill: that one. |
+| `khe-ui` / `animate` | One question about motion inside a wider job, or a single animation built from scratch as its own task? | Inside a job: khe-ui, motion lane. Its own task: animate. |
+| `khe-ui` / `khe-design-tokens` | Deciding what looks right, or applying values that exist? | Judgment: khe-ui. A contract to thread through: tokens. |
+| `khe-ui` / `break-ui` | A list of what breaks, or a worst-case dataset wired behind a toggle? | A list inside a wider pass: khe-ui. The harness and toggle: break-ui. |
+| `khe-svg` / `khe-ui` | Does the motion live inside the file, or on the page around it? | Inside the SVG: svg. On the page: khe-ui, motion lane. |
 | `khe-svg` / `khe-diagram` | An asset, or an explanation? | Icon, logo, mascot: svg. Boxes and arrows that explain: diagram. |
 | `khe-sound` / `khe-launch-film` | Can a user mute it? | Yes: sound, product rules. No: launch film first, then sound once picture is locked. |
-| `khe-launch-film` / `stageshow` | Is it a rendered film the viewer cannot interrupt, or does it play on a page? | Film: launch film. Page: stageshow. UI durations do not transfer to a film. |
-| `khe-launch-film` / `animate` | Is there a timeline the viewer cannot interrupt? | Yes: launch film. No, it is product UI: animate. |
-| `khe-design-tokens` / `emil-design-eng` | Applying values that exist, or deciding what looks right? | A contract to thread through: tokens. Judgment about the screen: emil-design-eng. |
+| `khe-launch-film` / `stageshow` | A rendered film the viewer cannot interrupt, or something that plays on a page? | Film: launch film. Page: stageshow. UI durations do not transfer to a film. |
 | `khe-diagram` / `stageshow` | Does it explain a system, or show the product? | System: diagram. Product: stageshow. |
-| `animate` / `review-animations` | Building it, or judging what is built? | Building: animate. Judging a diff: review-animations. |
 | `prototype` / any building skill | Has the decision been made? | No: prototype. Yes: build the one thing. |
-
-## Stacking
-
-Real work runs two or three skills in sequence. These orders are fixed: skip a link that does not apply, never reorder them.
-
-- **Launch video**: `khe-launch-film` until picture is locked, then `khe-sound`. Sound is placed on frames and cannot be placed on frames that still move.
-- **Logo reveal or mascot**: `khe-svg` for the file and its motion, then `khe-sound` if the reveal makes a sound.
-- **Landing page with a product demo**: `khe-design-tokens` if a contract exists, then `stageshow` for the product picture, then `khe-diagram` only where a system needs explaining.
-- **Sound in a product**: `animate` if the motion a sound lands on is not settled, then `khe-sound`.
-- **New design system**: decide the values with `emil-design-eng`, then `khe-design-tokens` to capture them so agents consume the contract.
-- **"Make the app feel better"**: `remove-animations`, then `improve-animations`, then `find-animation-opportunities`. Subtract, retune, add.
-
-When a later skill exposes an earlier fault (sound reveals a cut that lands off the beat), go back to the earliest broken link and run forward again. Never patch it at the link you are on.
 
 ## When nothing fits
 
@@ -140,32 +137,32 @@ Say so. The skills here cover the domains in Domains and nothing else. Today tha
 
 ## Never ship
 
-Check the reply against this table before finishing.
-
 | Never | Instead |
 |---|---|
-| A reply that names three or more skills | One or two, with the order if there are two |
+| A reply that starts without the goal | One line: what the user wants and what you will hand back |
+| Three or more skills named at once | One or two, or a playbook that orders them |
 | A value given from this file | Load the owning skill and take the value from its reference |
 | `khe-sound` on a film whose picture still moves | `khe-launch-film` until picture is locked |
 | `prototype` after the decision is made | The building skill for the one direction |
-| Two skills run at once on the same work | One, look at the result, then the next |
+| The launch-week playbook on a screen still being designed | The new-screen playbook |
 | A skill's rules reconstructed because it is not installed | The skill's name, whose it is, and its install line |
 | Someone else's skill described as part of this repo | Its author and its own repo |
-| A skill stretched over work outside its domain | "No skill here covers this", and a normal answer |
+| A reply that hides what was not verified | A last line that names it |
 
 ## Output
 
-In this order, and nothing before it:
+In this order:
 
-1. **The route**: one line per skill, `<name>: <why it owns this>`. Two lines at most, in run order.
-2. **The work**: load the first skill and do the job by its rules, in its output format.
-3. **What is next**: when a second skill follows, one line naming it and what it will check.
+1. **The goal**, one line.
+2. **The route**: the playbook, or one line per skill, `<name>: <why it owns this>`. Two skills at most, in run order.
+3. **The work**, by each skill's rules, in its output format.
+4. **What I could not verify**, one or two lines.
 
-For `which <job>`: the route only, three lines at most, and stop. For `list`: the Design table, and stop.
+For `which <job>`: the goal and the route only, and stop. For `list`: the Playbooks table and the Design and Code tables, and stop.
 
 ## Tone
 
-Brief and decisive. One or two names and a reason each, then get out of the way. When no skill fits, say that in one line.
+Brief and decisive. Say what you are going to do, do it, say what you could not check. When no skill fits, say that in one line.
 
 ## Yours to edit
 

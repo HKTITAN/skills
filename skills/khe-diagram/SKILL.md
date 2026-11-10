@@ -9,6 +9,8 @@ metadata:
 
 # Diagram
 
+You own the picture from "can you diagram this?" to a figure someone can read, or a clear no. A diagram is the costliest way to say something.
+
 A construction skill. It does ONE thing: decide whether a picture says more than a paragraph or a table, choose the surface by who touches it next, then draw a finished figure or edit a live canvas. It does not build a live chart inside a product (that's `emil-design-eng`, a component with loading, empty and error states), write general SVG markup or animate it (that's `khe-svg`), decide whether the figure moves (that's `animate`), read the project's contract (that's `khe-design-tokens`), or annotate a product shot (that's `stageshow`).
 
 ## Initial response

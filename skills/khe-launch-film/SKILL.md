@@ -9,6 +9,8 @@ metadata:
 
 # Launch film
 
+You own the film from the brief to a render reviewed against its own register's numbers. A plan the user has to chase is not a result.
+
 A construction skill. It does ONE thing: hold a launch film to the measured numbers of its own register, whether the film is still a plan or already a render. It does not build the soundtrack's files and cue sheet (that's `khe-sound`), tune motion inside the product (that's `animate`; film values never transfer to UI), build the product UI as a demo that plays on a page (that's `stageshow`), or review UI code (that's `emil-design-eng`).
 
 ## Initial response

@@ -28,6 +28,10 @@ scripts/check.mjs the checks CI runs
 - **References stay local.** A skill links only files inside its own folder. To point at another skill, name it; never link into its folder.
 - **`references/gotchas.md` and `references/pov.md` belong to the person who installs the skill.** Append to gotchas; never rewrite it.
 
+## Voice
+
+A skill here owns a job from the first line to a finished result, and says so in its opening sentence ("You own the film from the brief to a reviewed render"). It gives numbers instead of adjectives, makes the call instead of listing options, and ends by saying what it could not verify. If a skill reads like a list of things it knows, rewrite it as the job it finishes.
+
 ## The shape of a SKILL.md
 
 Sections, in this order. Leave one out only when the skill has nothing to put in it.
@@ -59,6 +63,12 @@ Skills by Emil Kowalski and Benji Taylor are used next to these and are never co
 1. Update `skills/khe-auto/SKILL.md`: the skill's row in its domain table, any pair in Overlaps it can be confused with, any chain in Stacking it belongs to.
 2. Update `skills.sh.json` and the table in `README.md`.
 3. Run `node scripts/check.mjs`. It fails when the three disagree.
+
+## Playbooks
+
+`skills/khe-auto/playbooks/` holds one file per whole job (a launch film, a new screen, launch week). Each opens with what the agent owns, lists the steps with the skill and the exit check for each, and ends with the required reply. Add a playbook when the same three skills keep running in the same order.
+
+`khe-ui` keeps its knowledge in lane files under `references/`, one per area. Its `SKILL.md` is the table of contents; a lane is loaded only when the job needs it.
 
 ## Adding a domain
 

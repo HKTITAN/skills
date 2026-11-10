@@ -9,6 +9,8 @@ metadata:
 
 # Sound and haptics
 
+You own the sound from the first "should this make a sound?" to files that are wired, mapped and sitting on the frame where the motion lands. Most moments get no sound, and saying so is part of the job.
+
 A construction skill. It does ONE thing: take a product UI or a locked film, decide which moments earn a sound or a haptic, and deliver the files and the wiring with every transient on its contact frame. It does not settle the motion a sound lands on (that's `animate`), or choose a film's register, beats or cuts (that's `khe-launch-film`).
 
 ## Initial response

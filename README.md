@@ -1,6 +1,10 @@
 # kheSkills
 
-![A coding agent routing a request with khe-auto: it names khe-launch-film and khe-sound, then runs them in order](.github/assets/kheskills.png)
+[![skills.sh](https://skills.sh/b/HKTITAN/skills)](https://skills.sh/HKTITAN/skills)
+[![CI](https://github.com/HKTITAN/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/HKTITAN/skills/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+![What the skills produce: a UI review that ends in a verdict, a launch film beat sheet, a token ramp, an SVG path mid-draw, a sound placed on its contact frame, and a three-box diagram](.github/assets/kheskills.png)
 
 I'm [Harshit Khemani](https://github.com/HKTITAN). I design and build products with coding agents: the interface, the launch film, the docs and the pictures that go in them.
 

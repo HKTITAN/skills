@@ -1,24 +1,61 @@
 name: Sync linked skills
 
-# Dependabot opens one pull request a day when Emil Kowalski's or Benji Taylor's repo has moved.
-# This turns on auto-merge for it, so the pins follow their repos as soon as CI passes.
+# Other people's skills are linked in skills/ as git submodules. GitHub sends no event to this repo
+# when their repos change, so this asks every 15 minutes and does nothing unless a pin has moved.
+# When one has, it opens a pull request, runs CI on it and lets it merge itself.
 
 on:
-  pull_request:
-    branches: [main]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
   pull-requests: write
+  actions: write
+
+concurrency:
+  group: sync-linked-skills
+  cancel-in-progress: false
 
 jobs:
-  automerge:
-    name: Merge the pin update
-    if: github.actor == 'dependabot[bot]' && startsWith(github.head_ref, 'dependabot/submodules/')
+  sync:
+    name: Move the pins
     runs-on: ubuntu-latest
     steps:
-      - name: Enable auto-merge
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Compare each pin with its repo
+        id: pins
+        run: |
+          changed=""
+          entries=$(git config -f .gitmodules --get-regexp '^submodule\..*\.url$')
+          for url in $(echo "$entries" | awk '{print $2}' | sort -u); do
+            sha=$(git ls-remote "$url" HEAD | cut -f1)
+            if [ -z "$sha" ]; then echo "::warning::could not read $url"; continue; fi
+            for path in $(echo "$entries" | awk -v u="$url" '$2 == u {print $1}' | sed 's/^submodule\.//; s/\.url$//'); do
+              current=$(git ls-files -s -- "$path" | awk '{print $2}')
+              if [ "$current" != "$sha" ]; then
+                git update-index --cacheinfo "160000,$sha,$path"
+                changed="$changed $path"
+              fi
+            done
+          done
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          echo "moved:${changed:- nothing}"
+      - name: Open the pull request and let it merge
+        if: steps.pins.outputs.changed != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-        run: gh pr merge --auto --squash "$PR_URL"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q -B sync/linked-skills
+          git commit -q -m "Sync linked skills with their repos"
+          git push -q --force origin sync/linked-skills
+          gh pr view sync/linked-skills --json state --jq .state 2>/dev/null | grep -q OPEN || \
+            gh pr create --base main --head sync/linked-skills \
+              --title "Sync linked skills with their repos" \
+              --body "The pins in skills/ moved to the latest commit of each repo:${{ steps.pins.outputs.changed }}"
+          # A pull request opened by a workflow does not start CI by itself, so start it here.
+          gh workflow run ci.yml --ref sync/linked-skills
+          gh pr merge sync/linked-skills --auto --squash

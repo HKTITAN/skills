@@ -1,0 +1,5 @@
+<!-- no-goal: the reply opens with a pleasantry, so nobody can tell what result is coming back. -->
+Sure, I can take a look at the logo and see what could be improved.
+Route:
+- `khe-svg`: the reveal lives inside the file.
+Not verified: whether `khe-svg` is installed here; nothing was run.

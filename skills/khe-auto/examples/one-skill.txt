@@ -1,0 +1,12 @@
+<!-- Gold for a one-skill route. Learn: one skill, one reason, the gate named inside the work, and a last line that says what nobody looked at. -->
+Goal: The checkout icon recolors with the theme; I hand back one cleaned SVG and its size.
+Route:
+- `khe-svg`: the fault lives inside the file, not on the page around it.
+Work:
+- No `.design` file or DESIGN.md in the project, so no contract runs first.
+- Started from the closest gold in the skill's examples and kept its structure.
+- Replaced the hardcoded fills so the icon takes its color from the text around it, removed the editor metadata, kept one viewBox.
+- Gate: `khe-svg/scripts/svg-check.mjs --gate` on `icons/checkout.svg`; its last line is pasted in the handover file.
+- Walked the skill's verify list from the rendered icon, in light and in dark.
+- Fresh-eye review returned "nothing" and listed the two captures it looked at.
+Not verified: the icon inside the native app shell, and the smallest size the app draws it at.

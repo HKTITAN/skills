@@ -1,0 +1,5 @@
+<!-- Gold for a silent topic. Learn: the first sentence says he has not written about it, no position is built for him, Source is none, and the job is handed to the skill that owns it. -->
+<!-- Asked: what would Emil say about playing a sound when a toast appears? -->
+He has not written about interface sound. No article in the corpus mentions sound, and no article gives a rule that was written to cover it.
+Source: none
+Not in his writing: sound in any form, including whether a toast makes one. `khe-sound` owns that decision.

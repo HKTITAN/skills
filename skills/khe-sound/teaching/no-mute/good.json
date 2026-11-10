@@ -1,0 +1,39 @@
+{
+  "//": "good: one persisted switch in settings, reachable by keyboard, declared before any cue.",
+  "surface": "product",
+  "product": "a to-do app",
+  "tactile": false,
+  "material": "felt mallet on a small wooden block, dry, no reverb, no tail",
+  "defaultOn": false,
+  "mute": {
+    "control": "Settings > Sounds and haptics, one switch",
+    "persisted": "localStorage key sound, values on and off",
+    "keyboard": true
+  },
+  "cues": [
+    {
+      "id": "sync-done",
+      "sound": "send",
+      "trigger": "sync:resolved",
+      "t": 0.17,
+      "contact": "85 % through the 200 ms decelerating draw of the row's synced mark",
+      "lag": 0.01,
+      "ms": 180,
+      "peakDb": -3,
+      "twin": "the row's synced mark draws in",
+      "why": "confirmation when attention is elsewhere"
+    },
+    {
+      "id": "submit-rejected",
+      "sound": "error",
+      "trigger": "submit:rejected",
+      "t": 0,
+      "contact": "the field's shake starts with the state change itself",
+      "lag": 0.01,
+      "ms": 160,
+      "peakDb": -3,
+      "twin": "the field shakes and its inline message appears",
+      "why": "attention is needed and the eye may be on the list"
+    }
+  ]
+}

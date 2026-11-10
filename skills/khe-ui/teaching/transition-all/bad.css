@@ -1,0 +1,28 @@
+/* transition-all: `transition: all` animates every property that changes, so the padding and the border animate with the colour. */
+.chip {
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.04);
+  transition: all 160ms ease;
+}
+
+.chip:active {
+  transform: scale(0.96);
+}
+
+.chip[aria-pressed="true"] {
+  padding: 0 16px;
+  border-color: #262628;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
+
+  .chip:active {
+    transform: none;
+  }
+}

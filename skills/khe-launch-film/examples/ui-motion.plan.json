@@ -1,0 +1,46 @@
+{
+  "//": "Gold for a product its audience does not know, music only: the UI-motion row. Learn: every number sits on that one row, and the name lands where the problem act ends (29 %), never at 70 %.",
+  "film": "Relay, a deploy tool nobody has heard of. 60 s, music only",
+  "register": "ui-motion",
+  "engine": "hyperframes",
+  "runtime": 60,
+  "fps": 30,
+  "known_brand": false,
+  "formats": [
+    { "aspect": "16:9", "width": 1920, "height": 1080, "layout": "master" },
+    { "aspect": "9:16", "width": 1080, "height": 1920, "layout": "own composition, text inside top 270, right 120, bottom 420, left 64" }
+  ],
+  "beats": [
+    { "id": "poster", "start": 0, "end": 0.07, "what": "the finished hero baked in for 2 frames, then cut", "from": "structure: poster frame, Skale 9/29" },
+    { "id": "hook", "start": 0.07, "end": 1.6, "what": "first readable word at 0.2 s, built per word", "from": "structure: first word 0.2 s, first seam 1.6 s" },
+    { "id": "problem", "start": 1.6, "end": 17.4, "what": "the problem act: a deploy queue that never clears", "from": "structure: problem act runs to the reveal, median 29 %" },
+    { "id": "reveal", "start": 17.4, "end": 20, "what": "the name lands, and the low end with it", "from": "structure: name where the problem act ends; low end on the first reveal" },
+    { "id": "demo", "start": 20, "end": 54.4, "what": "one prompt typed to be read, the deploy lands under the hand", "from": "ui-demo: 15 characters a second, then a 1.15 s hold" },
+    { "id": "payoff", "start": 54.4, "end": 55, "what": "the finished result lands 0.6 s before the endcard cut", "from": "structure: payoff 0.1 to 1.2 s before the endcard" },
+    { "id": "endcard", "start": 55, "end": 60, "what": "5.0 s, the last 2.0 s hold still", "from": "structure: endcard 4.4 to 6.3 s, hold about 2 s" }
+  ],
+  "first_word": 0.2,
+  "first_seam": 1.6,
+  "name": { "at": 17.4, "mode": "problem-end" },
+  "payoff": 54.4,
+  "endcard": { "start": 55, "hold": 2, "url": "relay.example", "verb": "Deploy with" },
+  "cuts": 4,
+  "still_share": 0.09,
+  "seams": [
+    { "at": 1.6, "type": "cut", "technique": "cut the curve", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 9.5, "type": "cut", "technique": "cut the curve", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 17.4, "type": "cut", "technique": "zoom-through", "exit": { "axis": "z", "dir": 1 }, "entry": { "axis": "z", "dir": 1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 27, "type": "morph", "technique": "shared element", "carrier": { "out": "#queue-row", "in": "#deploy-card" } },
+    { "at": 36, "type": "cut", "technique": "cut the curve", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 55, "type": "morph", "technique": "collapse to a carrier dot", "carrier": { "out": "#result-dot", "in": "#mark-dot" } }
+  ],
+  "type": [
+    { "at": 0.2, "text": "Still waiting?", "build": "word", "stagger": 0.2, "hold": 1.15 },
+    { "at": 17.4, "text": "Relay ships it.", "build": "word", "stagger": 0.2, "hold": 1.5 }
+  ],
+  "prompts": [
+    { "at": 22, "text": "deploy the checkout fix to staging", "chars": 33, "seconds": 2.2, "job": "read" }
+  ],
+  "picture_locked": false,
+  "sound": { "register": "C", "lufs": -17.7, "true_peak": -1 }
+}

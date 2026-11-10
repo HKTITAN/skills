@@ -1,0 +1,38 @@
+# bad: contract-invalid. No agent.instructions, the one field that lets the file work where no skill is installed.
+schema: design.v1
+name: tally
+version: 1.2.0
+
+intent:
+  reference: "A billing tool at the density of a spreadsheet"
+  signature: "One accent, kept for the single primary action of a view"
+
+tokens:
+  color:
+    surface: "#ffffff"
+    ink: "#1a1a1a"
+    accent: "#5b5bd6"
+  radius:
+    sm: 4
+    md: 8
+    lg: 16
+  spacing:
+    2: 8
+    4: 16
+  typography:
+    body:
+      fontFamily: "Public Sans"
+      fontSize: 16
+      lineHeight: 1.6
+    caption:
+      fontSize: 14
+  motion:
+    duration:
+      base: 400ms
+
+components:
+  button:
+    variants: [primary, secondary, danger]
+
+policy:
+  if_missing: ask

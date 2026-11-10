@@ -1,0 +1,25 @@
+<!-- bad: no-hold. The diamond rocks for the whole loop, so there is no frame where it is simply the sticker, and no still to rest on. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="gem" data-kind="reaction" role="img" aria-labelledby="gem-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="gem-title">Wow</title>
+  <style>
+    #gem [data-layer="thump"] { transform-box: fill-box; transform-origin: 50% 60%; animation: gem-thump 2.5s cubic-bezier(0.37, 0, 0.63, 1) infinite; }
+    @keyframes gem-thump {
+      0% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.06) rotate(4deg); }
+      50% { transform: scale(1) rotate(0deg); }
+      75% { transform: scale(1.06) rotate(-4deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #gem [data-layer] { animation: none; }
+    }
+  </style>
+  <g data-layer="thump">
+    <g data-layer="diecut">
+      <path d="M250 93 L407 250 L250 407 L93 250 Z" fill="var(--white, #ffffff)" stroke="none"/>
+    </g>
+    <g data-part="gem">
+      <path d="M250 110 L390 250 L250 390 L110 250 Z" fill="var(--hot, #f2545b)"/>
+    </g>
+  </g>
+</svg>

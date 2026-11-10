@@ -1,0 +1,5 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: The account dropdown opens with one built animation; I hand back the changed component.
+Route:
+- `animate` (Emil Kowalski): one animation built from scratch as its own task.
+Not verified: the dropdown on a slow device; nothing was run yet.

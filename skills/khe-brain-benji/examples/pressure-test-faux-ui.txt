@@ -1,0 +1,11 @@
+<!-- Gold for a pressure-test of faux UI (`would Benji ship this hero: the whole dashboard in a card, every row filled, the status flipping with no cursor`). Learn: the verdict first, then one Breaks: or Holds: line per stated position with its piece, largest fault first, and a hand-off to the skill that builds. -->
+Against the positions in the Stageshow skill this hero breaks three and holds one. The largest is the frame: a whole window shrunk into a card with even margins is the failure he names boxed (Stageshow, SKILL.md).
+Breaks: the full dashboard sits whole inside the card; a hero is cropped 10 to 40 percent off the stage and fills at least two thirds of its width (Stageshow, references/framing.md).
+Breaks: every row carries real text; a scene usually holds 3 to 7 real strings, with placeholder lines for the rest (Stageshow, references/craft.md).
+Breaks: the status flips with nothing causing it; a scripted change with no cursor reads as automatic (Stageshow).
+Holds: one accent on one neutral family of surfaces (Stageshow, references/craft.md).
+Source: Stageshow, SKILL.md, https://github.com/benjitaylor/skills
+Source: Stageshow, references/framing.md, https://github.com/benjitaylor/skills
+Source: Stageshow, references/craft.md, https://github.com/benjitaylor/skills
+Source: Stageshow, https://benji.org/stageshow
+Not in his writing: whether the real dashboard behind this picture is well designed; these are rules for a picture of a product on a page. To rebuild the hero use `stageshow`, which is his own skill.

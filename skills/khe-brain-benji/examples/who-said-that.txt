@@ -1,0 +1,5 @@
+<!-- Gold for "who said that" (`who said pointing beats describing`). Learn: the person, the piece and its date in the first sentence, the quote kept short, and what the line was about. -->
+Benji Taylor wrote "pointing beats describing." as the closing thesis of an essay on giving visual feedback to coding agents, published 16 January 2026 (Annotating for agents). The argument behind it: precision drops as feedback moves from seeing a thing to describing it, so the harder a thing is to describe, the more it is worth pointing at (Annotating for agents). Five days later the tool built on that idea was released as Agentation (Agentation).
+Source: Annotating for agents, https://benji.org/annotating
+Source: Agentation, https://benji.org/agentation
+Not in his writing: whether the phrase was in use before this essay; no earlier use was searched for.

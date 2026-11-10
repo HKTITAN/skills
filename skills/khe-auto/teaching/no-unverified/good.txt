@@ -1,0 +1,7 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: The checkout icon recolors with the theme; I hand back one cleaned SVG and its size.
+Route:
+- `khe-svg`: the fault lives inside the file.
+Work:
+- Replaced the hardcoded fills and removed the editor metadata. Gate: `khe-svg/scripts/svg-check.mjs --gate`, last line pasted in the handover file.
+Not verified: the icon inside the native app shell.

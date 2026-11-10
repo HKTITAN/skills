@@ -1,0 +1,5 @@
+<!-- Gold for "which <job>". Learn: the goal, the route and the last line, and then stop. No work, no values. -->
+Goal: Know which skill makes a hero demo of the app for the landing page; I hand back the route and stop.
+Route:
+- `stageshow` (Benji Taylor): the demo plays on a page, so it is a product picture and not a film.
+Not verified: whether `stageshow` is installed here; nothing was run.

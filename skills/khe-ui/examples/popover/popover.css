@@ -1,0 +1,176 @@
+/*
+ * Gold: a popover entrance and exit.
+ * Learn one thing: the popover grows out of its trigger and leaves faster than
+ * it came. It never appears from nothing and never mirrors its entrance.
+ *
+ * Values and their lanes:
+ *   enter from scale(0.96) with opacity 0, 200ms on ease-out-strong   motion: Entrances, exits and feedback
+ *   exit in 150ms, 75% of the enter (the 60 to 80% rule)              motion: Entrances, exits and feedback
+ *   exit with three properties: opacity, blur(2px), scale 0.96        motion: Entrances, exits and feedback
+ *   transform-origin at the trigger, var(--popover-origin, top right) motion: Entrances, exits and feedback
+ *   @starting-style to enter, allow-discrete to exit                  motion: Entrances, exits and feedback
+ *   radius 10px, padding 4px, row radius 10 - 4 = 6px                 color-and-surface: Shadows, depth and radius
+ *   three-layer shadow at 4 to 5% led by a 1px ring                   color-and-surface: Shadows, depth and radius
+ *   row hover in at once, out over 150ms ease, gated                  components: Hover, press, pending, disabled
+ *   reduced motion: no scale, no blur; a 120ms fade on touch only     motion: Reduced motion
+ *
+ * It is the native Popover API, so it sits in the top layer with no z-index,
+ * Escape closes it and focus returns to the trigger without a line of script.
+ */
+
+:root {
+  --surface: #fff;
+  --text-strong: #262628;
+  --ink-2: rgba(0, 0, 0, 0.06);
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trigger {
+  position: relative;
+  flex: none;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #767676;
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-strong);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: background-color 160ms ease, transform 160ms var(--ease-out-expo);
+}
+
+.trigger::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+
+.trigger:active {
+  transform: scale(0.97);
+}
+
+/* The trigger keeps its pressed look while its popover is open. */
+.trigger[data-open] {
+  background: var(--ink-2);
+}
+
+.trigger:focus-visible,
+.popover__item:focus-visible {
+  outline: 2px solid var(--text-strong);
+  outline-offset: 2px;
+}
+
+/*
+ * The closed state is where the exit lands, so the exit's timing lives here:
+ * three properties, 150ms.
+ */
+.popover {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 4px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-strong);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.05),
+    0 1px 2px rgba(17, 17, 17, 0.05),
+    0 4px 8px rgba(17, 17, 17, 0.05),
+    0 8px 24px rgba(17, 17, 17, 0.04);
+  transform-origin: var(--popover-origin, top right);
+  opacity: 0;
+  transform: scale(0.96);
+  filter: blur(2px);
+  transition:
+    opacity 150ms var(--ease-out-strong),
+    transform 150ms var(--ease-out-strong),
+    filter 150ms var(--ease-out-strong),
+    overlay 150ms allow-discrete,
+    display 150ms allow-discrete;
+}
+
+/* The open state is where the entrance lands, so the entrance's timing lives here. */
+.popover:popover-open {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition-duration: 200ms;
+}
+
+/* The first frame of the entrance: a 96% surface at the trigger's corner. */
+@starting-style {
+  .popover:popover-open {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(2px);
+  }
+}
+
+.popover__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  text-align: start;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 150ms ease;
+}
+
+@media (pointer: coarse) {
+  .popover__item {
+    min-height: 44px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .popover__item:hover {
+    background: var(--ink-2);
+    transition-duration: 0ms;
+  }
+}
+
+/* Reduced motion: nothing scales or blurs. Touch keeps a short fade; a mouse gets none. */
+@media (prefers-reduced-motion: reduce) {
+  .popover,
+  .popover:popover-open {
+    transform: none;
+    filter: none;
+    transition: opacity 120ms, overlay 120ms allow-discrete, display 120ms allow-discrete;
+  }
+
+  .trigger {
+    transition: none;
+  }
+
+  .trigger:active {
+    transform: none;
+  }
+
+  @starting-style {
+    .popover:popover-open {
+      transform: none;
+      filter: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (pointer: fine) {
+  .popover,
+  .popover:popover-open {
+    transition: none;
+  }
+}

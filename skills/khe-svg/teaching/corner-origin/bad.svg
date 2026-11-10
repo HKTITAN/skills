@@ -1,0 +1,20 @@
+<!-- bad: corner-origin. The arm rotates about the SVG origin at (0,0), so it orbits the top-left corner of the canvas. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="mascot-wave" role="img" aria-labelledby="mascot-wave-title" data-home="img">
+  <title id="mascot-wave-title">Mascot waving</title>
+  <style>
+    #mascot-wave .arm { animation: mascot-wave-arm 400ms cubic-bezier(0.65, 0, 0.35, 1) 4 alternate; }
+    @keyframes mascot-wave-arm { to { transform: rotate(-20deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      #mascot-wave .arm { animation: none; }
+    }
+  </style>
+  <g id="mascot-wave-body" data-layer="body">
+    <path d="M30 90 L30 60 L70 60 L70 90 Z" fill="var(--mascot-body, #5b8def)"/>
+  </g>
+  <g id="mascot-wave-head" data-layer="head">
+    <circle cx="50" cy="40" r="18" fill="var(--mascot-skin, #f2c9a0)"/>
+  </g>
+  <g id="mascot-wave-arm" class="arm" data-layer="arm-right">
+    <path d="M70 64 L88 44" fill="none" stroke="var(--mascot-skin, #f2c9a0)" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+/* 200ms, inside the 150 to 250ms band for a dropdown. Product UI stays under 300ms. */
+.menu {
+  transform-origin: top left;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu[data-open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    transform: none;
+    transition: opacity 120ms;
+  }
+}

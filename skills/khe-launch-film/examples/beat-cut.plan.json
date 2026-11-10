@@ -1,0 +1,52 @@
+{
+  "//": "Gold for a feed sizzle of 40 s or less: the beat-cut row. Learn: 30 cuts a minute is right here and wrong everywhere else, and one technique still carries two thirds of the cuts.",
+  "film": "Prism 2, a feed sizzle. 30 s, every shot a live component",
+  "register": "beat-cut",
+  "engine": "hyperframes",
+  "runtime": 30,
+  "fps": 30,
+  "known_brand": false,
+  "formats": [
+    { "aspect": "16:9", "width": 1920, "height": 1080, "layout": "master" },
+    { "aspect": "9:16", "width": 1080, "height": 1920, "layout": "own composition, statements at 110 to 140 px" }
+  ],
+  "beats": [
+    { "id": "hook", "start": 0, "end": 2.33, "what": "a component already moving, first word at 0.68 s", "from": "structure: acclaimed first word 0.68 s, first seam 2.33 s" },
+    { "id": "name", "start": 2.33, "end": 4, "what": "the name at 2.5 s, the low end with it", "from": "structure: early mode, 2.5 s, by 11 %" },
+    { "id": "run", "start": 4, "end": 18, "what": "ten live components, one cut per bar", "from": "registers: every shot a live component" },
+    { "id": "ladder", "start": 18, "end": 20, "what": "holds shrink .8, .5, .4, .3 s while the zoom only climbs", "from": "cuts: the accelerating ladder" },
+    { "id": "hero", "start": 20, "end": 24.4, "what": "the one shot that holds", "from": "structure: sizzle shots run 0.75 to 3.8 s; this one is the hold the ladder snaps to" },
+    { "id": "payoff", "start": 24.4, "end": 25, "what": "the finished surface, 0.6 s before the endcard cut", "from": "structure: payoff 0.1 to 1.2 s before the endcard" },
+    { "id": "endcard", "start": 25, "end": 30, "what": "5.0 s, the last 2.0 s hold still", "from": "structure: endcard 4.4 to 6.3 s, hold about 2 s" }
+  ],
+  "first_word": 0.68,
+  "first_seam": 2.33,
+  "name": { "at": 2.5, "mode": "early" },
+  "payoff": 24.4,
+  "endcard": { "start": 25, "hold": 2 },
+  "cuts": 15,
+  "still_share": 0.285,
+  "seams": [
+    { "at": 2.33, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 4, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 5.5, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 7, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 8.5, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 10, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 11.5, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 13, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 14.5, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 16, "type": "cut", "technique": "cut on the beat into motion", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 18, "type": "cut", "technique": "one-frame black blink between shot families", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 18.8, "type": "cut", "technique": "accelerating ladder", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 19.3, "type": "cut", "technique": "accelerating ladder", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 19.7, "type": "cut", "technique": "accelerating ladder", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 20, "type": "cut", "technique": "accelerating ladder", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 25, "type": "morph", "technique": "the mark grows from a single dot", "carrier": { "out": "#hero-dot", "in": "#mark-dot" } }
+  ],
+  "type": [
+    { "at": 4, "text": "Every surface, live.", "build": "word", "stagger": 0.45, "hold": 1.2 }
+  ],
+  "picture_locked": false,
+  "sound": { "register": "C", "lufs": -12.85, "true_peak": -1 }
+}

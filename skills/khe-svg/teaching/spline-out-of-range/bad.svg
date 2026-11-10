@@ -1,0 +1,7 @@
+<!-- bad: spline-out-of-range. 1.56 is outside 0 to 1, so the browser rejects the spline and the animation never runs. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="badge-pop" data-home="img" data-still="still.svg" fill="currentColor" aria-hidden="true" focusable="false">
+  <g id="badge-pop-dot">
+    <circle cx="12" cy="12" r="5"/>
+    <animateTransform attributeName="transform" type="translate" dur="400ms" fill="freeze" calcMode="spline" values="0 6; 0 0" keyTimes="0; 1" keySplines="0.34 1.56 0.64 1"/>
+  </g>
+</svg>

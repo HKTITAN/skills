@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. The published rule is stated, and the step to this sidebar is a marked reading. -->
+Elements used constantly are better with no hover animation [1]. My reading: sidebar links are used constantly, so theirs goes.
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Not in his writing: how many uses a day counts as constant.

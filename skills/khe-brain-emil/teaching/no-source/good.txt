@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. -->
+A pressable element scales to `scale(0.97)` on `:active` [1].
+Source: [1] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Not in his writing: a press scale for anything larger than a button.

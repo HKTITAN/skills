@@ -1,0 +1,5 @@
+<!-- off-corpus-url: one of his skills cited as if it were an article. -->
+A popover scales in from its trigger, never from its center [1][2].
+Source: [1] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Source: [2] emil-design-eng, https://github.com/emilkowalski/skills
+Not in his writing: the origin for a popover that follows the pointer.

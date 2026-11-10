@@ -1,0 +1,5 @@
+<!-- no-reason: the skill is named with no reason, so the route cannot be judged. -->
+Goal: The onboarding flow is explained in one picture; I hand back a figure or a clear no.
+Route:
+- `khe-diagram`
+Not verified: whether a table would say it better; the decision step has not run.

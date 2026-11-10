@@ -1,0 +1,6 @@
+<!-- Gold for a silent topic (`what does Benji say about pricing a design tool`). Learn: silence in the first sentence, the index as the source, a nearest piece labelled as nearest, and no position built from it. -->
+He has not written about pricing. The index of his writing lists eight articles, on two apps, two libraries, agent feedback and faux product UI, and none of them says what to charge or how (benji.org).
+Nearest: the product page for Agentation states that tool's own licence terms, which is a fact about one product and not a view on what to charge (agentation.com).
+Source: benji.org, https://benji.org/
+Source: agentation.com, https://agentation.com
+Not in his writing: pricing, business models and revenue. His social posts were not read, so a view given there is not in this answer.

@@ -1,0 +1,90 @@
+<!--
+  Gold: a sequence. 3 nodes, 6 connectors, 1 callout, the accent on 2 elements.
+  Learn: a reply is its own dashed line that starts at the recipient, never a second arrowhead on the request.
+  Time runs down the page, so the order is in the layout and no step needs a number.
+  Skin: the worked contract in references/diagram-design-reconciliation.md (a white page). Swap the nine roles for the project's own.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" id="webhook-sequence" viewBox="0 0 720 396" role="img" aria-labelledby="webhook-sequence-title webhook-sequence-desc">
+  <title id="webhook-sequence-title">Webhook delivery with one retry</title>
+  <desc id="webhook-sequence-desc">The webhook queue delivers a paid invoice to the customer API, retries once after a 503, and reports one result to billing.</desc>
+  <defs>
+    <marker id="webhook-sequence-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+    <marker id="webhook-sequence-arrow-accent" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head accent" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #webhook-sequence { --paper: #fff; --paper-2: #f6f5f4; --ink: #262628; --muted: #7a7a7d; --soft: #9a9a9d; --rule: rgba(0,0,0,0.06); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); --link: color-mix(in srgb, #3b82f6 82%, #000); font-family: system-ui, sans-serif; }
+    #webhook-sequence .paper { fill: var(--paper); }
+    #webhook-sequence .edge { fill: none; stroke: var(--muted); }
+    #webhook-sequence .edge.accent { stroke: var(--accent); }
+    #webhook-sequence .edge.dashed { stroke-dasharray: 5 4; }
+    #webhook-sequence .head { fill: var(--muted); }
+    #webhook-sequence .head.accent { fill: var(--accent); }
+    #webhook-sequence .lifeline { stroke: var(--soft); }
+    #webhook-sequence .mask { fill: var(--paper); }
+    #webhook-sequence .label { fill: var(--muted); font-size: 8px; }
+    #webhook-sequence .node rect { fill: var(--paper); stroke: var(--ink); }
+    #webhook-sequence .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #webhook-sequence .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #webhook-sequence .callout { fill: var(--muted); font-size: 9px; }
+    #webhook-sequence .mono { font-family: "SF Mono", ui-monospace, monospace; }
+    #webhook-sequence .legend text { fill: var(--muted); font-size: 9px; }
+    #webhook-sequence .legend .rule { stroke: var(--rule); }
+  </style>
+  <rect class="paper" width="720" height="396"/>
+  <g class="edges">
+    <line class="lifeline" x1="96" y1="80" x2="96" y2="320"/>
+    <line class="lifeline" x1="336" y1="80" x2="336" y2="320"/>
+    <line class="lifeline" x1="576" y1="80" x2="576" y2="320"/>
+    <path class="edge" d="M96 120 H336" marker-end="url(#webhook-sequence-arrow)"/>
+    <path class="edge" d="M336 152 H576" marker-end="url(#webhook-sequence-arrow)"/>
+    <path class="edge dashed" d="M576 184 H336" marker-end="url(#webhook-sequence-arrow)"/>
+    <path class="edge accent" d="M336 232 H576" marker-end="url(#webhook-sequence-arrow-accent)"/>
+    <path class="edge dashed" d="M576 264 H336" marker-end="url(#webhook-sequence-arrow)"/>
+    <path class="edge dashed" d="M336 296 H96" marker-end="url(#webhook-sequence-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="176" y="100" width="80" height="12"/>
+    <text class="label mono" x="216" y="109" text-anchor="middle">invoice.paid</text>
+    <rect class="mask" x="416" y="132" width="80" height="12"/>
+    <text class="label mono" x="456" y="141" text-anchor="middle">POST /hooks</text>
+    <rect class="mask" x="416" y="164" width="80" height="12"/>
+    <text class="label mono" x="456" y="173" text-anchor="middle">503</text>
+    <rect class="mask" x="416" y="212" width="80" height="12"/>
+    <text class="label mono" x="456" y="221" text-anchor="middle">POST /hooks</text>
+    <rect class="mask" x="416" y="244" width="80" height="12"/>
+    <text class="label mono" x="456" y="253" text-anchor="middle">200 OK</text>
+    <rect class="mask" x="176" y="276" width="80" height="12"/>
+    <text class="label" x="216" y="285" text-anchor="middle">delivered</text>
+  </g>
+  <g class="nodes">
+    <g class="node">
+      <rect x="32" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="60">Billing service</text>
+    </g>
+    <g class="node focal">
+      <rect x="272" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="284" y="60">Webhook queue</text>
+    </g>
+    <g class="node">
+      <rect x="512" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="524" y="60">Customer API</text>
+    </g>
+  </g>
+  <text class="callout" x="112" y="196">
+    <tspan x="112" dy="0">Billing hears one result.</tspan>
+    <tspan x="112" dy="12">The retry stays in the queue.</tspan>
+  </text>
+  <g class="legend" transform="translate(32 372)">
+    <line class="rule" x1="0" y1="-20" x2="656" y2="-20"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="3">request</text>
+    <path class="edge dashed" d="M88 0 H112"/>
+    <text x="120" y="3">reply</text>
+    <path class="edge accent" d="M168 0 H192"/>
+    <text x="200" y="3">the retry</text>
+  </g>
+</svg>

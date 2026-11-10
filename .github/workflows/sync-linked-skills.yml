@@ -1,0 +1,50 @@
+name: Sync linked skills
+
+# Other people's skills are linked in skills/ as git submodules. GitHub sends no event to this repo
+# when their repos change, so this asks every 15 minutes and does nothing unless a pin has moved.
+# When one has, it runs the repo's checks and commits the new pins to main.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-linked-skills
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Move the pins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Compare each pin with its repo
+        id: pins
+        run: |
+          changed=""
+          entries=$(git config -f .gitmodules --get-regexp '^submodule\..*\.url$')
+          for url in $(echo "$entries" | awk '{print $2}' | sort -u); do
+            sha=$(git ls-remote "$url" HEAD | cut -f1)
+            if [ -z "$sha" ]; then echo "::warning::could not read $url"; continue; fi
+            for path in $(echo "$entries" | awk -v u="$url" '$2 == u {print $1}' | sed 's/^submodule\.//; s/\.url$//'); do
+              current=$(git ls-files -s -- "$path" | awk '{print $2}')
+              if [ "$current" != "$sha" ]; then
+                git update-index --cacheinfo "160000,$sha,$path"
+                changed="$changed $path"
+              fi
+            done
+          done
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          echo "moved:${changed:- nothing}"
+      - name: Check, then commit to main
+        if: steps.pins.outputs.changed != ''
+        run: |
+          node scripts/check.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Sync linked skills with their repos" -m "Moved:${{ steps.pins.outputs.changed }}"
+          git push -q origin HEAD:main

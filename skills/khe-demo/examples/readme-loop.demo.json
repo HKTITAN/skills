@@ -1,0 +1,70 @@
+{
+  "//": "Gold: a loop for a README. Learn: the payoff is the last beat, then loop.return undoes it by causes the viewer sees, so the last frame is the first and the GIF has no jump.",
+  "demo": "finish-a-task",
+  "surface": "web",
+  "driver": "playwright",
+  "url": "http://localhost:4173/",
+  "destination": "readme",
+  "viewport": { "width": 1024, "height": 640, "scale": 2 },
+  "fps": 30,
+  "smallest_text": 15,
+  "outputs": [
+    { "file": "finish-a-task.gif", "width": 800, "height": 500, "fps": 20 }
+  ],
+  "state": {
+    "account": "none: the sample app has no sign-in",
+    "clock": "2026-03-02T09:41:00",
+    "locale": "en-US",
+    "timezone": "UTC",
+    "scheme": "light"
+  },
+  "reset": [
+    {
+      "do": "storage",
+      "clear": true,
+      "set": {
+        "tasks.v1": [
+          { "id": "t1", "title": "Book the venue", "done": true },
+          { "id": "t2", "title": "Send the invites", "done": false },
+          { "id": "t3", "title": "Order the cake", "done": false },
+          { "id": "t4", "title": "Print the name tags", "done": false },
+          { "id": "t5", "title": "Rent the speakers", "done": true }
+        ]
+      }
+    }
+  ],
+  "ready": { "count": { "of": "[data-testid=list] li", "is": 5 } },
+  "pace": { "cps": 12, "move_ms": [300, 900] },
+  "beats": [
+    {
+      "id": "finish",
+      "what": "A task is ticked and the count drops from 3 open to 2.",
+      "steps": [
+        { "do": "hold", "ms": 700, "why": "the opening frame is read; it is also the frame the loop returns to" },
+        { "do": "click", "target": "[data-testid=check-t3]", "until": { "text": "2 open", "in": "[data-testid=count]" } }
+      ]
+    },
+    {
+      "id": "filter",
+      "what": "The Done tab is opened.",
+      "steps": [
+        { "do": "click", "target": "[data-testid=tab-done]", "until": { "count": { "of": "[data-testid=list] li", "is": 3 } } }
+      ]
+    },
+    {
+      "id": "payoff",
+      "payoff": true,
+      "what": "Done holds three tasks, the new one among them.",
+      "steps": [
+        { "do": "wait", "until": { "visible": "[data-testid=task-t3]" } },
+        { "do": "hold", "ms": 1800, "why": "three finished rows are read; this frame is the poster" }
+      ]
+    }
+  ],
+  "loop": {
+    "return": [
+      { "do": "click", "target": "[data-testid=tab-all]", "until": { "count": { "of": "[data-testid=list] li", "is": 5 } } },
+      { "do": "click", "target": "[data-testid=check-t3]", "until": { "text": "3 open", "in": "[data-testid=count]" } }
+    ]
+  }
+}

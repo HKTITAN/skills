@@ -1,0 +1,5 @@
+<!-- good: the same reply with the one fault fixed. -->
+The line `motion should never be noticed by the user` is in none of the pieces read (benji.org). The stated position on motion is about cause: a change with nothing causing it reads as automatic (Stageshow, SKILL.md).
+Source: benji.org, https://benji.org/
+Source: Stageshow, SKILL.md, https://github.com/benjitaylor/skills
+Not in his writing: whether motion is meant to go unnoticed.

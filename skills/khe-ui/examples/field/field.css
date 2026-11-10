@@ -1,0 +1,200 @@
+/*
+ * Gold: a form field with validation timing.
+ * Learn one thing: the room for the message exists before the message does.
+ * An 18px lane sits under the field from the first frame, so an error changes
+ * the ring and the words and moves nothing.
+ *
+ * Values and their lanes:
+ *   input text 16px, so iOS never zooms the page                      mobile: Keyboard and inputs
+ *   18px message lane; hint out 150ms, error in 250ms after 70ms      components: Forms
+ *   1px danger ring, 4% tint, 13px message, icon plus words           components: Forms; accessibility: Contrast
+ *   ring #ef4444 (3.76:1), words #b91c1c (6.47:1): two danger tokens  accessibility: Contrast
+ *   border #767676, 4.54:1 on white, clears the 3:1 boundary rule     accessibility: Findings and recommendations
+ *   hover border one step stronger, 100ms, gated                      components: Hover, press, pending, disabled
+ *   submit labels in one grid cell, opacity 250ms ease after 80ms     components: Forms, Behaviour
+ *   press scale(0.97), 160ms; none under reduced motion               motion: Entrances, exits and feedback
+ *
+ * The danger hexes are the pair the accessibility lane measures. A project's
+ * danger tokens replace them.
+ */
+
+:root {
+  --surface: #fff;
+  --well: #efeeec;
+  --text-strong: #262628;
+  --text-muted: #767676;
+  --text-disabled: #9a9a9d;
+  --border: #767676;
+  --danger-ring: #ef4444;
+  --danger-text: #b91c1c;
+  --accent: #262628;
+  --on-accent: #fff;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+  max-width: 358px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.field__optional {
+  color: var(--text-muted);
+}
+
+.field__input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-strong);
+  font: inherit;
+  font-size: 16px;
+  touch-action: manipulation;
+  transition: border-color 100ms ease, background-color 100ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .field__input:hover {
+    border-color: var(--text-strong);
+  }
+}
+
+.field__input:focus-visible,
+.submit:focus-visible {
+  outline: 2px solid var(--text-strong);
+  outline-offset: 2px;
+}
+
+/* The error state: a ring, a 4% tint, and words in the lane. Never colour alone. */
+.field__input[aria-invalid="true"] {
+  border-color: var(--danger-ring);
+  background: rgb(239 68 68 / 0.04);
+}
+
+/* The lane: hint and error share one cell that is 18px tall whether or not it has words. */
+.field__lane {
+  display: grid;
+  min-height: 18px;
+  font-size: 13px;
+  line-height: calc(18 / 13);
+}
+
+.field__hint,
+.field__error {
+  grid-area: 1 / 1;
+}
+
+.field__hint {
+  color: var(--text-muted);
+  transition: opacity 250ms var(--ease-out-quart) 70ms;
+}
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--danger-text);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.field__error svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.field[data-error] .field__hint {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.field[data-error] .field__error {
+  opacity: 1;
+  transition: opacity 250ms var(--ease-out-quart) 70ms;
+}
+
+/* The submit button is never disabled until valid. It is disabled only in flight. */
+.submit {
+  justify-self: start;
+  flex: none;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: background-color 160ms ease, transform 160ms var(--ease-out-expo);
+}
+
+.submit:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .submit:hover {
+    background: color-mix(in srgb, var(--accent), #000 10%);
+  }
+}
+
+.submit[aria-busy="true"] {
+  pointer-events: none;
+  cursor: progress;
+}
+
+.submit__labels {
+  display: grid;
+}
+
+.submit__labels > span {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity 250ms ease 80ms;
+}
+
+.submit:not([data-state]) [data-label="idle"],
+.submit[data-state="pending"] [data-label="pending"],
+.submit[data-state="done"] [data-label="done"] {
+  opacity: 1;
+}
+
+/* A form-level failure is urgent and belongs to no single field. */
+.form__alert {
+  min-height: 18px;
+  margin: 0;
+  color: var(--danger-text);
+  font-size: 13px;
+  line-height: calc(18 / 13);
+}
+
+/* Reduced motion: the press does not scale. The opacity crossfades stay: nothing travels. */
+@media (prefers-reduced-motion: reduce) {
+  .submit {
+    transition: background-color 160ms ease;
+  }
+
+  .submit:active {
+    transform: none;
+  }
+}

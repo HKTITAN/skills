@@ -1,0 +1,21 @@
+<!-- bad: skewed-outline. The base is a square leaned by a matrix on its group, so its outline is thick along one edge and thin along the next. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="slab" data-kind="isometric" role="img" aria-labelledby="slab-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="slab-title">Tile</title>
+  <g data-layer="diecut">
+    <path d="M116 172 L140 136 L374 106 L404 300 L378 342 L146 372 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="base" transform="matrix(0.99 -0.14 0.09 0.82 105 174)">
+      <path d="M-22 30 L0 0 L0 220 L222 220 L200 250 L-22 250 Z" fill="var(--main-side, #2c4fc4)"/>
+      <path d="M0 0 L222 0 L222 220 L0 220 Z" fill="var(--main, #4f7cf7)"/>
+    </g>
+    <g data-part="plate">
+      <path d="M190 204 L200 190 L212 286 L332 270 L322 284 L202 300 Z" fill="var(--white-side, #c9d6f2)"/>
+      <path d="M200 190 L320 174 L332 270 L212 286 Z" fill="var(--white, #ffffff)"/>
+    </g>
+    <g data-part="mark">
+      <path d="M229 223 L235 215 L241 257 L296 250 L290 258 L235 265 Z" fill="var(--gold-side, #d9900a)"/>
+      <path d="M235 215 L290 208 L296 250 L241 257 Z" fill="var(--gold, #ffc533)"/>
+    </g>
+  </g>
+</svg>

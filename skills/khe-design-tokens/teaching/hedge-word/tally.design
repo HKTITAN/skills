@@ -1,0 +1,44 @@
+# Fixture contract for this teaching pair. The palette is made up; the scales are the ones this skill's references use.
+schema: design.v1
+name: tally
+version: 1.2.0
+
+agent:
+  instructions: |
+    Read intent, constraints, policy, tokens, voice and components, in that order.
+    Bind every value to a token in this file. Never write a raw color, radius or spacing value where a token exists.
+    A missing token follows policy.if_missing. Edit this file in place and bump version.
+
+intent:
+  reference: "A billing tool at the density of a spreadsheet"
+  signature: "One accent, kept for the single primary action of a view"
+
+tokens:
+  color:
+    surface: "#ffffff"
+    ink: "#1a1a1a"
+    accent: "#5b5bd6"
+  radius:
+    sm: 4
+    md: 8
+    lg: 16
+  spacing:
+    2: 8
+    4: 16
+  typography:
+    body:
+      fontFamily: "Public Sans"
+      fontSize: 16
+      lineHeight: 1.6
+    caption:
+      fontSize: 14
+  motion:
+    duration:
+      base: 400ms
+
+components:
+  button:
+    variants: [primary, secondary, danger]
+
+policy:
+  if_missing: ask

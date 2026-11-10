@@ -1,0 +1,35 @@
+# Gold: the contract behind a design-system doc page (button.md, Button.tsx).
+# Learn: the machine-readable half lives here; the doc page beside it is its rationale and names
+# nothing this file and the code do not hold.
+
+schema: design.v1
+name: kit
+version: 1.1.1
+
+agent:
+  instructions: |
+    You are holding the visual contract for Kit. This file is the source of truth.
+    READ: policy, tokens, components, then button.md for when to use what.
+    FOLLOW: use a catalogued component before writing a class. Obey variants, when and when_not.
+    UPDATE: edit this file in place and bump version; then update button.md from the code.
+    PRECEDENCE: the user's prompt, then this file, then any skill, then defaults.
+
+tokens:
+  color:
+    accent: "#5b5bd6"
+    danger: "#c62828"
+  size:
+    control:
+      small: 24
+      medium: 28
+      large: 32
+
+components:
+  button:
+    variants: [secondary, primary, tertiary, ghost, danger]
+    sizes: [small, medium, large]
+    when: ["an action"]
+    when_not: ["navigation: use Link", "an action in a tight space: use IconButton"]
+
+policy:
+  if_missing: ask

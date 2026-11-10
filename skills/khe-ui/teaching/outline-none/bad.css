@@ -1,0 +1,12 @@
+/* outline-none: the ring is removed and nothing replaces it, so a keyboard user cannot see where they are. */
+.field {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #767676;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.field:focus {
+  outline: none;
+}

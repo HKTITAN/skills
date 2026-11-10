@@ -1,0 +1,6 @@
+<!-- sound-before-picture: sound is placed before the picture is locked, so every cue gets placed twice. -->
+Goal: A teaser for the release with its soundtrack; I hand back the render.
+Route:
+- `khe-sound`: the soundtrack sets the mood for the cut.
+- `khe-launch-film`: the beats are then timed to the music.
+Not verified: loudness on phone speakers; nothing was rendered yet.

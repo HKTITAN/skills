@@ -1,0 +1,165 @@
+/*
+ * Gold: a button with every state.
+ * Learn one thing: a state changes paint, and only the press moves. Rest, hover,
+ * press, focus, pending, done and disabled all keep the same box, so nothing
+ * around the button shifts when its state does.
+ *
+ * Values and their lanes:
+ *   press scale(0.97), icon button 0.96, 160ms on ease-out-expo   motion: Entrances, exits and feedback
+ *   hover one step of its own colour, 160ms ease, gated            components: Hover, press, pending, disabled
+ *   focus ring 2px neutral, offset 2px                             accessibility: Focus
+ *   hit area 44px by a pseudo-element, visual 32px                 accessibility: Hit areas and pointer
+ *   disabled by dedicated tokens, never opacity                    accessibility: Contrast
+ *   label layers in one grid cell, opacity 250ms ease after 80ms   components: Forms, Behaviour
+ *
+ * --accent is a placeholder. A project's accent token replaces it. White on
+ * #262628 measures 15.1:1. The lanes give no spin period, so pending is carried
+ * by the label, aria-busy and the paint; a project's spinner goes in the label cell.
+ */
+
+:root {
+  --canvas: #f6f5f4;
+  --surface: #fff;
+  --well: #efeeec;
+  --text-strong: #262628;
+  --text-disabled: #9a9a9d;
+  --ink-2: rgba(0, 0, 0, 0.06);
+  --accent: #262628;
+  --on-accent: #fff;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: background-color 160ms ease, transform 160ms var(--ease-out-expo);
+}
+
+/* The visual is 32px. The hit area is 44px: (44 - 32) / 2 = 6px on each side. */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--text-strong);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background: color-mix(in srgb, var(--accent), #000 10%);
+  }
+
+  .btn--ghost:hover {
+    background: var(--ink-2);
+  }
+
+  .btn--icon:hover svg {
+    transform: scale(1.05);
+  }
+}
+
+/* Touch has no hover, so the press itself darkens by 4%. */
+@media (pointer: coarse) {
+  .btn:active {
+    background: color-mix(in srgb, var(--accent), #000 4%);
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-strong);
+}
+
+/* Icon only: a 32px square, a name in aria-label, the icon hidden from readers. */
+.btn--icon {
+  width: 32px;
+  padding: 0;
+}
+
+.btn--icon:active {
+  transform: scale(0.96);
+}
+
+.btn--icon svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 100ms var(--ease-out-expo);
+}
+
+/* A trailing icon sits 2px closer to the edge than the text side. */
+.btn--trailing {
+  padding-inline-end: 10px;
+}
+
+/*
+ * Pending and done: three labels share one grid cell, so the button is as wide
+ * as its widest label from the first frame and never resizes.
+ */
+.btn__labels {
+  display: grid;
+}
+
+.btn__labels > span {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity 250ms ease 80ms;
+}
+
+.btn:not([data-state]) .btn__labels > [data-label="idle"],
+.btn[data-state="pending"] .btn__labels > [data-label="pending"],
+.btn[data-state="done"] .btn__labels > [data-label="done"] {
+  opacity: 1;
+}
+
+/* Pending is not disabled: it keeps its colour and its name and stops answering. */
+.btn[aria-busy="true"] {
+  pointer-events: none;
+  cursor: progress;
+}
+
+/* Disabled never answers, and reads as disabled on any surface. */
+.btn:disabled {
+  background: var(--well);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Reduced motion: nothing scales. Colour still answers, at once. */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn--icon svg,
+  .btn__labels > span {
+    transition: none;
+  }
+
+  .btn:active,
+  .btn--icon:active,
+  .btn--icon:hover svg {
+    transform: none;
+  }
+}

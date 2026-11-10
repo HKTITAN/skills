@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. -->
+Anything entering or leaving the screen uses `ease-out`, because the fast start reads as responsive [1].
+Source: [1] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Not in his writing: a curve for an element that enters and moves in the same gesture.

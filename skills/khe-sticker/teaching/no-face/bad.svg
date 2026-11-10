@@ -1,0 +1,15 @@
+<!-- bad: no-face. The eyes and mouth are painted into the body group, so nothing can blink, squint or smile without redrawing it. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="friend" data-kind="character" role="img" aria-labelledby="friend-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="friend-title">Happy</title>
+  <g data-layer="diecut">
+    <path d="M98 108 L402 108 L402 392 L98 392 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="body">
+      <path d="M110 120 L390 120 L390 380 L110 380 Z" fill="var(--main, #4f7cf7)"/>
+      <circle cx="205" cy="225" r="16" fill="var(--ink, #1c1f33)" stroke="none"/>
+      <circle cx="295" cy="225" r="16" fill="var(--ink, #1c1f33)" stroke="none"/>
+      <path d="M210 290 L290 290 L270 320 L230 320 Z" fill="var(--ink, #1c1f33)" stroke="none"/>
+    </g>
+  </g>
+</svg>

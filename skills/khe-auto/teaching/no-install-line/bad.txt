@@ -1,0 +1,8 @@
+<!-- no-install-line: the skill is called missing and the reader is left without the line that installs it. -->
+Goal: The settings drawer follows the finger and settles without a jump; I hand back the changed drawer.
+Route:
+- `gestures` (Emil Kowalski): a drag that ends on release velocity is its whole job.
+Work:
+- `gestures` is not installed. It is Emil Kowalski's skill.
+- Ask whoever set up the project to add it.
+Not verified: everything about the drawer; no work was done on it.

@@ -1,0 +1,18 @@
+<!-- good: each inlined icon prefixes its ids, so every aria-labelledby points at its own title. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Two inlined icons</title>
+</head>
+<body>
+<svg viewBox="0 0 24 24" role="img" aria-labelledby="download-title" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <title id="download-title">Download</title>
+  <path d="M12 4 L12 15 M7 10 L12 15 L17 10 M5 20 L19 20"/>
+</svg>
+<svg viewBox="0 0 24 24" role="img" aria-labelledby="saved-title" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <title id="saved-title">Saved</title>
+  <path d="M5 12 L10 17 L19 7"/>
+</svg>
+</body>
+</html>

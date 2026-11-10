@@ -1,0 +1,19 @@
+/* scale-from-zero: the popover inflates from a point, and its first frames render blurred. */
+.popover {
+  transform-origin: var(--popover-origin, top right);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.popover[data-open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popover {
+    transform: none;
+    transition: opacity 120ms;
+  }
+}

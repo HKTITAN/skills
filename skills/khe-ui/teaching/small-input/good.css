@@ -1,0 +1,8 @@
+/* 16px is the only correct fix for the zoom. The field keeps its size and the page keeps its scale. */
+.search input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #767676;
+  border-radius: 8px;
+  font-size: 16px;
+}

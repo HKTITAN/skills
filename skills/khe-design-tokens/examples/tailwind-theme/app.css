@@ -1,0 +1,20 @@
+/* Gold: tokens as a Tailwind theme. Learn: each token in ledger.design is one theme variable, and the
+   theme is the only place a value is written. The utilities (bg-surface, rounded-lg, p-4, text-body)
+   come from these names; spacing utilities multiply --spacing, so p-4 is 16px. */
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-accent: #5b5bd6;
+
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --spacing: 4px;
+
+  --font-body: "Public Sans", system-ui, sans-serif;
+  --text-body: 16px;
+  --text-body--line-height: 1.6;
+  --text-caption: 14px;
+}

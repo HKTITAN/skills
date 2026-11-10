@@ -1,0 +1,6 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: The logo reveal plays once and ends on the final mark; I hand back the animated SVG and its size.
+Route:
+- `khe-svg`: the reveal lives inside the file.
+Next, as its own request: a sound for the reveal, once the reveal is final.
+Not verified: the reveal on the real page; nothing was run yet.

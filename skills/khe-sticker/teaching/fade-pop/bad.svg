@@ -1,0 +1,28 @@
+<!-- bad: fade-pop. The sticker fades in while it grows, so for a quarter second it is a ghost. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="bubble" data-kind="flat" role="img" aria-labelledby="bubble-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="bubble-title">Typing</title>
+  <style>
+    #bubble [data-layer="pop"] { transform-box: fill-box; transform-origin: 50% 60%; animation: bubble-pop 2.5s cubic-bezier(0.37, 0, 0.63, 1) 1 both; }
+    @keyframes bubble-pop {
+      0% { transform: scale(0.9); opacity: 0; }
+      36.67% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #bubble [data-layer] { animation: none; }
+    }
+  </style>
+  <g data-layer="pop">
+    <g data-layer="diecut">
+      <path d="M98 118 L402 118 L402 332 L236 332 L158 408 L158 332 L98 332 Z" fill="var(--white, #ffffff)" stroke="none"/>
+    </g>
+    <g data-part="bubble">
+      <path d="M110 130 L390 130 L390 320 L230 320 L170 380 L170 320 L110 320 Z" fill="var(--main, #4f7cf7)"/>
+    </g>
+    <g data-part="dots">
+      <circle cx="190" cy="225" r="16" fill="var(--white, #ffffff)"/>
+      <circle cx="250" cy="225" r="16" fill="var(--white, #ffffff)"/>
+      <circle cx="310" cy="225" r="16" fill="var(--white, #ffffff)"/>
+    </g>
+  </g>
+</svg>

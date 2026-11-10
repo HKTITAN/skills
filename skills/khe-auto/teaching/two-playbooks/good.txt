@@ -1,0 +1,5 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: A landing page for the release; I hand back the reviewed page.
+Route: playbook `landing-page`
+The film is a second request and starts after this page is handed over.
+Not verified: the page on a real phone; nothing was built yet.

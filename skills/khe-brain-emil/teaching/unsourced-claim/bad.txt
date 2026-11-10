@@ -1,0 +1,4 @@
+<!-- unsourced-claim: the second sentence is given in his name with no marker; it is not in any article. -->
+Animating everything overwhelms the user and weakens each animation, so motion is paced [1]. List items stagger in by 50ms each.
+Source: [1] Great Animations, https://emilkowal.ski/ui/great-animations
+Not in his writing: a count of how many things on one screen can move.

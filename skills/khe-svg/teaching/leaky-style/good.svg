@@ -1,0 +1,11 @@
+<!-- good: the selector starts at the root id, so the rule stops at this file's edge. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="spark" role="img" aria-labelledby="spark-title" fill="none">
+  <title id="spark-title">Spark logo</title>
+  <style>
+    #spark .line { stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <g id="spark-mark">
+    <path class="line" d="M8 34 L18 24 L26 30 L38 14" stroke="var(--logo-ink, #111111)"/>
+    <circle cx="38" cy="14" r="4" fill="var(--logo-accent, #e5484d)"/>
+  </g>
+</svg>

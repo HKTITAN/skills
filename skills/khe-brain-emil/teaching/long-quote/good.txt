@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. A paraphrase carries no quotation marks. -->
+A drawer drags only when its content is scrolled to the top [1].
+Source: [1] Building a Drawer Component, https://emilkowal.ski/ui/building-a-drawer-component
+Not in his writing: the same rule for a drawer that scrolls sideways.

@@ -1,0 +1,6 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: A teaser for the release with its soundtrack; I hand back the render.
+Route:
+- `khe-launch-film`: the register, the beats and a locked picture come first.
+- `khe-sound`: the soundtrack, placed on frames that no longer move.
+Not verified: loudness on phone speakers; nothing was rendered yet.

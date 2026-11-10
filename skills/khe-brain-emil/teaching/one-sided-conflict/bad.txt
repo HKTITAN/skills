@@ -1,0 +1,6 @@
+<!-- one-sided-conflict: the Conflict line names one article, so the reader cannot see what it disagrees with. -->
+Interface animation stays under 300ms [1], and his own toast runs longer [2].
+Conflict: the toast transitions over `400ms ease` [2].
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Source: [2] Building a Toast Component, https://emilkowal.ski/ui/building-a-toast-component
+Not in his writing: a ceiling for a toast in general; the value is this library's.

@@ -1,0 +1,5 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: The onboarding flow is explained in one picture; I hand back a figure or a clear no.
+Route:
+- `khe-diagram`: the picture explains a system, it is not an asset.
+Not verified: whether a table would say it better; the decision step has not run.

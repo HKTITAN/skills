@@ -1,0 +1,4 @@
+<!-- bad: missing-viewbox. The root has no viewBox, so the coordinates have no frame and the icon cannot scale. -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M12 4 L12 15 M7 10 L12 15 L17 10 M5 20 L19 20"/>
+</svg>

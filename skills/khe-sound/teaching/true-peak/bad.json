@@ -1,0 +1,46 @@
+{
+  "//": "bad: true-peak. The ceiling is set to -0.2 dBTP to win loudness, above the one ceiling every register shares.",
+  "surface": "film",
+  "locked": true,
+  "register": "A, dry reveal",
+  "target": {
+    "lufs": -18,
+    "dbtp": -0.2
+  },
+  "files": [
+    {
+      "file": "stem.wav",
+      "source": "rendered by scripts/sound-sheet.mjs from this sheet",
+      "license": "own work, CC0, made in code",
+      "read": "2026-11-10"
+    }
+  ],
+  "canvas": {
+    "w": 1920,
+    "h": 1080
+  },
+  "fps": 30,
+  "duration": 5,
+  "cues": [
+    {
+      "id": "s2-chip",
+      "kind": "tick",
+      "t": 2.34,
+      "lag": 0.01,
+      "x": 1500,
+      "y": 300,
+      "w": 120,
+      "h": 120
+    },
+    {
+      "id": "s3-wordmark",
+      "kind": "land",
+      "t": 3.1,
+      "lag": 0.01,
+      "x": 960,
+      "y": 540,
+      "w": 460,
+      "h": 132
+    }
+  ]
+}

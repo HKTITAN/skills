@@ -1,0 +1,106 @@
+<!--
+  Gold: an architecture figure. 7 nodes, 6 connectors, 1 callout, the accent on 2 elements.
+  Learn: treatment carries the hierarchy. Service, store, external and focal nodes are four fills and strokes at one size,
+  and the accent sits only on the queue and the connector into it, the one hand-off the reader must see.
+  Skin: the worked contract in references/diagram-design-reconciliation.md (a white page). Swap the nine roles for the project's own.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" id="checkout-arch" viewBox="0 0 896 300" role="img" aria-labelledby="checkout-arch-title checkout-arch-desc">
+  <title id="checkout-arch-title">Checkout architecture</title>
+  <desc id="checkout-arch-desc">An order is accepted in the request and paid afterwards by a worker that drains a job queue.</desc>
+  <defs>
+    <marker id="checkout-arch-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+    <marker id="checkout-arch-arrow-accent" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head accent" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+    <marker id="checkout-arch-arrow-link" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head link" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #checkout-arch { --paper: #fff; --paper-2: #f6f5f4; --ink: #262628; --muted: #7a7a7d; --soft: #9a9a9d; --rule: rgba(0,0,0,0.06); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); --link: color-mix(in srgb, #3b82f6 82%, #000); font-family: system-ui, sans-serif; }
+    #checkout-arch .paper { fill: var(--paper); }
+    #checkout-arch .edge { fill: none; stroke: var(--muted); }
+    #checkout-arch .edge.accent { stroke: var(--accent); }
+    #checkout-arch .edge.link { stroke: var(--link); }
+    #checkout-arch .edge.dashed { stroke-dasharray: 5 4; }
+    #checkout-arch .head { fill: var(--muted); }
+    #checkout-arch .head.accent { fill: var(--accent); }
+    #checkout-arch .head.link { fill: var(--link); }
+    #checkout-arch .mask { fill: var(--paper); }
+    #checkout-arch .label { fill: var(--muted); font-size: 8px; }
+    #checkout-arch .node rect { fill: var(--paper); stroke: var(--ink); }
+    #checkout-arch .store rect { fill: rgba(38,38,40,0.05); }
+    #checkout-arch .external rect { fill: rgba(38,38,40,0.03); stroke: rgba(38,38,40,0.3); }
+    #checkout-arch .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #checkout-arch .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #checkout-arch .sub { fill: var(--muted); font-size: 9px; }
+    #checkout-arch .callout { fill: var(--muted); font-size: 9px; }
+    #checkout-arch .mono { font-family: "SF Mono", ui-monospace, monospace; }
+    #checkout-arch .legend text { fill: var(--muted); font-size: 9px; }
+    #checkout-arch .legend .rule { stroke: var(--rule); }
+  </style>
+  <rect class="paper" width="896" height="300"/>
+  <g class="edges">
+    <path class="edge" d="M160 60 H208" marker-end="url(#checkout-arch-arrow)"/>
+    <path class="edge" d="M336 60 H384" marker-end="url(#checkout-arch-arrow)"/>
+    <path class="edge accent dashed" d="M512 60 H560" marker-end="url(#checkout-arch-arrow-accent)"/>
+    <path class="edge dashed" d="M688 60 H736" marker-end="url(#checkout-arch-arrow)"/>
+    <path class="edge" d="M448 88 V152" marker-end="url(#checkout-arch-arrow)"/>
+    <path class="edge link" d="M800 88 V152" marker-end="url(#checkout-arch-arrow-link)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="808" y="112" width="72" height="16"/>
+    <text class="label mono" x="812" y="123">POST /charges</text>
+  </g>
+  <g class="nodes">
+    <g class="node">
+      <rect x="32" y="32" width="128" height="56" rx="6"/>
+      <text class="name" x="44" y="64">Web app</text>
+    </g>
+    <g class="node">
+      <rect x="208" y="32" width="128" height="56" rx="6"/>
+      <text class="name" x="220" y="56">API gateway</text>
+      <text class="sub mono" x="220" y="72">:443</text>
+    </g>
+    <g class="node">
+      <rect x="384" y="32" width="128" height="56" rx="6"/>
+      <text class="name" x="396" y="64">Orders service</text>
+    </g>
+    <g class="node focal">
+      <rect x="560" y="32" width="128" height="56" rx="6"/>
+      <text class="name" x="572" y="56">Job queue</text>
+      <text class="sub mono" x="572" y="72">order.placed</text>
+    </g>
+    <g class="node">
+      <rect x="736" y="32" width="128" height="56" rx="6"/>
+      <text class="name" x="748" y="64">Payments worker</text>
+    </g>
+    <g class="node store">
+      <rect x="384" y="152" width="128" height="56" rx="6"/>
+      <text class="name" x="396" y="176">Orders DB</text>
+      <text class="sub mono" x="396" y="192">orders, line_items</text>
+    </g>
+    <g class="node external">
+      <rect x="736" y="152" width="128" height="56" rx="6"/>
+      <text class="name" x="748" y="176">Card processor</text>
+      <text class="sub mono" x="748" y="192">processor.example</text>
+    </g>
+  </g>
+  <text class="callout" x="560" y="172">
+    <tspan x="560" dy="0">The reply goes out here.</tspan>
+    <tspan x="560" dy="12">Payment runs after it.</tspan>
+  </text>
+  <g class="legend" transform="translate(32 276)">
+    <line class="rule" x1="0" y1="-20" x2="832" y2="-20"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="3">call</text>
+    <path class="edge dashed" d="M76 0 H100"/>
+    <text x="108" y="3">async</text>
+    <path class="edge accent dashed" d="M156 0 H180"/>
+    <text x="188" y="3">the hand-off out of the request</text>
+    <path class="edge link" d="M352 0 H376"/>
+    <text x="384" y="3">external HTTPS</text>
+  </g>
+</svg>

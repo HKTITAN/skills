@@ -1,0 +1,13 @@
+/* The ring shows for keyboard focus only: 2px in the strongest neutral, 2px off the edge. */
+.field {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #767676;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.field:focus-visible {
+  outline: 2px solid #262628;
+  outline-offset: 2px;
+}

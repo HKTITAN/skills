@@ -1,0 +1,4 @@
+<!-- Gold for a direct question (`what would Benji say about confetti on our Send button`). Learn: the answer in three sentences, a piece named in every sentence that states his position, and the product the claim came from. -->
+His published position puts confetti on a rare moment, not a daily one: delight is worth more the less often a feature is used, and it wears off with repetition (Family Values). In Family the confetti follows a completed wallet backup, while the send flow, used often, gets only small touches such as commas that shift as digits are typed (Family Values). Both lines describe one iOS wallet, and he has not written a rule for other kinds of product.
+Source: Family Values, https://benji.org/family-values
+Not in his writing: how often a feature must be used before delight stops paying, and any test of confetti on a send action.

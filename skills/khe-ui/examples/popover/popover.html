@@ -1,0 +1,73 @@
+<!--
+  Gold: a popover entrance and exit, on the native Popover API.
+  Learn one thing: use the native element and write only what it cannot know,
+  which is where the trigger is. Escape, outside press, the top layer and the
+  return of focus are the platform's. The script below places the popover under
+  its trigger and marks the trigger as open; in a project a headless primitive
+  does both and sets --popover-origin.
+  Motion and surface values and their lanes are in popover.css.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="color-scheme" content="light">
+  <title>Popover entrance and exit</title>
+  <link rel="stylesheet" href="popover.css">
+  <style>
+    html {
+      color-scheme: light;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      font-synthesis: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f6f5f4;
+      color: #262628;
+      font: 16px/1.5 system-ui, sans-serif;
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="bar">
+      <h1>Q3 plan</h1>
+      <button type="button" class="trigger" popovertarget="actions">Options</button>
+    </div>
+
+    <div id="actions" class="popover" popover aria-label="Options for Q3 plan">
+      <button type="button" class="popover__item">Rename</button>
+      <button type="button" class="popover__item">Duplicate</button>
+      <button type="button" class="popover__item">Copy link</button>
+    </div>
+  </main>
+
+  <script>
+    const trigger = document.querySelector('[popovertarget="actions"]');
+    const popover = document.getElementById("actions");
+
+    // Place it 8px under the trigger, right edges aligned, so it grows from the top right.
+    popover.addEventListener("beforetoggle", (event) => {
+      if (event.newState !== "open") return;
+      const box = trigger.getBoundingClientRect();
+      popover.style.top = `${box.bottom + 8}px`;
+      popover.style.right = `${document.documentElement.clientWidth - box.right}px`;
+    });
+
+    popover.addEventListener("toggle", (event) => {
+      trigger.toggleAttribute("data-open", event.newState === "open");
+    });
+  </script>
+</body>
+</html>

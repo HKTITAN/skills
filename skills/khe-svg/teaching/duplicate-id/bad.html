@@ -1,0 +1,18 @@
+<!-- bad: duplicate-id. Both inlined icons use id="title", so the second icon is named by the first one's title. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Two inlined icons</title>
+</head>
+<body>
+<svg viewBox="0 0 24 24" role="img" aria-labelledby="title" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <title id="title">Download</title>
+  <path d="M12 4 L12 15 M7 10 L12 15 L17 10 M5 20 L19 20"/>
+</svg>
+<svg viewBox="0 0 24 24" role="img" aria-labelledby="title" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <title id="title">Saved</title>
+  <path d="M5 12 L10 17 L19 7"/>
+</svg>
+</body>
+</html>

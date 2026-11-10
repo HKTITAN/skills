@@ -1,0 +1,30 @@
+/* Gold: the styles the doc page describes. Learn: the two colors button.md names are the two
+   declared here, and the three sizes are the three control heights in kit.design. The page
+   documents what this file does; it never documents a class that is not in it. */
+:root {
+  --accent: #5b5bd6;
+  --danger: #c62828;
+  --control-small: 24px;
+  --control-medium: 28px;
+  --control-large: 32px;
+}
+
+.kit-button--small {
+  height: var(--control-small);
+}
+
+.kit-button--medium {
+  height: var(--control-medium);
+}
+
+.kit-button--large {
+  height: var(--control-large);
+}
+
+.kit-button--primary {
+  background: var(--accent);
+}
+
+.kit-button--danger {
+  background: var(--danger);
+}

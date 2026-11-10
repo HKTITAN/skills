@@ -1,0 +1,49 @@
+{
+  "//": "still-share: a product-camera film planned at 9 % still: the UI-motion median, read from the wrong row.",
+  "film": "Atlas Agent, 50 s, the real product",
+  "register": "product-camera",
+  "engine": "hyperframes",
+  "runtime": 50,
+  "fps": 60,
+  "known_brand": true,
+  "formats": [
+    { "aspect": "16:9", "width": 1920, "height": 1080, "layout": "master" }
+  ],
+  "beats": [
+    { "id": "open", "start": 0, "end": 2.33, "what": "the product already working, readable on frame 0" },
+    { "id": "prompt", "start": 2.33, "end": 12, "what": "the human types with a caret, then Enter" },
+    { "id": "answer", "start": 12, "end": 26, "what": "cut past the wait: the prompt already posted, the rows resolving" },
+    { "id": "second-action", "start": 26, "end": 41, "what": "one more action, the camera still drifting" },
+    { "id": "name", "start": 41, "end": 43.4, "what": "the name converges after the product has worked" },
+    { "id": "payoff", "start": 43.4, "end": 44, "what": "the finished result, 0.6 s before the endcard cut" },
+    { "id": "endcard", "start": 44, "end": 50, "what": "6.0 s, the last 2.05 s hold still" }
+  ],
+  "first_word": 0,
+  "first_seam": 2.33,
+  "name": { "at": 41, "mode": "late" },
+  "payoff": 43.4,
+  "endcard": { "start": 44, "hold": 2.05 },
+  "cuts": 12,
+  "still_share": 0.09,
+  "seams": [
+    { "at": 2.33, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 6, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 9.5, "type": "cut", "technique": "cut on the cause", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 12, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 15.5, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 19, "type": "cut", "technique": "cut on the cause", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 22.5, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 26, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 30, "type": "cut", "technique": "cut on the cause", "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 34, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 38, "type": "cut", "technique": "cut mid-drift on a constant ground", "exit": { "axis": "x", "dir": -1 }, "entry": { "axis": "x", "dir": -1 }, "exit_moving": true, "entry_acts_in": 0 },
+    { "at": 41, "type": "cut", "technique": "cut to a readable frame that acts within 0.35 s", "exit_moving": false, "entry_acts_in": 0.35 },
+    { "at": 44, "type": "morph", "technique": "the mark blooms from the control just pressed", "carrier": { "out": "#send-button", "in": "#mark-dot" } }
+  ],
+  "type": [],
+  "prompts": [
+    { "at": 4, "text": "triage the open payout bugs", "chars": 28, "seconds": 2.8, "job": "read" }
+  ],
+  "picture_locked": false,
+  "sound": { "register": "E", "lufs": -16.9, "true_peak": -1 }
+}

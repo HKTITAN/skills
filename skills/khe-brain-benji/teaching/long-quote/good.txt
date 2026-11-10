@@ -1,0 +1,5 @@
+<!-- good: the same reply with the one fault fixed. -->
+The pasted line, which begins `A good interface should feel like it was always there`, is in none of the pieces read (benji.org). The closest stated position is about cause, not memory: a change with nothing causing it reads as automatic (Stageshow, SKILL.md).
+Source: benji.org, https://benji.org/
+Source: Stageshow, SKILL.md, https://github.com/benjitaylor/skills
+Not in his writing: the pasted sentence, or any claim that an interface is remembered.

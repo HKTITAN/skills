@@ -1,0 +1,143 @@
+<!--
+  Gold: a form field with validation timing.
+  Learn one thing: when an error may appear is a rule, in five steps, and the
+  script below is those five steps and nothing else.
+    1. While typing: no errors.
+    2. On blur: validate and show the error.
+    3. After an error shows: re-validate on every change, so it clears the moment the value is fixed.
+    4. On submit: a final pass, then focus the first invalid field.
+    5. A failed request says so beside the form and keeps every value.
+  Styles and their lanes are in field.css. The lane is components: Forms.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="color-scheme" content="light">
+  <title>Create account</title>
+  <link rel="stylesheet" href="field.css">
+  <style>
+    html {
+      color-scheme: light;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      font-synthesis: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #fff;
+      color: #262628;
+      font: 16px/1.5 system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Create account</h1>
+
+    <!-- A real form: Enter submits. novalidate, because the timing below is ours. -->
+    <form class="form" action="/signup" method="post" novalidate>
+      <div class="field">
+        <label class="field__label" for="email">Work email</label>
+        <input class="field__input" id="email" name="email" type="email" required
+          autocomplete="email" enterkeyhint="next" aria-describedby="email-hint">
+        <div class="field__lane">
+          <span class="field__hint" id="email-hint">We send the invoice here.</span>
+          <span class="field__error" id="email-error">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.25" />
+              <path d="M8 4.75v3.75M8 11v.25" />
+            </svg>
+            <span data-message></span>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="company">
+          Company
+          <span class="field__optional">Optional</span>
+        </label>
+        <input class="field__input" id="company" name="company" type="text"
+          autocomplete="organization" enterkeyhint="done">
+        <div class="field__lane"></div>
+      </div>
+
+      <button type="submit" class="submit">
+        <span class="submit__labels">
+          <span data-label="idle">Create account</span>
+          <span data-label="pending" aria-hidden="true">Creating account…</span>
+          <span data-label="done" aria-hidden="true">Account created</span>
+        </span>
+      </button>
+
+      <!-- In the page, empty, from the first render. Its text is set only on a failure. -->
+      <p class="form__alert" role="alert"></p>
+    </form>
+  </main>
+
+  <script>
+    const form = document.querySelector(".form");
+    const submit = form.querySelector(".submit");
+    const alertRegion = form.querySelector(".form__alert");
+    const email = form.querySelector("#email");
+    const field = email.closest(".field");
+    const message = field.querySelector("[data-message]");
+
+    // Error copy names the fix, never the fault.
+    function problem(input) {
+      if (input.validity.valueMissing) return "Enter your work email.";
+      if (input.validity.typeMismatch) return "Add the domain, like name@company.com.";
+      return "";
+    }
+
+    // The words are inserted on show and removed on hide, so a reader never hears a hidden error.
+    function show(input, text) {
+      const invalid = text !== "";
+      field.toggleAttribute("data-error", invalid);
+      input.setAttribute("aria-invalid", String(invalid));
+      input.setAttribute("aria-describedby", invalid ? "email-error" : "email-hint");
+      message.textContent = text;
+    }
+
+    // 2. On blur: validate and show.
+    email.addEventListener("blur", () => show(email, problem(email)));
+
+    // 1 and 3. While typing: nothing, until an error is showing. Then every change re-validates.
+    email.addEventListener("input", () => {
+      if (field.hasAttribute("data-error")) show(email, problem(email));
+    });
+
+    // 4 and 5. On submit: the final pass, focus the first invalid field, then send.
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      alertRegion.textContent = "";
+      const text = problem(email);
+      show(email, text);
+      if (text) {
+        email.focus();
+        return;
+      }
+
+      submit.dataset.state = "pending";
+      submit.setAttribute("aria-busy", "true");
+      submit.disabled = true;
+      try {
+        const response = await fetch(form.action, { method: "POST", body: new FormData(form) });
+        if (!response.ok) throw new Error(String(response.status));
+        submit.dataset.state = "done";
+      } catch {
+        // Nothing is reset. Every value the user typed is still in the form.
+        delete submit.dataset.state;
+        alertRegion.textContent = "Account not created. Check your connection and try again.";
+      } finally {
+        submit.removeAttribute("aria-busy");
+        submit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

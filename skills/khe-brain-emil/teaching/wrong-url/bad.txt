@@ -1,0 +1,4 @@
+<!-- wrong-url: a real title beside the URL of a different article. -->
+An animation that does not hold 60fps makes every other principle worthless [1].
+Source: [1] Great Animations, https://emilkowal.ski/ui/good-vs-great-animations
+Not in his writing: a frame budget for low-end phones.

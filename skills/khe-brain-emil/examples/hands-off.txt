@@ -1,0 +1,6 @@
+<!-- Gold for a request that is a build job. Learn: one line of what the articles say, the skill that does the work and whose it is, no code, and a last line that admits nothing was looked at. -->
+<!-- Asked: apply Emil's rules to my modal and fix its animation. -->
+His published starting points for a modal are an `ease-out` entrance [1] and a duration of 200 to 300ms [2]. My reading: fixing the modal is a build job, so it goes to `animate`, which is Emil Kowalski's own skill and applies his rules, or to `khe-ui` for a review across every area; this skill reports what the articles say and changes no code.
+Source: [1] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Source: [2] Agents with Taste, https://emilkowal.ski/ui/agents-with-taste
+Not in his writing: your modal. Nothing in this reply was checked against the code.

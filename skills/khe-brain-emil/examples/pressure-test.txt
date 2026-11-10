@@ -1,0 +1,15 @@
+<!-- Gold for a pressure-test. Learn: the verdict carries its markers, one finding per line, two published numbers are never averaged, and the point where articles differ gets a Conflict line. -->
+<!-- Tested: a bottom drawer that opens over 600ms with ease-in, animates its height, and plays the same animation when a keyboard shortcut opens it. -->
+The drawer breaks three of his published positions [1][2][3], and its duration sits above both numbers he gives for a drawer [4][5].
+- Breaks: `ease-in` on something entering; anything entering or leaving uses `ease-out`, and `ease-in` feels slower at the same duration [1].
+- Breaks: it animates height; he animates `transform` and `opacity`, which skip layout and paint [2].
+- Breaks: the keyboard shortcut plays the animation; keyboard-initiated actions never animate [3].
+- Open: 600ms is longer than his table allows [4] and longer than his own drawer [5].
+- My reading: a drawer that imitates the native sheet takes his drawer's value, and any other drawer takes the table's.
+Conflict: his table for agents puts modals and drawers at 200 to 300ms [4], and his own drawer runs `0.5s` on the iOS sheet curve because it copies iOS [5].
+Source: [1] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Source: [2] Great Animations, https://emilkowal.ski/ui/great-animations
+Source: [3] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Source: [4] Agents with Taste, https://emilkowal.ski/ui/agents-with-taste
+Source: [5] Building a Drawer Component, https://emilkowal.ski/ui/building-a-drawer-component
+Not in his writing: a duration for a drawer between 300ms and 500ms, and a rule for when the table gives way to the iOS value. The drawer itself was not run; this tests the description.

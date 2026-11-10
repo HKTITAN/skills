@@ -1,0 +1,19 @@
+/* The popover starts as a 96% surface at the trigger's corner. Nothing in the world appears from nothing. */
+.popover {
+  transform-origin: var(--popover-origin, top right);
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.popover[data-open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popover {
+    transform: none;
+    transition: opacity 120ms;
+  }
+}

@@ -1,0 +1,20 @@
+/* Gold: the mirror of a DESIGN.md. Learn: the property name is the token's path with hyphens
+   (colors.primary is --color-primary, rounded.lg is --rounded-lg), so a reader can go from a var()
+   to the front matter without a lookup table. */
+:root {
+  --color-primary: #5b5bd6;
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1a;
+
+  --font-body: "Public Sans", system-ui, sans-serif;
+  --text-body-md: 16px;
+  --leading-body-md: 1.6;
+  --text-caption: 14px;
+
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
+  --rounded-lg: 16px;
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+}

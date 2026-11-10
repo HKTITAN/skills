@@ -1,0 +1,21 @@
+<!-- good: three parts, base, plate and mark, each a group with its own face and its own side. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="slab" data-kind="isometric" role="img" aria-labelledby="slab-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="slab-title">Tile</title>
+  <g data-layer="diecut">
+    <path d="M116 172 L140 136 L374 106 L404 300 L378 342 L146 372 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="base">
+      <path d="M130 178 L150 150 L170 330 L390 300 L370 328 L150 358 Z" fill="var(--main-side, #2c4fc4)"/>
+      <path d="M150 150 L370 120 L390 300 L170 330 Z" fill="var(--main, #4f7cf7)"/>
+    </g>
+    <g data-part="plate">
+      <path d="M190 204 L200 190 L212 286 L332 270 L322 284 L202 300 Z" fill="var(--white-side, #c9d6f2)"/>
+      <path d="M200 190 L320 174 L332 270 L212 286 Z" fill="var(--white, #ffffff)"/>
+    </g>
+    <g data-part="mark">
+      <path d="M229 223 L235 215 L241 257 L296 250 L290 258 L235 265 Z" fill="var(--gold-side, #d9900a)"/>
+      <path d="M235 215 L290 208 L296 250 L241 257 Z" fill="var(--gold, #ffc533)"/>
+    </g>
+  </g>
+</svg>

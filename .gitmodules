@@ -1,0 +1,57 @@
+[submodule "skills/animate"]
+	path = skills/animate
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/animate-expo"]
+	path = skills/animate-expo
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/animation-performance"]
+	path = skills/animation-performance
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/animation-vocabulary"]
+	path = skills/animation-vocabulary
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/apple-design"]
+	path = skills/apple-design
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/ask-sonner"]
+	path = skills/ask-sonner
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/break-ui"]
+	path = skills/break-ui
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/choreograph"]
+	path = skills/choreograph
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/emil-design-eng"]
+	path = skills/emil-design-eng
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/find-animation-opportunities"]
+	path = skills/find-animation-opportunities
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/gestures"]
+	path = skills/gestures
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/improve-animations"]
+	path = skills/improve-animations
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/mobile-native"]
+	path = skills/mobile-native
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/pick-ui-library"]
+	path = skills/pick-ui-library
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/prototype"]
+	path = skills/prototype
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/remove-animations"]
+	path = skills/remove-animations
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/review-animations"]
+	path = skills/review-animations
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/write-swift"]
+	path = skills/write-swift
+	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/stageshow"]
+	path = skills/stageshow
+	url = https://github.com/benjitaylor/skills.git

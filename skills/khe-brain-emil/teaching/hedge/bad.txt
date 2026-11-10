@@ -1,0 +1,4 @@
+<!-- hedge: "probably" turns a published rule into a guess about what he thinks. -->
+He would probably cut the hover animation on the sidebar links [1].
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Not in his writing: how many uses a day counts as constant.

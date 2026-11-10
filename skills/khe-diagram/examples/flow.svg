@@ -1,0 +1,81 @@
+<!--
+  Gold: a flow. 6 nodes, 6 connectors, the accent on 2 elements.
+  Learn: every connector is a horizontal or vertical run, a turn is an elbow rounded at r=8,
+  each connector has its own attach point, and a label sits on a paper mask 8px clear of a vertical run.
+  Skin: the worked contract in references/diagram-design-reconciliation.md (a white page). Swap the nine roles for the project's own.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" id="deploy-flow" viewBox="0 0 720 316" role="img" aria-labelledby="deploy-flow-title deploy-flow-desc">
+  <title id="deploy-flow-title">Deploy flow</title>
+  <desc id="deploy-flow-desc">A push passes CI, runs as a canary at 5 percent, then rolls out fully or rolls back and tells the author.</desc>
+  <defs>
+    <marker id="deploy-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+    <marker id="deploy-flow-arrow-accent" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head accent" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #deploy-flow { --paper: #fff; --paper-2: #f6f5f4; --ink: #262628; --muted: #7a7a7d; --soft: #9a9a9d; --rule: rgba(0,0,0,0.06); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); --link: color-mix(in srgb, #3b82f6 82%, #000); font-family: system-ui, sans-serif; }
+    #deploy-flow .paper { fill: var(--paper); }
+    #deploy-flow .edge { fill: none; stroke: var(--muted); }
+    #deploy-flow .edge.accent { stroke: var(--accent); }
+    #deploy-flow .head { fill: var(--muted); }
+    #deploy-flow .head.accent { fill: var(--accent); }
+    #deploy-flow .mask { fill: var(--paper); }
+    #deploy-flow .label { fill: var(--muted); font-size: 8px; }
+    #deploy-flow .node rect { fill: var(--paper); stroke: var(--ink); }
+    #deploy-flow .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #deploy-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #deploy-flow .legend text { fill: var(--muted); font-size: 9px; }
+    #deploy-flow .legend .rule { stroke: var(--rule); }
+  </style>
+  <rect class="paper" width="720" height="316"/>
+  <g class="edges">
+    <path class="edge" d="M160 56 H208" marker-end="url(#deploy-flow-arrow)"/>
+    <path class="edge" d="M336 56 H384" marker-end="url(#deploy-flow-arrow)"/>
+    <path class="edge" d="M512 56 H560" marker-end="url(#deploy-flow-arrow)"/>
+    <path class="edge" d="M272 80 V120 Q272 128 264 128 H104 Q96 128 96 136 V176" marker-end="url(#deploy-flow-arrow)"/>
+    <path class="edge accent" d="M448 80 V176" marker-end="url(#deploy-flow-arrow-accent)"/>
+    <path class="edge" d="M384 200 H160" marker-end="url(#deploy-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="280" y="92" width="32" height="16"/>
+    <text class="label" x="284" y="103">fails</text>
+    <rect class="mask" x="456" y="120" width="64" height="16"/>
+    <text class="label" x="460" y="131">errors &gt; 1%</text>
+  </g>
+  <g class="nodes">
+    <g class="node">
+      <rect x="32" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="60">Push to main</text>
+    </g>
+    <g class="node">
+      <rect x="208" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="220" y="60">CI checks</text>
+    </g>
+    <g class="node">
+      <rect x="384" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="396" y="60">Canary at 5%</text>
+    </g>
+    <g class="node">
+      <rect x="560" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="572" y="60">Full rollout</text>
+    </g>
+    <g class="node">
+      <rect x="32" y="176" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="204">Notify author</text>
+    </g>
+    <g class="node focal">
+      <rect x="384" y="176" width="128" height="48" rx="6"/>
+      <text class="name" x="396" y="204">Roll back</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 292)">
+    <line class="rule" x1="0" y1="-20" x2="656" y2="-20"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="3">step</text>
+    <path class="edge accent" d="M76 0 H100"/>
+    <text x="108" y="3">automatic rollback</text>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+# Gold: a .design contract with the source that obeys it (tokens.css, button.css, plan-card.css, Button.tsx, PlanCard.tsx).
+# Learn: every value in the source is a path in this file. The palette is this example's own; the scales are
+# the ones this skill's references use (4 / 8 / 16 radii, Public Sans 16 / 1.6, a 400ms base).
+
+schema: design.v1
+name: harbor
+version: 1.4.0
+status: refine
+
+agent:
+  instructions: |
+    You are holding the visual contract for Harbor. This file is the source of truth.
+    READ: intent, constraints, policy, tokens, voice, components, in that order.
+    FOLLOW: bind every color, radius, spacing, type and motion value to a token here. Never write a raw value where a token exists.
+    The accent belongs to the one primary action of a view and to its focus ring. Nothing else is accent.
+    A component this file does not list follows policy.if_missing.
+    UPDATE: edit this file in place and bump version. Ask before changing a path in locked.
+    PRECEDENCE: the user's prompt, then this file, then any skill, then defaults.
+
+intent:
+  reference: "A billing tool at the density of a spreadsheet"
+  direction: calm-utilitarian
+  signature: "One accent, kept for the single primary action of a view"
+  treatment: utilitarian
+
+voice:
+  casing: sentence
+  action_naming: "A button names the action and its object: Choose plan, Delete invoice."
+
+tokens:
+  color:
+    surface: "#ffffff"
+    ink: "#1a1a1a"
+    line: "rgba(0, 0, 0, 0.12)"
+    accent: "#5b5bd6"
+    danger: "#c62828"
+  radius:
+    sm: 4
+    md: 8
+    lg: 16
+  spacing:
+    2: 8
+    4: 16
+  typography:
+    body:
+      fontFamily: ["Public Sans", "system-ui", "sans-serif"]
+      fontSize: 16
+      lineHeight: 1.6
+    caption:
+      fontSize: 14
+  motion:
+    duration:
+      base: 400ms
+
+locked:
+  - tokens.color.accent
+
+components:
+  button:
+    variants: [primary, secondary, danger]
+    when: ["primary: the one action a view is about", "secondary: every other action", "danger: an action that deletes"]
+    when_not: ["navigation: that is a link"]
+
+policy:
+  if_missing: ask
+
+constraints:
+  never:
+    - a raw hex, radius or spacing value where a token exists
+    - a second primary button in one view

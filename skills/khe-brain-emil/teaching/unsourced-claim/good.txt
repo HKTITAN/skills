@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. What the articles do not say is stated as silence. -->
+Animating everything overwhelms the user and weakens each animation, so motion is paced [1]. He has not written about stagger, and no article gives a delay between list items.
+Source: [1] Great Animations, https://emilkowal.ski/ui/great-animations
+Not in his writing: stagger, and a count of how many things on one screen can move.

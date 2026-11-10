@@ -1,0 +1,87 @@
+<!-- Gold for: a one-shot story with parts that move against each other. Learn: the story is one click. The shackle starts open, drops with an accelerating curve and lands on frame 20; the body takes the hit from its base, squashing to 0.88 and settling in swings that halve; the plate follows 5 frames late; three impact marks are switched on at the click and off again, never faded. One transform per named group. It plays once (1 both), ends on the rested still, and is still from frame 102. No die-cut: the parts move apart and the sticker is borderless. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="sticker-isometric-lock-clasp" data-kind="isometric" data-diecut="none" role="img" aria-labelledby="sticker-isometric-lock-clasp-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="sticker-isometric-lock-clasp-title">Locking</title>
+  <style>
+    #sticker-isometric-lock-clasp [data-layer="shackle-drop"] { animation: sticker-isometric-lock-clasp-shackle-drop 2.5s cubic-bezier(0.37, 0, 0.63, 1) 1 both; }
+    @keyframes sticker-isometric-lock-clasp-shackle-drop {
+      0% { transform: translateY(-44.439px); }
+      5.33% { transform: translateY(-44.439px); animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+      13.33% { transform: translateY(0px); }
+      100% { transform: translateY(0px); }
+    }
+    #sticker-isometric-lock-clasp [data-layer="squash"] { transform-box: fill-box; transform-origin: 50% 100%; animation: sticker-isometric-lock-clasp-squash 2.5s cubic-bezier(0.37, 0, 0.63, 1) 1 both; }
+    @keyframes sticker-isometric-lock-clasp-squash {
+      0% { transform: scaleY(1); }
+      13.33% { transform: scaleY(1); }
+      15.33% { transform: scaleY(0.88); }
+      20.67% { transform: scaleY(1.032); }
+      26.67% { transform: scaleY(0.984); }
+      32.67% { transform: scaleY(1.008); }
+      38.67% { transform: scaleY(0.996); }
+      44.67% { transform: scaleY(1); }
+      100% { transform: scaleY(1); }
+    }
+    #sticker-isometric-lock-clasp [data-layer="plate-lag"] { animation: sticker-isometric-lock-clasp-plate-lag 2.5s cubic-bezier(0.37, 0, 0.63, 1) 1 both; }
+    @keyframes sticker-isometric-lock-clasp-plate-lag {
+      0% { transform: translateY(0px); }
+      16.67% { transform: translateY(0px); }
+      18.67% { transform: translateY(6.172px); }
+      24% { transform: translateY(-1.659px); }
+      30% { transform: translateY(0.83px); }
+      36% { transform: translateY(-0.415px); }
+      42% { transform: translateY(0.207px); }
+      48% { transform: translateY(0px); }
+      100% { transform: translateY(0px); }
+    }
+    #sticker-isometric-lock-clasp [data-layer="burst"] { opacity: 0; animation: sticker-isometric-lock-clasp-burst 2.5s steps(1, end) 1 both; }
+    @keyframes sticker-isometric-lock-clasp-burst {
+      0% { opacity: 0; }
+      13.33% { opacity: 1; }
+      68% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    #sticker-isometric-lock-clasp [data-layer="burst-pop"] { transform-box: fill-box; transform-origin: 50% 50%; animation: sticker-isometric-lock-clasp-burst-pop 2.5s cubic-bezier(0.37, 0, 0.63, 1) 1 both; }
+    @keyframes sticker-isometric-lock-clasp-burst-pop {
+      0% { transform: scale(0.2); }
+      13.33% { transform: scale(0.2); }
+      18% { transform: scale(1.35); }
+      23.33% { transform: scale(0.9); }
+      28% { transform: scale(1); }
+      60% { transform: scale(1); }
+      68% { transform: scale(0.2); }
+      100% { transform: scale(0.2); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #sticker-isometric-lock-clasp [data-layer] { animation: none; }
+    }
+  </style>
+  <g id="sticker-isometric-lock-clasp-art" data-layer="art">
+    <g data-layer="squash">
+      <g data-layer="shackle-drop">
+        <g id="sticker-isometric-lock-clasp-shackle" data-part="shackle">
+          <path d="M136.9 161.8 L136.9 171 L137.3 174.1 L137.4 174.1 L139.7 183.1 L140.2 184.6 L163.9 243.6 L199.1 234.3 L208.6 221.9 L208.6 221.8 L185.3 163.6 L183.5 157 L183.5 156.9 L183.5 150.9 L184.9 145.7 L184.9 145.6 L188.5 143 L195 140 L202.1 138.1 L209.5 137.5 L216.9 138.1 L224 140 L230.5 143 L236 147 L236 147.1 L240.4 151.9 L243.8 158.2 L267.2 216.4 L302.4 207.1 L311.9 194.7 L288.3 135.7 L287.6 134.2 L283 125.8 L281 123.1 L274.4 115.7 L271.8 113.3 L263.3 107.2 L260.2 105.3 L250.4 100.7 L246.8 99.5 L236 96.6 L232.2 96 L220.9 95 L217.1 95 L205.8 96 L202 96.6 L191.2 99.5 L187.6 100.7 L177.8 105.3 L174.7 107.2 L166.2 113.3 L163.6 115.7 L157 123.1 L147.5 135.6 L145.5 138.3 L140.9 146.7 L139.7 149.7 L137.4 158.7 L137.3 158.7 Z" fill="var(--white-side, #c9d6f2)"/>
+          <path d="M185.3 163.6 L183.5 157 L183.5 150.9 L185.1 145 L188.1 139.5 L192.5 134.6 L198 130.5 L204.5 127.5 L211.6 125.7 L219 125 L226.4 125.7 L233.5 127.5 L240 130.5 L245.5 134.6 L249.9 139.5 L253.4 145.7 L276.7 203.9 L311.9 194.7 L288.3 135.7 L287.6 134.2 L283 125.8 L281 123.1 L274.3 115.7 L271.8 113.4 L263.3 107.2 L260.2 105.4 L250.4 100.8 L246.8 99.5 L236 96.6 L232.2 96 L220.9 95 L217.1 95 L205.8 96 L202 96.6 L191.2 99.5 L187.7 100.8 L177.8 105.4 L174.7 107.2 L166.3 113.4 L163.7 115.7 L157 123.1 L155.1 125.8 L150.4 134.2 L149.2 137.2 L146.9 146.2 L146.5 149.3 L146.5 158.5 L146.9 161.7 L149.2 170.6 L149.7 172.2 L173.4 231.1 L208.6 221.9 Z" fill="var(--white, #ffffff)"/>
+        </g>
+      </g>
+        <g id="sticker-isometric-lock-clasp-body" data-part="body">
+          <path d="M107.2 277.2 L108.7 283.9 L146.1 377.1 L149.7 383.2 L155.1 388.3 L155.1 388.4 L162 392.2 L169.9 394.5 L178.3 395 L186.5 393.8 L355.6 349.3 L363.2 346.3 L369.5 341.9 L374.3 336.3 L397.4 306.1 L400.2 299.7 L400.8 292.9 L399.3 286.3 L361.9 193.1 L358.3 186.9 L352.9 181.8 L346 177.9 L338.1 175.7 L329.7 175.1 L321.5 176.4 L152.4 220.9 L144.8 223.8 L138.5 228.2 L133.7 233.8 L110.6 264 L107.8 270.4 Z" fill="var(--main-side, #2c4fc4)"/>
+          <path d="M321.5 176.4 L152.4 220.9 L144.8 223.8 L138.5 228.2 L133.7 233.8 L130.9 240.2 L130.3 247 L131.8 253.6 L169.2 346.8 L172.8 353 L178.2 358.1 L185.1 362 L193 364.2 L201.4 364.8 L209.6 363.5 L378.7 319 L386.2 316.1 L392.6 311.7 L397.4 306.1 L400.2 299.7 L400.8 292.9 L399.3 286.3 L361.9 193.1 L358.3 186.9 L352.9 181.8 L346 177.9 L338.1 175.7 L329.7 175.1 Z" fill="var(--main, #4f7cf7)"/>
+          <path d="M198.2 244.6 L200.3 243.8 L202 242.6 L203.3 241.1 L204 239.4 L204.2 237.5 L203.8 235.7 L202.8 234.1 L201.4 232.7 L199.5 231.7 L197.4 231.1 L195.1 230.9 L192.9 231.2 L160 239.9 L158 240.7 L156.3 241.9 L155 243.4 L154.3 245.1 L154.1 246.9 L154.5 248.7 L155.5 250.4 L156.9 251.8 L158.8 252.8 L160.9 253.4 L163.2 253.5 L165.4 253.2 Z" fill="var(--white, #ffffff)" stroke="none"/>
+        </g>
+      <g data-layer="plate-lag">
+        <g id="sticker-isometric-lock-clasp-plate" data-part="plate">
+          <path d="M222.2 248.9 L219.4 254.4 L217.7 260.2 L217.1 266.1 L217.1 266.2 L217.7 272.1 L219.4 277.9 L222.2 283.4 L226.1 288.5 L230.8 293 L236.4 296.9 L242.7 300 L249.5 302.3 L256.7 303.7 L264 304.2 L271.4 303.7 L278.5 302.3 L285.3 300 L291.6 296.9 L297.2 293 L302 288.5 L307.4 281.4 L311.3 276.3 L314.1 270.8 L315.8 265 L316.4 259 L315.8 253.1 L314.1 247.3 L311.3 241.8 L307.4 236.7 L302.6 232.2 L297 228.3 L290.8 225.2 L290.7 225.2 L283.9 222.9 L276.8 221.5 L269.4 221 L262.1 221.5 L254.9 222.9 L248.1 225.2 L241.9 228.3 L236.3 232.2 L231.5 236.7 L226.1 243.8 Z" fill="var(--gold-side, #d9900a)"/>
+          <path d="M314.1 247.3 L311.2 241.8 L307.4 236.7 L302.6 232.2 L297 228.3 L290.7 225.2 L283.9 222.9 L276.8 221.5 L269.4 221 L262.1 221.5 L255 222.9 L248.2 225.2 L241.9 228.3 L236.3 232.2 L231.5 236.7 L227.7 241.8 L224.8 247.3 L223.1 253.1 L222.5 259 L223.1 265 L224.8 270.8 L227.7 276.3 L231.5 281.4 L236.3 285.9 L241.9 289.8 L248.2 292.9 L255 295.2 L262.1 296.6 L269.4 297 L276.8 296.6 L283.9 295.2 L290.7 292.9 L297 289.8 L302.6 285.9 L307.4 281.4 L311.2 276.3 L314.1 270.8 L315.8 265 L316.4 259 L315.8 253.1 Z" fill="var(--gold, #ffc533)"/>
+          <path d="M277 242.6 L275.9 241.2 L274.5 239.8 L272.9 238.7 L271 237.8 L269.1 237.2 L267 236.8 L264.9 236.6 L262.7 236.8 L260.7 237.2 L258.7 237.8 L256.9 238.7 L255.3 239.8 L253.9 241.2 L252.8 242.6 L252 244.2 L251.5 245.9 L251.3 247.6 L251.5 249.3 L252 251 L252.8 252.6 L253.9 254.1 L255.3 255.4 L256.9 256.5 L258.7 257.4 L260.7 258.1 L261.5 258.2 L266.1 283 L289.6 276.9 L275.3 254.6 L275.9 254.1 L277 252.6 L277.8 251 L278.3 249.3 L278.4 247.6 L278.3 245.9 L277.8 244.2 Z" fill="var(--ink, #1c1f33)" stroke="none"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g data-layer="burst">
+    <g data-layer="burst-pop">
+      <path d="M409.5 65.9 L411.2 64.4 L412.4 62.6 L413.2 60.4 L413.3 58.2 L412.9 56 L411.9 53.9 L410.4 52.2 L408.5 51 L406.4 50.3 L404.1 50.1 L401.9 50.5 L399.9 51.5 L377.7 66.4 L376 67.8 L374.7 69.7 L374 71.8 L373.9 74.1 L374.3 76.3 L375.3 78.3 L376.8 80 L378.6 81.3 L380.8 82 L383 82.2 L385.2 81.7 L387.3 80.7 Z" fill="var(--white, #ffffff)"/>
+      <path d="M416.3 129.1 L418.5 129 L420.7 128.3 L422.6 127.1 L424.1 125.4 L425.2 123.4 L425.6 121.2 L425.6 119 L424.9 116.8 L423.7 114.9 L422 113.4 L420 112.3 L417.8 111.8 L390.7 109.4 L388.4 109.5 L386.3 110.1 L384.4 111.3 L382.8 113 L381.8 115 L381.3 117.2 L381.4 119.5 L382 121.6 L383.2 123.5 L384.9 125 L386.9 126.1 L389.1 126.6 Z" fill="var(--white, #ffffff)"/>
+      <path d="M98.4 100.9 L96.4 99.9 L94.2 99.5 L91.9 99.6 L89.8 100.4 L87.9 101.6 L86.4 103.3 L85.4 105.3 L85 107.5 L85.1 109.8 L85.9 111.9 L87.1 113.8 L88.8 115.3 L111 130.1 L113.1 131.1 L115.3 131.5 L117.5 131.4 L119.7 130.7 L121.5 129.4 L123 127.7 L124 125.7 L124.5 123.5 L124.3 121.2 L123.6 119.1 L122.3 117.2 L120.6 115.7 Z" fill="var(--white, #ffffff)"/>
+    </g>
+  </g>
+</svg>

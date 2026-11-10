@@ -1,0 +1,16 @@
+/* good: the mirror was refreshed from the contract; tokens outrank what :root held. */
+:root {
+  --surface: #ffffff;
+  --ink: #1a1a1a;
+  --accent: #5b5bd6;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --font-body: "Public Sans", system-ui, sans-serif;
+  --text-body: 16px;
+  --leading-body: 1.6;
+  --text-caption: 14px;
+  --duration-base: 400ms;
+}

@@ -1,0 +1,6 @@
+<!-- Gold for a direct question. Learn: two sentences, each carrying its marker, one quotation from the list, and a last line that names what the articles leave open. -->
+<!-- Asked: should our command palette animate when it opens from the keyboard shortcut? -->
+It stays still: keyboard-initiated actions never animate, because they repeat hundreds of times a day and motion makes them feel disconnected from the keypress [1][2]. His own example is a launcher: "Raycast has no animations and it feels right." [2]
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Source: [2] Great Animations, https://emilkowal.ski/ui/great-animations
+Not in his writing: whether the palette animates when a click opens it; he states the rule for keyboard actions only.

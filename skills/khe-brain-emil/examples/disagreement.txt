@@ -1,0 +1,8 @@
+<!-- Gold for a question his articles answer three ways. Learn: the shared rule first, every number with its article on the Conflict line, no average, and the tie-break marked as a reading. -->
+<!-- Asked: what scale should a popover start from when it opens? -->
+Never from `scale(0)`; the three articles that give a number all agree on that [1][2][3]. The number differs by article, and he has not written a line that reconciles them. My reading: `0.93` and `0.95` are his popover-sized examples and `0.5` is a toast that also fades in, so a popover takes one of the first two.
+Conflict: `scale(0.95)` in his table for agents [1], about `0.9` or higher with `0.93` in the demo [2], and `0.5` paired with an opacity fade [3].
+Source: [1] Agents with Taste, https://emilkowal.ski/ui/agents-with-taste
+Source: [2] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Source: [3] CSS Transforms, https://emilkowal.ski/ui/css-transforms
+Not in his writing: one starting scale for every element, and a rule that ties the number to the size of the element.

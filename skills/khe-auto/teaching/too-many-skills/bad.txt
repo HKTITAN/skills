@@ -1,0 +1,8 @@
+<!-- too-many-skills: four skills named at once, so none of them is applied properly. -->
+Goal: The logo reveal plays once and ends on the final mark; I hand back the animated SVG and its size.
+Route:
+- `khe-svg`: the reveal lives inside the file.
+- `khe-ui`: the page around the logo.
+- `khe-sound`: the reveal could carry a sound.
+- `animate` (Emil Kowalski): the easing of the reveal.
+Not verified: the reveal on the real page; nothing was run yet.

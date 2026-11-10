@@ -1,0 +1,11 @@
+/* weight-shift: the selected tab turns bold, its label gets wider, and every tab after it moves. */
+.tab {
+  padding: 0 12px;
+  color: #767676;
+  font-weight: 400;
+}
+
+.tab[aria-selected="true"] {
+  color: #262628;
+  font-weight: 600;
+}

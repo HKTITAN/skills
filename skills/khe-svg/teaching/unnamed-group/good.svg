@@ -1,0 +1,13 @@
+<!-- good: every group says what it is, in back-to-front order, so a rule can reach the arm by name. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="mascot" role="img" aria-labelledby="mascot-title">
+  <title id="mascot-title">Mascot raising an arm</title>
+  <g id="mascot-body" data-layer="body">
+    <path d="M30 90 L30 60 L70 60 L70 90 Z" fill="var(--mascot-body, #5b8def)"/>
+  </g>
+  <g id="mascot-head" data-layer="head">
+    <circle cx="50" cy="40" r="18" fill="var(--mascot-skin, #f2c9a0)"/>
+  </g>
+  <g id="mascot-arm-right" data-layer="arm-right">
+    <path d="M70 64 L88 44" fill="none" stroke="var(--mascot-skin, #f2c9a0)" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

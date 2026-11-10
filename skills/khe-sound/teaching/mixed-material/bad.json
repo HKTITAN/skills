@@ -1,0 +1,48 @@
+{
+  "//": "bad: mixed-material. The error was re-rolled on its own with a different material, so one member of the family belongs to another product.",
+  "material": "felt mallet on a small wooden block, dry, no reverb, no tail",
+  "sounds": {
+    "tick": {
+      "role": "tick",
+      "prompt": "single very short tick, one-shot UI feedback, bright",
+      "seconds": 0.5,
+      "synth": {
+        "type": "tick",
+        "freq": 3200,
+        "seconds": 0.07
+      },
+      "file": "tick.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code"
+    },
+    "send": {
+      "role": "send",
+      "prompt": "two very quick rising notes, damped, very short decay, confirmation",
+      "seconds": 0.5,
+      "synth": {
+        "type": "chime",
+        "notes": [
+          523.25,
+          659.25
+        ],
+        "decay": 0.07,
+        "stagger": 0.07
+      },
+      "file": "send.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code"
+    },
+    "error": {
+      "role": "error",
+      "material": "arcade buzzer, bright, digital",
+      "prompt": "short low dull thud with a slight downward pitch",
+      "seconds": 0.5,
+      "synth": {
+        "type": "thud",
+        "from": 220,
+        "to": 140,
+        "seconds": 0.16
+      },
+      "file": "error.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code"
+    }
+  }
+}

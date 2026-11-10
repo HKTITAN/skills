@@ -1,0 +1,15 @@
+/* The tokens of DESIGN.md as custom properties, one to one. */
+:root {
+  --color-primary: #5b5bd6;
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1a;
+  --font-body: "Public Sans", system-ui, sans-serif;
+  --text-body-md: 16px;
+  --leading-body-md: 1.6;
+  --text-caption: 14px;
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
+  --rounded-lg: 16px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+}

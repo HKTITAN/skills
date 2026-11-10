@@ -1,0 +1,170 @@
+/*
+ * Gold: the styles for a list with loading, empty and error branches.
+ * Learn one thing: the body reserves the height of three rows, and every
+ * branch fills that same box. Nothing in this list animates, because nothing
+ * here needs motion to be understood; the only moving thing is the press on
+ * a button.
+ *
+ * Values and their lanes:
+ *   row 44px comfortable, 1px dividers at rgba(0,0,0,0.05)        components: Live and data surfaces
+ *   names 14px, metadata 12px                                     typography: Scale and leading
+ *   counts in tabular figures, never wrapped or cut               typography: Features, axes and files
+ *   words 12px from the container edge                            polish-and-ship: Optical values
+ *   min-width: 0 on the text column, overflow-wrap: anywhere      polish-and-ship: The harness and what counts as a break
+ *   metadata #767676, 4.54:1 on white                             accessibility: Contrast
+ *   visually hidden text is a 1px box, never 0                    accessibility: Announcements
+ *   press scale(0.97), 160ms; none under reduced motion           motion: Entrances, exits and feedback
+ */
+
+:root {
+  --surface: #fff;
+  --text-strong: #262628;
+  --text-muted: #767676;
+  --divider: rgba(0, 0, 0, 0.05);
+  --ink-3: rgba(0, 0, 0, 0.08);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projects {
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text-strong);
+}
+
+.projects__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+}
+
+.projects__head h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Three rows of room from the first frame: 3 x 44px. Every branch fills it. */
+.projects__body {
+  display: grid;
+  min-height: 132px;
+}
+
+.projects__rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projects__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-top: 1px solid var(--divider);
+}
+
+/* The name identifies the thing, so it wraps. It never pushes the count off the row. */
+.projects__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.projects__count {
+  flex: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* One bar per line of text, in the place the name will take. */
+.projects__bar {
+  height: 0.875rem;
+  border-radius: 4px;
+  background: var(--ink-3);
+}
+
+.projects__state {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--divider);
+}
+
+.projects__state h3,
+.projects__state p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.projects__state p {
+  color: var(--text-muted);
+}
+
+.projects__button {
+  position: relative;
+  flex: none;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--text-muted);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-strong);
+  font: inherit;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: background-color 160ms ease, transform 160ms var(--ease-out-expo);
+}
+
+.projects__button::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+
+.projects__button:active {
+  transform: scale(0.97);
+}
+
+.projects__button:focus-visible {
+  outline: 2px solid var(--text-strong);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .projects__button:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects__button {
+    transition: background-color 160ms ease;
+  }
+
+  .projects__button:active {
+    transform: none;
+  }
+}

@@ -1,0 +1,4 @@
+<!-- two-playbooks: two whole jobs loaded for one request, so neither is followed from the top. -->
+Goal: A landing page for the release; I hand back the reviewed page.
+Route: playbooks `landing-page` and `launch-film`
+Not verified: the page on a real phone; nothing was built yet.

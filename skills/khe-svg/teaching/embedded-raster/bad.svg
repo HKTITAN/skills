@@ -1,0 +1,4 @@
+<!-- bad: embedded-raster. The icon is a base64 PNG in an SVG wrapper: it cannot recolour, scale cleanly or animate. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGElEQVR4nGNgGAWjYBSMglEwCkbBKBgFAAAEIAABzYHLvwAAAABJRU5ErkJggg==" width="24" height="24"/>
+</svg>

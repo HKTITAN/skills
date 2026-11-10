@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. -->
+Under reduced motion the movement is swapped for a plain fade of the same duration [1].
+Source: [1] Great Animations, https://emilkowal.ski/ui/great-animations
+Not in his writing: screen readers, focus order and contrast. Reduced motion is three sentences in one article.

@@ -1,0 +1,97 @@
+<!--
+  Gold: a button with every state, as a specimen page.
+  Learn one thing: every state is a real state in the markup (disabled,
+  aria-busy, aria-label), never a class that only looks like one. The
+  accessible name stays "Save changes" through pending and done; the change
+  is announced by the status region, which is in the page, empty, from the start.
+  Styles and their lanes are in button.css.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="color-scheme" content="light">
+  <title>Button states</title>
+  <link rel="stylesheet" href="button.css">
+  <style>
+    html {
+      color-scheme: light;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      font-synthesis: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: var(--canvas);
+      color: var(--text-strong);
+      font: 16px/1.5 system-ui, sans-serif;
+    }
+
+    .specimen {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Button states</h1>
+    <div class="specimen">
+      <!-- Rest. Hover, press and focus are this same element. -->
+      <button type="button" class="btn">
+        <span class="btn__labels">
+          <span data-label="idle">Save changes</span>
+          <span data-label="pending" aria-hidden="true">Saving changes…</span>
+          <span data-label="done" aria-hidden="true">Changes saved</span>
+        </span>
+      </button>
+
+      <!-- Pending: same size, same name, aria-busy, no longer answers. -->
+      <button type="button" class="btn" data-state="pending" aria-busy="true">
+        <span class="btn__labels">
+          <span data-label="idle">Save changes</span>
+          <span data-label="pending" aria-hidden="true">Saving changes…</span>
+          <span data-label="done" aria-hidden="true">Changes saved</span>
+        </span>
+      </button>
+
+      <!-- Done: the button answers on itself. No toast, no second button. -->
+      <button type="button" class="btn" data-state="done">
+        <span class="btn__labels">
+          <span data-label="idle">Save changes</span>
+          <span data-label="pending" aria-hidden="true">Saving changes…</span>
+          <span data-label="done" aria-hidden="true">Changes saved</span>
+        </span>
+      </button>
+
+      <!-- Disabled: dedicated tokens, never opacity. -->
+      <button type="button" class="btn" disabled>
+        <span class="btn__labels">
+          <span data-label="idle">Save changes</span>
+        </span>
+      </button>
+
+      <!-- Ghost: the quiet action beside the one filled action. -->
+      <button type="button" class="btn btn--ghost">Cancel</button>
+
+      <!-- Icon only: the name is the action, the icon is hidden from readers. -->
+      <button type="button" class="btn btn--ghost btn--icon" aria-label="Close dialog">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 4l8 8M12 4l-8 8" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Rendered empty. Script sets its text to "Saving changes" and then "Changes saved". -->
+    <p role="status" id="save-status"></p>
+  </main>
+</body>
+</html>

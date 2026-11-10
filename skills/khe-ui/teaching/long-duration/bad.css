@@ -1,0 +1,19 @@
+/* long-duration: 600ms on a menu the user opens many times a day. It reads as theatre, then as lag. */
+.menu {
+  transform-origin: top left;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1), transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu[data-open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    transform: none;
+    transition: opacity 120ms;
+  }
+}

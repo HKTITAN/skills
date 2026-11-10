@@ -1,0 +1,20 @@
+/* layout-animation: `height` is a layout property, so the browser lays the page out again on every frame of the move. */
+.panel {
+  overflow: hidden;
+  height: 0;
+  transition: height 250ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.panel[data-open] {
+  height: 240px;
+}
+
+.panel__inner {
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}

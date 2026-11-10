@@ -1,0 +1,52 @@
+{
+  "//": "Gold for a family manifest. Learn this: one material line, written as a thing and what strikes it, sits on every sound; each sound's length fits its role; each file has its licence beside it. Run it with: node scripts/sound-family.mjs examples/family.json --provider synth --out public/sfx",
+  "material": "felt mallet on a small wooden block, dry, no reverb, no tail, clean transient",
+  "tactile": false,
+  "sounds": {
+    "tick": {
+      "role": "tick",
+      "prompt": "single very short tick, one-shot UI feedback, bright",
+      "seconds": 0.5,
+      "synth": { "type": "tick", "freq": 3200, "seconds": 0.07 },
+      "file": "tick.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code",
+      "read": "2026-11-10"
+    },
+    "send": {
+      "role": "send",
+      "prompt": "two very quick rising notes, a major third apart, damped, muted, very short decay, stops immediately, confirmation",
+      "seconds": 0.5,
+      "synth": { "type": "chime", "notes": [523.25, 659.25], "decay": 0.07, "stagger": 0.07 },
+      "file": "send.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code",
+      "read": "2026-11-10"
+    },
+    "receive": {
+      "role": "receive",
+      "prompt": "two soft quick descending notes, a major third apart, damped, muted, very short decay, stops immediately, incoming message",
+      "seconds": 0.5,
+      "synth": { "type": "chime", "notes": [493.88, 392.0], "decay": 0.1, "stagger": 0.09 },
+      "file": "receive.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code",
+      "read": "2026-11-10"
+    },
+    "error": {
+      "role": "error",
+      "prompt": "short low dull thud with a slight downward pitch, rubber on wood",
+      "seconds": 0.5,
+      "synth": { "type": "thud", "from": 220, "to": 140, "seconds": 0.16 },
+      "file": "error.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code",
+      "read": "2026-11-10"
+    },
+    "success": {
+      "role": "success",
+      "prompt": "three ascending mellow notes, major, warm, short decay, completion",
+      "seconds": 1.0,
+      "synth": { "type": "chime", "notes": [523.25, 659.25, 783.99], "decay": 0.12, "stagger": 0.08 },
+      "file": "success.wav",
+      "license": "own work, rendered by scripts/sound-family.mjs, CC0, made in code",
+      "read": "2026-11-10"
+    }
+  }
+}

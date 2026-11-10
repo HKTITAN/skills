@@ -1,0 +1,22 @@
+<!-- Gold for: a small icon set on one grid. Learn: every symbol repeats the same four facts (viewBox 0 0 24 24, stroke 1.5, round caps, currentColor), so no icon can drift from its neighbours. Use: <svg class="icon" aria-hidden="true"><use href="icon-set.svg#i-check"/></svg>, sized from CSS. -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 7 L19 7 M5 12 L19 12 M5 17 L19 17"/>
+  </symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5 L12 19 M5 12 L19 12"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12 L10 17 L19 7"/>
+  </symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12 L19 12 M13 6 L19 12 L13 18"/>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="6"/>
+    <path d="M15 15 L20 20"/>
+  </symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4 L12 15 M7 10 L12 15 L17 10 M5 20 L19 20"/>
+  </symbol>
+</svg>

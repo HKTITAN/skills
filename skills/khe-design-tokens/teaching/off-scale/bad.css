@@ -1,0 +1,28 @@
+/* bad: off-scale. 6px sits between two steps of a scale that defines 4, 8 and 16. */
+.plan-card {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.plan-card__badge {
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+}
+
+.plan-card__note {
+  color: var(--ink);
+  font-size: var(--text-caption);
+}
+
+.plan-card__action {
+  background: var(--accent);
+  color: var(--surface);
+  border-radius: 6px;
+  padding: var(--space-2) var(--space-4);
+  transition: background-color var(--duration-base);
+}

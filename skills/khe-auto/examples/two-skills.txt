@@ -1,0 +1,12 @@
+<!-- Gold for a two-skill route. Learn: the contract goes first, the second skill judges what the first produced, and each skill is closed by its own gate. -->
+Goal: The pricing card uses the project's own colors and reads as finished; I hand back the changed component and a verdict.
+Route:
+- `khe-design-tokens`: the repo has a `.design` file, so the contract goes first.
+- `khe-ui`: the card then needs judging across type, surface and states.
+Work:
+- `khe-design-tokens`: threaded the contract through `PricingCard.css`; every literal now resolves to a token. Gate: `khe-design-tokens/scripts/token-check.mjs --gate` on the file, last line pasted in the handover file.
+- Looked at the card in the browser before starting the second skill.
+- `khe-ui`: review lane, then the components lane for the missing loading state. Gate: `khe-ui/scripts/ui-check.mjs --gate` on the component, last line pasted in the handover file.
+- Fresh-eye review returned one finding: the price wraps at the narrow width. Fixed in the layout, where it broke, then both gates run again.
+- Verdict from `khe-ui`: Ship.
+Not verified: the card on a real phone, and the annual toggle with a screen reader.

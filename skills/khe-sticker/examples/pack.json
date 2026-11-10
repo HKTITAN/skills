@@ -1,0 +1,22 @@
+{
+  "_comment": "Gold for: a pack manifest. Learn: every sticker names its kind, what it says and, when it moves, its one verb; every output a pack must contain is listed with its size and its limit. The gate holds these numbers to references/sticker-pack.md.",
+  "name": "desk",
+  "canvas": 500,
+  "stickers": [
+    { "name": "rocket", "kind": "flat", "title": "Launch", "animated": false },
+    { "name": "ok", "kind": "lettering", "title": "OK!", "animated": false },
+    { "name": "done", "kind": "badge", "title": "Done", "animated": true, "verb": "stamp" },
+    { "name": "buddy", "kind": "character", "title": "Cheering", "animated": true, "verb": "jump" },
+    { "name": "lock", "kind": "isometric", "title": "Locked", "animated": true, "verb": "clasp" },
+    { "name": "heart", "kind": "reaction", "title": "Love it", "animated": true, "verb": "thump" }
+  ],
+  "outputs": {
+    "svg": { "path": "svg/<name>.svg", "note": "static master with the die-cut" },
+    "animated": { "path": "animated/<name>.svg", "note": "CSS keyframes, a reduced-motion still inside" },
+    "png": { "path": "png/<name>.png", "size": 512, "margin": 16 },
+    "whatsappStatic": { "path": "whatsapp/static/<name>.webp", "size": 512, "underBytes": 100000 },
+    "whatsappAnimated": { "path": "whatsapp/animated/<name>.webp", "size": 512, "underBytes": 500000 },
+    "tray": { "path": "whatsapp/tray.png", "size": 96 },
+    "telegram": { "path": "telegram/<name>.webm", "size": 512, "underBytes": 256000, "maxSeconds": 3, "fps": 30 }
+  }
+}

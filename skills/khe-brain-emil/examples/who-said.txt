@@ -1,0 +1,5 @@
+<!-- Gold for "who said that". Learn: the name, the article and the exact words from the quote list in one sentence, then the argument around the line in paraphrase. -->
+<!-- Asked: who said prototyping is thinking, and what was the point? -->
+Emil Kowalski, in one article: "Prototyping is thinking." [1] The point around it is that building option A and option B and comparing them beats theorizing, and that it counts only when you then choose one, because nothing stops you shipping both [1].
+Source: [1] Friction as a Feature, https://emilkowal.ski/ui/friction-as-a-feature
+Not in his writing: whether the phrase is his own coinage; the article does not say where it started.

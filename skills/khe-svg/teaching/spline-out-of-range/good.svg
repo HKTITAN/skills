@@ -1,0 +1,7 @@
+<!-- good: the overshoot is an extra keyframe in values and keyTimes; every spline stays inside 0 to 1. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="badge-pop" data-home="img" data-still="still.svg" fill="currentColor" aria-hidden="true" focusable="false">
+  <g id="badge-pop-dot">
+    <circle cx="12" cy="12" r="5"/>
+    <animateTransform attributeName="transform" type="translate" dur="400ms" fill="freeze" calcMode="spline" values="0 6; 0 -1; 0 0" keyTimes="0; 0.7; 1" keySplines="0.25 1 0.5 1; 0.65 0 0.35 1"/>
+  </g>
+</svg>

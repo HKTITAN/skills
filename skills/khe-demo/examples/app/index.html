@@ -1,0 +1,148 @@
+<!doctype html>
+<!--
+  Sample app for the khe-demo gold scripts. A task list that keeps its state in
+  localStorage under "tasks.v1", so a reset is one write and every take starts
+  from the same three rows. Saving takes 900 ms on purpose: the scripts wait on
+  the new row, never on a timer. Change ?delay=<ms> to move it.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasks</title>
+<style>
+  :root { --ink: #16181d; --soft: #6b7280; --line: #e5e7eb; --ground: #f6f7f9; --card: #fff; --accent: #2f6fed; --done: #16a34a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 18px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--ground); }
+  main { max-width: 880px; margin: 0 auto; padding: 44px 32px; }
+  header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+  h1 { font-size: 32px; margin: 0; letter-spacing: -0.01em; }
+  .meta { color: var(--soft); font-size: 15px; font-variant-numeric: tabular-nums; }
+  form { display: flex; gap: 8px; margin-bottom: 12px; }
+  input[type="text"] { flex: 1; min-width: 0; font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+  input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  button { font: inherit; border: 0; border-radius: 8px; padding: 10px 16px; background: var(--ink); color: #fff; cursor: pointer; }
+  button:active { transform: scale(0.97); }
+  button[disabled] { opacity: 0.6; cursor: default; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+  .tabs button { background: transparent; color: var(--soft); padding: 6px 12px; font-size: 15px; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+  ul { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  li { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-top: 1px solid var(--line); }
+  li:first-child { border-top: 0; }
+  li.new { animation: land 0.5s ease-out; }
+  li.done .title { color: var(--soft); text-decoration: line-through; }
+  li.saving { color: var(--soft); }
+  input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--done); margin: 0; }
+  .title { flex: 1; }
+  .empty { padding: 28px 16px; color: var(--soft); text-align: center; }
+  .undo { background: transparent; color: var(--accent); padding: 4px 8px; font-size: 15px; }
+  @keyframes land { from { background: #eaf1ff; } to { background: var(--card); } }
+  @media (max-width: 480px) { body { font-size: 17px; } main { padding: 28px 16px; } h1 { font-size: 28px; } }
+  @media (prefers-reduced-motion: reduce) { li.new { animation: none; } button:active { transform: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Tasks</h1>
+    <span class="meta"><span data-testid="today"></span> · <span data-testid="count">0 open</span></span>
+  </header>
+  <form data-testid="add-form" autocomplete="off">
+    <input type="text" data-testid="new-task" placeholder="Add a task" aria-label="New task">
+    <button type="submit" data-testid="add">Add</button>
+  </form>
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" data-testid="tab-all" data-filter="all" aria-selected="true">All</button>
+    <button type="button" role="tab" data-testid="tab-open" data-filter="open" aria-selected="false">Open</button>
+    <button type="button" role="tab" data-testid="tab-done" data-filter="done" aria-selected="false">Done</button>
+  </div>
+  <ul data-testid="list"></ul>
+</main>
+<script>
+  const KEY = "tasks.v1";
+  const delay = Number(new URLSearchParams(location.search).get("delay") ?? 900);
+  const list = document.querySelector('[data-testid="list"]');
+  const input = document.querySelector('[data-testid="new-task"]');
+  const addButton = document.querySelector('[data-testid="add"]');
+  let filter = "all";
+  let saving = null;
+  let fresh = null;
+
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } };
+  const save = (tasks) => localStorage.setItem(KEY, JSON.stringify(tasks));
+
+  function render() {
+    const tasks = load();
+    const open = tasks.filter((t) => !t.done).length;
+    document.querySelector('[data-testid="count"]').textContent = `${open} open`;
+    document.querySelector('[data-testid="today"]').textContent =
+      new Date().toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
+    for (const tab of document.querySelectorAll(".tabs button")) tab.setAttribute("aria-selected", String(tab.dataset.filter === filter));
+    const shown = tasks.filter((t) => filter === "all" || (filter === "done") === t.done);
+    list.replaceChildren();
+    for (const t of shown) {
+      const li = document.createElement("li");
+      li.dataset.testid = `task-${t.id}`;
+      if (t.done) li.classList.add("done");
+      if (t.id === fresh) li.classList.add("new");
+      const box = document.createElement("input");
+      box.type = "checkbox";
+      box.checked = t.done;
+      box.dataset.testid = `check-${t.id}`;
+      box.setAttribute("aria-label", `Done: ${t.title}`);
+      box.addEventListener("change", () => { save(load().map((x) => (x.id === t.id ? { ...x, done: box.checked } : x))); fresh = null; render(); });
+      const title = document.createElement("span");
+      title.className = "title";
+      title.textContent = t.title;
+      li.append(box, title);
+      if (t.id === fresh) {
+        const undo = document.createElement("button");
+        undo.type = "button";
+        undo.className = "undo";
+        undo.dataset.testid = "undo";
+        undo.textContent = "Undo";
+        undo.addEventListener("click", () => { save(load().filter((x) => x.id !== t.id)); fresh = null; render(); });
+        li.append(undo);
+      }
+      list.append(li);
+    }
+    if (saving) {
+      const li = document.createElement("li");
+      li.className = "saving";
+      li.dataset.testid = "saving";
+      li.textContent = "Saving…";
+      list.append(li);
+    }
+    if (!shown.length && !saving) {
+      const li = document.createElement("li");
+      li.className = "empty";
+      li.dataset.testid = "empty";
+      li.textContent = "Nothing here yet.";
+      list.append(li);
+    }
+  }
+
+  document.querySelector('[data-testid="add-form"]').addEventListener("submit", (event) => {
+    event.preventDefault();
+    const title = input.value.trim();
+    if (!title || saving) return;
+    saving = title;
+    input.value = "";
+    addButton.disabled = true;
+    render();
+    setTimeout(() => {
+      const tasks = load();
+      const id = `t${tasks.reduce((n, t) => Math.max(n, Number(t.id.slice(1)) || 0), 0) + 1}`;
+      save([...tasks, { id, title: saving, done: false }]);
+      fresh = id;
+      saving = null;
+      addButton.disabled = false;
+      render();
+    }, delay);
+  });
+  for (const tab of document.querySelectorAll(".tabs button")) tab.addEventListener("click", () => { filter = tab.dataset.filter; render(); });
+  render();
+</script>
+</body>
+</html>

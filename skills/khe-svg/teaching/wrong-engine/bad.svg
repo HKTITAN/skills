@@ -1,0 +1,18 @@
+<!-- bad: wrong-engine. The file is loaded as an img, where no pointer reaches it: the hover never fires and the transition never runs. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="spark-draw" role="img" aria-labelledby="spark-draw-title" data-home="img" fill="none">
+  <title id="spark-draw-title">Spark logo</title>
+  <style>
+    #spark-draw .line { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s cubic-bezier(0.65, 0, 0.35, 1); }
+    #spark-draw .dot { opacity: 0; transition: opacity 240ms ease 1s; }
+    #spark-draw:hover .line { stroke-dashoffset: 0; }
+    #spark-draw:hover .dot { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      #spark-draw .line { transition: none; stroke-dashoffset: 0; }
+      #spark-draw .dot { transition: none; opacity: 1; }
+    }
+  </style>
+  <g id="spark-draw-mark">
+    <path class="line" pathLength="1" d="M8 34 L18 24 L26 30 L38 14" stroke="var(--logo-ink, #111111)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle class="dot" cx="38" cy="14" r="4" fill="var(--logo-accent, #e5484d)"/>
+  </g>
+</svg>

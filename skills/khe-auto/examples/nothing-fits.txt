@@ -1,0 +1,6 @@
+<!-- Gold for "nothing fits". Learn: say it in the route, answer normally, and stretch no skill over the problem. -->
+Goal: The webhook retries stop creating duplicate orders; I hand back a fix to the retry handler.
+Route: none. No skill here applies: this collection covers design and Swift, and this is backend logic.
+Work:
+- Answered without a skill: the handler now ignores an event id it has already processed, and a test delivers the same event twice.
+Not verified: the fix against the payment provider's live retries; only the local test ran.

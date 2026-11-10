@@ -1,0 +1,64 @@
+{
+  "//": "Gold: a plan for a native desktop app, as one shot inside a film. Learn: the driver acts and ffmpeg records, the capture is the app's window and never the display, targets are role and name, and no snapshot ref is ever written into a script.",
+  "demo": "add-a-task-desktop",
+  "surface": "desktop",
+  "driver": "agent-desktop",
+  "app": { "name": "Tasks", "window_title": "Tasks" },
+  "capture": { "with": "gdigrab", "area": "window", "cursor": true },
+  "destination": "film",
+  "window": {
+    "width": 1280,
+    "height": 720,
+    "scale": 1.5,
+    "x": 80,
+    "y": 80
+  },
+  "fps": 30,
+  "smallest_text": 15,
+  "state": {
+    "account": "demo profile from the seed file: Ana Demo, ana@example.com",
+    "clock": "seeded: every date in the seed file is fixed, and the title bar shows none",
+    "locale": "en-US",
+    "scheme": "light",
+    "hide": ["notifications: Do Not Disturb on", "taskbar: outside the window rectangle", "recent files list: emptied by the seed"]
+  },
+  "reset": [
+    { "do": "command", "run": "npm run seed:demo" },
+    { "do": "launch", "app": "Tasks", "then": "resize-window 1280 x 720, move-window 80,80" }
+  ],
+  "ready": { "text": "3 open" },
+  "pace": { "cps": 12, "move_ms": [300, 900] },
+  "beats": [
+    {
+      "id": "context",
+      "what": "The app's window with five seeded tasks. The pointer goes to the field.",
+      "steps": [
+        { "do": "hold", "ms": 800, "why": "the opening frame is read before anything moves" },
+        { "do": "click", "target": "role=textfield[name=\"New task\"]", "until": { "visible": "role=textfield[name=\"New task\"]" } }
+      ]
+    },
+    {
+      "id": "type",
+      "what": "A sixth task is typed.",
+      "steps": [
+        { "do": "type", "target": "role=textfield[name=\"New task\"]", "text": "Confirm the DJ" }
+      ]
+    },
+    {
+      "id": "add",
+      "what": "Add is pressed and the task saves.",
+      "steps": [
+        { "do": "click", "target": "role=button[name=\"Add\"]", "until": { "text": "Confirm the DJ", "ramp": true } }
+      ]
+    },
+    {
+      "id": "payoff",
+      "payoff": true,
+      "what": "The new row is in the list and the count reads 4 open.",
+      "steps": [
+        { "do": "wait", "until": { "text": "4 open" } },
+        { "do": "hold", "ms": 2000, "why": "the new row and the count are read; this frame is the poster" }
+      ]
+    }
+  ]
+}

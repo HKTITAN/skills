@@ -1,0 +1,54 @@
+{
+  "_comment": "good: every output a pack must contain is listed, with its size and its limit.",
+  "name": "desk",
+  "canvas": 500,
+  "stickers": [
+    {
+      "name": "typing",
+      "kind": "flat",
+      "title": "Typing",
+      "animated": true,
+      "verb": "pop"
+    },
+    {
+      "name": "verified",
+      "kind": "badge",
+      "title": "Verified",
+      "animated": false
+    }
+  ],
+  "outputs": {
+    "svg": {
+      "path": "svg/<name>.svg"
+    },
+    "animated": {
+      "path": "animated/<name>.svg"
+    },
+    "png": {
+      "path": "png/<name>.png",
+      "size": 512,
+      "margin": 16
+    },
+    "whatsappStatic": {
+      "path": "whatsapp/static/<name>.webp",
+      "size": 512,
+      "underBytes": 100000
+    },
+    "whatsappAnimated": {
+      "path": "whatsapp/animated/<name>.webp",
+      "size": 512,
+      "underBytes": 500000
+    },
+    "tray": {
+      "path": "whatsapp/tray.png",
+      "size": 96
+    },
+    "telegram": {
+      "path": "telegram/<name>.webm",
+      "size": 512,
+      "underBytes": 256000,
+      "maxSeconds": 3,
+      "fps": 30
+    }
+  }
+}

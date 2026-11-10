@@ -1,0 +1,5 @@
+<!-- router-value: the route gives a duration and a curve from memory instead of from the owning skill. -->
+Goal: The account dropdown opens with one built animation; I hand back the changed component.
+Route:
+- `animate` (Emil Kowalski): one animation, 200ms with ease-out.
+Not verified: the dropdown on a slow device; nothing was run yet.

@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: The webhook retries stop creating duplicate orders; I hand back a fix to the retry handler.
+Route: none. No skill here applies: this is backend logic.
+Not verified: the fix against live retries; nothing was run.

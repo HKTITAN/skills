@@ -1,0 +1,33 @@
+/* Gold: one class per variant in components.button.variants. Learn: three variants in the contract,
+   three modifier classes here, and the accent appears only on primary and on the focus ring.
+   The 1px border and the 2px ring are widths the contract has no token for; TOKENS.md reports both. */
+.button {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+  transition: background-color var(--duration-base);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.button--secondary {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.button--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+
+.button--danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: var(--surface);
+}

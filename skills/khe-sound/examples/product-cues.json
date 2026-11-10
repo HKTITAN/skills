@@ -1,0 +1,64 @@
+{
+  "//": "Gold for a product sound map: a to-do app. Learn the ratio: seven moments were proposed, four stay silent and are written down with the reason, and each of the three that earned a sound has a trigger that is a result (never a key or a press), a contact time, a length inside its band and a visual twin.",
+  "surface": "product",
+  "product": "a to-do app",
+  "tactile": false,
+  "material": "felt mallet on a small wooden block, dry, no reverb, no tail",
+  "family": "family.json",
+  "defaultOn": false,
+  "mute": {
+    "control": "Settings > Sounds and haptics, one switch",
+    "persisted": "localStorage key sound, values on and off",
+    "keyboard": true
+  },
+  "silent": [
+    { "moment": "typing a task", "why": "heard on every keystroke: never" },
+    { "moment": "checking a task off", "perDay": 40, "why": "nothing the eye misses, and the 100th use reaches for mute" },
+    { "moment": "hovering a row", "why": "hover is 0 ms" },
+    { "moment": "opening the settings sheet", "why": "decoration: the sheet arriving is already the signal" }
+  ],
+  "cues": [
+    {
+      "id": "sync-done",
+      "moment": "a task finishes syncing after the user has started the next one",
+      "sound": "send",
+      "trigger": "sync:resolved",
+      "t": 0.17,
+      "contact": "85 % through the 200 ms decelerating draw of the row's synced mark",
+      "lag": 0.01,
+      "ms": 180,
+      "peakDb": -3,
+      "twin": "the row's synced mark draws in",
+      "perDay": 3,
+      "why": "confirmation when attention is elsewhere"
+    },
+    {
+      "id": "submit-rejected",
+      "moment": "the server rejects a new task",
+      "sound": "error",
+      "trigger": "submit:rejected",
+      "t": 0,
+      "contact": "the field's shake starts with the state change itself",
+      "lag": 0.01,
+      "ms": 160,
+      "peakDb": -3,
+      "twin": "the field shakes and its inline message appears",
+      "perDay": 1,
+      "why": "attention is needed and the eye may be on the list"
+    },
+    {
+      "id": "streak-30",
+      "moment": "the 30-day streak is reached",
+      "sound": "success",
+      "trigger": "streak:reached",
+      "t": 0.22,
+      "contact": "the streak badge's spring first crosses its rest position",
+      "lag": 0.01,
+      "ms": 460,
+      "peakDb": -3,
+      "twin": "the streak badge lands",
+      "perDay": "once a month",
+      "why": "a rare milestone, where the budget goes"
+    }
+  ]
+}

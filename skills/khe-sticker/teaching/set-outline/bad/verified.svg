@@ -1,0 +1,18 @@
+<!-- bad: set-outline. This badge is drawn with a 4-unit outline beside a character at 5. Each weight is allowed alone; side by side they are two hands. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="verified" data-kind="badge" role="img" aria-labelledby="verified-title" stroke="var(--ink, #1c1f33)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+  <title id="verified-title">Verified</title>
+  <g data-layer="diecut">
+    <path d="M185 98 L315 98 L402 185 L402 315 L315 402 L185 402 L98 315 L98 185 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="frame">
+      <path d="M190 110 L310 110 L390 190 L390 310 L310 390 L190 390 L110 310 L110 190 Z" fill="var(--ok, #2fcf8f)"/>
+    </g>
+    <g data-part="plate">
+      <path d="M180 180 L320 180 L320 320 L180 320 Z" fill="var(--white, #ffffff)"/>
+    </g>
+    <g data-part="mark">
+      <path d="M205 238 L235 268 L295 203 L310 218 L235 297 L190 253 Z" fill="var(--ok, #2fcf8f)"/>
+    </g>
+  </g>
+</svg>

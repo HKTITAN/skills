@@ -1,0 +1,14 @@
+/* magic-z-index: 9999 wins today and starts the race. The next overlay ships with 99999. */
+:root {
+  --z-dropdown: 100;
+  --z-modal: 200;
+  --z-tooltip: 300;
+  --z-toast: 400;
+}
+
+.toast {
+  position: fixed;
+  right: 32px;
+  bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+  z-index: 9999;
+}

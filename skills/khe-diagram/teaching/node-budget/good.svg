@@ -1,0 +1,48 @@
+<!-- good: the overview of five zones; the checkout path inside Commerce is a second figure at 8 nodes. -->
+<svg xmlns="http://www.w3.org/2000/svg" id="shop-overview" viewBox="0 0 896 112" role="img" aria-labelledby="shop-overview-title shop-overview-desc">
+  <title id="shop-overview-title">Shop overview</title>
+  <desc id="shop-overview-desc">Requests move from clients through the edge into commerce, then to fulfilment and the back office.</desc>
+  <defs>
+    <marker id="shop-overview-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #shop-overview { --paper: #fff; --paper-2: #f6f5f4; --ink: #262628; --muted: #7a7a7d; --soft: #9a9a9d; --rule: rgba(0,0,0,0.06); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); --link: color-mix(in srgb, #3b82f6 82%, #000); font-family: system-ui, sans-serif; }
+    #shop-overview .paper { fill: var(--paper); }
+    #shop-overview .edge { fill: none; stroke: var(--muted); }
+    #shop-overview .head { fill: var(--muted); }
+    #shop-overview .node rect { fill: var(--paper); stroke: var(--ink); }
+    #shop-overview .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #shop-overview .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+  </style>
+  <rect class="paper" width="896" height="112"/>
+  <g class="edges">
+    <path class="edge" d="M160 56 H208" marker-end="url(#shop-overview-arrow)"/>
+    <path class="edge" d="M336 56 H384" marker-end="url(#shop-overview-arrow)"/>
+    <path class="edge" d="M512 56 H560" marker-end="url(#shop-overview-arrow)"/>
+    <path class="edge" d="M688 56 H736" marker-end="url(#shop-overview-arrow)"/>
+  </g>
+  <g class="nodes">
+    <g class="node">
+      <rect x="32" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="60">Clients</text>
+    </g>
+    <g class="node">
+      <rect x="208" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="220" y="60">Edge</text>
+    </g>
+    <g class="node focal">
+      <rect x="384" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="396" y="60">Commerce</text>
+    </g>
+    <g class="node">
+      <rect x="560" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="572" y="60">Fulfilment</text>
+    </g>
+    <g class="node">
+      <rect x="736" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="748" y="60">Back office</text>
+    </g>
+  </g>
+</svg>

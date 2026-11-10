@@ -1,0 +1,53 @@
+{
+  "//": "good: the recording is CC BY 4.0, read on its own page, dated, with the full credit line.",
+  "surface": "film",
+  "locked": true,
+  "register": "A, dry reveal",
+  "target": {
+    "lufs": -18,
+    "dbtp": -1
+  },
+  "files": [
+    {
+      "file": "stem.wav",
+      "source": "rendered by scripts/sound-sheet.mjs from this sheet",
+      "license": "own work, CC0, made in code",
+      "read": "2026-11-10"
+    },
+    {
+      "file": "paper-slide.wav",
+      "page": "https://freesound.org/people/example/sounds/000000/",
+      "license": "CC BY 4.0",
+      "read": "2026-11-07",
+      "credit": "\"Paper slide\" by example, https://freesound.org/people/example/sounds/000000/, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/, edited"
+    }
+  ],
+  "canvas": {
+    "w": 1920,
+    "h": 1080
+  },
+  "fps": 30,
+  "duration": 5,
+  "cues": [
+    {
+      "id": "s2-chip",
+      "kind": "tick",
+      "t": 2.34,
+      "lag": 0.01,
+      "x": 1500,
+      "y": 300,
+      "w": 120,
+      "h": 120
+    },
+    {
+      "id": "s3-wordmark",
+      "kind": "land",
+      "t": 3.1,
+      "lag": 0.01,
+      "x": 960,
+      "y": 540,
+      "w": 460,
+      "h": 132
+    }
+  ]
+}

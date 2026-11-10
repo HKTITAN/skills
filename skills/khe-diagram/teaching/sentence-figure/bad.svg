@@ -1,0 +1,37 @@
+<!-- bad: sentence-figure: three boxes in a row for one relationship; the sentence says all of it. -->
+<svg xmlns="http://www.w3.org/2000/svg" id="job-path" viewBox="0 0 544 112" role="img" aria-labelledby="job-path-title job-path-desc">
+  <title id="job-path-title">Job path</title>
+  <desc id="job-path-desc">The API writes jobs to the queue and the worker drains it.</desc>
+  <defs>
+    <marker id="job-path-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #job-path { --paper: #fff; --paper-2: #f6f5f4; --ink: #262628; --muted: #7a7a7d; --soft: #9a9a9d; --rule: rgba(0,0,0,0.06); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); --link: color-mix(in srgb, #3b82f6 82%, #000); font-family: system-ui, sans-serif; }
+    #job-path .paper { fill: var(--paper); }
+    #job-path .edge { fill: none; stroke: var(--muted); }
+    #job-path .head { fill: var(--muted); }
+    #job-path .node rect { fill: var(--paper); stroke: var(--ink); }
+    #job-path .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+  </style>
+  <rect class="paper" width="544" height="112"/>
+  <g class="edges">
+    <path class="edge" d="M160 56 H208" marker-end="url(#job-path-arrow)"/>
+    <path class="edge" d="M336 56 H384" marker-end="url(#job-path-arrow)"/>
+  </g>
+  <g class="nodes">
+    <g class="node">
+      <rect x="32" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="60">API</text>
+    </g>
+    <g class="node">
+      <rect x="208" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="220" y="60">Queue</text>
+    </g>
+    <g class="node">
+      <rect x="384" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="396" y="60">Worker</text>
+    </g>
+  </g>
+</svg>

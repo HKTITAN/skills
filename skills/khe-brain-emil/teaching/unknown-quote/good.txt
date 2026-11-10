@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. The only words in quotation marks are from the quote list. -->
+He puts it in one line: sometimes "the best animation is no animation" [1].
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Not in his writing: a limit on how many animations one screen holds.

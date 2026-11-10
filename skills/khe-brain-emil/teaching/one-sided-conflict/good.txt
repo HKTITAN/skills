@@ -1,0 +1,7 @@
+<!-- good: the same reply with the one fault fixed. Both sides, and the article where he explains the gap. -->
+Interface animation stays under 300ms [1], and his own toast runs longer [2].
+Conflict: the rule is under 300ms [1], the toast transitions over `400ms ease` [2], and he explains the toast as slower on purpose to suit the library's look and name [3].
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Source: [2] Building a Toast Component, https://emilkowal.ski/ui/building-a-toast-component
+Source: [3] Great Animations, https://emilkowal.ski/ui/great-animations
+Not in his writing: a ceiling for a toast in general; the value is this library's.

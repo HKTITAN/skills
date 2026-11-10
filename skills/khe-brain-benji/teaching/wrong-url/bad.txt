@@ -1,0 +1,4 @@
+<!-- wrong-url: the title is right and the link is not the one in sources.md, so the reader lands on a missing page. -->
+In Family, tabs slide in the direction of the tab that was tapped, so a switch reads as travel and not as a cut (Family Values).
+Source: Family Values, https://benji.org/family
+Not in his writing: a duration or a curve for that slide.

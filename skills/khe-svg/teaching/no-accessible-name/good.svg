@@ -1,0 +1,5 @@
+<!-- good: the choice is made. It carries meaning, so role="img", a title as the first child, and aria-labelledby. Decoration would take aria-hidden="true" instead. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="saved-title" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <title id="saved-title">Saved</title>
+  <path d="M5 12 L10 17 L19 7"/>
+</svg>

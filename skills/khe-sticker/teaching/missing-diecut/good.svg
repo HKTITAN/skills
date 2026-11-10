@@ -1,0 +1,17 @@
+<!-- good: the die-cut is the first layer, one closed white shape 12 units outside the art, with no outline of its own. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="bubble" data-kind="flat" role="img" aria-labelledby="bubble-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="bubble-title">Typing</title>
+  <g data-layer="diecut">
+    <path d="M98 118 L402 118 L402 332 L236 332 L158 408 L158 332 L98 332 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="bubble">
+      <path d="M110 130 L390 130 L390 320 L230 320 L170 380 L170 320 L110 320 Z" fill="var(--main, #4f7cf7)"/>
+    </g>
+    <g data-part="dots">
+      <circle cx="190" cy="225" r="16" fill="var(--white, #ffffff)"/>
+      <circle cx="250" cy="225" r="16" fill="var(--white, #ffffff)"/>
+      <circle cx="310" cy="225" r="16" fill="var(--white, #ffffff)"/>
+    </g>
+  </g>
+</svg>

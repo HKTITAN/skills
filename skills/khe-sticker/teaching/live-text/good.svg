@@ -1,0 +1,13 @@
+<!-- good: the word is drawn as outlines on one stroke weight, so it is the same shape in every renderer. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="hi" data-kind="lettering" data-text="HI" role="img" aria-labelledby="hi-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="hi-title">HI</title>
+  <g data-layer="diecut">
+    <path d="M98 138 L402 138 L402 362 L98 362 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="word">
+      <path d="M110 150 L156 150 L156 228 L224 228 L224 150 L270 150 L270 350 L224 350 L224 274 L156 274 L156 350 L110 350 Z" fill="var(--gold, #ffc533)"/>
+      <path d="M340 150 L390 150 L390 350 L340 350 Z" fill="var(--gold, #ffc533)"/>
+    </g>
+  </g>
+</svg>

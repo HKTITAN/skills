@@ -1,0 +1,13 @@
+<!-- Gold for a playbook route. Learn: one playbook, its steps in order with the gate each one ran, and the step that was reopened named as such. -->
+Goal: A launch film for Friday's release that can be posted as it is; I hand back the render and its measured numbers.
+Route: playbook `launch-film`
+Work:
+1. Register: named and written down with the runtime, by `khe-launch-film`. No gate, a decision.
+2. Beats: a beat sheet with a time for the first word, the name and the endcard. `khe-launch-film/scripts/film-check.mjs --gate` on the sheet, last line pasted in the handover file.
+3. Build: rendered in the project's film engine from the closest gold beat sheet. Same gate, run on the render.
+4. Lock picture: no frame will move again. Same gate, run on the locked cut.
+5. Sound: one family, a cue sheet with a frame number per sound, by `khe-sound`. `khe-sound/scripts/sound-check.mjs --gate` on the cue sheet.
+6. Review: cuts per minute, still share and loudness measured on the file and listed in the handover file. Both gates run on the final file.
+- Step 4 was reopened once: a cut landed off its beat. Fixed in step 4, then steps 5 and 6 run again from the top.
+- Fresh-eye review saw the render and the gold only, and returned "nothing".
+Not verified: loudness on phone speakers, and the vertical cut, which was not rendered.

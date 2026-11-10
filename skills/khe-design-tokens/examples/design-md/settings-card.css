@@ -1,0 +1,34 @@
+/* Gold: a settings card under a DESIGN.md. Learn: radii nest by role, as the Shapes section says:
+   the card at rounded.lg, the field inside at rounded.md, its menu items at rounded.sm. The primary
+   color appears once, on .button-primary, which is the component the front matter defines. */
+.settings-card {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body-md);
+  border-radius: var(--rounded-lg);
+  padding: var(--spacing-md);
+}
+
+.settings-card__field {
+  border-radius: var(--rounded-md);
+  padding: var(--spacing-sm);
+}
+
+.settings-card__menu-item {
+  border-radius: var(--rounded-sm);
+  padding: var(--spacing-sm);
+}
+
+.settings-card__hint {
+  font-size: var(--text-caption);
+}
+
+.button-primary {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: var(--text-caption);
+  border-radius: var(--rounded-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+}

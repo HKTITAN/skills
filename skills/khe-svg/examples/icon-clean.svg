@@ -1,0 +1,4 @@
+<!-- Gold for: one clean icon. Learn: the root carries the whole contract (viewBox, no width or height, currentColor, one stroke weight, the accessibility choice), so the path carries geometry only. Whole numbers on the 24 grid; stroke 1.5 pairs with a 400-weight font; the baseline bar is the second cue a download arrow needs. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M12 4 L12 15 M7 10 L12 15 L17 10 M5 20 L19 20"/>
+</svg>

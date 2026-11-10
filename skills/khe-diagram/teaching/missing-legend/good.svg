@@ -1,0 +1,82 @@
+<!-- good: a legend strip under the figure names every line style in use. -->
+<svg xmlns="http://www.w3.org/2000/svg" id="upload-path" viewBox="0 0 672 284" role="img" aria-labelledby="upload-path-title upload-path-desc">
+  <title id="upload-path-title">Upload path</title>
+  <desc id="upload-path-desc">The upload API streams a file to the object store and hands a scan job to a queue that the scanner drains.</desc>
+  <defs>
+    <marker id="upload-path-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+    <marker id="upload-path-arrow-accent" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head accent" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #upload-path { --paper: #fff; --paper-2: #f6f5f4; --ink: #262628; --muted: #7a7a7d; --soft: #9a9a9d; --rule: rgba(0,0,0,0.06); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); --link: color-mix(in srgb, #3b82f6 82%, #000); font-family: system-ui, sans-serif; }
+    #upload-path .paper { fill: var(--paper); }
+    #upload-path .edge { fill: none; stroke: var(--muted); }
+    #upload-path .edge.accent { stroke: var(--accent); }
+    #upload-path .edge.dashed { stroke-dasharray: 5 4; }
+    #upload-path .head { fill: var(--muted); }
+    #upload-path .head.accent { fill: var(--accent); }
+    #upload-path .mask { fill: var(--paper); }
+    #upload-path .label { fill: var(--muted); font-size: 8px; }
+    #upload-path .node rect { fill: var(--paper); stroke: var(--ink); }
+    #upload-path .store rect { fill: rgba(38,38,40,0.05); }
+    #upload-path .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #upload-path .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #upload-path .sub { fill: var(--muted); font-size: 9px; }
+    #upload-path .mono { font-family: "SF Mono", ui-monospace, monospace; }
+    #upload-path .legend text { fill: var(--muted); font-size: 9px; }
+    #upload-path .legend .rule { stroke: var(--rule); }
+  </style>
+  <rect class="paper" width="672" height="284"/>
+  <g class="edges">
+    <path class="edge" d="M160 48 H272" marker-end="url(#upload-path-arrow)"/>
+    <path class="edge dashed" d="M272 64 H160" marker-end="url(#upload-path-arrow)"/>
+    <path class="edge accent dashed" d="M400 56 H512" marker-end="url(#upload-path-arrow-accent)"/>
+    <path class="edge" d="M336 80 V160 Q336 168 328 168 H160" marker-end="url(#upload-path-arrow)"/>
+    <path class="edge dashed" d="M576 80 V144" marker-end="url(#upload-path-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="184" y="28" width="64" height="12"/>
+    <text class="label mono" x="216" y="37" text-anchor="middle">PUT /files</text>
+    <rect class="mask" x="200" y="72" width="32" height="12"/>
+    <text class="label mono" x="216" y="81" text-anchor="middle">201</text>
+    <rect class="mask" x="344" y="104" width="40" height="16"/>
+    <text class="label" x="348" y="115">stream</text>
+  </g>
+  <g class="nodes">
+    <g class="node">
+      <rect x="32" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="60">Browser</text>
+    </g>
+    <g class="node">
+      <rect x="272" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="284" y="52">Upload API</text>
+      <text class="sub mono" x="284" y="68">:8443</text>
+    </g>
+    <g class="node focal">
+      <rect x="512" y="32" width="128" height="48" rx="6"/>
+      <text class="name" x="524" y="52">Scan queue</text>
+      <text class="sub mono" x="524" y="68">file.uploaded</text>
+    </g>
+    <g class="node store">
+      <rect x="32" y="144" width="128" height="48" rx="6"/>
+      <text class="name" x="44" y="164">Object store</text>
+      <text class="sub mono" x="44" y="180">s3://uploads</text>
+    </g>
+    <g class="node">
+      <rect x="512" y="144" width="128" height="48" rx="6"/>
+      <text class="name" x="524" y="172">Scanner</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 260)">
+    <line class="rule" x1="0" y1="-20" x2="608" y2="-20"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="3">call</text>
+    <path class="edge dashed" d="M76 0 H100"/>
+    <text x="108" y="3">async or reply</text>
+    <path class="edge accent dashed" d="M196 0 H220"/>
+    <text x="228" y="3">the scan hand-off</text>
+  </g>
+</svg>

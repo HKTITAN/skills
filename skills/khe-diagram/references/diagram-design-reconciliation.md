@@ -1,0 +1,61 @@
+---
+title: diagram-design-reconciliation
+summary: Where diagram-design, a project's .design contract and this skill give different values for a figure (skin source, paper, families, accent, component tokens, small type, motion clock, export, pov) and which value to use inside a diagram-design file.
+tags: [diagram, diagram-design, precedence, companions, design-file]
+---
+
+# diagram-design reconciliation
+
+Inside a diagram-design file, diagram-design's geometry, connector rules, type ramp and motion controller win, because its scripts check them and its linter rejects edits to the controller. The project's design contract supplies the skin: the color roles and the type families. This graph owns three things: whether to draw at all ([diagram-decision](diagram-decision.md)), whether the figure moves (`animation-decision-framework` (`khe-svg` skill)), and the review ([diagram-craft](diagram-craft.md)). Where two of these give different values, the table names the one to use.
+
+## Precedence
+
+User prompt → nearest `.design` (or DESIGN.md) for the skin → the project's `.diagram-design` profile → diagram-design's rules for geometry, type ramp and motion → this skill → model defaults. A `.design` outranks every generic taste skill (`using-design-file` (`khe-design-tokens` skill)), and diagram-design's shipped style guide is one: its defaults are taste, not the project's brand.
+
+## The handoff
+
+diagram-design's first-run gate asks where the skin comes from. Its own discovery reads CSS, token JSON, Markdown and HTML `<style>` blocks. A `.design` file is YAML, and none of its patterns match it. So read the contract here (`using-design-file` (`khe-design-tokens` skill)), map it onto the roles `paper`, `paper-2`, `ink`, `muted`, `soft`, `rule`, `accent`, `accent-tint` and `link`, and answer the gate with option (d), pasted tokens. Then offer to save a named profile. Write the `.diagram-design` marker (`profile: <slug>`) only with consent, as diagram-design's own rules require.
+
+## The table
+
+| Topic | diagram-design | Contract or this skill | Use inside a diagram-design file |
+|---|---|---|---|
+| Paper | warm-neutral, never pure white; URL onboarding swaps `#ffffff` for `#fafaf7` and asks | the contract's surface token | the contract's surface, white included; the contract is the confirmation it asks for |
+| Families | Instrument Serif for title and callouts, Geist 600 names, Geist Mono technical text; keep the serif even when the brand is all-sans; never JetBrains Mono | the contract's typography | the contract's families in those role slots; the serif only if the contract has one or says nothing; mono stays for technical text, in the contract's mono |
+| Accent | one accent, on 1 or 2 elements | the contract's signature color | the contract's accent in the `accent` role; the limit of 2 still holds |
+| Component tokens (radius, elevation, padding) | node `rx` 6, no shadows | bind to the components that list them | not mapped: a figure node is not a contract component; no shadows |
+| Small type | names 12, sublabels 9, arrow labels 8 on doc presets; 16 / 12 / 12 on slides | below 12px needs an excuse (`typography` (`khe-ui` skill)) | diagram-design's ramp, in SVG units held at the viewBox width; a figure scaled below that width is a finding, and so is the doc ramp on a projected slide |
+| Motion | static by default; `reveal` runs once, `step` waits for the reader; clock 160 / 480 / 720 ms, ease `cubic-bezier(.2,.8,.2,1)`, ≤8 steps, ≤24px travel; the controller copied verbatim | UI under 300 ms (the duration table in `motion` (`khe-ui` skill)) | diagram-design's clock: a 480 ms step is reading pace, not UI feedback, so don't flag it against the duration table in `motion` (`khe-ui` skill); this skill still decides whether to animate |
+| Reduced motion | the complete static frame, controls hidden | the reduced-motion rule in `accessibility` (`khe-ui` skill) | the same; no conflict |
+| Export | manual only; `export_svg.py` carries class CSS and namespaces `<defs>` ids | `svg-creation` (`khe-svg` skill)'s SVGO pass | export with `export_svg.py` only when asked; SVGO afterwards keeping `viewBox`, `<title>` and `<desc>` |
+| [pov](pov.md) | none | the product-UI sections govern product UI | a figure follows contract → profile → diagram-design; pov's "Diagrams" sets the defaults where all three are silent |
+
+## When to apply
+
+Any diagram-design figure in a project that ships a `.design`, a DESIGN.md or a `.diagram-design` marker, and any review of such a figure by a reviewing agent.
+
+## Reference
+
+A figure for a page built on Stageshow's default light tokens (`kit/stage.css`) answers the gate with option (d) like this:
+
+| Role | Pasted token |
+|---|---|
+| `paper`, `paper-2` | `#fff` (surface), `#f6f5f4` (canvas) |
+| `ink`, `muted`, `soft` | `#262628`, `#7a7a7d`, `#9a9a9d` |
+| `rule` | `rgba(0,0,0,0.06)` (line) |
+| `accent`, `accent-tint`, `link` | `#3b82f6`, `rgba(59,130,246,0.12)`, `color-mix(in srgb, #3b82f6 82%, #000)` |
+| families | `system-ui` for title and names (no serif: the contract has one family), `"SF Mono", ui-monospace` for technical text |
+
+Not mapped: Stageshow's radii (6, 8, 10) and shadow tokens; nodes stay `rx` 6 with no shadow.
+Gold example: diagram-design's `onboarding.md` (option d) and `references/style-guide.md` (the role list).
+Check: grep the exported file for `#f5f5f5`, `#2d3142` and `#eb6c36`; in a project with a contract, any hit means the shipped palette leaked; with no contract that palette is the default skin ([pov](pov.md)), which is why the gate prints `shipped-palette:` as a candidate. Then set the figure on the page it lives on: its paper and the page surface match exactly, and the accent sits on no more than two elements.
+
+## Gotcha
+
+Don't let diagram-design's defaults pose as the brand. Its shipped tokens (paper `#f5f5f5`, ink `#2d3142`, accent `#eb6c36`) trigger the first-run gate for a reason, and skipping the gate in a branded project ships someone else's palette. The reverse also happens: re-skinning the connector rules or the type ramp "to match the brand" breaks the checks diagram-design runs on them. The brand reaches the color roles and the families, and nothing else. diagram-design moves fast (plugin 2.6.68 on 2026-10-08), so re-read the named file before relying on a row.
+
+## Sources
+
+- Cathryn Lavery, `diagram-design` (MIT; HEAD `f4547ee`, read 2026-10-08): SKILL.md §0 (style-guide gate), §5, §10, §12; `references/style-guide.md` (roles, constraints), `onboarding.md` (§ Skill, § Folder, option d), `profiles.md` (marker, consent), `output-spec.md` (type ramp per preset), `animation.md` (modes, clock, controller), `export.md`.
+- The `.design` contract spec, §5 (precedence).
+- Benji Taylor, Stageshow 1.1.1 (MIT, github.com/benjitaylor/skills, HEAD `299140f`, read 2026-11-07): `stageshow/kit/stage.css` (light tokens used as the worked contract).

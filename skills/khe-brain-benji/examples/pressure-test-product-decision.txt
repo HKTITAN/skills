@@ -1,0 +1,10 @@
+<!-- Gold for a pressure-test of a product decision (`ship the live price chart this week: two props, tested on last month's calm data, no empty state, every extra on by default`). Learn: each line tied to the one library it came from, a Nearest: line for the part no piece covers, and no ruling on the ship date. -->
+Against the positions in the Liveline article the plan breaks three and holds one (Liveline). Each is a statement about one chart library, not a rule for every release.
+Breaks: calm data only; the article tests wild swings, flat lines with isolated spikes and irregular gaps, and names sharp reversals as the classic breaking point (Liveline).
+Breaks: no empty state; loading and empty are designed states in that library, and loading morphs into the chart when data lands (Liveline).
+Breaks: every extra on by default; the core is one line that moves, and the rest is opt-in (Liveline).
+Holds: two required inputs, the data and the latest value (Liveline).
+Nearest: on the ship date, the one trade he states is that Family launched later in exchange for the experience (Family Values).
+Source: Liveline, https://benji.org/liveline
+Source: Family Values, https://benji.org/family-values
+Not in his writing: how to choose a ship date, and what to cut when a date is fixed.

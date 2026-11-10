@@ -1,0 +1,6 @@
+<!-- contract-not-first: the contract runs second, after colors and sizes were already chosen. -->
+Goal: The pricing card uses the project's own colors and reads as finished; I hand back the changed component.
+Route:
+- `khe-ui`: the card needs judging across type, surface and states.
+- `khe-design-tokens`: the repo has a `.design` file, so its tokens are applied afterwards.
+Not verified: the card on a real phone; nothing was run yet.

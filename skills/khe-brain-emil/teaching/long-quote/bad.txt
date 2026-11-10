@@ -1,0 +1,4 @@
+<!-- long-quote: twenty words inside quotation marks. They are a paraphrase dressed as his words, which is the second thing this line catches. -->
+On drawers he writes "a drawer should only be draggable when its content is scrolled all the way to the top of the list" [1].
+Source: [1] Building a Drawer Component, https://emilkowal.ski/ui/building-a-drawer-component
+Not in his writing: the same rule for a drawer that scrolls sideways.

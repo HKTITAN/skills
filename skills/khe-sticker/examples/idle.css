@@ -1,0 +1,18 @@
+/* Gold for: the idle a page hands a sticker after its story has played once.
+   Learn: the story lives in the sticker file and plays once, in 2.5s. The page starts an idle at 2.6s, 100ms after
+   the story lands, so the two never overlap. Three idles, three lengths (4s, 4.6s, 5.4s), dealt out by position,
+   so neighbours never move in step. Each is small: a 7px rise with a 2 degree lean, a 3.5 degree rock about the
+   base, a 1.05 breathe, on a sticker shown 72 to 96px wide. Reduced motion gets no idle. Where eight or more show
+   at once, serve the still twin and no idle at all.
+   Add the class when the sticker's file has loaded, so the 2.6s counts from the first frame of its story. */
+.sticker.is-loaded:nth-of-type(3n + 1) { animation: sticker-idle-bob 4.6s cubic-bezier(0.37, 0, 0.63, 1) 2.6s infinite; }
+.sticker.is-loaded:nth-of-type(3n + 2) { transform-origin: 50% 88%; animation: sticker-idle-rock 5.4s cubic-bezier(0.37, 0, 0.63, 1) 2.6s infinite; }
+.sticker.is-loaded:nth-of-type(3n) { animation: sticker-idle-breathe 4s cubic-bezier(0.37, 0, 0.63, 1) 2.6s infinite; }
+
+@keyframes sticker-idle-bob { 50% { translate: 0 -7px; rotate: -2deg; } }
+@keyframes sticker-idle-rock { 25% { rotate: 3.5deg; } 75% { rotate: -3.5deg; } }
+@keyframes sticker-idle-breathe { 50% { scale: 1.05; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker.is-loaded { animation: none; }
+}

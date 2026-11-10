@@ -1,0 +1,69 @@
+{
+  "//": "GOOD: width, height and scale are all declared: 1280 x 720 at 2 is a 2560 x 1440 file.",
+  "demo": "add-a-task",
+  "surface": "web",
+  "driver": "playwright",
+  "url": "http://localhost:4173/",
+  "destination": "site",
+  "viewport": { "width": 1280, "height": 720, "scale": 2 },
+  "fps": 30,
+  "smallest_text": 15,
+  "state": {
+    "account": "none: the sample app has no sign-in",
+    "clock": "2026-03-02T09:41:00",
+    "locale": "en-US",
+    "timezone": "UTC",
+    "scheme": "light"
+  },
+  "reset": [
+    {
+      "do": "storage",
+      "clear": true,
+      "set": {
+        "tasks.v1": [
+          { "id": "t1", "title": "Book the venue", "done": true },
+          { "id": "t2", "title": "Send the invites", "done": false },
+          { "id": "t3", "title": "Order the cake", "done": false },
+          { "id": "t4", "title": "Print the name tags", "done": false },
+          { "id": "t5", "title": "Rent the speakers", "done": true }
+        ]
+      }
+    }
+  ],
+  "ready": { "count": { "of": "[data-testid=list] li", "is": 5 } },
+  "pace": { "cps": 12, "move_ms": [300, 900] },
+  "beats": [
+    {
+      "id": "context",
+      "what": "The list as the viewer finds it: five tasks, three open. The pointer goes to the field.",
+      "steps": [
+        { "do": "hold", "ms": 800, "why": "the opening frame is read before anything moves" },
+        { "do": "click", "target": "[data-testid=new-task]", "until": { "fn": "document.activeElement?.dataset.testid === 'new-task'" } }
+      ]
+    },
+    {
+      "id": "type",
+      "what": "A sixth task is typed.",
+      "steps": [
+        { "do": "type", "target": "[data-testid=new-task]", "text": "Confirm the DJ" }
+      ]
+    },
+    {
+      "id": "add",
+      "what": "Add is pressed and the task saves.",
+      "steps": [
+        { "do": "click", "target": "[data-testid=add]", "until": { "visible": "[data-testid=saving]" } },
+        { "do": "wait", "until": { "visible": "[data-testid=task-t6]", "ramp": true } }
+      ]
+    },
+    {
+      "id": "payoff",
+      "payoff": true,
+      "what": "The new row is in the list and the count reads 4 open.",
+      "steps": [
+        { "do": "wait", "until": { "text": "4 open", "in": "[data-testid=count]" } },
+        { "do": "hold", "ms": 2000, "why": "the new row and the count are read; this frame is the poster" }
+      ]
+    }
+  ]
+}

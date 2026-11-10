@@ -1,0 +1,12 @@
+<!-- bad: live-text. The word is a <text> element in a named font, so it changes shape or falls back wherever that font is missing. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="hi" data-kind="lettering" data-text="HI" role="img" aria-labelledby="hi-title" stroke="var(--ink, #1c1f33)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <title id="hi-title">HI</title>
+  <g data-layer="diecut">
+    <path d="M98 138 L402 138 L402 362 L98 362 Z" fill="var(--white, #ffffff)" stroke="none"/>
+  </g>
+  <g data-layer="art">
+    <g data-part="word">
+      <text x="250" y="350" text-anchor="middle" font-family="Impact" font-size="280" fill="var(--gold, #ffc533)">HI</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,4 @@
+<!-- unknown-source: the reply cites a talk that is not in sources.md, so nobody read it for this skill. -->
+Sheets get a spring and never a curve, as he says on stage (Conference talk).
+Source: Conference talk, https://example.com/talk
+Not in his writing: springs for sheets in a real product.

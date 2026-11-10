@@ -1,0 +1,41 @@
+# Gold: a .design contract threaded through a Tailwind theme (app.css, PlanRow.tsx).
+# Learn: the project styles with utility classes, so the tokens land in the theme and the component
+# stays in utilities. A second styling system beside the first is a defect.
+
+schema: design.v1
+name: ledger
+version: 2.0.1
+
+agent:
+  instructions: |
+    You are holding the visual contract for Ledger. This file is the source of truth.
+    READ: intent, policy, tokens, components, in that order.
+    FOLLOW: this project styles with Tailwind utilities. Tokens live in the @theme block of app.css.
+    Use the utility a token generates (bg-surface, rounded-lg, text-body). Never an arbitrary value in brackets.
+    UPDATE: edit this file in place, bump version, then refresh the @theme block from it.
+    PRECEDENCE: the user's prompt, then this file, then any skill, then defaults.
+
+intent:
+  reference: "A ledger that reads like a printed statement"
+  signature: "One accent, kept for the single primary action of a view"
+
+tokens:
+  color:
+    surface: "#ffffff"
+    ink: "#1a1a1a"
+    accent: "#5b5bd6"
+  radius:
+    md: 8
+    lg: 16
+  spacing:
+    unit: 4
+  typography:
+    body:
+      fontFamily: ["Public Sans", "system-ui", "sans-serif"]
+      fontSize: 16
+      lineHeight: 1.6
+    caption:
+      fontSize: 14
+
+policy:
+  if_missing: nearest

@@ -1,0 +1,19 @@
+/* ease-in: the curve starts slow, so the dropdown hesitates on the frame the user is watching. */
+.dropdown {
+  transform-origin: top left;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+
+.dropdown[data-open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown {
+    transform: none;
+    transition: opacity 120ms;
+  }
+}

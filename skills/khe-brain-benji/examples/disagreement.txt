@@ -1,0 +1,7 @@
+<!-- Gold for a disagreement (`does Benji think every animation needs a purpose`). Learn: both sides on Disagrees: lines with their pieces, dates and products, one short quote, and no winner picked. -->
+The two retrospectives answer differently, and neither withdraws the other. For the Family wallet every animation has an architectural purpose (Family Values); for the Honk messenger he writes "Not everything needed a purpose" (Honkish).
+Disagrees: Family Values, 8 July 2024, about a wallet: a transition was added only once the team understood why it made sense (Family Values).
+Disagrees: Honkish, 23 May 2025, about a messenger built for play: emojis could be spammed until the chat was unreadable for a moment (Honkish).
+Source: Family Values, https://benji.org/family-values
+Source: Honkish, https://benji.org/honkish
+Not in his writing: which of the two applies to a product that is neither a wallet nor a toy messenger. Honk was built before Family, so the later article describes the earlier product.

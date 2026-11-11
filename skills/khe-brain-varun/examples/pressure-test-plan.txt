@@ -1,0 +1,12 @@
+<!-- Gold for a plan tested against his positions (`build for a year, ship five features, then start marketing with ads`). Learn: the verdict first, one Breaks: or Holds: line per position with what the plan does and then what the video says, the largest fault first, and no ruling on what no video covers. -->
+The plan breaks three positions he states about the products and companies he has built, and the largest is the order of the work (Kata 12 at 5:44; Kata 11 at 21:38; Kata 10 at 0:56).
+Breaks: a year of building before any test. He calls building for two years before testing a very big risk, because the direction can be completely off (Kata 12 at 5:44).
+Breaks: five features before the first sale. He says to stop building once one feature works and put all energy into marketing and sales (Kata 11 at 21:38).
+Breaks: marketing as the last step. He rates distribution about 10 times more valuable than product, and of every 10 rupees he now spends 8 on marketing (Kata 10 at 0:56; Kata 9 at 58:53).
+Holds: ads at the start. He says performance marketing is still needed early, with all spend on measurable returns below 3 to 5 crores of revenue (Kata 6 at 12:38).
+Source: Kata 12, https://www.youtube.com/watch?v=mwQhnZ32CeE
+Source: Kata 11, https://www.youtube.com/watch?v=0tbeJZYvsg4
+Source: Kata 10, https://www.youtube.com/watch?v=TGKgCLVxRCk
+Source: Kata 9, https://www.youtube.com/watch?v=EWFn-RgxZ5M
+Source: Kata 6, https://www.youtube.com/watch?v=jEnxvZXzo0E
+Not in his videos: what the one feature should be, how long a test should run for this product, and any view of the product itself. The decision is yours.

@@ -1,0 +1,5 @@
+<!-- good: the same reply with the one fault fixed. -->
+The line `Odds are for losers` is in none of the 18 videos read (Kata playlist). A profile page built by a third party prints it and names no video for it (varunmayya.org).
+Source: Kata playlist, https://www.youtube.com/playlist?list=PLSAVyiM48sqvzLBEbPqD8TZpfu5UyzO9t
+Source: varunmayya.org, https://www.varunmayya.org
+Not in his videos: the line itself. His posts and short videos were not read.

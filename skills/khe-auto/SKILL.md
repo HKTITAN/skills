@@ -100,7 +100,7 @@ A playbook is a whole job, start to finish. Open the file when the request match
 |---|---|---|
 | Design | A screen, a component, motion, sound, a vector, a diagram, a product picture, a launch video | The Design table below |
 | Code | Writing, reviewing or migrating code in a language a skill here covers | The Code table below |
-| Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "who said that" | The Brains table below |
+| Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "what would Varun say", "who said that" | The Brains table below |
 | Content | Posts for social platforms and a newsletter, written in one person's voice from one idea | The Content table below |
 
 A new domain adds one row here and one table below it. Nothing else in this file changes.
@@ -146,12 +146,13 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 
 ## Brains
 
-A brain answers from one person's public writing and names the source. It is my reading of their work, never their skill: to apply their rules, run their own skill from the Design table.
+A brain answers from one person's public writing or public talks and names the source. It is my reading of their work, never their skill: to apply their rules, run their own skill from the Design table.
 
 | The job | Skill | Whose |
 |---|---|---|
 | What Emil Kowalski has written on a question, with the article; a decision pressure-tested against it | `khe-brain-emil` | here |
 | What Benji Taylor has written or published on a question, with the source; a design pressure-tested against it | `khe-brain-benji` | here |
+| What Varun Mayya has said in his public videos on a startup, content, career or AI question, with the video and the minute; a plan pressure-tested against it | `khe-brain-varun` | here |
 
 ## Content
 
@@ -189,6 +190,7 @@ Each pair is one question, not two skills to read.
 | `khe-diagram` / `stageshow` | Does it explain a system, or show the product? | System: diagram. Product: stageshow. |
 | `khe-brain-emil` / `emil-design-eng` | His writing reported with sources, or his rules applied to code? | Reported: khe-brain-emil. Applied: emil-design-eng. |
 | `khe-brain-benji` / `stageshow` | His published thinking reported with sources, or a product picture built? | Reported: khe-brain-benji. Built: stageshow. |
+| `khe-brain-varun` / `khe-content-engine` | His stated view reported with its video, or a post drafted in your own voice? | Reported: khe-brain-varun. Drafted: khe-content-engine. |
 | `prototype` / any building skill | Has the decision been made? | No: prototype. Yes: build the one thing. |
 
 ## When nothing fits

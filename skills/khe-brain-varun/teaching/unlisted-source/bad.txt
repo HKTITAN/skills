@@ -1,0 +1,4 @@
+<!-- unlisted-source: the second sentence cites Kata 11 and only Kata 10 has a Source line. -->
+He rates distribution about 10 times more valuable than product (Kata 10 at 0:56). Once one feature works he says to stop building and put all energy into marketing and sales (Kata 11 at 21:38).
+Source: Kata 10, https://www.youtube.com/watch?v=TGKgCLVxRCk
+Not in his videos: how to tell that a feature works.

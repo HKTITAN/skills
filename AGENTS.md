@@ -16,6 +16,8 @@ skills/khe-<name>/
 CONTRIBUTING.md   how to write a skill, and how to tell whether something should be one
 skills/<name>     no khe- prefix: someone else's skill, linked as a git submodule. Never edit it.
 skills.sh.json    groups the repo page on skills.sh
+.claude-plugin/   marketplace.json: the Claude Code plugins this repo offers
+commands/         one file per plugin command (`commands/emil.md` is `/khe-brain:emil`)
 scripts/check.mjs the checks CI runs
 ```
 
@@ -44,6 +46,15 @@ If the answer is a new skill, build it in this order, and tell the user which ro
 7. Wire it in (see The router) and run the checks.
 
 A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login.
+
+## The khe-brain plugin
+
+Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<short>.md` is its `/khe-brain:<short>` command. Each command holds no knowledge of its own: it tells the agent to read `skills/khe-brain-<short>/SKILL.md` from the plugin's folder and work as that skill, so the skill folder stays the one source.
+
+- The skill keeps its full name (`khe-brain-varun`) for `npx skills add`. Only the command is short.
+- The plugin's `skills` entry points at `commands/`, which holds no `SKILL.md`. That is on purpose: without it Claude Code would load every skill in `skills/` under the `khe-brain:` name, and with the brain folders listed each brain would show twice.
+- A new brain adds `commands/<short>.md`, its path in the plugin's `commands` list, and its name in the plugin's description. `scripts/check.mjs` fails when a `khe-brain-*` skill has no command or a command has no skill.
+- Check a change with `claude plugin validate .`.
 
 ## Rules for every skill
 

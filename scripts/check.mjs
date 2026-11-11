@@ -88,6 +88,31 @@ for (const n of linked) {
   if (!new RegExp(`\\[${n}\\]\\(https://github\\.com/`).test(readme)) bad("README.md", `${n} is not linked to its original`);
 }
 
+// The khe-brain plugin: one command per brain skill, each listed in the marketplace file and
+// pointing at its skill's folder.
+const marketPath = join(ROOT, ".claude-plugin", "marketplace.json");
+if (!existsSync(marketPath)) bad(".claude-plugin", "no marketplace.json");
+else {
+  const plugin = JSON.parse(read(marketPath)).plugins.find((p) => p.name === "khe-brain");
+  if (!plugin) bad("marketplace.json", "no khe-brain plugin");
+  else {
+    const listed = plugin.commands || [];
+    const brains = names.filter((n) => n.startsWith("khe-brain-"));
+    for (const n of brains) {
+      const short = n.slice("khe-brain-".length);
+      const file = join(ROOT, "commands", `${short}.md`);
+      if (!existsSync(file)) { bad("commands", `${n} has no commands/${short}.md, so /khe-brain:${short} does not exist`); continue; }
+      if (!listed.includes(`./commands/${short}.md`)) bad("marketplace.json", `./commands/${short}.md is not in the khe-brain plugin's commands`);
+      if (!read(file).includes(`/skills/${n}/SKILL.md`)) bad(`commands/${short}.md`, `does not point at skills/${n}/SKILL.md`);
+    }
+    for (const c of listed) {
+      const short = c.replace(/^\.\/commands\//, "").replace(/\.md$/, "");
+      if (!brains.includes(`khe-brain-${short}`)) bad("marketplace.json", `${c} has no skill khe-brain-${short}`);
+    }
+    for (const s of plugin.skills || []) if (existsSync(join(ROOT, s, "SKILL.md")) || /^\.\/skills/.test(s)) bad("marketplace.json", `the khe-brain plugin must not list ${s} as a skill; each brain would show twice`);
+  }
+}
+
 if (problems.length) {
   for (const p of problems) console.error(p);
   console.error(`\n${problems.length} problem(s).`);

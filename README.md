@@ -63,6 +63,15 @@ Install one at a time with `--skill`:
 npx skills add HKTITAN/skills --skill khe-ui
 ```
 
+In Claude Code the brains also install as one plugin, so they sit under one name instead of crowding the list:
+
+```text
+/plugin marketplace add HKTITAN/skills
+/plugin install khe-brain@kheskills
+```
+
+Then `/khe-brain:emil`, `/khe-brain:benji` and `/khe-brain:varun` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
+
 Each skill works alone. Some call others:
 
 - `khe-auto` uses all of them.

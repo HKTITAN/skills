@@ -1,0 +1,31 @@
+{
+  "name": "kheskills",
+  "owner": {
+    "name": "Harshit Khemani",
+    "url": "https://www.khe.money"
+  },
+  "metadata": {
+    "description": "The skills Harshit Khemani uses with coding agents, grouped as Claude Code plugins."
+  },
+  "plugins": [
+    {
+      "name": "khe-brain",
+      "source": "./",
+      "description": "Brains: answers from one person's public writing or talks, with the source named. /khe-brain:emil, /khe-brain:benji, /khe-brain:varun.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Harshit Khemani"
+      },
+      "license": "MIT",
+      "strict": false,
+      "skills": [
+        "./commands"
+      ],
+      "commands": [
+        "./commands/emil.md",
+        "./commands/benji.md",
+        "./commands/varun.md"
+      ]
+    }
+  ]
+}

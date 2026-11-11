@@ -1,4 +1,6 @@
 {
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
   "groupings": [
     {
       "title": "Start here",
@@ -23,7 +25,7 @@
     },
     {
       "title": "Brains",
-      "description": "Answers from one person's public writing, with the source named.",
+      "description": "Answers from one person's public writing or talks, with the source named. In Claude Code they also install as one plugin: /khe-brain:emil, /khe-brain:benji, /khe-brain:varun.",
       "skills": [
         "khe-brain-emil",
         "khe-brain-benji",
@@ -37,6 +39,5 @@
         "khe-content-engine"
       ]
     }
-  ],
-  "notGrouped": "bottom"
+  ]
 }

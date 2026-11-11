@@ -1,0 +1,4 @@
+<!-- unknown-source: the reply cites a lecture that is not in sources.md, so nobody read it for this skill. -->
+Debt comes before equity, as the corporate finance lecture put it (Term 2 lecture).
+Source: Term 2 lecture, https://example.com/lecture
+Not in the notes: what was said in any lecture.

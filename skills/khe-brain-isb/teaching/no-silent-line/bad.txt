@@ -1,0 +1,3 @@
+<!-- no-silent-line: the reply ends on its source, so the reader cannot tell what the notes left unanswered. -->
+Companies prefer retained earnings first, then debt, then equity as a last resort (Finance: Pecking Order Theory).
+Source: Finance: Pecking Order Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/corpfin-pecking-order-theory.md

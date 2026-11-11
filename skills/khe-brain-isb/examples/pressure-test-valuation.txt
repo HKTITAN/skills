@@ -1,0 +1,12 @@
+<!-- Gold for a pressure-test of a model (`check my DCF against the ISB notes: terminal growth 5%, terminal value is 88% of the total, WACC weighted on book values, and it is my only method`). Learn: the verdict first, one Breaks: or Holds: line per stated position with its piece, largest fault first, the figures marked as unsourced, and no ruling on the valuation itself. -->
+Against the Finance files this model breaks four stated positions and holds one. The largest is the terminal value: the pitfalls list says that at 80% or more of the total, small changes in assumptions cause large swings (Finance: Pitfalls to Avoid).
+Breaks: terminal value at 88% of the total; the pitfalls list sets its warning at 80% or more and says to check the result against comparable multiples (Finance: Pitfalls to Avoid).
+Breaks: terminal growth of 5%; the same list calls perpetual high growth unrealistic and gives GDP-like rates of 2 to 3% (Finance: Pitfalls to Avoid).
+Breaks: WACC weighted on book values; the WACC file says the weights use market values (Finance: WACC, Weighted Average Cost of Capital).
+Breaks: one method only; the triangulation file says to run DCF, multiples and an asset-based value and report a range (Finance: Valuation Triangulation).
+Holds: discounting free cash flows at WACC and adding a terminal value (Finance: DCF, Discounted Cash Flow Valuation).
+Source: Finance: Pitfalls to Avoid, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/ratios-pitfalls-to-avoid.md
+Source: Finance: WACC, Weighted Average Cost of Capital, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-wacc-weighted-average-cost-of-capital.md
+Source: Finance: Valuation Triangulation, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-valuation-triangulation.md
+Source: Finance: DCF, Discounted Cash Flow Valuation, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-dcf-discounted-cash-flow-valuation.md
+Not in the notes: what this business is worth, and any source for the 2 to 3% and 80% figures, which the file gives with no source. These are the repository author's rules of thumb; the decision on the model is yours.

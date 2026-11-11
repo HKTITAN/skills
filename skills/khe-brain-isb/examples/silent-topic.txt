@@ -1,0 +1,6 @@
+<!-- Gold for a silent topic (`what does ISB teach about choosing between two projects with NPV and IRR`). Learn: silence in the first sentence, the README as the source, a nearest piece labelled as nearest, no position built from it, and the user's `ISB teach` answered without repeating it as fact. -->
+The notes do not cover capital budgeting. The repository lists nine sets of notes, and no rule file is about choosing between projects (isb-skills: README.md).
+Nearest: one file discounts future free cash flows at WACC to value a whole business, which is a valuation method and not a rule for choosing between projects (Finance: DCF, Discounted Cash Flow Valuation).
+Source: isb-skills: README.md, https://github.com/HKTITAN/isb-skills/blob/060ee06/README.md
+Source: Finance: DCF, Discounted Cash Flow Valuation, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-dcf-discounted-cash-flow-valuation.md
+Not in the notes: net present value against internal rate of return, hurdle rates, and anything said in a classroom. No rule file names a professor or a course.

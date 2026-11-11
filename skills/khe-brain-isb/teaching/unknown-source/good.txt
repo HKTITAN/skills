@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. -->
+The notes do not include any lecture. One rule file does put debt before equity: retained earnings first, then debt, then equity as a last resort (Finance: Pecking Order Theory).
+Source: Finance: Pecking Order Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/corpfin-pecking-order-theory.md
+Not in the notes: what was said in any lecture. Course material was not read.

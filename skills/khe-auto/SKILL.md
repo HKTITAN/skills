@@ -152,6 +152,7 @@ A brain answers from one person's public writing and names the source. It is my 
 |---|---|---|
 | What Emil Kowalski has written on a question, with the article; a decision pressure-tested against it | `khe-brain-emil` | here |
 | What Benji Taylor has written or published on a question, with the source; a design pressure-tested against it | `khe-brain-benji` | here |
+| What the public isb-skills notes say on a business question, with the file; a plan or a model pressure-tested against it | `khe-brain-isb` | here |
 
 ## Content
 

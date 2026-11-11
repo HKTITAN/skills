@@ -1,0 +1,4 @@
+<!-- unsourced-quote: a sentence in quotation marks with no piece beside it reads as the notes' words, and it is in none of them. -->
+The rule people repeat is "always take on debt before you sell equity". The stated order is retained earnings, then debt, then equity as a last resort (Finance: Pecking Order Theory).
+Source: Finance: Pecking Order Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/corpfin-pecking-order-theory.md
+Not in the notes: the word always, or any rule without exceptions.

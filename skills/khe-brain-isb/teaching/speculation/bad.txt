@@ -1,0 +1,4 @@
+<!-- speculation: the sentence says what a professor would say, and the file names no professor and records only what it states. -->
+A professor would tell a profitable company to fund from retained earnings first, then debt, then equity (Finance: Pecking Order Theory).
+Source: Finance: Pecking Order Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/corpfin-pecking-order-theory.md
+Not in the notes: how much of each to use, and a source for the ordering.

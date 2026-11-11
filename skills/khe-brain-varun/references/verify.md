@@ -68,7 +68,7 @@ Not candidates for judgment. Fix the cause and run the gate again. `--gate` ends
 | `unknown-source:` | A `Source:` line whose title is not in the sources table. |
 | `wrong-url:` | A `Source:` line with no URL, or a URL that is not the one in the sources table. A trailing `&t=` time is allowed. |
 | `unlisted-source:` | A sentence cites `(Title at m:ss)` and no `Source:` line lists that video. |
-| `unsourced-claim:` | A sentence with "he", "his", "him", "Varun" or "Mayya", or a `Holds:`, `Breaks:`, `Disagrees:`, `Changed:` or `Nearest:` line, that cites no video. |
+| `unsourced-claim:` | A sentence with "he", "his", "him", "Varun" or "Mayya", or a `Holds:`, `Breaks:`, `Disagrees:`, `Changed:`, `Nearest:` or `Also:` line, that cites no video. |
 | `unsourced-quote:` | A quoted span of four words or more in a sentence that cites no video. |
 | `long-quote:` | A quoted span of 15 words or more. |
 | `hedge:` | One of the hedge words `--help` lists. The video says it or it does not. |

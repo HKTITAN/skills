@@ -23,7 +23,7 @@ The gate reads the first two columns. When a sentence marked as his contains a w
 
 | Topic | Words the gate watches | Nearest line, and what it does say |
 |---|---|---|
-| Fundraising mechanics | term sheet, valuation method, convertible note, SAFE, pitch deck, due diligence, liquidation preference | He covers when to raise and how funding stages map to risk, and says he chose to bootstrap Aeos. No video explains how to run a round. |
+| Fundraising mechanics | term sheet, valuation method, convertible note, SAFE note, pitch deck, due diligence, liquidation preference | He covers when to raise and how funding stages map to risk, and says he chose to bootstrap Aeos. No video explains how to run a round. |
 | Employee stock plans | ESOP, vesting schedule, option pool, cliff | He describes giving co-founders equity and profit share in separate companies. No video covers option plans for employees. |
 | Company law, tax and compliance | GST, income tax, incorporation, compliance, company registration, legal structure | None. He names the group structure of Aeos and gives no legal or tax guidance. |
 | Which stock, fund or coin to buy | stock pick, mutual fund, SIP, portfolio allocation, index fund, crypto portfolio, which stock | He describes what each wealth band holds and names young people's betting on apps and crypto as a pattern. That is description, and no video tells a viewer what to buy. |

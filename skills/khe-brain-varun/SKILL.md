@@ -150,6 +150,7 @@ Plain lines, in this order. The gate reads the labels.
    - `Breaks:` and `Holds:` for a pressure-test, largest fault first. What the plan does, then what the video says.
    - `Disagrees:` or `Changed:` when [disagreements](references/disagreements.md) has a row. One line per side, with the date.
    - `Nearest:` for a silent topic. What the nearest line does say, and no further.
+   - `Also:` for a further line the question needs once the answer has its three sentences, or for the second half of a view that [disagreements](references/disagreements.md) says to report together. One claim, one citation, three such lines at most.
 3. `Yours:` one line, only when [pov](references/pov.md) has an entry on the topic. It carries no citation and is never his.
 4. `Source: <Title>, <URL>` one line per video cited, copied from [sources](references/sources.md). The URL may end in `&t=<seconds>s` so it opens at the line.
 5. `Not in his videos:` the last line. What the question asked that no video answers, and what was not read.

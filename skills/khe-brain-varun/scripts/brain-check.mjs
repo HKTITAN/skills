@@ -45,7 +45,7 @@ export const LINES = {
 }
 
 const HEDGES = ['probably', 'perhaps', 'maybe', 'presumably', 'arguably', 'likely', 'might', 'supposedly', 'apparently', 'seemingly', 'seems', 'seem', 'I think', 'I believe', 'I suspect', 'I imagine', 'I guess', 'in my opinion']
-const LABELS = ['Holds', 'Breaks', 'Disagrees', 'Changed', 'Nearest']
+const LABELS = ['Holds', 'Breaks', 'Disagrees', 'Changed', 'Nearest', 'Also']
 
 const HELP = `brain-check: the gate for khe-brain-varun
 

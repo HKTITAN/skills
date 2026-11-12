@@ -1,0 +1,5 @@
+<!-- Gold for a direct question (`what weekly growth should we aim for`). Learn: the answer in three sentences, the person and the year in each sentence that speaks for someone, and the stage the number was given for. -->
+Paul Graham's 2012 essay puts a good growth rate during the Y Combinator batch at 5 to 7 percent a week, calls 10 percent a week exceptional, and reads 1 percent a week as a sign the founders have not yet figured out what they are doing (Startup = Growth). A footnote limits those figures to startups that are launched or able to launch while in the batch (Startup = Growth). Divya Bhat repeated the 5 to 7 and 10 percent figures in a talk the library dates to 2023, and added that how much growth is enough depends on the business and its stage (Setting KPIs and goals).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Source: Setting KPIs and goals, https://www.ycombinator.com/library/Iu-setting-kpis-and-goals
+Not in the corpus: a growth rate for a company that is outside the batch or has not launched, and any figure by kind of business.

@@ -54,6 +54,7 @@ If you already know the skill, call it directly.
 | [khe-demo](skills/khe-demo/README.md) | "record a demo" | The real app, driven through one planned flow on seeded data and recorded as a clean take: a video and a GIF. |
 | [khe-brain-emil](skills/khe-brain-emil/README.md) | "what would Emil say" | An answer from Emil Kowalski's public writing with the article named, and a plain "he has not written about this" when he has not. |
 | [khe-brain-benji](skills/khe-brain-benji/README.md) | "would Benji ship this" | An answer from Benji Taylor's public writing and skills with the source named, and a design pressure-tested against it. |
+| [khe-brain-yc](skills/khe-brain-yc/README.md) | "what does YC say about" | An answer from 88 Y Combinator essays, posts and talks with the partner who said it named and the piece linked, and a plan pressure-tested against them. |
 | [khe-content-engine](skills/khe-content-engine/README.md) | "build me a content engine" | Your voice, audience and platforms written down once, then one idea turned into a different draft for each platform. You post them. |
 
 Install one at a time with `--skill`:

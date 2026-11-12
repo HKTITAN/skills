@@ -1,0 +1,4 @@
+<!-- Gold for "who said that" (`who came up with default alive or default dead`). Learn: the person, the piece and its date in the first sentence, then what the line was about, with the limit the author put on it. -->
+Paul Graham wrote it, in an essay dated October 2015 whose title is the question itself (Default Alive or Default Dead?). The test, which he applies to a startup that has operated for more than 8 or 9 months: with expenses constant and revenue growth as it has been in recent months, does the company reach profitability on the money it has left (Default Alive or Default Dead?). Graham says half the founders he talks to do not know which they are (Default Alive or Default Dead?).
+Source: Default Alive or Default Dead?, https://paulgraham.com/aord.html
+Not in the corpus: whether the phrase was in use before this essay; no earlier use was searched for.

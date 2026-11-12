@@ -1,0 +1,9 @@
+<!-- Gold for a view that moved (`does Paul Graham say to start a startup in college`). Learn: the latest piece read first, then one Changed: line per essay with its year, and a last line that says where the reading stops. -->
+Paul Graham's answer moved across three essays, and the latest one read says no (A Student's Guide to Startups; Why to Not Not Start a Startup; Before the Startup). His 2014 essay, written for college students, says not to start a startup in college, because a real startup takes over your life and you stop being a student (Before the Startup).
+Changed: in 2006 Graham wrote that Y Combinator had at first encouraged people to start while still in college, and had since decided the line should be to wait until graduation (A Student's Guide to Startups).
+Changed: in 2007 Graham withdrew his earlier advice that founders be at least 23 and work at another company for a few years first, and advised people to go ahead and start right out of college (Why to Not Not Start a Startup).
+Changed: in 2014 Graham answered plainly that you should not start a startup in college (Before the Startup).
+Source: A Student's Guide to Startups, https://paulgraham.com/mit.html
+Source: Why to Not Not Start a Startup, https://paulgraham.com/notnot.html
+Source: Before the Startup, https://paulgraham.com/before.html
+Not in the corpus: anything Graham wrote on this after 2014. Only the 14 essays the library lists were read, out of more than 200.

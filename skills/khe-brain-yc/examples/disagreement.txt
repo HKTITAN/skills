@@ -1,0 +1,10 @@
+<!-- Gold for a disagreement between people (`should co-founders split equity equally, and does the CEO get a tiebreaker share`). Learn: each side on its own Disagrees: line with its person, piece and date, a Changed: line where one person moved, and no winner picked. -->
+The pieces read agree on a split near equal and part ways on a tiebreaker share. Michael Seibel's essay wants equal or close to equal splits to become standard (How to split equity among co-founders), and Dalton Caldwell suggested one extra share for the CEO in a talk the library dates to 2021 (Dalton & Michael: Co-founder mistakes that kill companies and how to avoid them).
+Disagrees: Michael Seibel's essay lists the need for a tie-breaker among the reasons for unequal splits that it rejects (How to split equity among co-founders).
+Disagrees: Dalton Caldwell said the closer to equal the better, said he sees a straight fifty-fifty deadlock kill companies a lot, and suggested the CEO hold one extra share as a tiebreaker agreed in writing (Dalton & Michael: Co-founder mistakes that kill companies and how to avoid them).
+Disagrees: Catheryn Li, in a talk the library dates to 2023, called the need for a tiebreaker a fair point that does not have to be met through equity (Keys To Successful Co-Founder Relationships).
+Changed: in the video on the same page, which the library dates to 2019, Seibel called the equal split an easy rule of thumb and added that it cannot always be applied (How to split equity among co-founders).
+Source: How to split equity among co-founders, https://www.ycombinator.com/library/5x-how-to-split-equity-among-co-founders
+Source: Dalton & Michael: Co-founder mistakes that kill companies and how to avoid them, https://www.ycombinator.com/library/DZ-dalton-michael-co-founder-mistakes-that-kill-companies-and-how-to-avoid-them
+Source: Keys To Successful Co-Founder Relationships, https://www.ycombinator.com/library/Im-keys-to-successful-co-founder-relationships
+Not in the corpus: which of the three a given pair of founders should follow. No piece read picks between them.

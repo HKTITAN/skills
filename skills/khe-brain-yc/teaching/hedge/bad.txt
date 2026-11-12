@@ -1,0 +1,4 @@
+<!-- hedge: a hedge word turns a cited line into a guess; the piece says it or it does not. -->
+Paul Graham probably treats 5 to 7 percent a week as a good growth rate during the batch (Startup = Growth).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: a growth rate for a company outside the batch.

@@ -1,0 +1,4 @@
+<!-- speculation: the sentence says what Graham would do, and the essay only says what he wrote. -->
+Paul Graham would call 3 percent a week too slow (Startup = Growth).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: a growth rate for a company outside the batch.

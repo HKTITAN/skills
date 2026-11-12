@@ -153,6 +153,7 @@ A brain answers from one person's public writing or public talks and names the s
 | What Emil Kowalski has written on a question, with the article; a decision pressure-tested against it | `khe-brain-emil` | here |
 | What Benji Taylor has written or published on a question, with the source; a design pressure-tested against it | `khe-brain-benji` | here |
 | What Varun Mayya has said in his public videos on a startup, content, career or AI question, with the video and the minute; a plan pressure-tested against it | `khe-brain-varun` | here |
+| What the public isb-skills notes say on a business question, with the file; a plan or a model pressure-tested against it | `khe-brain-isb` | here |
 
 ## Content
 

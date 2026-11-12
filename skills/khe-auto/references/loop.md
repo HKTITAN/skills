@@ -53,6 +53,7 @@ The gate belongs to the skill that did the step. Run it from the folder that hol
 | `khe-brain-emil` | `khe-brain-emil/scripts/brain-check.mjs` | its passed line |
 | `khe-brain-benji` | `khe-brain-benji/scripts/brain-check.mjs` | its passed line |
 | `khe-brain-varun` | `khe-brain-varun/scripts/brain-check.mjs` | its passed line |
+| `khe-brain-isb` | `khe-brain-isb/scripts/brain-check.mjs` | its passed line |
 | `khe-content-engine` | `khe-content-engine/scripts/content-check.mjs` | `content-check passed` |
 | `khe-auto` | `khe-auto/scripts/route-check.mjs` | `route-check passed` |
 | `stageshow` | its own rehearsal gate, described in its own files | its own passed line |

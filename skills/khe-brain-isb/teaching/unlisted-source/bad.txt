@@ -1,0 +1,4 @@
+<!-- unlisted-source: the second sentence cites the trade-off file and only the pecking order file has a Source line. -->
+Companies prefer retained earnings first, then debt, then equity as a last resort (Finance: Pecking Order Theory). A second file weighs debt's tax shield against distress risk (Finance: Trade-Off Theory).
+Source: Finance: Pecking Order Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/corpfin-pecking-order-theory.md
+Not in the notes: how much of each to use, and a source for the ordering.

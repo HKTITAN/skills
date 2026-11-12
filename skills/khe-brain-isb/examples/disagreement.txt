@@ -1,0 +1,7 @@
+<!-- Gold for a disagreement (`do the ISB notes say more debt lowers WACC`). Learn: both files on Disagrees: lines with their pieces, no winner picked, and the missing turning point named on the last line. -->
+Two Finance files answer in opposite directions, and neither refers to the other. One says higher leverage lowers WACC through cheaper debt (Finance: WACC, Weighted Average Cost of Capital); the other lists leverage among the things that increase WACC (Finance: Understanding WACC Components).
+Disagrees: the WACC file: higher leverage means a lower WACC and higher financial risk, and WACC increases once bankruptcy risk becomes material (Finance: WACC, Weighted Average Cost of Capital).
+Disagrees: the components file: WACC varies by financial risk, and leverage increases it (Finance: Understanding WACC Components).
+Source: Finance: WACC, Weighted Average Cost of Capital, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-wacc-weighted-average-cost-of-capital.md
+Source: Finance: Understanding WACC Components, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/costcap-understanding-wacc-components.md
+Not in the notes: the level of debt at which the direction turns, and which of the two files to prefer.

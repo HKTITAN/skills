@@ -1,0 +1,10 @@
+<!-- Gold for a pressure-test of a plan (`test our Series A plan against the ISB notes: B2B SaaS, LTV to CAC is 2.4 to 1, payback 20 months, and 31% said very disappointed on the survey`). Learn: each line tied to the one file it came from, two files that set different bars reported on Disagrees: lines with no winner, and the benchmarks marked as unsourced. -->
+Against the Entrepreneurship files the plan breaks one stated bar, holds one, and lands between two files on a third. Those two files set different LTV to CAC thresholds, so that part is reported as a disagreement and not as a verdict (Entrepreneurship: Unit Economics: The Foundation; Entrepreneurship: Unit Economics: Foundation of Scaling).
+Breaks: 31% very disappointed; the test file sets 40% or more as a strong fit indicator (Entrepreneurship: The Sean Ellis Test).
+Holds: a 20 month payback for B2B; the foundation file gives under 24 months as ideal for B2B (Entrepreneurship: Unit Economics: The Foundation).
+Disagrees: the foundation file calls 3:1 or higher sustainable and 2:1 difficult but possible if other factors are strong (Entrepreneurship: Unit Economics: The Foundation).
+Disagrees: the scaling file calls anything below 3:1 unsustainable at scale (Entrepreneurship: Unit Economics: Foundation of Scaling).
+Source: Entrepreneurship: The Sean Ellis Test, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/pmf-the-sean-ellis-test.md
+Source: Entrepreneurship: Unit Economics: The Foundation, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/bizmodel-unit-economics-the-foundation.md
+Source: Entrepreneurship: Unit Economics: Foundation of Scaling, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/scaling-unit-economics-foundation-of-scaling.md
+Not in the notes: whether to raise, and which of the two thresholds applies to this company. Every benchmark here is the files' own, given with no source, and only the payback period is stated for B2B.

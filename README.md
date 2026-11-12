@@ -55,6 +55,7 @@ If you already know the skill, call it directly.
 | [khe-brain-emil](skills/khe-brain-emil/README.md) | "what would Emil say" | An answer from Emil Kowalski's public writing with the article named, and a plain "he has not written about this" when he has not. |
 | [khe-brain-benji](skills/khe-brain-benji/README.md) | "would Benji ship this" | An answer from Benji Taylor's public writing and skills with the source named, and a design pressure-tested against it. |
 | [khe-brain-varun](skills/khe-brain-varun/README.md) | "what would Varun say" | An answer from 18 of Varun Mayya's public videos with the video and the minute named, and a plan pressure-tested against it. |
+| [khe-brain-isb](skills/khe-brain-isb/README.md) | "what do the ISB notes say" | An answer from the public isb-skills notes with the file named, benchmarks marked as unsourced, and a plan pressure-tested against it. |
 | [khe-content-engine](skills/khe-content-engine/README.md) | "build me a content engine" | Your voice, audience and platforms written down once, then one idea turned into a different draft for each platform. You post them. |
 
 Install one at a time with `--skill`:
@@ -70,7 +71,7 @@ In Claude Code the brains also install as one plugin, so they sit under one name
 /plugin install khe-brain@kheskills
 ```
 
-Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor` and `/khe-brain:varun-mayya` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
+Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya` and `/khe-brain:indian-school-of-business` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
 
 Each skill works alone. Some call others:
 

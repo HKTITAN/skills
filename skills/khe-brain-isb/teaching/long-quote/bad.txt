@@ -1,0 +1,4 @@
+<!-- long-quote: a pasted sentence of 20 words is echoed whole in quotation marks, which are kept for short quotes of the notes. -->
+The pecking order file does not say "a company should always exhaust every rupee of internal cash before it even thinks about borrowing from a bank"; it gives the order as retained earnings, then debt, then equity (Finance: Pecking Order Theory).
+Source: Finance: Pecking Order Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/corpfin-pecking-order-theory.md
+Not in the notes: the pasted sentence, or any rule about exhausting cash.

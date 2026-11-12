@@ -234,7 +234,7 @@ The repository has two commits, dated 2026-04-10 and 2026-11-01, and the second 
 
 ## Inside one file
 
-These files contradict themselves, state something their own numbers do not support, or give a striking figure with no source. Report the line as written, say what sits beside it, and build nothing on it.
+These files contradict themselves, state something their own numbers do not support, or give a figure with no source. Report the line as written, say what sits beside it, and build nothing on it.
 
 - The synergy file's timeline has 90 to 100% of synergies realised from year 3, and its list of common failures says 70% realisation is typical for cost synergies. (Finance: Synergy Realization, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/ma-synergy-realization.md)
 - The lean file heads its list of wastes "Seven Wastes" and gives eight entries, the last marked as added. (Operations: Lean Manufacturing, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/operations/rules/lean-lean-manufacturing.md)

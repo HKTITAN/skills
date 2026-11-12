@@ -1,0 +1,4 @@
+<!-- yc-says: the view is pinned on YC, which is many people; one essay by one person carries it. -->
+YC says a good growth rate is 5 to 7 percent a week, in Paul Graham's 2012 essay (Startup = Growth).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: a growth rate for a company outside the batch.

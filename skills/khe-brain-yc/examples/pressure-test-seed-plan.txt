@@ -1,0 +1,11 @@
+<!-- Gold for a pressure-test (`test our seed plan: sell 30% for $1M, a deck built from screenshots, and a cold email that asks for a 30 minute call`). Learn: the verdict first, one Breaks: line per stated position with its person and piece, a Disagrees: line where the pieces split, and no advice of its own. -->
+Against the seed pieces read, the plan breaks three stated positions, and on one of them the pieces split. The largest is dilution: Geoff Ralston's guide, an undated post, says founders should try to avoid giving up more than 25% in a seed round (A guide to seed fundraising).
+Breaks: 30% sold; Ralston calls as little as 10% wonderful and says most rounds require up to 20%, and Brad Flora said in a talk the library dates to 2023 that founders raising millions of dollars on SAFEs sell only ten to twenty percent (A guide to seed fundraising; How startup fundraising works).
+Breaks: the first email asks for a call; Michael Seibel says the first email should aim for a reply and a back-and-forth, and that founders reach for too much when it asks for a meeting, a call or an investment (How to cold email investors).
+Breaks: a deck built from screenshots; Kevin Hale, writing about Demo Day slides, says he usually hates screenshots because they are almost always illegible, complex and non-obvious (How to design a better pitch deck).
+Disagrees: Ralston says graphics, charts and screenshots in a deck are more powerful than many words (A guide to seed fundraising).
+Source: A guide to seed fundraising, https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+Source: How startup fundraising works, https://www.ycombinator.com/library/Il-how-startup-fundraising-works
+Source: How to cold email investors, https://www.ycombinator.com/library/65-how-to-cold-email-investors
+Source: How to design a better pitch deck, https://www.ycombinator.com/library/4T-how-to-design-a-better-pitch-deck
+Not in the corpus: whether $1M is the right amount for this company, and what a seed round looks like outside Silicon Valley. This is a report of published positions and not investment advice.

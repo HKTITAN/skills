@@ -6,6 +6,8 @@ What changed in kheSkills, newest first. One entry per day that something a user
 
 ### Added
 
+- `khe-brain-yc`: answers startup questions from 88 Y Combinator pieces (14 Paul Graham essays, 28 library posts and 46 talks with a published transcript), with the person who said it named and the piece linked. 1,202 claims in twelve theme files, every one checked against the source text. A claim is never reported as what YC says, only as what a named partner said.
+- `/khe-brain:yc` in the `khe-brain` plugin.
 - `khe-brain-isb`: answers business questions from the public isb-skills notes, with the file named. 467 pieces, 368 claims in twelve theme files, each claim checked against its source file. It reports the notes as the notes and never as what ISB teaches, and marks a benchmark the notes give without a source.
 - `/khe-brain:isb` in the `khe-brain` plugin.
 

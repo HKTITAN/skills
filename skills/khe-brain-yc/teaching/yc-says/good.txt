@@ -1,0 +1,4 @@
+<!-- good: the same reply with the one fault fixed. -->
+Paul Graham's 2012 essay puts a good growth rate during the Y Combinator batch at 5 to 7 percent a week (Startup = Growth).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: a growth rate for a company outside the batch.

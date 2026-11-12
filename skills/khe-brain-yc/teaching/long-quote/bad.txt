@@ -1,0 +1,5 @@
+<!-- long-quote: a pasted sentence of 20 words is echoed whole in quotation marks, which are kept for short quotes of a speaker. -->
+"A startup that is not growing by at least ten percent every single week should be shut down by its own founders" is in none of the pieces read (YC Startup Library). Paul Graham's 2012 essay puts a good growth rate during the Y Combinator batch at 5 to 7 percent a week (Startup = Growth).
+Source: YC Startup Library, https://www.ycombinator.com/library
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: the pasted sentence, and any rule about shutting down.

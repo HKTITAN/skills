@@ -1,0 +1,4 @@
+<!-- unsourced-quote: a sentence in quotation marks with no piece beside it reads as a speaker's words, and it is in none of the pieces read. -->
+The line people repeat is "a startup must double every single week". Paul Graham's 2012 essay puts a good growth rate during the Y Combinator batch at 5 to 7 percent a week (Startup = Growth).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: the pasted line, and any rule about doubling.

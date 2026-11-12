@@ -1,0 +1,4 @@
+<!-- no-speaker: a piece is cited and nobody is named, so the figure reads as a fact, or as the view of YC as a whole. -->
+A good growth rate during the Y Combinator batch is 5 to 7 percent a week (Startup = Growth).
+Source: Startup = Growth, https://paulgraham.com/growth.html
+Not in the corpus: a growth rate for a company outside the batch.

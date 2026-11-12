@@ -1,0 +1,4 @@
+<!-- unknown-source: the reply cites a podcast that is not in sources.md, so nobody read it for this skill. -->
+Garry Tan says on the podcast that 10 percent a week is the floor (Lightcone Podcast).
+Source: Lightcone Podcast, https://www.ycombinator.com/library
+Not in the corpus: a growth rate for a company outside the batch.

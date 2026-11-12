@@ -1,0 +1,6 @@
+<!-- Gold for a silent topic (`what does YC say about venture debt`). Learn: silence in the first sentence, the index as the source, a nearest piece labelled as nearest with its person, and no position built from it. -->
+No piece read covers venture debt. Where the 88 essays, posts and talks read cover raising money, it is convertible notes, SAFEs and priced rounds, and the phrase occurs in none of them (YC Startup Library).
+Nearest: Paul Graham's 2015 essay says fundraising can never safely be more than plan A, and that founders should write down exactly what they would do to survive without new money (Default Alive or Default Dead?).
+Source: YC Startup Library, https://www.ycombinator.com/library
+Source: Default Alive or Default Dead?, https://paulgraham.com/aord.html
+Not in the corpus: venture debt, how to use a bank loan, and revenue-based financing. More than 300 library entries were not read, so this is silence in the pieces read and not at Y Combinator.

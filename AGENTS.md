@@ -16,6 +16,7 @@ skills/khe-<name>/
 CONTRIBUTING.md   how to write a skill, and how to tell whether something should be one
 skills/<name>     no khe- prefix: someone else's skill, linked as a git submodule. Never edit it.
 skills.sh.json    groups the repo page on skills.sh
+CHANGELOG.md      what changed that a user can see, newest first
 .claude-plugin/   marketplace.json: the Claude Code plugins this repo offers
 commands/         one file per plugin command (`commands/emil-kowalski.md` is `/khe-brain:emil-kowalski`)
 scripts/check.mjs the checks CI runs
@@ -135,4 +136,4 @@ npx -y markdownlint-cli@0.41.0 '**/*.md' --config .github/markdownlint.jsonc
 npx -y skills add ./ --list
 ```
 
-Run all three before a commit. Use a branch for changes; keep unrelated skills in separate commits. Never commit credentials, generated recordings or machine-specific paths.
+Run all three before a commit. When the change is one a user can see (a skill added, renamed or removed, a command, a rule in a gate), add a line to `CHANGELOG.md` under today's date in the same commit. Use a branch for changes; keep unrelated skills in separate commits. Never commit credentials, generated recordings or machine-specific paths.

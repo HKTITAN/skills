@@ -5,9 +5,9 @@ summary: Where two files in the notes give different numbers, steps or definitio
 
 # Disagreements
 
-Open this file before you answer. The notes were assembled from many small files, and the files were never reconciled: the same ratio has two thresholds, the same formula two forms. When a question touches a row, the reply gives each side on its own `Disagrees:` line with its piece, and never merges them into one smooth view. The reply does not pick a winner. No file refers to another, so nothing in the notes says which one is right, and what you know about the subject is not a file.
+Open this file before you answer. The notes were assembled from many small files, and the files were never reconciled: the same ratio has two thresholds, the same formula two forms. When a question touches a row, the reply gives each side on its own `Disagrees:` line with its piece, and never merges them into one smooth view. The reply does not pick a winner. No file names another file, so nothing in the notes says which one is right, and what you know about the subject is not a file.
 
-All files carry the same two commit dates, so no side is the later view. There are no changes over time to report.
+The repository has two commits, dated 2026-04-10 and 2026-11-01, and the second changed only frontmatter lines, so no side is the later view. There are no changes over time to report.
 
 ## Finance
 
@@ -57,7 +57,7 @@ All files carry the same two commit dates, so no side is the later view. There a
 - Among its readiness checks the scaling-phase file asks only for CAC below LTV on conservative estimates. (Entrepreneurship: After PMF: The Scaling Phase, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/pmf-after-pmf-the-scaling-phase.md)
 - An MBA Tutor file gives healthy unit economics as 3x+ LTV/CAC, at which scaling becomes capital-efficient. (MBA Tutor: Unit Economics and Scalability, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/mba-tutor/rules/integrated-unit-economics-and-scalability.md)
 - A second MBA Tutor file writes the ratio the other way up: a SaaS business with a 30% CAC/LTV ratio is one the file expects to be self-sustaining, while Uber and Lyft at less than 1x CAC/LTV are described as burning capital. (MBA Tutor: Entrepreneurship ↔ Finance, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/mba-tutor/rules/connections-entrepreneurship-finance.md)
-- How to report it: a ratio between 2:1 and 3:1 is "possible" in one file and "unsustainable" in another. Give both lines and say which way up each file writes the ratio. The last file's two figures are both below one and get opposite verdicts; report it as written and say so.
+- How to report it: a ratio of 2:1 is difficult but possible in one file and sits in the band below 3:1 that another calls unsustainable at scale. Give every line that bears on the user's number, say which way up each file writes the ratio, and report the last file's two figures as written, noting that both are below one and get opposite verdicts.
 
 ### What retention shows fit?
 
@@ -106,7 +106,7 @@ All files carry the same two commit dates, so no side is the later view. There a
 - The BATNA file says to know your BATNA precisely but not disclose it, and to reference it indirectly to increase credibility, as in "I have other options". (Leadership: BATNA: Best Alternative to Negotiated Agreement, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/negotiation-batna-best-alternative-to-negotiated-agreement.md)
 - The ZOPA file says revealing your true BATNA may lower your power but credible signals of a good BATNA strengthen it. (Leadership: ZOPA: Zone of Possible Agreement, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/negotiation-zopa-zone-of-possible-agreement.md)
 - The negotiation-fundamentals file lists revealing your BATNA among common mistakes and says it weakens your position. (Leadership: Negotiation Fundamentals Beyond BATNA, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/conflict-negotiation-fundamentals-beyond-batna.md)
-- How to report it: three files, three shades. Give the one that bears on the question and say the others exist.
+- How to report it: three files, three shades. Give all three lines.
 
 ### Is the reservation price the BATNA?
 
@@ -120,11 +120,11 @@ All files carry the same two commit dates, so no side is the later view. There a
 - The CEO-challenges file lists strategy first of five CEO priorities, given in order, and says the board provides governance, oversight and counsel and has authority to remove the CEO. (Leadership: CEO Challenges and Specific Leadership Contexts, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/strategic-ceo-challenges-and-specific-leadership-contexts.md)
 - How to report it: give both lines; the notes do not divide the work between the two.
 
-### Is recognition a motivator or a hygiene factor?
+### Which rewards are hygiene factors?
 
 - The Herzberg file puts compensation and benefits among hygiene factors and puts recognition and growth and advancement among motivators. (Leadership: Herzberg's Two-Factor Theory, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/motivation-herzbergs-two-factor-theory.md)
 - The key-principles file calls money and title hygiene factors, not motivators, and says real motivation comes from autonomy, competence and relatedness. (Leadership: Key Principles for Effective Leadership, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/styles-key-principles-for-effective-leadership.md)
-- How to report it: the files agree on money. They part on title and advancement. Give both.
+- How to report it: the files agree on money. The first file never mentions title and the second never mentions recognition or advancement, so give both lines as written and do not set title against advancement.
 
 ## Strategy and cases
 
@@ -156,9 +156,9 @@ All files carry the same two commit dates, so no side is the later view. There a
 
 ### Five steps or ten?
 
-- The case method is numbered in five steps, and step 5 turns the decision into action under five headings. (MBA Tutor: Step 5: Implementation Plan, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/mba-tutor/rules/case-step-5-implementation-plan.md)
+- The implementation plan is numbered step 5 of the case method, and it turns the decision into action under five headings. (MBA Tutor: Step 5: Implementation Plan, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/mba-tutor/rules/case-step-5-implementation-plan.md)
 - The integration exercise presents a ten-step list as the complete framework: situation, strategy, operations, finance, marketing, economics, leadership, technology, cross-domain connections and recommendation. (MBA Tutor: Integration Exercise: the Complete Analysis, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/mba-tutor/rules/case-integration-exercise-the-complete-analysis.md)
-- How to report it: the five are stages of one analysis and the ten are subjects to cover. The notes do not map one onto the other.
+- How to report it: one file is step 5 of a numbered case method and the other numbers ten items it calls the complete framework. The notes do not map one onto the other.
 
 ## Markets and policy
 
@@ -234,7 +234,7 @@ All files carry the same two commit dates, so no side is the later view. There a
 
 ## Inside one file
 
-These files contradict themselves, or state something their own numbers do not support. Report the line as written, say what sits beside it, and build nothing on it.
+These files contradict themselves, state something their own numbers do not support, or give a striking figure with no source. Report the line as written, say what sits beside it, and build nothing on it.
 
 - The synergy file's timeline has 90 to 100% of synergies realised from year 3, and its list of common failures says 70% realisation is typical for cost synergies. (Finance: Synergy Realization, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/ma-synergy-realization.md)
 - The lean file heads its list of wastes "Seven Wastes" and gives eight entries, the last marked as added. (Operations: Lean Manufacturing, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/operations/rules/lean-lean-manufacturing.md)

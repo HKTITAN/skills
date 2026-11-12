@@ -14,7 +14,7 @@ The notes are 457 short files on nine subjects. They summarise frameworks; they 
 3. The `Not in the notes:` line names the topic.
 4. A nearest piece may be offered, labelled as nearest, with what it does say. Never continue from it to what the notes "must" mean.
 5. A topic missing from this table and from every theme file is also silent. Search [sources](sources.md) for a title on the topic, open that file by its URL, and add a row here or a line to a theme file after you have read it.
-6. A router's description is not evidence. Several `SKILL.md` files list trigger words for topics no rule file covers, such as SWOT in strategy, IPOs and debt markets in finance, and delegation and coaching in leadership. A topic is covered only when a rule file covers it.
+6. A router's description is not evidence. Several `SKILL.md` files list trigger words for topics no rule file covers, such as debt markets and credit analysis in finance. A topic is covered only when a rule file covers it.
 7. Knowing the answer is not evidence either. If the line is not in a theme file, it is not in the reply.
 
 ## Not covered
@@ -26,25 +26,25 @@ The gate reads the first two columns. When a sentence that speaks for the notes 
 | ISB itself: admissions, fees, rankings, placements, campus | admission, admissions, GMAT, tuition, scholarship, placement report, ISB ranking, school ranking, alumni network, campus life | None. The README names the programme and says nothing else about the school. |
 | Professors, courses, terms, sessions and case studies at ISB | syllabus, course outline, case list, term 1, core term, elective | None. No rule file names a professor, a course or a case study. |
 | Students and classes | classmate, class profile, batch profile, student data, study group | None. The repository holds no data about any person. |
-| Which sentences came from an ISB classroom | lecture, in class, taught in | None. Two files carry footers about wiki articles and ChatGPT knowledge bases; see [sources](sources.md). |
-| Capital budgeting | capital budgeting, net present value, hurdle rate, profitability index | The Finance files discount cash flows to value a whole business. They have no file on choosing between projects. |
+| Which sentences came from an ISB classroom | lecture, in class, taught in | None. The README says the notes draw on the ISB PGP 2025-26 curriculum; two footers mention wiki articles and one of them ChatGPT knowledge bases. See [sources](sources.md). |
+| Capital budgeting | capital budgeting, net present value, profitability index | The Finance files discount cash flows to value a whole business, and no finance file is about choosing between projects. One economics file defines a hurdle rate for an entry investment in two lines. |
 | Bonds and credit analysis | bond pricing, yield curve, convexity, credit spread, credit analysis | None, though the finance router lists debt markets and credit analysis among its trigger words. |
 | Option pricing and portfolio theory | Black-Scholes, option pricing, portfolio theory, efficient frontier, Sharpe ratio | The derivatives file describes an option as a right bought for a premium. It prices nothing. |
 | Dividends and buybacks | dividend policy, buyback, share repurchase | None. A payout ratio appears inside the sustainable growth formula, and a dividend recap among private equity levers. |
 | Tax planning | tax planning, transfer pricing, deferred tax | None. A tax rate appears inside formulas such as WACC. |
 | Accounting standards in detail | lease accounting, accounting standard, consolidation accounting | One pitfall says IFRS and US GAAP differ and to normalise before comparing. Nothing else. |
-| Indian company, securities and startup law | SEBI, Companies Act, angel tax, DPIIT, ESOP, ONDC | None on these. India appears elsewhere: as rates in the CAPM file and as the Jan Dhan, Aadhaar and UPI stack in one finance file. |
-| Macroeconomic models | IS-LM, aggregate demand, aggregate supply | The Economics files describe indicators and policy tools in words and name no model of this kind. |
-| Labour markets | labour market, labor market, wage determination | None. |
-| Econometrics and measures of concentration or inequality | econometrics, econometric, HHI, Herfindahl, Gini | None. The antitrust lines give a market share and name no index. |
-| PESTEL, industry life cycle, make-or-buy | PESTEL, PEST analysis, industry life cycle, make-or-buy, make or buy | None. SWOT is named inside the first step of the case method and has no file of its own. |
-| Media planning and the product life cycle | media planning, media plan, product life cycle | None. One marketing file is titled for the 4Ps; its text is one sentence that names the marketing mix and does not list the four. |
+| Indian company, securities and startup law | SEBI, Companies Act, angel tax, DPIIT, ONDC | None on these. One security file names India's DPDPA in a line, and the employee equity file covers options and vesting in US tax terms. India also appears as rates in the CAPM file and in the financial inclusion file. |
+| Macroeconomic models | IS-LM, aggregate demand, aggregate supply | The Economics files name the Solow growth model and the Phillips curve and give the GDP expenditure identity. They name neither IS-LM nor aggregate demand and supply. |
+| Labour markets | wage determination, wage setting, collective bargaining | The macro indicators file defines the unemployment rate and its types, and one monetary policy file ties tight labour markets to wage inflation. No file covers how wages are set. |
+| Econometrics and measures of concentration or inequality | econometrics, econometric, HHI, Herfindahl, Gini | No file uses the word econometrics; one Operations file covers regression analysis. The antitrust lines give a market share and name no index, and one development line names the Kuznets curve. |
+| PESTEL, industry life cycle, make-or-buy | industry life cycle | None. PESTLE is a section of the marketing 5Cs file, SWOT is defined in the first step of the case method, and make-versus-buy has lines in Operations and a file in Technology; those are covered, and only the industry life cycle is not. |
+| Media planning and the product life cycle | media planning, media plan | None. A product lifecycle of five stages is in the product management file, and the four elements of the marketing mix are listed in the STP file. |
 | Toyota Production System detail and sales and operations planning | jidoka, heijunka, SMED, S&OP, sales and operations planning | The lean file lists wastes and 5S. It names none of these. |
-| Founders and early company formation | co-founder, cofounder, equity split, venture debt, crowdfunding | None. |
-| Layoffs, remote teams and whistleblowing | layoff, layoffs, remote team, hybrid work, whistleblowing, whistleblower | None. |
-| IT governance frameworks and ML operations | COBIT, ITIL, TOGAF, technical debt, tech debt, MLOps, precision and recall | The security file names the NIST framework and ISO 27001. Nothing on these. |
-| AI regulation and open-source licensing | EU AI Act, AI regulation, open-source licence, open source license | None. No file names the EU AI Act. |
-| Climate and carbon | carbon, climate risk, net zero | None. ESG appears in one strategy file on stakeholder theory. |
+| Founders and early company formation | equity split, founder equity, venture debt, crowdfunding | None. Co-founder conflict is mentioned in passing in three entrepreneurship files. |
+| Layoffs, remote teams and whistleblowing | layoff, layoffs, whistleblowing, whistleblower | None. One MBA Tutor line says remote work changes culture and distributed teams need different coordination. |
+| IT governance frameworks and ML operations | COBIT, ITIL, TOGAF, MLOps | The security file names the NIST framework and ISO 27001. Technical debt and precision and recall are each named once and not explained; nothing on the frameworks. |
+| AI regulation and open-source licensing | EU AI Act, AI regulation, open-source licence, open source license | No file names the EU AI Act. The AI ethics file says legal frameworks are still evolving and that GDPR limits data usage. |
+| Climate and carbon | carbon accounting, climate risk, net zero | The stakeholder file lists carbon emissions and climate impact as one ESG item, the marketing 5Cs file names climate change and ESG pressure, and one development line calls developing countries most exposed. Nothing on carbon accounting, climate risk or net zero. |
 | Family business | family business, family-owned | None. |
 | Planning tools the notes never name | OKR, business model canvas, lean canvas, design thinking, jobs to be done | None. |
 | Personal money and career decisions | mutual fund, retirement, pension, which stock, stock tip, my salary, career switch | None. The notes are about firms. This skill reports them and gives no personal advice. |
@@ -52,12 +52,12 @@ The gate reads the first two columns. When a sentence that speaks for the notes 
 
 ## Thin, not silent
 
-These have a line or two. Report the line, its piece and that it is all there is.
+These have a line or two. Report the line, its piece and that the notes hold little more.
 
-| Topic | All the notes hold |
+| Topic | What the notes hold |
 |---|---|
-| IPOs | An IPO is listed as an exit route for a private equity fund and for a venture investor, with no account of how one is done. (Finance: PE Exits, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/pe-pe-exits.md; Entrepreneurship: Exit Strategies, how VCs get returns, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/vc-exit-strategies-how-vcs-get-returns.md) |
-| India-specific figures | The CAPM file gives India's 10-year government bond yield as about 6 to 7% and an India market risk premium of 6.5 to 7.5%, undated and with no source. (Finance: CAPM, Capital Asset Pricing Model, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-capm-capital-asset-pricing-model.md) |
+| IPOs | An IPO is listed as an exit route for a private equity fund, where it carries the highest multiple, and for a venture investor, where the file calls it expensive and rare. No file gives an account of how one is done. (Finance: PE Exits, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/pe-pe-exits.md; Entrepreneurship: Exit Strategies, how VCs get returns, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/vc-exit-strategies-how-vcs-get-returns.md) |
+| India-specific figures | The CAPM file gives India's 10-year government bond yield as about 6 to 7% and an India market risk premium of 6.5 to 7.5%, and the financial inclusion file gives 40M+ microfinance borrowers, 400M+ Jan Dhan accounts and Aadhaar at over 99% of the population. All are undated and have no source. (Finance: CAPM, Capital Asset Pricing Model, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/valuation-capm-capital-asset-pricing-model.md; Finance: Financial Inclusion & Emerging Markets Context, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/specialized-financial-inclusion-emerging-markets-context.md) |
 | Accounting standards | The pitfalls list says IFRS and US GAAP differences matter and to normalise before comparing. (Finance: Pitfalls to Avoid, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/ratios-pitfalls-to-avoid.md) |
-| The source of the notes | One footer says a strategy reference "Integrates 21 wiki articles + multiple ChatGPT knowledge bases". (Strategy: Core Principles, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/strategy/rules/frameworks-core-principles.md) |
-| The 4Ps | The file titled for the 5Cs, STP and 4Ps is one sentence: understand the situation with the 5Cs, choose the target and position with STP, then execute through the marketing mix. It does not list the four. (Marketing: Strategic Foundations: the 5Cs, STP, and 4Ps, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/marketing/rules/foundations-strategic-foundations-the-5cs-stp-and-4ps.md) |
+| The source of the notes | One footer says a strategy reference "Integrates 21 wiki articles + multiple ChatGPT knowledge bases", and a second calls a leadership reference one "integrating 20 wiki articles". (Strategy: Core Principles, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/strategy/rules/frameworks-core-principles.md; Leadership: Related Theories & Frameworks, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/related-theorie-related-theories-frameworks.md) |
+| The 4Ps | The file titled for the 5Cs, STP and 4Ps is one sentence and does not list the four. The STP file lists product, price, distribution and promotion as the marketing mix without calling them the 4Ps. (Marketing: Strategic Foundations: the 5Cs, STP, and 4Ps, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/marketing/rules/foundations-strategic-foundations-the-5cs-stp-and-4ps.md; Marketing: STP Framework: Segmentation, Targeting, Positioning, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/marketing/rules/foundations-stp-framework-segmentation-targeting-positioning.md) |

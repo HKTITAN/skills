@@ -71,7 +71,7 @@ In Claude Code the brains also install as one plugin, so they sit under one name
 /plugin install khe-brain@kheskills
 ```
 
-Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya` and `/khe-brain:indian-school-of-business` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
+Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya` and `/khe-brain:isb` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
 
 Each skill works alone. Some call others:
 

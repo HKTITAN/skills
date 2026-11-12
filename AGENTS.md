@@ -49,7 +49,7 @@ A skill built from one person's published work (a "brain" skill, `khe-brain-<nam
 
 ## The khe-brain plugin
 
-Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for the person or the institution in full (`varun-mayya`, never `varun`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`skills/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.
+Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for a person in full (`varun-mayya`, never `varun`) and for an institution by its usual short name (`isb`, `yc`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`skills/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.
 
 - The skill folder keeps its own name (`khe-brain-varun`) for `npx skills add`, so installs and links do not break. The command carries the full name.
 - The plugin's `skills` entry points at `commands/`, which holds no `SKILL.md`. That is on purpose: without it Claude Code would load every skill in `skills/` under the `khe-brain:` name, and with the brain folders listed each brain would show twice.

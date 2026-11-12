@@ -11,8 +11,8 @@
     {
       "name": "khe-brain",
       "source": "./",
-      "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:indian-school-of-business.",
-      "version": "1.2.0",
+      "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb.",
+      "version": "1.2.1",
       "author": {
         "name": "Harshit Khemani"
       },
@@ -25,7 +25,7 @@
         "./commands/emil-kowalski.md",
         "./commands/benji-taylor.md",
         "./commands/varun-mayya.md",
-        "./commands/indian-school-of-business.md"
+        "./commands/isb.md"
       ]
     }
   ]

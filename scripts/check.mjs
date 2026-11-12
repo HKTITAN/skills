@@ -96,19 +96,24 @@ else {
   const plugin = JSON.parse(read(marketPath)).plugins.find((p) => p.name === "khe-brain");
   if (!plugin) bad("marketplace.json", "no khe-brain plugin");
   else {
+    // A command is named for the person in full (commands/varun-mayya.md is /khe-brain:varun-mayya)
+    // and names the one skill it reads, so the two are matched by that path, not by file name.
     const listed = plugin.commands || [];
     const brains = names.filter((n) => n.startsWith("khe-brain-"));
-    for (const n of brains) {
-      const short = n.slice("khe-brain-".length);
-      const file = join(ROOT, "commands", `${short}.md`);
-      if (!existsSync(file)) { bad("commands", `${n} has no commands/${short}.md, so /khe-brain:${short} does not exist`); continue; }
-      if (!listed.includes(`./commands/${short}.md`)) bad("marketplace.json", `./commands/${short}.md is not in the khe-brain plugin's commands`);
-      if (!read(file).includes(`/skills/${n}/SKILL.md`)) bad(`commands/${short}.md`, `does not point at skills/${n}/SKILL.md`);
+    const commandDir = join(ROOT, "commands");
+    const files = existsSync(commandDir) ? readdirSync(commandDir).filter((f) => f.endsWith(".md")).sort() : [];
+    const reads = new Map();
+    for (const f of files) {
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*\.md$/.test(f)) bad(`commands/${f}`, "a command name is lowercase letters, digits and single hyphens");
+      if (!listed.includes(`./commands/${f}`)) bad("marketplace.json", `./commands/${f} is not in the khe-brain plugin's commands`);
+      const target = read(join(commandDir, f)).match(/\/skills\/(khe-brain-[a-z0-9-]+)\/SKILL\.md/)?.[1];
+      if (!target) bad(`commands/${f}`, "does not point at a skills/khe-brain-*/SKILL.md");
+      else if (!brains.includes(target)) bad(`commands/${f}`, `points at ${target}, which is not a skill here`);
+      else if (reads.has(target)) bad(`commands/${f}`, `${target} already has commands/${reads.get(target)}`);
+      else reads.set(target, f);
     }
-    for (const c of listed) {
-      const short = c.replace(/^\.\/commands\//, "").replace(/\.md$/, "");
-      if (!brains.includes(`khe-brain-${short}`)) bad("marketplace.json", `${c} has no skill khe-brain-${short}`);
-    }
+    for (const n of brains) if (!reads.has(n)) bad("commands", `${n} has no command, so it is missing from /khe-brain:`);
+    for (const c of listed) if (!files.includes(c.replace(/^\.\/commands\//, ""))) bad("marketplace.json", `${c} is listed and does not exist`);
     for (const s of plugin.skills || []) if (existsSync(join(ROOT, s, "SKILL.md")) || /^\.\/skills/.test(s)) bad("marketplace.json", `the khe-brain plugin must not list ${s} as a skill; each brain would show twice`);
   }
 }

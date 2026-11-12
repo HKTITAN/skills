@@ -25,7 +25,7 @@
     },
     {
       "title": "Brains",
-      "description": "Answers from one person's public writing or talks, with the source named. In Claude Code they also install as one plugin: /khe-brain:emil, /khe-brain:benji, /khe-brain:varun.",
+      "description": "Answers from one person's public writing or talks, with the source named. In Claude Code they also install as one plugin: /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya.",
       "skills": [
         "khe-brain-emil",
         "khe-brain-benji",

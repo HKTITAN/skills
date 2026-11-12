@@ -11,8 +11,8 @@
     {
       "name": "khe-brain",
       "source": "./",
-      "description": "Brains: answers from one person's public writing or talks, with the source named. /khe-brain:emil, /khe-brain:benji, /khe-brain:varun.",
-      "version": "1.0.0",
+      "description": "Brains: answers from one person's public writing or talks, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya.",
+      "version": "1.1.0",
       "author": {
         "name": "Harshit Khemani"
       },
@@ -22,9 +22,9 @@
         "./commands"
       ],
       "commands": [
-        "./commands/emil.md",
-        "./commands/benji.md",
-        "./commands/varun.md"
+        "./commands/emil-kowalski.md",
+        "./commands/benji-taylor.md",
+        "./commands/varun-mayya.md"
       ]
     }
   ]

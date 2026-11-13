@@ -133,6 +133,7 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | "What's it called when" for a motion effect | `animation-vocabulary` | Emil Kowalski |
 | A web app that feels like a website on a phone, as its own full pass | `mobile-native` | Emil Kowalski |
 | Break a UI with worst-case data behind a toggle | `break-ui` | Emil Kowalski |
+| End of a session: turn the design corrections the user made into rules with their reasons, in DESIGN.md, a project skill or a lint check | `learn-taste` | Emil Kowalski |
 | Undecided direction: several versions behind a picker | `prototype` | Emil Kowalski |
 | Which library for a frontend task | `pick-ui-library` | Emil Kowalski |
 | Motion in React Native or Expo | `animate-expo` | Emil Kowalski |
@@ -198,6 +199,7 @@ Each pair is one question, not two skills to read.
 | `khe-ui` / `emil-design-eng` | A screen judged across every area with a verdict, or Emil's own bar by name? | Across areas: khe-ui. The user named Emil's skill: that one. |
 | `khe-ui` / `animate` | One question about motion inside a wider job, or a single animation built from scratch as its own task? | Inside a job: khe-ui, motion lane. Its own task: animate. |
 | `khe-ui` / `khe-design-tokens` | Deciding what looks right, or applying values that exist? | Judgment: khe-ui. A contract to thread through: tokens. |
+| `khe-design-tokens` / `learn-taste` | Threading a contract that exists through the UI, or writing down what the user corrected this session? | Applying or documenting tokens: khe-design-tokens. Corrections from the session turned into rules: learn-taste, which proposes and waits for a yes. |
 | `khe-ui` / `break-ui` | A list of what breaks, or a worst-case dataset wired behind a toggle? | A list inside a wider pass: khe-ui. The harness and toggle: break-ui. |
 | `khe-ui` / `ui-sdk` | How the control behaves and which parts it is made of, or what it looks like and whether it is finished? | Behavior, composition, a missing component, the agent bridge, tests: ui-sdk, first. The look, the states, motion values, a verdict: khe-ui, on what ui-sdk rendered. |
 | `ui-sdk` / `pick-ui-library` | Is `@ui-sdk/*` already in the project? | Yes: ui-sdk. Still choosing a library: pick-ui-library. |

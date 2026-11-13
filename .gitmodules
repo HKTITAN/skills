@@ -97,3 +97,6 @@
 [submodule "skills/ui-sdk-write-docs"]
 	path = skills/ui-sdk-write-docs
 	url = https://github.com/vercel-labs/ui.git
+[submodule "skills/learn-taste"]
+	path = skills/learn-taste
+	url = https://github.com/emilkowalski/skills.git

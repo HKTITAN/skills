@@ -14,6 +14,11 @@ What changed in kheSkills, newest first. One entry per day that something a user
 - Vercel's `ui-sdk` skill is pinned in `skills/ui-sdk` like Emil's and Benji's, so it follows `vercel-labs/ui` automatically.
 - `khe-brain-isb` 1.1.1 adds seven anonymised notes, titled `a bootcamp session`, for two ivi bootcamps that were held back: general teaching points only, with the speaker, the date and the speaker's own frameworks, examples and materials left out. 153 session notes and 620 pieces in all.
 - The `khe-brain` plugin is 1.4.0, so an installed copy picks up the session notes on update.
+- Emil Kowalski's `learn-taste` is linked in `skills/` and routed by `khe-auto`, with an overlap row against `khe-design-tokens`. It turns the design corrections made in a session into rules with their reasons.
+
+### Changed
+
+- The pins on Emil Kowalski's skills follow his update of 2026-11-13, which corrected API names and contradictions between skills across all nineteen.
 
 ## 2026-11-12
 

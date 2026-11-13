@@ -1,6 +1,6 @@
 ---
 name: khe-auto
-description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films), the skills by Emil Kowalski and Benji Taylor linked beside them, and Vercel's `ui-sdk`. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"build it with ui-sdk\", \"we ship Thursday\". When the request already names a skill, use that skill."
+description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films), the skills by Emil Kowalski and Benji Taylor linked beside them, and Vercel's `ui-sdk` and agent skills. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"build it with ui-sdk\", \"we ship Thursday\". When the request already names a skill, use that skill."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -138,12 +138,25 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | Motion in React Native or Expo | `animate-expo` | Emil Kowalski |
 | Sonner toasts: setup, styling, fixes | `ask-sonner` | Emil Kowalski |
 | A project on UI SDK (`@ui-sdk/*`): pick and compose its components, build one it does not ship, make the page usable by an agent, test keyboard, focus and ARIA | `ui-sdk` | Vercel |
+| Review UI code against Vercel's Web Interface Guidelines, by name | `web-design-guidelines` | Vercel |
+| React's View Transition API: page transitions, shared elements, animated route changes | `vercel-react-view-transitions` | Vercel |
 
 ## Code
 
 | The job | Skill | Whose |
 |---|---|---|
 | Write, review or migrate Swift: value types, Swift 6 concurrency, generics, Swift Testing | `write-swift` | Emil Kowalski |
+| React and Next.js performance: waterfalls, bundle size, server and client rendering | `vercel-react-best-practices` | Vercel |
+| React component APIs that scale: compound components in place of a pile of boolean props | `vercel-composition-patterns` | Vercel |
+| React Native and Expo performance: lists, animations, native modules | `vercel-react-native-skills` | Vercel |
+| Deploy an app or a site to Vercel and hand back the link | `deploy-to-vercel` | Vercel |
+| The Vercel CLI with an access token in place of an interactive login | `vercel-cli-with-tokens` | Vercel |
+| Cut cost and latency on a deployed Vercel project, starting from its own metrics | `vercel-optimize` | Vercel |
+| Review docs or prose against Vercel's Writing Guidelines, by name | `writing-guidelines` | Vercel |
+| Working on the UI SDK repository itself: write its code the way each framework's expert would | `ui-sdk-write-code` | Vercel |
+| Working on the UI SDK repository itself: review a change with its framework experts before it merges | `ui-sdk-expert-review` | Vercel |
+| Working on the UI SDK repository itself: strip generated-looking code from a diff | `ui-sdk-unslop` | Vercel |
+| Working on the UI SDK repository itself: write or review its website docs | `ui-sdk-write-docs` | Vercel |
 
 ## Brains
 
@@ -172,7 +185,9 @@ If the folder is not there, the skill is not installed. Name it and give the lin
 - A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
-- Vercel's: `npx skills add vercel-labs/ui --skill ui-sdk`. The copy that matches the project's version also ships at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`; when that file is there, read it in place of installing.
+- Vercel's agent skills: `npx skills add vercel-labs/agent-skills --skill <name>`
+- The four `ui-sdk-*` skills are the UI SDK repository's own contributor skills, in its `.agents/skills` folder. They are for work inside that repository and are read from a clone of it.
+- Vercel's `ui-sdk`: `npx skills add vercel-labs/ui --skill ui-sdk`. The copy that matches the project's version also ships at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`; when that file is there, read it in place of installing.
 
 ## Overlaps
 
@@ -186,6 +201,9 @@ Each pair is one question, not two skills to read.
 | `khe-ui` / `break-ui` | A list of what breaks, or a worst-case dataset wired behind a toggle? | A list inside a wider pass: khe-ui. The harness and toggle: break-ui. |
 | `khe-ui` / `ui-sdk` | How the control behaves and which parts it is made of, or what it looks like and whether it is finished? | Behavior, composition, a missing component, the agent bridge, tests: ui-sdk, first. The look, the states, motion values, a verdict: khe-ui, on what ui-sdk rendered. |
 | `ui-sdk` / `pick-ui-library` | Is `@ui-sdk/*` already in the project? | Yes: ui-sdk. Still choosing a library: pick-ui-library. |
+| `khe-ui` / `web-design-guidelines` | A verdict with exact values, or a pass against Vercel's published guideline list? | Vercel's list, asked for by name: web-design-guidelines. Any other review: khe-ui. |
+| `animate` / `vercel-react-view-transitions` | Is the motion a React view transition between routes or states? | Yes: vercel-react-view-transitions. Any other animation: animate. |
+| `animate-expo` / `vercel-react-native-skills` | One animation, or how the whole React Native app performs? | One animation: animate-expo. Lists, native modules, the app as a whole: vercel-react-native-skills. |
 | `khe-svg` / `khe-ui` | Does the motion live inside the file, or on the page around it? | Inside the SVG: svg. On the page: khe-ui, motion lane. |
 | `khe-svg` / `khe-diagram` | An asset, or an explanation? | Icon, logo, mascot: svg. Boxes and arrows that explain: diagram. |
 | `khe-svg` / `khe-sticker` | An interface asset, or something sent in a chat? | Icon, logo, illustration on a page: svg. A die-cut sticker or a pack for a chat app: sticker. |

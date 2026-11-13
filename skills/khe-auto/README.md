@@ -10,7 +10,7 @@ npx skills add HKTITAN/skills --skill khe-auto
 
 - Reads a request and names the one or two skills that own it, with a one-line reason each.
 - Runs them in order, one at a time, looking at the result between them.
-- Routes to the khe skills, to Emil Kowalski's and Benji Taylor's skills and to Vercel's `ui-sdk` by name, and says whose each one is.
+- Routes to the khe skills, to Emil Kowalski's and Benji Taylor's skills and to Vercel's `ui-sdk` and agent skills by name, and says whose each one is.
 - Says so when no skill applies, instead of stretching one over the wrong problem.
 - Runs one loop for whichever skill it routed to: plan, start from gold, build, run that skill's gate, fix the largest fault, walk verify, fresh-eye review, hand over.
 - Ends every reply with what it could not verify.

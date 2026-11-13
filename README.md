@@ -149,13 +149,27 @@ npx skills add emilkowalski/skills
 
 ```sh
 npx skills add vercel-labs/ui --skill ui-sdk
+npx skills add vercel-labs/agent-skills
 ```
 
 | Skill | What I use it for |
 |---|---|
 | [ui-sdk](https://github.com/vercel-labs/ui/blob/main/packages/core/skills/ui-sdk/SKILL.md) | Building on [UI SDK](https://ui-sdk.dev): choosing and composing its components, building one it does not ship from the behaviors in `@ui-sdk/core`, making the page usable by an agent, and testing keyboard, focus and ARIA. `khe-ui` then styles and judges what it rendered. |
+| [web-design-guidelines](https://github.com/vercel-labs/agent-skills/blob/main/skills/web-design-guidelines/SKILL.md) | Checking UI code against Vercel's Web Interface Guidelines. |
+| [vercel-react-view-transitions](https://github.com/vercel-labs/agent-skills/blob/main/skills/react-view-transitions/SKILL.md) | React's View Transition API. |
+| [vercel-react-best-practices](https://github.com/vercel-labs/agent-skills/blob/main/skills/react-best-practices/SKILL.md) | React and Next.js performance rules. |
+| [vercel-composition-patterns](https://github.com/vercel-labs/agent-skills/blob/main/skills/composition-patterns/SKILL.md) | Composing React components. |
+| [vercel-react-native-skills](https://github.com/vercel-labs/agent-skills/blob/main/skills/react-native-skills/SKILL.md) | React Native and Expo performance. |
+| [deploy-to-vercel](https://github.com/vercel-labs/agent-skills/blob/main/skills/deploy-to-vercel/SKILL.md) | Deploying to Vercel. |
+| [vercel-cli-with-tokens](https://github.com/vercel-labs/agent-skills/blob/main/skills/vercel-cli-with-tokens/SKILL.md) | The Vercel CLI with a token. |
+| [vercel-optimize](https://github.com/vercel-labs/agent-skills/blob/main/skills/vercel-optimize/SKILL.md) | Cost and performance on a deployed Vercel project. |
+| [writing-guidelines](https://github.com/vercel-labs/agent-skills/blob/main/skills/writing-guidelines/SKILL.md) | Checking docs against Vercel's Writing Guidelines. |
+| [ui-sdk-write-code](https://github.com/vercel-labs/ui/blob/main/.agents/skills/ui-sdk-write-code/SKILL.md) | Writing code inside the UI SDK repository. |
+| [ui-sdk-expert-review](https://github.com/vercel-labs/ui/blob/main/.agents/skills/ui-sdk-expert-review/SKILL.md) | Reviewing a change to the UI SDK repository. |
+| [ui-sdk-unslop](https://github.com/vercel-labs/ui/blob/main/.agents/skills/ui-sdk-unslop/SKILL.md) | Cleaning a diff in the UI SDK repository. |
+| [ui-sdk-write-docs](https://github.com/vercel-labs/ui/blob/main/.agents/skills/ui-sdk-write-docs/SKILL.md) | Writing docs for the UI SDK site. |
 
-It is pinned in `skills/ui-sdk` like the others. The skill lives inside the UI SDK monorepo, at `packages/core/skills/ui-sdk`, so the pin follows the whole library and moves whenever the library does. The copy that matches your project ships with the package, at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`. UI SDK is in beta.
+All fourteen are pinned in `skills/` like the others: nine from [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) and five from [vercel-labs/ui](https://github.com/vercel-labs/ui). The four `ui-sdk-*` skills are that repository's own contributor skills, from its `.agents/skills` folder, and are useful only for work inside it. `ui-sdk` is the one to install for building with the library. The skill lives inside the UI SDK monorepo, at `packages/core/skills/ui-sdk`, so the pin follows the whole library and moves whenever the library does. The copy that matches your project ships with the package, at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`. UI SDK is in beta.
 
 `npx skills add HKTITAN/skills` installs only my skills. Install theirs from their repos with the commands above.
 

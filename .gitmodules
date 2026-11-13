@@ -58,3 +58,42 @@
 [submodule "skills/ui-sdk"]
 	path = skills/ui-sdk
 	url = https://github.com/vercel-labs/ui.git
+[submodule "skills/web-design-guidelines"]
+	path = skills/web-design-guidelines
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/vercel-react-view-transitions"]
+	path = skills/vercel-react-view-transitions
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/vercel-react-best-practices"]
+	path = skills/vercel-react-best-practices
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/vercel-composition-patterns"]
+	path = skills/vercel-composition-patterns
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/vercel-react-native-skills"]
+	path = skills/vercel-react-native-skills
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/deploy-to-vercel"]
+	path = skills/deploy-to-vercel
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/vercel-cli-with-tokens"]
+	path = skills/vercel-cli-with-tokens
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/vercel-optimize"]
+	path = skills/vercel-optimize
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/writing-guidelines"]
+	path = skills/writing-guidelines
+	url = https://github.com/vercel-labs/agent-skills.git
+[submodule "skills/ui-sdk-write-code"]
+	path = skills/ui-sdk-write-code
+	url = https://github.com/vercel-labs/ui.git
+[submodule "skills/ui-sdk-expert-review"]
+	path = skills/ui-sdk-expert-review
+	url = https://github.com/vercel-labs/ui.git
+[submodule "skills/ui-sdk-unslop"]
+	path = skills/ui-sdk-unslop
+	url = https://github.com/vercel-labs/ui.git
+[submodule "skills/ui-sdk-write-docs"]
+	path = skills/ui-sdk-write-docs
+	url = https://github.com/vercel-labs/ui.git

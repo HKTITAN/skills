@@ -61,3 +61,12 @@ These have a line or two. Report the line, its piece and that the notes hold lit
 | Accounting standards | The pitfalls list says IFRS and US GAAP differences matter and to normalise before comparing. (Finance: Pitfalls to Avoid, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/ratios-pitfalls-to-avoid.md) |
 | The source of the notes | One footer says a strategy reference "Integrates 21 wiki articles + multiple ChatGPT knowledge bases", and a second calls a leadership reference one "integrating 20 wiki articles". (Strategy: Core Principles, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/strategy/rules/frameworks-core-principles.md; Leadership: Related Theories & Frameworks, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/leadership/rules/related-theorie-related-theories-frameworks.md) |
 | The 4Ps | The file titled for the 5Cs, STP and 4Ps is one sentence and does not list the four. The STP file lists product, price, distribution and promotion as the marketing mix without calling them the 4Ps. (Marketing: Strategic Foundations: the 5Cs, STP, and 4Ps, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/marketing/rules/foundations-strategic-foundations-the-5cs-stp-and-4ps.md; Marketing: STP Framework: Segmentation, Targeting, Positioning, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/marketing/rules/foundations-stp-framework-segmentation-targeting-positioning.md) |
+
+## Silent in the notes, said in a session
+
+The tables above are about the 457 rule files. A session note in `ivi/` can still speak on one of their topics: capital budgeting, design thinking, founder equity and Indian startup law all come up in sessions.
+
+1. Before answering silence, open the ivi file for the subject from the table in `SKILL.md`.
+2. If a session line bears on the question, the reply says the notes do not cover the topic and gives the session line as its speaker's, with the session note as the source.
+3. If no session line bears on it either, the answer is silence, as above.
+4. Students, classmates and their startups stay silent everywhere. No note holds them.

@@ -9,6 +9,7 @@ What changed in kheSkills, newest first. One entry per day that something a user
 - `khe-ui` has a `ui-sdk` lane for a screen built with Vercel's [UI SDK](https://ui-sdk.dev) (`@ui-sdk/*`, in beta): what the library decides and what this skill still decides, the hooks each value is written on (`data-slot`, state attributes, `data-starting-style` and `data-ending-style`, `@layer ui-sdk`), and what the optional `web.css` look leaves unfinished against this skill's numbers. It never restates the library.
 - `khe-design-tokens` binds a contract to the `--ui-*` variables of UI SDK's `web.css`.
 - `khe-auto` routes to Vercel's own `ui-sdk` skill for composing, building and testing UI SDK components, with its install line, two overlap rows and a step in the new-screen playbook. The skill is linked from the README under "From others" and is not copied or pinned here.
+- `khe-brain-isb` 1.1.0 adds 146 session notes from ivi, the I-Venture Immersive programme at ISB (April to August 2025), in `ivi/`: one note per recording of a class, a bootcamp or a guest talk, each naming its speaker and date. Twelve `ivi-*` theme files hold 2,300 or so claim lines, each linked to its session note. A session line is reported as its speaker's and never as the school's. Classmates, their startups and anything a speaker asked to keep in the room are left out, and two bootcamps are held back for that reason. 613 pieces in all.
 
 ## 2026-11-12
 

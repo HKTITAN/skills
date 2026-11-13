@@ -106,7 +106,7 @@ One table each: the problem as you would say it, and the value that fixes it.
 
 ## From others
 
-Skills by other people that I use next to mine. They are not copied here. Emil's and Benji's are linked in [`skills/`](skills) as git submodules that follow their repos automatically; Vercel's is linked by URL only, for the reason under its name. Each link below goes to the original file, and `khe-auto` routes to all of them by name.
+Skills by other people that I use next to mine. They are not copied here. Emil's, Benji's and Vercel's are linked in [`skills/`](skills) as git submodules that follow their repos automatically. Each link below goes to the original file, and `khe-auto` routes to all of them by name.
 
 ### Benji Taylor
 
@@ -155,7 +155,7 @@ npx skills add vercel-labs/ui --skill ui-sdk
 |---|---|
 | [ui-sdk](https://github.com/vercel-labs/ui/blob/main/packages/core/skills/ui-sdk/SKILL.md) | Building on [UI SDK](https://ui-sdk.dev): choosing and composing its components, building one it does not ship from the behaviors in `@ui-sdk/core`, making the page usable by an agent, and testing keyboard, focus and ARIA. `khe-ui` then styles and judges what it rendered. |
 
-It has no entry in `skills/`. The skill lives inside the UI SDK monorepo, which moves many times a day, so a pin would put a sync commit on `main` for every push to a library. The copy that matches your project ships with the package, at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`. UI SDK is in beta.
+It is pinned in `skills/ui-sdk` like the others. The skill lives inside the UI SDK monorepo, at `packages/core/skills/ui-sdk`, so the pin follows the whole library and moves whenever the library does. The copy that matches your project ships with the package, at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`. UI SDK is in beta.
 
 `npx skills add HKTITAN/skills` installs only my skills. Install theirs from their repos with the commands above.
 

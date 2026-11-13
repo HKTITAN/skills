@@ -55,3 +55,6 @@
 [submodule "skills/stageshow"]
 	path = skills/stageshow
 	url = https://github.com/benjitaylor/skills.git
+[submodule "skills/ui-sdk"]
+	path = skills/ui-sdk
+	url = https://github.com/vercel-labs/ui.git

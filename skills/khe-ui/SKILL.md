@@ -1,6 +1,6 @@
 ---
 name: khe-ui
-description: "Interface craft with numbers: motion, typography, color and surface, layout, components, accessibility, mobile feel, AI tells, review, and the pass before shipping. Builds or judges a screen against exact values and ends a review with a verdict. Use when someone says \"review this component\", \"is this well built\", \"it works but feels unfinished\", \"make it feel right\", \"this looks AI-generated\", \"which easing\", \"the page jumps\", \"is this accessible\", \"feels like a website on my phone\", \"are we ready to ship\", or is building a screen, a form, a card or a page. For an SVG use `khe-svg`; for sound use `khe-sound`; for a launch video use `khe-launch-film`; for a `.design` file or DESIGN.md use `khe-design-tokens`."
+description: "Interface craft with numbers: motion, typography, color and surface, layout, components, accessibility, mobile feel, AI tells, review, and the pass before shipping. Builds or judges a screen against exact values and ends a review with a verdict. Use when someone says \"review this component\", \"is this well built\", \"it works but feels unfinished\", \"make it feel right\", \"this looks AI-generated\", \"which easing\", \"the page jumps\", \"is this accessible\", \"feels like a website on my phone\", \"are we ready to ship\", or is building a screen, a form, a card or a page, or styling one built on Vercel's UI SDK. For an SVG use `khe-svg`; for sound use `khe-sound`; for a launch video use `khe-launch-film`; for a `.design` file or DESIGN.md use `khe-design-tokens`."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -43,7 +43,7 @@ You are a design engineer with a hard eye. A transition that runs but feels slug
 
 Most of the quality is decided before any code. Every step ends in an exit you can check. Under `khe-auto` the same loop runs with this skill's gate.
 
-1. **Mode and contract.** Read the mode from the first word. With no mode, pick it from the request: a diff or "is this good" is `review`; "feels unfinished" is `polish`; "build" or a blank file is `build`. A `.design` file, a `<name>.design` file or a DESIGN.md means `khe-design-tokens` goes first. Read the project's styling system before editing anything. *Exit: one line naming the mode, the contract or "no contract", and the styling system.*
+1. **Mode and contract.** Read the mode from the first word. With no mode, pick it from the request: a diff or "is this good" is `review`; "feels unfinished" is `polish`; "build" or a blank file is `build`. A `.design` file, a `<name>.design` file or a DESIGN.md means `khe-design-tokens` goes first. Read the project's styling system before editing anything. An `@ui-sdk/*` package in `package.json` means the [ui-sdk](references/ui-sdk.md) lane opens with whichever lane step 2 picks, and does not count against the two-lane limit: it says where a value is written, never what the value is. *Exit: one line naming the mode, the contract or "no contract", the styling system, and the component library if there is one.*
 2. **Plan before code.** List the states: a data view owes loading, empty, error and full; a control owes hover, press, focus, pending and disabled. Name the widths (390 and the shown width), the longest real string, and what you will delete. Pick one lane from the table below, by the symptom in the user's words. *Exit: every state has a decision or is written down as missing; one lane is named.*
 3. **Start from the closest gold.** In `build`, `polish` and `ship`, open the closest file in `examples/` and keep its structure: the states, the reserved room, the gates, the reduced path. Rewrite it in the project's styling system and swap its placeholder tokens for the project's. In `review`, `tells` and `a11y`, open `examples/review.md` for the output. *Exit: the gold is named, with the one thing you changed from it.*
 4. **Open the lane and walk its "Decide first".** It can end the job with nothing to change. That is a valid result. Apply or report, by the mode's posture. Structure before surface, surface before motion. Open a second lane only after looking at the screen. *Exit: every value you wrote or recommended traces to a lane line or a project token.*
@@ -116,6 +116,7 @@ Load a lane file when you need that area. Never load them all.
 | "The text feels cramped", "the heading looks loose", "the numbers jump", "it gets cut off" | [typography](references/typography.md) |
 | "The shadows look heavy", "dark mode looks cheap", "the corners look off", "the dropdown is under the header" | [color-and-surface](references/color-and-surface.md) |
 | "Mobile is just desktop squeezed", "there's a horizontal scrollbar", "the filter resets on refresh" | [layout](references/layout.md) |
+| "We use ui-sdk", "style the Select", "the popover has no exit animation", "my styles lose to web.css", "the default look feels generic" | [ui-sdk](references/ui-sdk.md) |
 | "Is this worth polishing", "should we make this more fun", "can we just ship it" | [taste](references/taste.md) |
 | "This looks AI-generated", "the copy sounds like a chatbot wrote it" | [tells](references/tells.md) |
 | "Review this", "did I make this worse", "how did they build that" | [review](references/review.md) |
@@ -193,6 +194,7 @@ Read both before producing anything. They outrank the defaults in this skill, an
 - `khe-design-tokens`: it runs first whenever the project carries a contract.
 - `khe-svg`: a motion that lives inside an SVG file is its job, not the motion lane's.
 - `khe-sound`: a moment that earns a sound gets one after its motion is settled here.
+- `ui-sdk` (Vercel, `npx skills add vercel-labs/ui --skill ui-sdk`): on a project built with UI SDK it picks and composes the components, builds the ones the library does not ship, and tests keyboard, focus and ARIA. It runs first; this skill then decides every value on the parts it rendered. Never rebuild its rules here.
 - `khe-auto`: for a whole job (a new screen, a landing page, launch week) it runs this loop, with this gate, in the right order.
 
 Harshit Khemani. MIT.

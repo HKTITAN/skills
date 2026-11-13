@@ -10,7 +10,7 @@ This lane is the floor every component passes before any visual judgment: keyboa
 ## Decide first
 
 ```text
-1. A native element or headless primitive (Radix, React Aria, Base UI) does this?
+1. A native element or headless primitive (Radix, React Aria, Base UI, UI SDK) does this?
    yes -> use it, stop. Never hand-roll a select or combobox.
 2. Mouse away: Tab reaches it -> ring visible -> Enter/Space activates
    -> Escape dismisses -> focus returns to the trigger.

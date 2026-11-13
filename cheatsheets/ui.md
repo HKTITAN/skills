@@ -18,3 +18,5 @@
 | Bottom of the layout is hidden on a phone    | `100dvh` for app shells, `min-height: 100svh` for heroes                 |
 | Disabled button is unreadable on one surface | A dedicated token such as `--color-text-disabled`, never `opacity`       |
 | Tooltip hides behind the modal               | Layers `100`, `200`, `300`, `400` for dropdown, modal, tooltip, toast    |
+| My styles lose to the UI SDK stylesheet      | `@layer ui-sdk;` as the first line of the global stylesheet              |
+| A UI SDK popup blinks out with no exit       | The exit on `[data-ending-style]`, never on `[data-closed]`              |

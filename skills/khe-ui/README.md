@@ -52,7 +52,7 @@ The gate reads CSS, HTML, JSX and TSX as text and names every fault it can prove
 ## What is inside
 
 - [SKILL.md](SKILL.md): the one idea, the workflow, the modes, the hard rules, the numbers that come up on every screen.
-- `references/`: eleven lane files; [verify](references/verify.md), the last pass and the gate's lines; [fresh-eye](references/fresh-eye.md), the brief for a second reviewer; [teaching](references/teaching.md), the index of the pairs; plus `gotchas.md` and `pov.md`, which are yours to edit.
+- `references/`: eleven lane files; [ui-sdk](references/ui-sdk.md), where each value goes on a screen built with Vercel's UI SDK; [verify](references/verify.md), the last pass and the gate's lines; [fresh-eye](references/fresh-eye.md), the brief for a second reviewer; [teaching](references/teaching.md), the index of the pairs; plus `gotchas.md` and `pov.md`, which are yours to edit.
 - `examples/`: five gold examples that set the bar: a button with every state, a popover entrance and exit, a form field with validation timing, a list with loading, empty and error branches, and a finished review.
 - `teaching/`: fourteen bad and good pairs, one fault each. They are also the gate's tests.
 - `scripts/ui-check.mjs`: the gate. Node 20 or later, no dependencies.

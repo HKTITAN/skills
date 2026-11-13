@@ -97,6 +97,7 @@ Skills by Emil Kowalski and Benji Taylor are used next to these and are never co
 - The README links each of their skills to its original `SKILL.md`.
 - `khe-auto` covers every skill in `skills/`, linked ones included, and says whose each one is. A name without `khe-` in any skill here is someone else's skill.
 - The skills CLI does not fetch submodules, so `npx skills add HKTITAN/skills` installs only the `khe-` skills.
+- Vercel's `ui-sdk` (in `vercel-labs/ui`, at `packages/core/skills/ui-sdk`) is the one linked skill with no submodule entry. Its repo is a library monorepo that moves many times a day, so a pin would have the sync commit to `main` on every push, and the copy that matches a project ships inside `@ui-sdk/core`. It has its README row, its `khe-auto` row and its install line, by hand. `khe-ui` holds only what this collection adds on top: the `ui-sdk` lane, which says where each value is written on a UI SDK screen and never restates the library.
 
 ## The router
 

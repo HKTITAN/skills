@@ -48,6 +48,31 @@ A drift check compares `tokens` against the real CSS/Tailwind theme and `compone
 
 When `integrations.shadcn.enabled`, prefer installed shadcn primitives over parallel ones, and write `css_vars` into the declared CSS file. **Tokens outrank stale `css_vars` literals**: refresh the CSS after token edits rather than trusting what's already in `:root`. Emit the full variable set including charts and sidebar. The `design.v1` spec has the Tailwind v4 mechanics.
 
+## UI SDK
+
+The `design.v1` schema has no integration key for Vercel's UI SDK, so detect it from the project: an `@ui-sdk/*` package in `package.json`, and an import of `@ui-sdk/core/web.css` (or a `<link>` to `ui-sdk.dev/web.css` on a page with no build step). Without that stylesheet the components are unstyled and the contract's tokens land on your own CSS as usual. With it, the mirror gains one block: the contract's tokens assigned to the stylesheet's `--ui-*` variables on `:root`, so every component follows the contract without a rule per part.
+
+| `--ui-*` variable | Bind the contract's |
+|---|---|
+| `--ui-background`, `--ui-foreground` | page surface and body text |
+| `--ui-muted`, `--ui-muted-foreground` | hover and selected fill; secondary text |
+| `--ui-border`, `--ui-input` | divider; control border |
+| `--ui-primary`, `--ui-primary-foreground` | the one accent, and the text on it |
+| `--ui-destructive` | error |
+| `--ui-ring`, `--ui-ring-border` | focus outline; a focused field's border |
+| `--ui-overlay`, `--ui-shadow` | modal backdrop; popup shadow |
+| `--ui-radius` | the control radius. One value: the stylesheet derives the rest |
+| `--ui-spacing` | the spacing unit. Control height is 8 of them |
+| `--ui-font-size`, `--ui-line-height`, `--ui-font-sans`, `--ui-font-mono` | control text and the families |
+
+- **Assign by reference, never by copying the value:** `--ui-primary: var(--accent)`. A literal here is a second source and drifts like stale `css_vars`.
+- **`@layer ui-sdk;` is the first line of the global stylesheet,** above any Tailwind import. The stylesheet lives in that layer; declared first, the mirror wins without `!important`.
+- **The stylesheet writes colors with `light-dark()` under `color-scheme: light dark`.** A contract with one scheme sets `color-scheme: light` (or `dark`) on `:root`, or the components follow the system theme while the rest of the product does not.
+- **A contract token with no `--ui-*` variable (a second radius, a disabled color) is bound on the part,** by its `data-slot`, outside the layer. Which parts and which states: the `ui-sdk` lane (`khe-ui` skill).
+- **Never edit the installed `web.css`.** It is replaced on every upgrade.
+
+Variables read from the stylesheet served at ui-sdk.dev/web.css on 2026-11-13, at `@ui-sdk/core` `0.1.0-beta.2`. The library is in beta: re-read `node_modules/@ui-sdk/core/dist/web.css` before binding, and treat a variable that is not in it as a gap.
+
 ## Sound, video, and companions
 
 Contract 1.3 adds `tokens.sound` (default toggle state, one material, levels, durations, sync tolerance), `assets.sounds`, `decisions.sound`, `targets[]` video entries, and `exports.frame_md`. When they exist they outrank `sound-spec` (`khe-sound` skill) and `sound-decision-framework` (`khe-sound` skill); when the group is absent, the contract is saying *silent* and this skill must not add a sound. A `video` target flips the default, see `launch-video-sound` (`khe-sound` skill), and `exports.frame_md` is how a HyperFrames project inherits the brand's motion and material. The format's own procedure also names the companions it routes to; `khe-auto` is this collection's side of the same handshake.
@@ -76,4 +101,5 @@ Don't let the contract's existence stop the craft work. A `.design` that pins co
 
 - The `.design` contract format, schema `design.v1`.
 - Benji Taylor, Stageshow 1.1.1 (MIT, github.com/benjitaylor/skills, HEAD `299140f`, read 2026-11-07): `stageshow/references/looks.md` (From a codebase, Check it).
+- Vercel Labs, UI SDK (Apache-2.0, github.com/vercel-labs/ui, HEAD `8ff6bcf`, read 2026-11-13): `packages/core/skills/ui-sdk/references/styles.md` (Tokens), and ui-sdk.dev/web.css as served that day.
 - Related: [using-design-md](using-design-md.md), the copy rules in `components` (`khe-ui` skill), the frequency table in `taste` (`khe-ui` skill), the format in `review` (`khe-ui` skill).

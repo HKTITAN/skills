@@ -18,4 +18,4 @@ Keep each to one line. Taste calls go in [pov](pov.md), not here.
 
 ## Entries
 
-None yet. Add the first one below.
+- [2026-11-11] A cache-first service worker shows returning users the old CSS for one load after a restyle, even with the cache name bumped. → bump CACHE every deploy and expect one stale paint; verify production on a second reload (polish-and-ship)

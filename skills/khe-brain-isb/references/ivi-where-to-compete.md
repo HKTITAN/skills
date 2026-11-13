@@ -200,6 +200,17 @@ One claim per line, each with its session note. Every line is what one speaker s
 - Varun Laul says most founders will not invent something new, but they can still build a differentiated business model, as Dollar Shave Club did with subscription against Gillette. (ivi: What investors look for in a startup, Varun Laul, 5 Aug 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-05-laul-what-investors-look-for-in-a-startup.md)
 - Varun Laul says a growing market is not a value proposition, and a founder who claims nobody else is doing this should expect investors to assume many others are trying. (ivi: What investors look for in a startup, Varun Laul, 5 Aug 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-05-laul-what-investors-look-for-in-a-startup.md)
 
+## Finding an idea, timing and market sizing, a bootcamp session
+
+- The instructor says a founder should think early about whether they are building a first-to-market solution or a solution ten times better than what exists. (ivi: Finding an idea, timing and market sizing, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md)
+- The instructor says being first to market has merits and demerits: sometimes the first company is creating the market and does not end up as the biggest player, and the journey is more brutal. (ivi: Finding an idea, timing and market sizing, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md)
+- The instructor says that for a founder in a category with many players, such as a direct-to-consumer skincare brand, justifying the difference from others is very important and has to be proven hard. (ivi: Finding an idea, timing and market sizing, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md)
+
+## Pricing, customer value and crowded markets, a bootcamp session
+
+- The instructor says a founder can start with the hypothesis that they have a right to win, and pivot if six months later they conclude they do not. (ivi: Pricing, customer value and crowded markets, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-pricing-value-and-crowded-markets.md)
+- The instructor says any business has to think about what voice its brand communicates and how that voice differs from ten others in the market. (ivi: Pricing, customer value and crowded markets, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-pricing-value-and-crowded-markets.md)
+
 ## Customer centricity versus product centricity
 
 - The instructor says having a product is no longer sufficient, because a product can now be copied and launched from China in three months and apps can be built quickly with AI. (ivi: Customer centricity versus product centricity, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-instructor-customer-centricity-vs-product-centricity.md)

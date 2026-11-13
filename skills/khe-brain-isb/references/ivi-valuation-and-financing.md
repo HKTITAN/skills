@@ -39,6 +39,23 @@ One claim per line, each with its session note. Every line is what one speaker s
 - The speaker from the Atrium funds says seed deals typically happen at 4 to 7 times top line, with consumer companies at about 5 times and B2B companies at about 3 times. (ivi: How the Atrium funds invest at seed stage, 5 Aug 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-05-instructor-atrium-funds-seed-investing.md)
 - The speaker from the Atrium funds says valuation also depends on the founder's profile and execution history, how much risk has been removed, market conditions and recent deals. (ivi: How the Atrium funds invest at seed stage, 5 Aug 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-05-instructor-atrium-funds-seed-investing.md)
 
+## Funding rounds, valuation and dilution, a bootcamp session
+
+- The instructor says the most common valuation mistake is asking for a multiple because a competitor got it, since the investor will answer with a different lens and the founder has no reply. (ivi: Funding rounds, valuation and dilution, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-funding-rounds-valuation-and-dilution.md)
+- The instructor says multiples are applied to achieved numbers and not to next year's projection, and that a comparable deal has to be recent before it is close in competitor or stage. (ivi: Funding rounds, valuation and dilution, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-funding-rounds-valuation-and-dilution.md)
+- The instructor says an acquirer is buying an asset, looks at how quickly the capital comes back, and usually wants the principal recovered within about three years. (ivi: Funding rounds, valuation and dilution, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-funding-rounds-valuation-and-dilution.md)
+- The instructor says the same business gets its lowest value in an acquisition, its highest when raising growth capital, and a value in between at an IPO. (ivi: Funding rounds, valuation and dilution, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-funding-rounds-valuation-and-dilution.md)
+
+## Investor returns and what gets funded, a bootcamp session
+
+- The instructor explains an investor's required return as the risk-free rate plus beta times the gap between the market return and the risk-free rate, using about 6 to 6.5% and 12% as the two inputs. (ivi: Investor returns and what gets funded, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-investor-returns-and-what-gets-funded.md)
+- The instructor says risk rises with illiquidity, an unvalidated business model, an unknown market size and an unproven founder, and the return an investor asks for rises with it. (ivi: Investor returns and what gets funded, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-investor-returns-and-what-gets-funded.md)
+- The instructor says a bank earning a spread of about five points loses its whole margin if one loan in twenty loses its principal, which is why banks ask for past financials, profitability, collateral and personal guarantees. (ivi: Investor returns and what gets funded, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-investor-returns-and-what-gets-funded.md)
+
+## Term sheet clauses and the closing process, a bootcamp session
+
+- The instructor describes revenue-based financing as debt for businesses with predictable revenue, repaid as a percentage of monthly revenue, with a real cost above 15% a year once fees are added. (ivi: Term sheet clauses and the closing process, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-term-sheet-clauses-and-closing-process.md)
+
 ## SAFE discounts and Series A term sheets, Bhagwan Chowdhry
 
 - Bhagwan Chowdhry says a startup carries two separate risks that finance calls by one word: market risk, which is being paid more in good times and less in bad times, and the probability that the business fails altogether. (ivi: SAFE discounts and Series A term sheets, Bhagwan Chowdhry, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-chowdhry-safe-discounts-and-series-a-term-sheets.md)

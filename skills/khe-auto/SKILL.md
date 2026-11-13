@@ -1,6 +1,6 @@
 ---
 name: khe-auto
-description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films) and the skills by Emil Kowalski and Benji Taylor linked beside them. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"we ship Thursday\". When the request already names a skill, use that skill."
+description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films), the skills by Emil Kowalski and Benji Taylor linked beside them, and Vercel's `ui-sdk`. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"build it with ui-sdk\", \"we ship Thursday\". When the request already names a skill, use that skill."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -137,6 +137,7 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | Which library for a frontend task | `pick-ui-library` | Emil Kowalski |
 | Motion in React Native or Expo | `animate-expo` | Emil Kowalski |
 | Sonner toasts: setup, styling, fixes | `ask-sonner` | Emil Kowalski |
+| A project on UI SDK (`@ui-sdk/*`): pick and compose its components, build one it does not ship, make the page usable by an agent, test keyboard, focus and ARIA | `ui-sdk` | Vercel |
 
 ## Code
 
@@ -171,6 +172,7 @@ If the folder is not there, the skill is not installed. Name it and give the lin
 - A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
+- Vercel's: `npx skills add vercel-labs/ui --skill ui-sdk`. The copy that matches the project's version also ships at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`; when that file is there, read it in place of installing.
 
 ## Overlaps
 
@@ -182,6 +184,8 @@ Each pair is one question, not two skills to read.
 | `khe-ui` / `animate` | One question about motion inside a wider job, or a single animation built from scratch as its own task? | Inside a job: khe-ui, motion lane. Its own task: animate. |
 | `khe-ui` / `khe-design-tokens` | Deciding what looks right, or applying values that exist? | Judgment: khe-ui. A contract to thread through: tokens. |
 | `khe-ui` / `break-ui` | A list of what breaks, or a worst-case dataset wired behind a toggle? | A list inside a wider pass: khe-ui. The harness and toggle: break-ui. |
+| `khe-ui` / `ui-sdk` | How the control behaves and which parts it is made of, or what it looks like and whether it is finished? | Behavior, composition, a missing component, the agent bridge, tests: ui-sdk, first. The look, the states, motion values, a verdict: khe-ui, on what ui-sdk rendered. |
+| `ui-sdk` / `pick-ui-library` | Is `@ui-sdk/*` already in the project? | Yes: ui-sdk. Still choosing a library: pick-ui-library. |
 | `khe-svg` / `khe-ui` | Does the motion live inside the file, or on the page around it? | Inside the SVG: svg. On the page: khe-ui, motion lane. |
 | `khe-svg` / `khe-diagram` | An asset, or an explanation? | Icon, logo, mascot: svg. Boxes and arrows that explain: diagram. |
 | `khe-svg` / `khe-sticker` | An interface asset, or something sent in a chat? | Icon, logo, illustration on a page: svg. A die-cut sticker or a pack for a chat app: sticker. |
@@ -236,6 +240,7 @@ Scripts: `scripts/route-check.mjs` checks a reply or a playbook (`--help` lists 
 | `khe-sound` on a film whose picture still moves | `khe-launch-film` until picture is locked |
 | `prototype` after the decision is made | The building skill for the one direction |
 | The launch-week playbook on a screen still being designed | The new-screen playbook |
+| `khe-ui` choosing or rebuilding a component on a UI SDK project | `ui-sdk` first, then `khe-ui` on what it rendered |
 | A skill's rules reconstructed because it is not installed | The skill's name, whose it is, and its install line |
 | Someone else's skill described as part of this repo | Its author and its own repo |
 | A step closed with no gate run and nothing looked at | The gate's last line, or the words "no gate was run" |

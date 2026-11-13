@@ -2,6 +2,14 @@
 
 What changed in kheSkills, newest first. One entry per day that something a user can see changed: a skill added, a command renamed, a rule tightened. Fixes to wording inside a skill are in the commit history.
 
+## 2026-11-13
+
+### Added
+
+- `khe-ui` has a `ui-sdk` lane for a screen built with Vercel's [UI SDK](https://ui-sdk.dev) (`@ui-sdk/*`, in beta): what the library decides and what this skill still decides, the hooks each value is written on (`data-slot`, state attributes, `data-starting-style` and `data-ending-style`, `@layer ui-sdk`), and what the optional `web.css` look leaves unfinished against this skill's numbers. It never restates the library.
+- `khe-design-tokens` binds a contract to the `--ui-*` variables of UI SDK's `web.css`.
+- `khe-auto` routes to Vercel's own `ui-sdk` skill for composing, building and testing UI SDK components, with its install line, two overlap rows and a step in the new-screen playbook. The skill is linked from the README under "From others" and is not copied or pinned here.
+
 ## 2026-11-12
 
 ### Added

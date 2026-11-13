@@ -476,6 +476,16 @@ One claim per line, each with its session note. Every line is what one speaker s
 
 - Anil Advani says founders should secure the domain and file a trademark in the company's name early, because a third party complaint around a Series A can force an expensive rebrand. (ivi: Founder equity, vesting and written agreements, Anil Advani, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-advani-founder-equity-vesting-agreements.md)
 
+## Finding an idea, timing and market sizing, a bootcamp session
+
+- The instructor tells founders to record customer conversations with a note-taking tool, document them very deeply, and keep action items in meeting notes. (ivi: Finding an idea, timing and market sizing, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md)
+
+## Pricing, customer value and crowded markets, a bootcamp session
+
+- The instructor says pricing is an indicator of what the company communicates to its customer, and that value is what allows a company to price something. (ivi: Pricing, customer value and crowded markets, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-pricing-value-and-crowded-markets.md)
+- The instructor separates the core of a product from its frills and says the customer's value does not come from the frills. (ivi: Pricing, customer value and crowded markets, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-pricing-value-and-crowded-markets.md)
+- The instructor says value has two sides: the company has to reflect it in its product, place and pricing, and the customer has to perceive it that way. (ivi: Pricing, customer value and crowded markets, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-pricing-value-and-crowded-markets.md)
+
 ## Customer centricity versus product centricity
 
 - The instructor says marketing means working out who the customer is, what value means to them and whether you can make that value, and that communication is only the icing on the cake. (ivi: Customer centricity versus product centricity, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-instructor-customer-centricity-vs-product-centricity.md)

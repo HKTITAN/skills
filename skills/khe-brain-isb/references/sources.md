@@ -11,7 +11,7 @@ Every claim in the theme files ends with `(Title, URL)`, and both come from the 
 
 To find one piece, search this file for its title. Never read the tables top to bottom to answer a question: the claims are in the theme files, with their titles and URLs already attached.
 
-A second set, added on 2026-11-13, is 146 session notes from the ivi programme. They are described and listed under [The ivi session notes](#the-ivi-session-notes) at the end of this file, and everything between here and there is about the repository.
+A second set, added on 2026-11-13, is 153 session notes from the ivi programme. They are described and listed under [The ivi session notes](#the-ivi-session-notes) at the end of this file, and everything between here and there is about the repository.
 
 ## Whose words these are
 
@@ -628,7 +628,7 @@ Use only what is in the public repository. Course material, anything behind a lo
 
 ## The ivi session notes
 
-146 pieces, written on 2026-11-13. ivi is the I-Venture Immersive programme at the Indian School of Business; the sessions ran from April to August 2025.
+153 pieces, written on 2026-11-13. ivi is the I-Venture Immersive programme at the Indian School of Business; the sessions ran from April to August 2025.
 
 ### What a session note is
 
@@ -647,13 +647,13 @@ A session note reports one speaker in one room on one day. It is not the school'
 
 - Every classmate's name, every classmate's startup, and all feedback given to one of them. Where a speaker taught through a founder in the room, the note keeps the general point only.
 - Private meetings in the same archive: team discussions, one-to-one reviews, pitch practice, voice notes.
-- Anything a speaker flagged as off the record, confidential or not to be shared, and two bootcamps: one whose speaker opened by asking for no recordings, and one whose speaker called his material a confidential asset of his own programme.
+- Anything a speaker flagged as off the record, confidential or not to be shared, and, from two bootcamps whose speakers asked for no recordings or called their material confidential, everything except general teaching points. Those two bootcamps appear only as seven notes titled `a bootcamp session`, with the speaker, the date and the speaker's own frameworks, examples and materials left out.
 - Speakers' contact details, and their remarks about named private people.
 - Slides, case documents and worksheets handed out in class. They were not copied and are not pieces.
 
 ### How they were read
 
-- Thirty-four readers each read a batch of recordings in full and wrote the notes. Six reviewers then checked a random 36 of the notes written, 33 of which are among the pieces here, claim by claim against their recordings, and corrected or removed what the recording did not support. Most corrections were a small added step: a cause, a conclusion, or one story turned into a rule. The other notes were not checked a second time, so expect the same kind of slip in them.
+- Thirty-four readers each read a batch of recordings in full and wrote the notes. Six reviewers then checked a random 36 of the notes written, 33 of which are among the pieces here; the seven bootcamp session notes were written afterwards and scanned for identifying detail, not checked against their recordings, claim by claim against their recordings, and corrected or removed what the recording did not support. Most corrections were a small added step: a cause, a conclusion, or one story turned into a rule. The other notes were not checked a second time, so expect the same kind of slip in them.
 - A speaker who wants a note corrected or removed can open an issue on the repository.
 
 ### The pieces
@@ -782,6 +782,13 @@ In date order, undated sessions last.
 | ivi: Applying to Y Combinator, Akhil Suhag, 7 Aug 2025 | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-07-suhag-yc-application.md | 2025-08-07 | Akhil Suhag | guest talk |
 | ivi: Y Combinator application tips, Akhil Suhag, 7 Aug 2025 | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-07-suhag-yc-application-tips.md | 2025-08-07 | Akhil Suhag | guest talk |
 | ivi: Founder equity, vesting and written agreements, Anil Advani | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-advani-founder-equity-vesting-agreements.md | unknown | Anil Advani | guest talk |
+| ivi: Founder equity, vesting, advisers and ESOPs, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-founder-equity-vesting-advisers-and-esops.md | unknown | Not identified | bootcamp |
+| ivi: Funding rounds, valuation and dilution, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-funding-rounds-valuation-and-dilution.md | unknown | Not identified | bootcamp |
+| ivi: Finding an idea, timing and market sizing, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md | unknown | Not identified | bootcamp |
+| ivi: Investor returns and what gets funded, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-investor-returns-and-what-gets-funded.md | unknown | Not identified | bootcamp |
+| ivi: Pricing, customer value and crowded markets, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-pricing-value-and-crowded-markets.md | unknown | Not identified | bootcamp |
+| ivi: Term sheet clauses and the closing process, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-term-sheet-clauses-and-closing-process.md | unknown | Not identified | bootcamp |
+| ivi: What a pitch deck needs to cover, a bootcamp session | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-what-a-pitch-deck-covers.md | unknown | Not identified | bootcamp |
 | ivi: Bitcoin from numbers to blockchain, Prof Bhagwan Chowdhry | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-chowdhry-bitcoin-hashes-and-blockchain.md | unknown | Prof Bhagwan Chowdhry | class |
 | ivi: SAFE discounts and Series A term sheets, Bhagwan Chowdhry | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-chowdhry-safe-discounts-and-series-a-term-sheets.md | unknown | Bhagwan Chowdhry, with a co-instructor addressed as Prachi (surname not given in the recording) | class |
 | ivi: Valuation multiples and the Swiggy example, Prof Bhagwan Chowdhry | https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-chowdhry-valuation-multiples-and-swiggy-example.md | unknown | Prof Bhagwan Chowdhry, with a co-instructor | class |

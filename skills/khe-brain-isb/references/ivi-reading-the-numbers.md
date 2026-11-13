@@ -64,6 +64,11 @@ One claim per line, each with its session note. Every line is what one speaker s
 
 - The instructor's example of booked revenue is a six year, 30 million dollar cloud deal paying 5 million dollars a year, where recognised revenue is 5 million each year. (ivi: Product metrics and the GAME framework, 4 Aug 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-08-04-instructor-product-metrics-game-framework.md)
 
+## Investor returns and what gets funded, a bootcamp session
+
+- The instructor tells founders not to put beta or discounted cash flow into an early-stage financial model, because those tools belong to mature companies whose next five years are predictable. (ivi: Investor returns and what gets funded, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-investor-returns-and-what-gets-funded.md)
+- The instructor teaches the rule of 72 for doubling money, with 114 for tripling and 144 for quadrupling, and says these are approximations that hold over four to five years and more. (ivi: Investor returns and what gets funded, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-investor-returns-and-what-gets-funded.md)
+
 ## Valuation multiples and the Swiggy example, Prof Bhagwan Chowdhry
 
 - The co-instructor in Prof Bhagwan Chowdhry's finance class says earnings and free cash flow are close only at steady state. For a growing firm the gap is what must be reinvested, including the increase in working capital. (ivi: Valuation multiples and the Swiggy example, Prof Bhagwan Chowdhry, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-chowdhry-valuation-multiples-and-swiggy-example.md)

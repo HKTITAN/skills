@@ -553,6 +553,17 @@ One claim per line, each with its session note. Every line is what one speaker s
 - Anil Advani warns that a friend who helped early and believes they are a co-founder, with nothing on paper, can later claim a large share, and no investor will back a company with that claim hanging over it. (ivi: Founder equity, vesting and written agreements, Anil Advani, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-advani-founder-equity-vesting-agreements.md)
 - Anil Advani's order for bringing someone in is to check personal fit, discuss roles, time and conflicts, agree equity and vesting verbally, have a lawyer write it down, and only then let them start work. (ivi: Founder equity, vesting and written agreements, Anil Advani, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-advani-founder-equity-vesting-agreements.md)
 
+## Founder equity, vesting, advisers and ESOPs, a bootcamp session
+
+- The instructor advises not taking on a co-founder without a working relationship of at least one year, because a friendship does not show how someone behaves when money and deliverables are on the line. (ivi: Founder equity, vesting, advisers and ESOPs, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-founder-equity-vesting-advisers-and-esops.md)
+- The instructor prefers a 50 to 50 split with a written list of which founder has the deciding vote in which function, over a 51 to 49 split that gives one person the tie-breaker. (ivi: Founder equity, vesting, advisers and ESOPs, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-founder-equity-vesting-advisers-and-esops.md)
+- The instructor says a co-founder agreement must be written into the company's articles of association, or it can be challenged in court. (ivi: Founder equity, vesting, advisers and ESOPs, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-founder-equity-vesting-advisers-and-esops.md)
+
+## Finding an idea, timing and market sizing, a bootcamp session
+
+- The instructor says a founder should list the four to six pillars the company needs to succeed, expect to be good at one or two of them, and work out how to cover the ones they are bad at. (ivi: Finding an idea, timing and market sizing, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md)
+- The instructor says every company goes through at least two to three near-death experiences, so founders should not worry too much about them. (ivi: Finding an idea, timing and market sizing, a bootcamp session, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-bootcamp-ideas-timing-and-market-sizing.md)
+
 ## Mental fitness and the power of pause, Swati Desai
 
 - Swati Desai calls the pause the foundational skill for mental health, and says a person cannot follow any other mental health advice until they learn it. (ivi: Mental fitness and the power of pause, Swati Desai, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/undated-desai-mental-fitness-and-the-power-of-pause.md)

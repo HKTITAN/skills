@@ -2,6 +2,12 @@
 
 What changed in kheSkills, newest first. One entry per day that something a user can see changed: a skill added, a command renamed, a rule tightened. Fixes to wording inside a skill are in the commit history.
 
+## 2026-11-15
+
+### Added
+
+- The README has a section on [khe](https://github.com/HKTITAN/khe), my design system, with its brand page at [ds.khe.money](https://ds.khe.money). khe ships as a contract, `khe.DESIGN`, which `khe-design-tokens` reads like any `.design` file, so it is linked here rather than added as a skill.
+
 ## 2026-11-13
 
 ### Added

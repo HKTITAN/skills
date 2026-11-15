@@ -174,6 +174,16 @@ All fourteen are pinned in `skills/` like the others: nine from [vercel-labs/age
 
 `npx skills add HKTITAN/skills` installs only my skills. Install theirs from their repos with the commands above.
 
+## khe, my design system
+
+[khe](https://github.com/HKTITAN/khe) is how my own things look, read and move: one set of colours, type, springs and parts for [khe.money](https://www.khe.money), papers and decks. The brand page is [ds.khe.money](https://ds.khe.money).
+
+It ships as a contract, not a skill: [`khe.DESIGN`](https://raw.githubusercontent.com/HKTITAN/khe/main/khe.DESIGN) (schema design.v1) is built from its tokens, so it never drifts. `khe-design-tokens` reads it like any other `.design` file. To make something in khe, point your agent at it:
+
+```text
+Read https://raw.githubusercontent.com/HKTITAN/khe/main/khe.DESIGN and follow its agent.instructions.
+```
+
 ## Make them yours
 
 These are starting points. Every skill has two files that are yours to edit, and both outrank the skill's defaults:

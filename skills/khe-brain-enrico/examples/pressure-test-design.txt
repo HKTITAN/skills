@@ -1,0 +1,11 @@
+<!-- Gold for a design tested against his positions (`a sidebar whose items animate in on every open, a save screen with a spinner and a time estimate, a push notification that greets the user by name, and a loading state on the payment step`). Learn: the verdict first, one Breaks: or Holds: line per position with what the design does and then what the video says, the product and the year each line belongs to, and no ruling on what no video covers. -->
+The screen breaks three positions he states and holds one, and the largest fault is motion on something people open all day (The Ridiculous Engineering Of Animations at 9:45; The Sneaky Psychology Of Loading Screens at 2:15; The Ridiculous Engineering Of Notifications at 1:30).
+Breaks: sidebar items that animate in on every open. In October 2026 he says animated sidebar items in his own product, Flask, were cool once and then made it clunky, and his practice there is instant for anything used hundreds of times a day (The Ridiculous Engineering Of Animations at 9:45).
+Breaks: a time estimate on a save screen the user is watching. In 2022 he says estimates fail on screens people actively watch, because they set an expectation and even a one second miss breaks trust with the app (The Sneaky Psychology Of Loading Screens at 2:15).
+Breaks: the user's name in the push notification. His 2026 rule is that the secret is specificity, not personalisation, and that putting the user's name in does nothing (The Ridiculous Engineering Of Notifications at 1:30).
+Holds: a loading state on the payment step. In March 2026 he says a payment confirmation needs one to reassure people, even if the bytes involved are tiny (The Ridiculous Engineering of Loading Screens at 2:15).
+Source: The Ridiculous Engineering Of Animations, https://www.youtube.com/watch?v=z3Lo5QT7nME
+Source: The Sneaky Psychology Of Loading Screens, https://www.youtube.com/watch?v=g8uhdyLTAvY
+Source: The Ridiculous Engineering Of Notifications, https://www.youtube.com/watch?v=Dx2yPk0FsGM
+Source: The Ridiculous Engineering of Loading Screens, https://www.youtube.com/watch?v=XqhduyTnEM8
+Not in his videos: a duration or a curve for the sidebar, what the notification should say for this product, and any view of the screen itself. The Flask line is about his product and is not a rule for yours. The decision is yours.

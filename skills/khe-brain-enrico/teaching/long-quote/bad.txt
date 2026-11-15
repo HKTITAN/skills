@@ -1,0 +1,5 @@
+<!-- long-quote: a pasted sentence of 21 words is echoed whole in quotation marks, which are kept for short quotes of his. -->
+"Every loading screen is a broken promise and any product that shows a spinner has already lost the user for good" is in none of the videos read (His channel). The closest stated position is about the spinning wheel: it blocks interaction and puts the focus on waiting (The Sneaky Psychology Of Loading Screens at 3:45).
+Source: His channel, https://www.youtube.com/@enricotartarotti/videos
+Source: The Sneaky Psychology Of Loading Screens, https://www.youtube.com/watch?v=g8uhdyLTAvY
+Not in his videos: the pasted sentence, or any claim that a spinner loses the user for good.

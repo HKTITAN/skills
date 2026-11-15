@@ -1,0 +1,6 @@
+<!-- Gold for a silent topic (`what cubic-bezier values does Enrico use for easing`). Learn: silence in the first sentence, his channel as the source, a nearest line labelled as nearest, and no value built from it. -->
+The videos read do not cover easing values or animation code. The corpus is the 88 long videos on the channel, and curves and code to copy are not in the videos read (His channel).
+Nearest: in October 2026 he describes easing in words: the same motion feels mechanical when linear, slow with ease in, snappy with ease out and smooth with ease in out, and most motion on a phone is a spring defined by stiffness and damping, not a duration (The Ridiculous Engineering Of Animations at 12:00; The Ridiculous Engineering Of Animations at 13:30).
+Source: His channel, https://www.youtube.com/@enricotartarotti/videos
+Source: The Ridiculous Engineering Of Animations, https://www.youtube.com/watch?v=z3Lo5QT7nME
+Not in his videos: cubic-bezier values, easing durations and any CSS. His short videos, posts and newsletter were not read, so a value given there is not in this answer.

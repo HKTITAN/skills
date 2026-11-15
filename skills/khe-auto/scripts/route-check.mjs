@@ -36,6 +36,7 @@ export const GATES = {
   'khe-brain-varun': 'khe-brain-varun/scripts/brain-check.mjs',
   'khe-brain-isb': 'khe-brain-isb/scripts/brain-check.mjs',
   'khe-brain-yc': 'khe-brain-yc/scripts/brain-check.mjs',
+  'khe-brain-enrico': 'khe-brain-enrico/scripts/brain-check.mjs',
   'khe-content-engine': 'khe-content-engine/scripts/content-check.mjs',
   'khe-auto': 'khe-auto/scripts/route-check.mjs',
 }

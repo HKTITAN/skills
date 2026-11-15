@@ -1,0 +1,4 @@
+<!-- unknown-source: the reply cites a short video that is not in sources.md, so nobody read it for this skill. -->
+Every screen should load behind a skeleton, as he says in a short (YouTube short).
+Source: YouTube short, https://example.com/short
+Not in his videos: which screens need a skeleton.

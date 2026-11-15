@@ -11,8 +11,8 @@
     {
       "name": "khe-brain",
       "source": "./",
-      "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani.",
-      "version": "1.5.0",
+      "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani, /khe-brain:enrico-tartarotti.",
+      "version": "1.6.0",
       "author": {
         "name": "Harshit Khemani"
       },
@@ -27,7 +27,8 @@
         "./commands/varun-mayya.md",
         "./commands/isb.md",
         "./commands/yc.md",
-        "./commands/harshitkhemani.md"
+        "./commands/harshitkhemani.md",
+        "./commands/enrico-tartarotti.md"
       ]
     }
   ]

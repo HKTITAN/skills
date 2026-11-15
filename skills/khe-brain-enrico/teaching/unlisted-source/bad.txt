@@ -1,0 +1,4 @@
+<!-- unlisted-source: the second sentence cites The Lies That Make Your Tech Actually Work and only The Sneaky Psychology Of Loading Screens has a Source line. -->
+He calls the spinning wheel a poor answer to a wait (The Sneaky Psychology Of Loading Screens at 3:45). He notes that skeleton loaders take more time to load and still reduce perceived time (The Lies That Make Your Tech Actually Work at 8:15).
+Source: The Sneaky Psychology Of Loading Screens, https://www.youtube.com/watch?v=g8uhdyLTAvY
+Not in his videos: how much longer a skeleton takes on your app.

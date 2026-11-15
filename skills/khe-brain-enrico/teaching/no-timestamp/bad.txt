@@ -1,0 +1,4 @@
+<!-- no-timestamp: the video is cited with no time, so nobody can find the line in it. -->
+He calls the spinning wheel a poor answer to a wait, because it blocks interaction and puts the focus on waiting (The Sneaky Psychology Of Loading Screens).
+Source: The Sneaky Psychology Of Loading Screens, https://www.youtube.com/watch?v=g8uhdyLTAvY
+Not in his videos: which loading pattern fits one screen of your own app.

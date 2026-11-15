@@ -1,0 +1,69 @@
+---
+title: silent
+summary: Topics the 88 videos do not cover, the words the gate watches for each, the nearest line that may be offered as nearest and never as his position, and the subjects the videos touch only in passing.
+---
+
+# Silent
+
+The corpus is the 88 long videos on his channel, published from 2021-08-24 to 2026-11-15. He has said more than that elsewhere, in short videos, posts, a newsletter, paid products and guest appearances on other channels and podcasts, and none of it was read. This file is the list of what the 88 videos do not hold, so a reply says the videos read do not cover a topic in place of inventing a view.
+
+## The rule
+
+1. If the question's topic is in the table, the answer is silence. Say it in the first sentence.
+2. The reply still has a `Source:` line: `His channel`, the list that shows which videos were read.
+3. The `Not in his videos:` line names the topic.
+4. A nearest line may be offered, labelled as nearest, with what it does say and the context it says it in. Never continue from it to what he must think.
+5. A topic missing from this table and from every theme file is also silent. Add a row after you have checked the theme files.
+6. Fame is not evidence. However often a view is attributed to him, a view that is not in [sources](sources.md) is not in the corpus. Say it is not in the videos read, and that his short videos, posts, newsletter and guest appearances were not read.
+7. Silence here is silence in 88 videos, never proof that he has no view. Write "the videos read do not cover it", never "he has no opinion".
+
+## Not covered
+
+The gate reads the first two columns. When a sentence marked as his contains a watched word and cites a video, the gate prints the candidate line `silent-topic:` so the sentence is looked at again.
+
+| Topic | Words the gate watches | Nearest line, and what it does say |
+|---|---|---|
+| Writing code and choosing a stack | programming language, JavaScript, TypeScript, tech stack, code review, unit test | He says a tech company can start with you learning to code and building the first version yourself, and that no-code tools are enough for a first version. No video teaches how to code or which stack to pick. |
+| Animation code and exact values | CSS, cubic-bezier, keyframes, transition duration, Framer Motion, animation library | He says easing changes how the same motion feels and that most motion on a phone is a spring defined by stiffness and damping. No video gives code or values to copy. |
+| Choosing and pairing typefaces | font pairing, typeface, type scale, line height, font size, serif | He explains how text is rendered and spaced, and why he sets a playback time in a monospace font. Nothing on which fonts to choose or pair. |
+| Colour palettes and contrast ratios | colour palette, color palette, contrast ratio, colour theory, color theory, brand colours | He says a dark mode background should not be pure black, and gives colour rules for thumbnails. No video covers building a palette or checking contrast. |
+| Accessibility and assistive technology | accessibility, screen reader, WCAG, alt text, colour blind, assistive technology | None. |
+| Design systems and tokens | design system, design tokens, component library, style guide, Storybook | In June 2026 he says builders of generative UI will design a kit of blocks in the product's visual language plus rules for when to show them. No video covers building or running a design system. |
+| Step-by-step use of design tools | Figma tutorial, auto layout, Figma shortcut, Photoshop tutorial, After Effects tutorial | He explains why Figma won and how it hides complexity. No video teaches how to use a design tool. |
+| Research methods beyond interviews and tests | user persona, card sorting, diary study, survey design, Net Promoter Score, affinity map | He covers interviews about real past behaviour, fake door and Wizard of Oz tests, and usability and A/B testing. Nothing on other research methods. |
+| Fundraising mechanics and venture terms | term sheet, pitch deck, valuation cap, SAFE note, convertible note, cap table, due diligence | He says investors need the surviving startups to return 50, 100 or 1,000 times, and in February 2024 that not taking money can be a secret weapon. No video explains how to raise a round. |
+| Hiring and managing a team | hiring process, performance review, org chart, salary band, management style, team rituals | After visiting Lovable in 2025 he says small, very successful teams attract people who really want to be there. No video covers how to hire or manage people. |
+| Running marketing campaigns | keyword research, ad campaign, email campaign, cold email, growth hacking, conversion funnel, backlink strategy | He describes product-led growth, invite scarcity and how lifetime value sets ad spend, and calls the SEO model broken from the start. No video gives a way to run a campaign. |
+| Setting up analytics | event tracking, analytics setup, dashboard setup, SQL query, cohort analysis, attribution model | He says tools like Amplitude, Mixpanel or Google Analytics can be set up in a few hours, as his reason engagement is easy to measure. Nothing on how to instrument a product or read the data. |
+| Backend, databases and security practice | Postgres, database schema, server architecture, encryption, penetration test, authentication flow | He describes how Flask saves changes from a background queue and how undo works when two people edit, as product stories. No video teaches backend or security practice. |
+| Privacy and data protection law | GDPR, CCPA, data protection law, cookie consent, privacy policy, Digital Services Act | He weighs the data a product takes against the value it gives back, and says in 2024 that regulation will not stop manipulation. No video explains privacy law. |
+| Crypto and web3 | web3, NFT, DeFi, smart contract, crypto wallet, Ethereum, altcoin | He says Coinbase won in 2012 by looking like PayPal and giving no explanation of blockchain. The videos read give no view on crypto itself. |
+| Gaming hardware | graphics card, gaming PC, frame rate, gaming monitor, Xbox Series, Steam Deck | He uses the PS5's glossy plastic, the Switch Joy-Con lights and the Game Boy as design examples. No video reviews or recommends gaming hardware. |
+| Electric vehicles and self-driving | electric vehicle, EV range, self-driving, autopilot, charging network, car review | He uses car touchscreens, Tesla's glove box and the steering wheel in a Waymo as interface examples. No video assesses the cars or the driving technology. |
+| Health and fitness tech | fitness tracker, sleep tracking, heart rate, calorie tracking, step count, health app | In October 2024 he invents a 2028 Siri health alert service as an example of what ecosystems could sell, and he cites Peloton's recap as a failed copy of Wrapped. No video assesses health or fitness tech. |
+| Smart home devices | smart home, thermostat, smart lock, Matter standard, home automation, robot vacuum, smart bulb | He says his own Google Home serves as a light switch and a pasta timer, inside his point that voice is the wrong interface for complex information. Nothing on smart home products. |
+| Investing and stock picks | stock pick, stock portfolio, index fund, price target, investment advice, which stock, dividend | In February 2025 he refused to say whether Nvidia deserves its valuation. No video tells a viewer what to buy. |
+| Designer careers and job hunting | design portfolio, job hunting, cover letter, job application, interview preparation, salary negotiation | He gives his own reasons for quitting his job, and says in September 2025 that designers will move from drawing rectangles to writing rules. No video advises on portfolios or finding work. |
+| Video editing craft, cameras and gear | DaVinci Resolve, Final Cut, colour grading, color grading, microphone, lighting setup, B-roll | He says he made his animations in After Effects, takes music and sound effects from Epidemic Sound and owns a Fuji X100V. No video teaches editing or recommends gear. |
+| His scripting and editing method in detail | script structure, script template, three-act, editing workflow, cut frequency, voiceover technique | He names his writing tools, his Great Filter checklist and his thumbnail rules. Story Behind, his paid breakdown of his own videos, was not read, and no video walks through how he writes or cuts one. |
+| Party politics and elections | election, political party, left-wing, right-wing, immigration policy, vote for | He says he does not believe government rules will stop manipulation, and that showing unsafe areas on a map leads to a political fight over who owns safety data. He backs no party or policy. |
+| Parenting and children's screen rules | parenting, parental controls, screen time for kids, age limit, school phone ban | In 2023 he says short-form is leading to lower attention spans, especially for children. No video gives advice to parents. |
+| Which phone, laptop or gadget to buy | buying guide, should you buy, worth buying, spec comparison, best laptop, best budget | He names the devices he owns and says he does not tell people to buy an OP-1. No video recommends what to buy. |
+| How AI models are trained and built | transformer architecture, fine-tuning, embeddings, RAG, context window, benchmark score, AGI timeline | He pictures AI as an engine, a car and fuel, and says in February 2025 that models will become a commodity. No video explains how a model is trained or built. |
+| Tax, company formation and legal advice | VAT, limited company, incorporation, tax deduction, legal advice, contract template | He says a channel that takes off becomes a real business that pays taxes, and that he realised he needed a company. No video gives tax or legal guidance. |
+| Product management process and careers | PRD, sprint planning, scrum, roadmap template, become a product manager, PM interview, backlog grooming | He describes the loop of scoring feature ideas against an objective and key result, and his three questions for a new feature. No video covers process documents or how to get the job. |
+
+## Covered thinly
+
+These have a line or two. Report the line, its video and that it is all there is.
+
+- Cars appear only as interface examples. He calls them the most frustrating case of touch replacing physical controls, with Tesla needing the touchscreen even to open the glove box, and says the clearest sign a ten-year-old car is old is its touchscreen. (What Happened To Physical Tech at 5:15, https://www.youtube.com/watch?v=TIFF-rinlbo&t=315s; What Happened To Physical Tech at 9:00, https://www.youtube.com/watch?v=TIFF-rinlbo&t=540s)
+- AI alignment and safety get one passage, from December 2022. He showed that ChatGPT's content limits fall to framing and called alignment quite important. (ChatGPT is Frighteningly Good at 4:30, https://www.youtube.com/watch?v=2lzQD-7lZJU&t=270s)
+- Copyright and consent to train get one passage, from 2022. He said models feed on billions of public images, that an artist may not want an AI trained to copy their style, and that no system for this exists yet. (AI Generated Videos Are Scary at 5:15, https://www.youtube.com/watch?v=Es01hmaXux0&t=315s)
+- The stock of an AI company comes up once. In 2025 he used the Jevons paradox to argue that cheaper training need not finish Nvidia, and he refused to say whether Nvidia deserves its valuation. (People Still Don't Understand AI at 11:15, https://www.youtube.com/watch?v=r87NGV1Lgao&t=675s)
+- Sponsorship pricing gets one story and no numbers. He says public information on it is very thin, and that he found a Discord community of creators comparing rates, pricing structures and good CPMs by audience location. (What Actually Happens When You Blow Up On YouTube at 5:15, https://www.youtube.com/watch?v=0V25aY4TM4I&t=315s)
+- How he writes a video is given as tools and time only. In 2026 he said he was writing that video in VS Code using Claude Code in a terminal as a writing assistant, with a system of skills he created that do research for him, and that his team has a system of skills that creates basic animations. Of the messaging video he said they had spent the last month on it. (The Weird Future Of User Interfaces at 3:00, https://www.youtube.com/watch?v=f32W5BEzWN0&t=180s; The Ridiculous Engineering Of Text at 7:30, https://www.youtube.com/watch?v=7DN3Ectm6UY&t=450s; The Insane Design Of Messaging at 1:30, https://www.youtube.com/watch?v=6DSW1rN-ZV4&t=90s)
+- Children get one line. In 2023 he said short-form is leading to lower attention spans, especially for children growing up with it. (Short Form Content Is Broken Can We Fix It at 6:00, https://www.youtube.com/watch?v=1F85wJmhDkA&t=360s)
+- Analytics tools get one mention. He says Amplitude, Mixpanel or Google Analytics can be set up in a few hours, as his first reason engagement won as the thing teams measure. (The Real Reason Your Tech Makes You Unhappy at 6:45, https://www.youtube.com/watch?v=Vbg5TeoLTW0&t=405s)
+- How a team should be run gets one remark, from a 2025 video made in partnership with Lovable. He said small, very successful teams work because they attract people who really want to be there. (Behind The Scenes Of Lovable's Insane Design at 21:00, https://www.youtube.com/watch?v=ZoVLS-Wxr1s&t=1260s)
+- Two-sided marketplaces get one line, from 2021. Of one Reddit idea he says it would be the most difficult of the batch to build because it has the classic problem of two-sided platforms, where one side cannot exist without the other; he thinks you would need either a lot of capital or an existing network of influencers to kick-start one side, and that he would pilot it in one city and maybe one category. (Reacting to Innovative Ideas From Reddit at 9:00, https://www.youtube.com/watch?v=82E7VoxCPc0&t=540s)

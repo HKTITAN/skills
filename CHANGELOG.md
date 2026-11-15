@@ -6,6 +6,8 @@ What changed in kheSkills, newest first. One entry per day that something a user
 
 ### Added
 
+- `khe-brain-harshit`, a brain of Harshit Khemani, built from his own X and LinkedIn exports of 13 November 2026 (7,853 posts, threads and replies; 666 cited). It answers with the post named, pressure-tests a plan against his posted views, and drafts khe.money posts in his voice since mid-2025 with one `Rests on:` line per view, each cited. Ten theme files, a voice file measured on his posts, a story timeline, a glossary, his changes of mind and the topics his posts are silent on. Its gate adds draft lines: no `Rests on:`, hashtags, emoji, em dashes and sentence case. In Claude Code it is `/khe-brain:harshitkhemani`, and the `khe-brain` plugin is 1.5.0.
+
 - The README has a section on [khe](https://github.com/HKTITAN/khe), my design system, with its brand page at [ds.khe.money](https://ds.khe.money). khe ships as a contract, `khe.DESIGN`, which `khe-design-tokens` reads like any `.design` file, so it is linked here rather than added as a skill.
 
 ## 2026-11-13

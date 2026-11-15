@@ -1,0 +1,28 @@
+Draft:
+most products don't need a better onboarding flow.
+
+they need fewer reasons to have one.
+
+i learned this with Smash&Clash.
+
+people kept asking how the captures worked, so i wrote a tutorial.
+
+i hated it. so did the players.
+
+so i changed the board instead.
+
+now every move zooms in and shows you what happened to the cards next to it.
+
+nobody reads instructions. they read feedback.
+
+and the same change made the game more fun, because every move got a small moment of drama.
+
+if you're writing a tutorial, look at the screen first.
+
+it usually has the answer.
+Rests on: a product that needs explaining has failed at its on-ramp, and the Smash&Clash board zoom replaced a tutorial he and the players disliked (2026-09-13-if-have-explain-your).
+Rests on: the zoom-in also made the game more fun by adding drama to each move (2026-09-13-if-have-explain-your).
+Rests on: motion and feedback shape how attached people get to a product (2026-05-12-most-people-underestimate-how).
+Source: 2026-09-13-if-have-explain-your, https://x.com/HarshitKhemani/status/2099039658323870191
+Source: 2026-05-12-most-people-underestimate-how, https://x.com/HarshitKhemani/status/2054135387707367624
+Not in his posts: a view on onboarding for products other than games; the draft keeps the claim to what he built.

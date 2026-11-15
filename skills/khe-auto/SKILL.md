@@ -100,7 +100,7 @@ A playbook is a whole job, start to finish. Open the file when the request match
 |---|---|---|
 | Design | A screen, a component, motion, sound, a vector, a diagram, a product picture, a launch video | The Design table below |
 | Code | Writing, reviewing or migrating code in a language a skill here covers | The Code table below |
-| Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "what would Varun say", "who said that" | The Brains table below |
+| Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "what would Varun say", "who said that", "write a khe.money post in Harshit's voice" | The Brains table below |
 | Content | Posts for social platforms and a newsletter, written in one person's voice from one idea | The Content table below |
 
 A new domain adds one row here and one table below it. Nothing else in this file changes.
@@ -170,6 +170,7 @@ A brain answers from one person's public writing or public talks and names the s
 | What Varun Mayya has said in his public videos on a startup, content, career or AI question, with the video and the minute; a plan pressure-tested against it | `khe-brain-varun` | here |
 | What the public isb-skills notes say on a business question, with the file; a plan or a model pressure-tested against it | `khe-brain-isb` | here |
 | What Paul Graham and the Y Combinator partners have published on a startup question, with the person and the piece; a plan or a deck pressure-tested against it | `khe-brain-yc` | here |
+| What Harshit Khemani has posted on X and LinkedIn about a product, game, AI or startup question, with the post; a khe.money post drafted in his voice that rests only on views he has posted | `khe-brain-harshit` | here |
 
 ## Content
 
@@ -217,6 +218,7 @@ Each pair is one question, not two skills to read.
 | `khe-brain-emil` / `emil-design-eng` | His writing reported with sources, or his rules applied to code? | Reported: khe-brain-emil. Applied: emil-design-eng. |
 | `khe-brain-benji` / `stageshow` | His published thinking reported with sources, or a product picture built? | Reported: khe-brain-benji. Built: stageshow. |
 | `khe-brain-yc` / `khe-brain-varun` / `khe-brain-isb` | Whose answer is wanted: the Y Combinator partners, Varun Mayya, or the isb-skills notes? | Named: that brain. Not named, a startup question: khe-brain-yc first, then khe-brain-varun for an Indian or bootstrapped case. A textbook framework or a model: khe-brain-isb. Never blend two brains into one answer. |
+| `khe-brain-harshit` / `khe-content-engine` | One khe.money post in Harshit's voice resting on his posted views, or one idea turned into a draft per platform from a voice node? | khe.money post or "what do I think about": khe-brain-harshit. Several platforms or a content system: khe-content-engine, which may take its views from khe-brain-harshit. |
 | `khe-brain-varun` / `khe-content-engine` | His stated view reported with its video, or a post drafted in your own voice? | Reported: khe-brain-varun. Drafted: khe-content-engine. |
 | `prototype` / any building skill | Has the decision been made? | No: prototype. Yes: build the one thing. |
 

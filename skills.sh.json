@@ -25,13 +25,14 @@
     },
     {
       "title": "Brains",
-      "description": "Answers from one source's public writing, talks or notes, with the source named. In Claude Code they also install as one plugin: /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc.",
+      "description": "Answers from one source's public writing, talks or notes, with the source named. In Claude Code they also install as one plugin: /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani.",
       "skills": [
         "khe-brain-emil",
         "khe-brain-benji",
         "khe-brain-varun",
         "khe-brain-isb",
-        "khe-brain-yc"
+        "khe-brain-yc",
+        "khe-brain-harshit"
       ]
     },
     {

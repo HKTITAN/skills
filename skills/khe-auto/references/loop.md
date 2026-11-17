@@ -99,6 +99,10 @@ Stop building and hand the work to a reviewer when any one of these is true:
 - You have started to argue that a line is intentional.
 - Every question in verify is a yes and something still looks wrong.
 
+Stop and bring in the person, not a reviewer, when a check still fails after three rounds of fixing. Hand over the failing output and what each round tried. Never get past it by editing the check, skipping a test, or adding a sleep or a retry until a flaky one passes.
+
+One reviewer, several rounds: when a review sends work back, the next round's reviewer gets the earlier findings and checks those first, then looks for what is new. Tune the reviewer's brief before adding a second reviewer, and a verdict counts only for the state it reviewed; an edit after it reopens the review.
+
 The reviewer gets the evidence, the skill's verify list, its gold examples and a one-line brief. The reviewer never gets the plan, the reasons or the handover file. A reviewer who has read the builder's reasons returns the builder's opinion.
 
 ## Directing an agent

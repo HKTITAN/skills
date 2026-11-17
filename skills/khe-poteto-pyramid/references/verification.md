@@ -1,6 +1,6 @@
 ---
 title: verification
-summary: The verification layer: running the real app as proof, feature maps, an agent-friendly control CLI, formal models, property tests, statecharts, and what review looks at afterwards.
+summary: The verification layer: running the real app as proof, the verify skill, end-to-end, property and differential tests, feature maps, an agent-friendly control CLI, formal models, statecharts, and what review looks at afterwards.
 ---
 
 # Verification
@@ -8,6 +8,10 @@ summary: The verification layer: running the real app as proof, feature maps, an
 Verification is what lets an agent check its own work and keep going until the task works, so a person stops being the bottleneck. It is the layer for what no single file shows: whether a flow works for a user, whether events can arrive in a bad order, whether a budget holds.
 
 ## Runtime
+
+Running the change end to end matters more than any test suite. An end-to-end run is hard to fool: the whole flow works or it does not, and it says what broke. Unit tests are faster and less flaky, and both the agent and its test can miss the task together, so a change can pass them and still break the feature. If only one kind gets investment, it is end to end.
+
+Codify how to start and drive the app as a project skill named `verify`, in the repo's `.claude/skills/` and as close to the code it covers as it can sit (a repo can have several). Agents run it before they commit. It is the smoke harness for every change, so make it fast and reliable: have an agent stress it and fix what wobbles, because a slow harness gets run less and a flaky one teaches agents to rerun instead of fixing.
 
 The agent runs the real app and uses the debugging tools a person would: for web and Electron, the Chrome DevTools Protocol; for iOS, the simulator; for a stack without a rich runtime, a tool the agent builds (an lldb wrapper, a sidecar in dev builds). Choose stacks that are easy to drive and debug; it pays back on every task.
 
@@ -51,7 +55,16 @@ poteto's `create-formal-verification-skill` and `maintain-formal-verification-sk
 
 ## Property-based
 
-For inputs and interactions nobody would enumerate. In the UI, Bombadil (from Antithesis) explores a web or terminal interface with generated input and checks properties you state. For logic, a property-based testing library in your language (fast-check for TypeScript, Hypothesis for Python) does the same at the function level. A property is a sentence that holds for every input: "undo after any edit restores the previous text".
+For inputs and interactions nobody would enumerate. Generated inputs do not share the bias of the agent that wrote the code, which makes them the cheapest way to keep it honest, and they still hold when the written spec has drifted from what production does. In the UI, Bombadil (from Antithesis) explores a web or terminal interface with generated input and checks properties you state. For logic, a property-based testing library in your language (fast-check for TypeScript, Hypothesis for Python) does the same at the function level. A property is a sentence that holds for every input: "undo after any edit restores the previous text". Most projects have these four:
+
+- **Round trip:** encode then decode gives back the input; the same for parse and print, serialize and load.
+- **Invariant:** something always true, such as a balance that never goes negative.
+- **Idempotent:** a migration, normalization or retry run twice has the effect of running it once.
+- **Equivalent:** the optimized version returns what the slow, obviously correct one returns.
+
+## Differential
+
+For a migration or a rewrite that should keep behavior: the old system is the oracle. Run old and new on the same inputs (randomly generated, or a sample of real traffic) and fail on any difference. Normalize what does not matter (whitespace, ordering, timestamps) before comparing, and keep a reviewed list of approved differences for the places the new system is meant to differ. Every other difference is a bug or a breaking change.
 
 ## Statecharts
 

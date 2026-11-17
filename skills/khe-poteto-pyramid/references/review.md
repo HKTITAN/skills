@@ -23,10 +23,11 @@ A verdict per placement, then findings worst first:
 
 ```text
 Placement: <title>
+Reviewed: <commit, or working tree at the time>
 Verdict: holds | holds lower than it could | does not hold
 Highest layer that could hold it: <layer>, because <what that layer can see>
 Findings:
-- <the fault> | <evidence: file, line, output> | <the fix>
+- [important | nit | pre-existing] <the fault> | <evidence: file, line, output> | <the fix>
 Not verified: <what the reviewer could not run>
 ```
 

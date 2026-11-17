@@ -9,6 +9,8 @@ summary: How to decide where a correction lives: the evidence, the question for 
 
 A mistake class counts once it has happened twice. One occurrence is fixed where it is; a layer built for it costs a check to maintain and catches nothing new.
 
+A class also needs a trigger you can read from a diff. "Be careful with sessions" is not one; "a message type changed, so an old transcript without the new field must still load" is. Before building, try to disprove it: run it in your head (or for real) over merged, stable changes, and if it would flag them it is wrong or too wide. A miss on a known incident is worth replaying too: if most of a few independent bug-finding passes catch it on that diff, it is detectable, and a small diff that slipped through is a gap worth a rule.
+
 Where to look, cheapest first:
 
 | Source | Command or place | What it gives |

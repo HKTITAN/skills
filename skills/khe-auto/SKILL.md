@@ -4,7 +4,7 @@ description: "The mode that runs the rest. Reads a request, picks a playbook or 
 license: MIT
 metadata:
   author: Harshit Khemani
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Auto
@@ -77,7 +77,7 @@ Check these before handing over.
 7. **A skill that is not installed is not improvised.** Name it, say whose it is, give its install line, and stop or continue with what is installed. Never reconstruct its rules.
 8. **When nothing fits, say so.** A skill stretched over the wrong problem produces confident nonsense the user cannot tell from a real answer.
 9. **Say what you could not verify.** Every reply ends with it, the short ones included.
-10. **No step is done until its exit is checked from evidence:** gate output, or something you looked at after the last edit. A missing or inconclusive gate is never a pass.
+10. **No step is done until its exit is checked from evidence:** gate output, or something you looked at after the last edit. A missing or inconclusive gate is never a pass. For an app, evidence means running the change end to end, not only its unit tests. A step whose check still fails after three rounds stops there and goes to the person with the failing output; no step edits or loosens the check that judges it.
 11. **Every correction is placed before the job closes.** When the user corrects the work, or a gate, a reviewer or a look catches the same fault twice, run `khe-poteto-pyramid` `place` on it: the fix goes to the highest layer that can hold it (the code, a check, verification, then prose), and the record goes in the project's `PYRAMID.md`. The next agent, in this session or another, inherits the check instead of repeating the mistake. A correction left only in the chat is lost when the chat ends.
 
 ## Playbooks

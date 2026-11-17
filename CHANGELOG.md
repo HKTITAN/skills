@@ -23,6 +23,11 @@ What changed in kheSkills, newest first. One entry per day that something a user
 - 21 of Lauren Tan's pstack skills are linked from `cursor/plugins` and routed (`poteto-mode`, `correct`, `create-verification-skill`, `create-formal-verification-skill`, `statechart`, `how`, `why`, `architect`, `interrogate` and others), with her plugin install line.
 - 13 of Matt Pocock's skills are linked from `mattpocock/skills` and routed (`codebase-design`, `improve-codebase-architecture`, `diagnosing-bugs`, `setup-pre-commit`, `git-guardrails-claude-code` and others); his `code-review` and `tdd` are `pocock-code-review` and `pocock-tdd` here.
 
+### Changed
+
+- Verification and review, after Addy Osmani's "How the Claude Code team thinks about verification" (17 November 2026). `khe-poteto-pyramid` 1.1.0: a check the change can edit is no check (Hard rule 3), and a class needs a trigger readable from a diff and must survive an attempt to disprove it (placing). Its verification reference puts end-to-end runs and a project `verify` skill first and adds the four common properties and differential tests; its checks reference adds observe mode before enforce, diff-triggered reliability checklists, flaky tests (fix or delete with a reason, never retry) and pruning; its audit reviews the reviewers against reverts and clean controls.
+- kheAgents (`kheskills` 1.2.0): `khe-executor` runs cheap checks first, drives the change end to end, stops after three failed rounds and stamps how it verified; `khe-reviewer` tags findings `important`, `nit` or `pre-existing`, names the commit it reviewed, builds on earlier rounds' findings and flags a change that touched its own gate; `khe-pyramid` tries to disprove a rule before building it and starts new gates in observe mode. `khe-auto` 1.1.0 and `orchestration/CLAUDE.md` carry the same rules: three rounds then the person, one tuned reviewer over several rounds, checks out of reach of the change.
+
 ## 2026-11-15
 
 ### Added

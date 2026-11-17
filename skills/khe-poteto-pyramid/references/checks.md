@@ -94,6 +94,28 @@ When the pattern already appears many times, a rule that fails on all of them ge
 
 The burn-down goes in the record's `Not verified:` or in `Open:` until it is at zero.
 
+## Out of reach of the change
+
+A check the change can edit is no check. The rules, tests and review brief that gate a change are read from the base branch, CI config or a protected path, never from the change itself; a change that touches its own gate is a finding for review, judged by the version before it.
+
+A check that stops work and pulls in a person says why in its output, so they do not have to work it out from the diff. The people who own the code write its checks, and tune them until they flag what the owner would.
+
+## Observe mode
+
+A new blocking gate (a commit gate, a required check, a new hook) has three modes: off, observe, enforce. In observe it logs what it would have blocked and blocks nothing; read the log, fix the false positives, then enforce. Give enforce an escape hatch that leaves a trace: a reason in the commit message, and a gate that lets the next attempt through after it has blocked the same session twice, so an agent is never stuck. Stamping each commit with how it was verified, `none` included, makes the unverified ones something you can query.
+
+## Diff-triggered checklists
+
+What no lint holds can still be triggered by a diff. A reliability checklist is a table where each row has a trigger readable from the diff ("session storage or message types changed"), the check to run ("an older transcript without the new field still loads") and the incident or PR behind it. The reviewer reads the diff and runs only the rows whose trigger matches, usually a handful, so nobody has to remember past outages. A row whose trigger cannot be read from a diff belongs in judgment prose, not here. The checklist is prose that aims review; it sits at the review layer and feeds the pyramid, so a row that keeps firing moves up into a lint or a test.
+
+## Flaky tests
+
+A flaky test teaches an agent to rerun instead of fix. No skips, no sleeps, no retries until green: find the cause, or (with the person's go-ahead, never as part of the change it blocks) delete the test and write down why, so the gap is visible instead of hidden.
+
+## Pruning
+
+Checks, verification steps and rules files only grow if you let them. On a routine, delete what no longer guards anything, and merge rows that catch the same class.
+
 ## Exceptions
 
 An exception lives on the offending line, never in a config that silences the rule everywhere. It carries a reason, an expiry date and who approved it, so it shows up in review and in search. A disable comment with no reason is a fault the lint should catch: ESLint's `--report-unused-disable-directives` and the `eslint-comments` plugin's `require-description` rule both help.

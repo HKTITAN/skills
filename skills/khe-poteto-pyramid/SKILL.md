@@ -4,7 +4,7 @@ description: "Puts every correction you give a coding agent at the highest layer
 license: MIT
 metadata:
   author: Harshit Khemani
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Poteto pyramid
@@ -13,7 +13,7 @@ You own a correction from the moment someone says "the agent keeps doing this" t
 
 It does not review a UI against values (that is `khe-ui`), record a demo of the product (`khe-demo`), or turn design taste into written rules (`learn-taste`, Emil Kowalski). For the deep sub-jobs it hands off to poteto's own skills by name: a project verification skill is `create-verification-skill`, a formal model is `create-formal-verification-skill`, a statechart is `statechart`, a comment sweep is `no-comments`. It never commits, pushes or changes CI settings unless the user asked for that in this session.
 
-The pyramid is Lauren Tan's ("poteto"), from her talk "All Code Is Slop" at AI Engineer Code Summit, 11 November 2026; the credit, what was taken and what is unverified are in [sources](references/sources.md). This skill is Harshit Khemani's reading, not written or endorsed by her.
+The pyramid is Lauren Tan's ("poteto"), from her talk "All Code Is Slop" at AI Engineer Code Summit, 11 November 2026. Much of the verification and review practice (end to end first, property and differential tests, checks out of reach of the change, observe mode, one tuned reviewer) is from Addy Osmani's article "How the Claude Code team thinks about verification", 17 November 2026. The credit, what was taken and what is unverified are in [sources](references/sources.md). This skill is Harshit Khemani's reading; neither of them wrote or endorsed it.
 
 ## The one idea
 
@@ -54,7 +54,7 @@ The gold records in `examples/placements/` are the bar. If a placement of yours 
 
 1. **Walk the layers top-down and stop at the first that can hold it.** For each layer you pass, write in `Not higher:` why it could not. Each step down costs more and fails more quietly, and a reason forces the question that the shortcut skips.
 2. **A structural fix replaces the instruction.** Delete the prose line in the same change; `Prose:` says deleted or none. The instruction is the symptom: two sources drift, and an agent reads the surviving line as permission to argue with the check.
-3. **A check counts only after it fails on a real past mistake.** Replay the commit, PR or diff the class came from and paste the failure in `Proof:`. A check that has never gone red is a guess about what it catches.
+3. **A check counts only after it fails on a real past mistake.** Replay the commit, PR or diff the class came from and paste the failure in `Proof:`. A check that has never gone red is a guess about what it catches, and one the change it judges can edit is no check: it runs from the base branch, CI config or a protected path.
 4. **Every error names the fix.** The file, type, function or command to use instead, in the message the agent will read. Agents do what the error says; "not allowed" invites a workaround or a disable comment.
 5. **Stop the bleeding, then clean up.** When the pattern is already common, the check fails only on a change that adds more, and the old cases are listed to burn down. A rule that turns the whole repo red on day one gets switched off.
 6. **No comment, doc or markdown file is an enforcer, and none is written unasked.** Comments go stale, people rarely read them, and agents use them to justify the workaround. A constraint worth keeping becomes a type, a test or a lint.
@@ -136,8 +136,8 @@ Name the job first. One request is one job.
 |---|---|
 | What each layer holds and the techniques behind it | [layers](references/layers.md) |
 | The question for each layer, evidence, reasons that do not count, the record format, sweeping history | [placing](references/placing.md) |
-| Writing a lint, a type, a boundary or a CI check; the error message; the ratchet; exceptions | [checks](references/checks.md) |
-| Running the app as proof, feature maps, formal models, property tests, statecharts | [verification](references/verification.md) |
+| Writing a lint, a type, a boundary or a CI check; the error message; the ratchet; observe mode; diff-triggered checklists; flaky tests; exceptions | [checks](references/checks.md) |
+| Running the app as proof, the `verify` skill, end to end, property and differential tests, feature maps, formal models, statecharts | [verification](references/verification.md) |
 | What stays as prose, the rule table, triaging a rules file, comments and unsolicited markdown | [prose](references/prose.md) |
 | "Can we automate this", the factory, readiness before a trigger | [loop](references/loop.md) |
 | The ten questions, scoring, where to start | [audit](references/audit.md) |
@@ -164,6 +164,9 @@ Script: `scripts/pyramid-check.mjs` checks a placement record or a rules file (`
 | A placement at "reviewers will watch for it" | The highest layer that can hold it; review only feeds the pyramid |
 | A UI change called done from reading the diff | Evidence from running the app: a screenshot, a video, a trace |
 | A cron that starts agents on a loop that does not verify | The verification story first, by [loop](references/loop.md) |
+| A flaky test retried, skipped or given a sleep until it passes | The cause found, or the test deleted with the reason written down |
+| A new blocking gate switched straight to enforce | Observe mode first: log what it would block, fix the false positives, then enforce |
+| A review verdict on a commit that has moved since | A review of the commit that will merge |
 | A layer built for something that happened once | The one mistake fixed in place |
 | "All checked" as the last line | `Not verified:` and what nobody checked |
 

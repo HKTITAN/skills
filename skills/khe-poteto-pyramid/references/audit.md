@@ -17,12 +17,14 @@ Two questions per layer. Answer each from the repo with the evidence named, neve
 | verification | Do changes arrive with evidence: a video, screenshots or a test run? | The last ten merged PRs that change behavior |
 | prose | Is the rules file mostly judgment calls, not rules a tool could enforce? | `node scripts/pyramid-check.mjs AGENTS.md` and its `enforceable-prose` count |
 | prose | Are agents stopped from adding comments and markdown nobody asked for? | A comment lint; new `.md` files in the last month's agent PRs |
-| review | When review catches the same thing twice, does it become a check? | Repeated review comments against the rule table |
+| review | When review catches the same thing twice, does it become a check? | Repeated review comments against the rule table; whether the gating rules live where the change cannot edit them |
 | review | Does review time go to evidence and to what landed, not to reading every line? | How review comments split between diffs and evidence, and who merges agent PRs |
 
 ## Score
 
 Per layer: 2 yes is solid, 1 is partial, 0 is missing. Report one line per layer, and name the lowest layer with a no from the top: that is where the work is, because the layers below lean on it.
+
+Review the reviewers on what mattered: how many merged changes were reverted, how many a maintainer rejected before merge, and a size-matched set of changes that stayed clean as the control. Measure recall at each stage (raw findings, after verification, the final review) so a stage that drops bugs it had shows up, and stop tuning where the next gain would be fitting the eval instead of catching bugs.
 
 ## Where to start
 

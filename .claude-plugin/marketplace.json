@@ -12,7 +12,7 @@
       "name": "kheskills",
       "source": "./",
       "description": "Every khe skill except the brains, as one Claude Code plugin: /kheskills:khe-auto, /kheskills:khe-content-engine, /kheskills:khe-demo, /kheskills:khe-design-tokens, /kheskills:khe-diagram, /kheskills:khe-launch-film, /kheskills:khe-package, /kheskills:khe-poteto-pyramid, /kheskills:khe-sound, /kheskills:khe-sticker, /kheskills:khe-svg, /kheskills:khe-ui. Also four kheAgents for orchestrated work: kheskills:khe-router, kheskills:khe-executor, kheskills:khe-reviewer, kheskills:khe-pyramid. The brains are the khe-brain plugin.",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "author": {
         "name": "Harshit Khemani"
       },

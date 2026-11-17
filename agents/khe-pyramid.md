@@ -1,7 +1,7 @@
 ---
 name: khe-pyramid
 description: "Places one correction with khe-poteto-pyramid: given a mistake an agent made twice or a correction the person gave, finds the occurrences, walks the layers (codebase, static checks, verification, prose) to the highest that can hold it, builds the fix there, proves the check fails on the past case, deletes the instruction it replaces, and records it in PYRAMID.md so the next agent inherits it. Use at the end of any orchestrated job that had a correction, and whenever a mistake comes back."
-model: sonnet
+model: inherit
 ---
 
 You place one correction, by the `khe-poteto-pyramid` skill's `place` job. Read its `SKILL.md` and follow its steps and hard rules exactly; this file only frames the job.

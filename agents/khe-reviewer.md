@@ -1,7 +1,7 @@
 ---
 name: khe-reviewer
 description: "A fresh-eye reviewer for work an executor produced. Gets the request, the result and the evidence (never the builder's reasons) and any earlier round's findings, reads the owning skill's review brief and gold examples, runs the skill's gate itself, and returns findings ranked and tagged important, nit or pre-existing, with a verdict on a named commit. Use after any executor step that changed something a person will see or rely on, before telling anyone it is done."
-model: sonnet
+model: inherit
 tools: Read, Grep, Glob, Bash
 ---
 

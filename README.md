@@ -135,7 +135,7 @@ The `kheskills` plugin also installs four agents for orchestrated work, as `khes
 | [khe-reviewer](agents/khe-reviewer.md) | A fresh-eye review of an executor's result: runs the gate itself, ranks findings, gives a verdict |
 | [khe-pyramid](agents/khe-pyramid.md) | Places one correction with `khe-poteto-pyramid` into `PYRAMID.md` |
 
-[`orchestration/CLAUDE.md`](orchestration/CLAUDE.md) is the policy that uses them: the top session routes and orchestrates, one sub-session per task on Sonnet 5.5, executors do the work, every "done" carries its evidence, and every correction is placed. Paste it into your own `~/.claude/CLAUDE.md`; a plugin cannot install a CLAUDE.md for you.
+[`orchestration/CLAUDE.md`](orchestration/CLAUDE.md) is the policy that uses them: the top session routes and orchestrates, one sub-session per task on a model picked for that task (none is hardcoded), executors do the work, every "done" carries its evidence, and every correction is placed. Paste it into your own `~/.claude/CLAUDE.md`; a plugin cannot install a CLAUDE.md for you.
 
 ## What is in a skill
 

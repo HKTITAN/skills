@@ -1,7 +1,7 @@
 ---
 name: khe-router
 description: "Routes one request through khe-auto and returns only the route: the Goal line, the playbook or the one or two skills that own the job with a reason each (khe skills and the linked skills of Emil Kowalski, Benji Taylor, Vercel, Lauren Tan and Matt Pocock), the gate each step runs, and what it could not tell. Does no work. Use it as the first step of an orchestrated job, before briefing executors."
-model: haiku
+model: inherit
 tools: Read, Grep, Glob
 ---
 

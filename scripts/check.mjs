@@ -254,7 +254,7 @@ if (market) {
       }
       // Committed and uncommitted edits, and new files not yet added, so a local run catches it too.
       const changed = [git("diff", "--name-only", at, "--", ...paths).stdout, git("ls-files", "--others", "--exclude-standard", "--", ...paths).stdout].join("\n").trim();
-      if (changed && prev.version === p.version) bad("marketplace.json", `${p.name} serves changed files (${changed.split("\n").slice(0, 3).join(", ")}${changed.split("\n").length > 3 ? ", ..." : ""}) but is still ${p.version}: bump its version and say why in CHANGELOG.md`);
+      if (changed && prev.version === p.version) bad("marketplace.json", `${p.name} serves changed files (${changed.split("\n").slice(0, 3).join(", ")}${changed.split("\n").length > 3 ? ", ..." : ""}) but is still ${p.version}: bump its version and say why in CHANGELOG.md (or delete the file, if it is an untracked scratch file)`);
     }
   }
 }

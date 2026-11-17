@@ -1,25 +1,31 @@
 #!/usr/bin/env node
-// Builds two things that must never drift from the repo, so installing kheskills works for everyone:
+// Builds every install manifest from the folders, so none of them can drift from the repo:
 //
-//   1. The plugins in .claude-plugin/marketplace.json that serve other people's skills, from the
+//   1. The kheskills and khe-brain plugins in .claude-plugin/marketplace.json, from skills/khe-*,
+//      agents/ and commands/. Only their `version` is written by hand: bump it in marketplace.json
+//      when what the plugin serves changes, or installed copies never update (check.mjs fails until you do).
+//   2. The plugins in .claude-plugin/marketplace.json that serve other people's skills, from the
 //      README's "From others" links (the link that names a skill's SKILL.md is the path served). Each
 //      points at its author's own repo; nothing is copied here.
-//   2. The README's install block, between <!-- install:start --> and <!-- install:end -->. The
+//   3. plugin.json at the repo root, the Agent Plugins 1.0.0 manifest (agent-plugins.org): the whole
+//      repo as one plugin whose skills are skills/<name>/SKILL.md. That spec has no agents or commands.
+//   4. The README's install block, between <!-- install:start --> and <!-- install:end -->. The
 //      marketplace must be added with --sparse: the kheskills plugin sits at the repo root, and Claude
 //      Code fetches every git submodule inside a plugin's folder, so a plain add downloads all the linked
 //      repos under skills/ and times out. The sparse list is every folder the khe plugins read.
 //
-//   node scripts/marketplace.mjs          rewrite both, and check each author repo's own manifest
-//   node scripts/marketplace.mjs --check  exit 1 if either is out of date (offline; CI runs this)
+//   node scripts/marketplace.mjs          rewrite all four, and check each author repo's own manifest
+//   node scripts/marketplace.mjs --check  exit 1 if any is out of date (offline; CI runs this)
 //
 // pstack is a Cursor plugin, so its entry serves the Claude Code build Cursor generates at
 // harness/pstack/claude-code, whole, with its agents and adapter.
-import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const MP = join(ROOT, '.claude-plugin', 'marketplace.json')
+const AP = join(ROOT, 'plugin.json')
 const README = join(ROOT, 'README.md')
 const readme = readFileSync(README, 'utf8')
 const check = process.argv.includes('--check')
@@ -58,6 +64,7 @@ for (const [repo, paths] of Object.entries(byRepo)) {
     name: r.name,
     source: { source: 'github', repo },
     description: `${r.about}. Served from ${repo}${r.whole ? ' as its own plugin' : ''}, not copied.`,
+    homepage: `https://github.com/${repo}`,
     author: { name: r.author },
     ...(r.whole ? {} : { strict: false, skills: [...paths].sort() }),
   })
@@ -66,19 +73,77 @@ plugins.push({
   name: 'pstack',
   source: { source: 'git-subdir', url: 'https://github.com/cursor/plugins.git', path: 'harness/pstack/claude-code' },
   description: "Lauren Tan's (poteto) pstack, the Claude Code build Cursor generates from her Cursor plugin: /pstack:poteto-mode, /pstack:correct and the rest. Served from cursor/plugins, not copied.",
+  homepage: 'https://github.com/cursor/plugins/tree/main/harness/pstack/claude-code',
   author: { name: 'Lauren Tan' },
 })
 plugins.sort((a, b) => a.name.localeCompare(b.name))
 
+// The two plugins built from this repo. Versions are kept from marketplace.json; everything else is
+// derived, so a new skill, agent or command is picked up by running this script.
+const REPO = 'https://github.com/HKTITAN/skills'
+const AUTHOR = { name: 'Harshit Khemani', url: 'https://www.khe.money' }
+const isDir = (p) => existsSync(p) && statSync(p).isDirectory()
+const kheAll = readdirSync(join(ROOT, 'skills')).filter((d) => d.startsWith('khe-') && existsSync(join(ROOT, 'skills', d, 'SKILL.md'))).sort()
+const kheSkills = kheAll.filter((d) => !d.startsWith('khe-brain-'))
+const mdIn = (dir) => (isDir(join(ROOT, dir)) ? readdirSync(join(ROOT, dir)).filter((f) => f.endsWith('.md')).sort() : [])
+const agentFiles = mdIn('agents')
+const commandFiles = mdIn('commands')
 const m = JSON.parse(readFileSync(MP, 'utf8'))
-const own = m.plugins.filter((p) => p.source === './')
+const versionOf = (name) => m.plugins.find((p) => p.name === name)?.version || '1.0.0'
+const own = [
+  {
+    name: 'kheskills',
+    source: './',
+    description: `Every khe skill except the brains, as one Claude Code plugin: ${kheSkills.map((d) => `/kheskills:${d}`).join(', ')}. Also ${agentFiles.length} kheAgents for orchestrated work: ${agentFiles.map((f) => `kheskills:${f.replace(/\.md$/, '')}`).join(', ')}. The brains are the khe-brain plugin.`,
+    version: versionOf('kheskills'),
+    author: AUTHOR,
+    homepage: REPO,
+    repository: REPO,
+    license: 'MIT',
+    keywords: ['skills', 'design-engineering', 'ui', 'motion', 'svg', 'sound', 'launch-video', 'agents', 'orchestration'],
+    strict: false,
+    skills: kheSkills.map((d) => `./skills/${d}`),
+    agents: agentFiles.map((f) => `./agents/${f}`),
+    commands: [],
+  },
+  {
+    name: 'khe-brain',
+    source: './',
+    description: `Brains: answers from one source's public writing, talks or notes, with the source named. ${commandFiles.map((f) => `/khe-brain:${f.replace(/\.md$/, '')}`).join(', ')}.`,
+    version: versionOf('khe-brain'),
+    author: AUTHOR,
+    homepage: REPO,
+    repository: REPO,
+    license: 'MIT',
+    keywords: ['skills', 'brain', 'citations', 'research'],
+    strict: false,
+    // commands/ holds no SKILL.md, so no brain loads a second time under khe-brain: (see AGENTS.md).
+    skills: ['./commands'],
+    commands: commandFiles.map((f) => `./commands/${f}`),
+  },
+]
 const next = { ...m, metadata: { ...m.metadata, description: "The skills Harshit Khemani uses with coding agents: his own (kheskills, khe-brain) and the ones he uses from Emil Kowalski, Benji Taylor, Vercel, Lauren Tan and Matt Pocock, each served from its author's repo." }, plugins: [...own, ...plugins] }
 const mpText = JSON.stringify(next, null, 2) + '\n'
 
+// The Agent Plugins 1.0.0 manifest. Its layout is fixed (skills/<name>/SKILL.md, immediate children
+// only), so it serves every khe skill, brains included; the linked skills are empty submodule folders
+// with no SKILL.md and are skipped. No version: the spec makes it optional, and the versions that
+// decide updates are the Claude Code ones above.
+const ap = {
+  $schema: 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
+  name: 'kheskills',
+  description: `Harshit Khemani's ${kheAll.length} agent skills: UI craft, design tokens, SVG, stickers, diagrams, sound, launch films, demos, packaging, the poteto pyramid, a content engine, and brains that answer from one source's public work with the source named. Start with khe-auto.`,
+  author: AUTHOR,
+  homepage: REPO,
+  repository: REPO,
+  license: 'MIT',
+  keywords: ['skills', 'agent-skills', 'design-engineering', 'ui', 'motion', 'agents'],
+}
+const apText = JSON.stringify(ap, null, 2) + '\n'
+
 // The sparse list: the marketplace file, the folders the khe plugins read, and every khe skill folder.
 // The linked skills are git submodules under skills/ and are never in it.
-const khe = readdirSync(join(ROOT, 'skills')).filter((d) => d.startsWith('khe-') && statSync(join(ROOT, 'skills', d)).isDirectory()).sort()
-const sparse = ['.claude-plugin', 'agents', 'commands', ...khe.map((d) => `skills/${d}`)]
+const sparse = ['.claude-plugin', 'agents', 'commands', ...kheAll.map((d) => `skills/${d}`)]
 const authors = plugins.map((p) => p.name)
 const block = `<!-- install:start -->
 In Claude Code they install as plugins from one marketplace. Add it with \`--sparse\`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.
@@ -120,11 +185,13 @@ if (problems.length) { console.error(problems.join('\n')); process.exit(1) }
 if (check) {
   const stale = []
   if (readFileSync(MP, 'utf8') !== mpText) stale.push('.claude-plugin/marketplace.json')
+  if (!existsSync(AP) || readFileSync(AP, 'utf8') !== apText) stale.push('plugin.json')
   if (readme !== readmeNext) stale.push('the README install block')
   if (stale.length) { console.error(`${stale.join(' and ')} out of date: run node scripts/marketplace.mjs`); process.exit(1) }
-  console.log('marketplace.json and the README install block are up to date')
+  console.log('marketplace.json, plugin.json and the README install block are up to date')
 } else {
   writeFileSync(MP, mpText)
+  writeFileSync(AP, apText)
   writeFileSync(README, readmeNext)
   console.log(plugins.map((p) => `${p.name}: ${p.skills ? p.skills.length + ' skills' : 'whole plugin'}`).join('\n'))
   console.log(`install block: ${sparse.length} sparse paths`)

@@ -121,10 +121,12 @@ Turning a person's or a company's published thinking into a skill is worth doing
 - [ ] Gold examples, teaching pairs, a gate, `verify.md`, `review.md`
 - [ ] The gate's `--self-test` passes and its gold examples pass `--gate`
 - [ ] `khe-auto`, the README table and `skills.sh.json` all list it
+- [ ] `node scripts/marketplace.mjs` has written it into the install manifests, and the plugin it ships in has a new version with a CHANGELOG line
 
 ```bash
 node skills/khe-<name>/scripts/<name>-check.mjs --self-test
 node skills/khe-auto/scripts/gate-all.mjs
+node scripts/marketplace.mjs
 node scripts/check.mjs
 npx -y markdownlint-cli@0.41.0 '**/*.md' --config .github/markdownlint.jsonc
 ```

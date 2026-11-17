@@ -12,7 +12,7 @@
       "name": "kheskills",
       "source": "./",
       "description": "Every khe skill except the brains, as one Claude Code plugin: /kheskills:khe-auto, /kheskills:khe-content-engine, /kheskills:khe-demo, /kheskills:khe-design-tokens, /kheskills:khe-diagram, /kheskills:khe-launch-film, /kheskills:khe-package, /kheskills:khe-poteto-pyramid, /kheskills:khe-sound, /kheskills:khe-sticker, /kheskills:khe-svg, /kheskills:khe-ui. Also 4 kheAgents for orchestrated work: kheskills:khe-executor, kheskills:khe-pyramid, kheskills:khe-reviewer, kheskills:khe-router. The brains are the khe-brain plugin.",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": {
         "name": "Harshit Khemani",
         "url": "https://www.khe.money"
@@ -51,14 +51,13 @@
         "./agents/khe-pyramid.md",
         "./agents/khe-reviewer.md",
         "./agents/khe-router.md"
-      ],
-      "commands": []
+      ]
     },
     {
       "name": "khe-brain",
-      "source": "./",
+      "source": "./skills",
       "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:benji-taylor, /khe-brain:emil-kowalski, /khe-brain:enrico-tartarotti, /khe-brain:harshitkhemani, /khe-brain:isb, /khe-brain:varun-mayya, /khe-brain:yc.",
-      "version": "1.6.0",
+      "version": "1.6.1",
       "author": {
         "name": "Harshit Khemani",
         "url": "https://www.khe.money"
@@ -73,17 +72,14 @@
         "research"
       ],
       "strict": false,
-      "skills": [
-        "./commands"
-      ],
       "commands": [
-        "./commands/benji-taylor.md",
-        "./commands/emil-kowalski.md",
-        "./commands/enrico-tartarotti.md",
-        "./commands/harshitkhemani.md",
-        "./commands/isb.md",
-        "./commands/varun-mayya.md",
-        "./commands/yc.md"
+        "./khe-brain-benji/commands/",
+        "./khe-brain-emil/commands/",
+        "./khe-brain-enrico/commands/",
+        "./khe-brain-harshit/commands/",
+        "./khe-brain-isb/commands/",
+        "./khe-brain-varun/commands/",
+        "./khe-brain-yc/commands/"
       ]
     },
     {

@@ -73,7 +73,7 @@ npx skills add HKTITAN/skills --skill khe-ui
 In Claude Code they install as plugins from one marketplace. Add it with `--sparse`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.
 
 ```text
-/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents commands skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
+/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
 /plugin install kheskills@kheskills
 /plugin install khe-brain@kheskills
 ```
@@ -86,7 +86,7 @@ For a team, put the same in the project's `.claude/settings.json`, so everyone w
 {
   "extraKnownMarketplaces": {
     "kheskills": {
-      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","commands","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
+      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
     }
   }
 }

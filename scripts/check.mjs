@@ -97,33 +97,37 @@ for (const n of linked) {
   if (!new RegExp(`\\[${n}\\]\\(https://github\\.com/`).test(readme)) bad("README.md", `${n} is not linked to its original`);
 }
 
-// The khe-brain plugin: one command per brain skill, each listed in the marketplace file and
-// pointing at its skill's folder.
+// The khe-brain plugin: one command per brain, in that brain's own folder
+// (skills/khe-brain-varun/commands/varun-mayya.md is /khe-brain:varun-mayya), served by a plugin
+// rooted at ./skills. Claude Code loads a root plugin's commands/ and agents/ whatever its entry says
+// (an empty list falls back to the default folder), so the layout is what keeps the two plugins apart:
+// no commands/ at the root, and khe-brain rooted where there are no agents.
 const marketPath = join(ROOT, ".claude-plugin", "marketplace.json");
+if (existsSync(join(ROOT, "commands"))) bad("commands/", "kheskills is rooted at ./ and would load every file here as its own command; a brain's command goes in skills/khe-brain-<x>/commands/");
 if (!existsSync(marketPath)) bad(".claude-plugin", "no marketplace.json");
 else {
   const plugin = JSON.parse(read(marketPath)).plugins.find((p) => p.name === "khe-brain");
   if (!plugin) bad("marketplace.json", "no khe-brain plugin");
   else {
-    // A command is named for the person in full (commands/varun-mayya.md is /khe-brain:varun-mayya)
-    // and names the one skill it reads, so the two are matched by that path, not by file name.
+    if (plugin.source !== "./skills") bad("marketplace.json", 'khe-brain must be rooted at "./skills": rooted at ./ it loads agents/ a second time');
+    if (plugin.skills) bad("marketplace.json", "the khe-brain plugin must not list skills; each brain would show twice");
+    if (plugin.agents) bad("marketplace.json", "the khe-brain plugin serves no agents; kheskills does");
     const listed = plugin.commands || [];
     const brains = names.filter((n) => n.startsWith("khe-brain-"));
-    const commandDir = join(ROOT, "commands");
-    const files = existsSync(commandDir) ? readdirSync(commandDir).filter((f) => f.endsWith(".md")).sort() : [];
-    const reads = new Map();
-    for (const f of files) {
-      if (!/^[a-z0-9]+(-[a-z0-9]+)*\.md$/.test(f)) bad(`commands/${f}`, "a command name is lowercase letters, digits and single hyphens");
-      if (!listed.includes(`./commands/${f}`)) bad("marketplace.json", `./commands/${f} is not in the khe-brain plugin's commands`);
-      const target = read(join(commandDir, f)).match(/\/skills\/(khe-brain-[a-z0-9-]+)\/SKILL\.md/)?.[1];
-      if (!target) bad(`commands/${f}`, "does not point at a skills/khe-brain-*/SKILL.md");
-      else if (!brains.includes(target)) bad(`commands/${f}`, `points at ${target}, which is not a skill here`);
-      else if (reads.has(target)) bad(`commands/${f}`, `${target} already has commands/${reads.get(target)}`);
-      else reads.set(target, f);
+    for (const n of brains) {
+      const dir = join(SKILLS, n, "commands");
+      const files = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith(".md")) : [];
+      if (files.length !== 1) { bad(n, `needs exactly one command in commands/, has ${files.length}, so it is missing from /khe-brain:`); continue; }
+      const f = files[0];
+      const at = `${n}/commands/${f}`;
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*\.md$/.test(f)) bad(at, "a command name is lowercase letters, digits and single hyphens");
+      if (readdirSync(dir).length !== 1) bad(at, "commands/ holds only the command: Claude Code loads every file in it");
+      if (!listed.includes(`./${n}/commands/`)) bad("marketplace.json", `./${n}/commands/ is not in the khe-brain plugin's commands`);
+      // The command reads its own skill from the plugin root, which is skills/.
+      const target = read(join(dir, f)).match(/\$\{CLAUDE_PLUGIN_ROOT\}\/(khe-brain-[a-z0-9-]+)\/SKILL\.md/)?.[1];
+      if (target !== n) bad(at, `must read \${CLAUDE_PLUGIN_ROOT}/${n}/SKILL.md${target ? `, not ${target}` : ""}`);
     }
-    for (const n of brains) if (!reads.has(n)) bad("commands", `${n} has no command, so it is missing from /khe-brain:`);
-    for (const c of listed) if (!files.includes(c.replace(/^\.\/commands\//, ""))) bad("marketplace.json", `${c} is listed and does not exist`);
-    for (const s of plugin.skills || []) if (existsSync(join(ROOT, s, "SKILL.md")) || /^\.\/skills/.test(s)) bad("marketplace.json", `the khe-brain plugin must not list ${s} as a skill; each brain would show twice`);
+    for (const c of listed) if (!existsSync(join(SKILLS, c))) bad("marketplace.json", `khe-brain lists ${c}, which does not exist`);
   }
 }
 
@@ -178,7 +182,7 @@ const onlyKeys = (where, obj, keys) => { for (const k of Object.keys(obj || {}))
     for (const p of s.paths || []) if (!/^\.\/[^\\]+$/.test(p)) bad("skills.sh.json", `paths entry ${p} must start with ./`);
     // The Brains group names every brain command, so the repo page tells Claude Code users what to type.
     const brains = (s.groupings || []).find((g) => (g.skills || []).some((n) => n.startsWith("khe-brain-")));
-    const commands = existsSync(join(ROOT, "commands")) ? readdirSync(join(ROOT, "commands")).filter((f) => f.endsWith(".md")) : [];
+    const commands = names.filter((n) => n.startsWith("khe-brain-") && existsSync(join(SKILLS, n, "commands"))).flatMap((n) => readdirSync(join(SKILLS, n, "commands")).filter((f) => f.endsWith(".md")));
     for (const f of commands) if (brains && !brains.description?.includes(`/khe-brain:${f.replace(/\.md$/, "")}`)) bad("skills.sh.json", `the ${brains.title} group's description never names /khe-brain:${f.replace(/\.md$/, "")}`);
   }
 }
@@ -241,7 +245,7 @@ if (market) {
       const prev = before.find((b) => b.name === p.name);
       if (!prev?.version) continue;
       // What it serves: its listed folders and files, and for the brains the skill folders the commands read.
-      const paths = [...(p.skills || []), ...(p.agents || []), ...(p.commands || [])].map((c) => c.replace(/^\.\//, ""));
+      const paths = [...(p.skills || []), ...(p.agents || []), ...(p.commands || [])].map((c) => join(p.source, c).replace(/\\/g, "/"));
       if (p.name === "khe-brain") paths.push(...names.filter((n) => n.startsWith("khe-brain-")).map((n) => `skills/${n}`));
       const changed = git("diff", "--name-only", at, "--", ...paths).stdout.trim();
       if (changed && prev.version === p.version) bad("marketplace.json", `${p.name} serves changed files (${changed.split("\n").slice(0, 3).join(", ")}${changed.split("\n").length > 3 ? ", ..." : ""}) but is still ${p.version}: bump its version and say why in CHANGELOG.md`);
@@ -253,7 +257,8 @@ if (market) {
 // Scoped to config and policy; a launch film called "Claude Opus 4.6" in a reference is a film title.
 {
   const files = [
-    ...["agents", "commands", "orchestration"].flatMap((d) => (existsSync(join(ROOT, d)) ? walk(join(ROOT, d)) : [])),
+    ...["agents", "orchestration"].flatMap((d) => (existsSync(join(ROOT, d)) ? walk(join(ROOT, d)) : [])),
+    ...names.filter((n) => existsSync(join(SKILLS, n, "commands"))).flatMap((n) => walk(join(SKILLS, n, "commands"))),
     ...walk(join(SKILLS, "khe-auto")).filter((f) => f.endsWith(".md")),
     ...[".claude-plugin/marketplace.json", "plugin.json", "skills.sh.json", "README.md", "AGENTS.md", "CONTRIBUTING.md", "CHANGELOG.md"].map((f) => join(ROOT, f)),
   ].filter((f) => existsSync(f));

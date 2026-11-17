@@ -2,8 +2,9 @@
 // Builds every install manifest from the folders, so none of them can drift from the repo:
 //
 //   1. The kheskills and khe-brain plugins in .claude-plugin/marketplace.json, from skills/khe-*,
-//      agents/ and commands/. Only their `version` is written by hand: bump it in marketplace.json
-//      when what the plugin serves changes, or installed copies never update (check.mjs fails until you do).
+//      agents/ and each brain's commands/. Only their `version` is written by hand: bump it in
+//      marketplace.json when what the plugin serves changes, or installed copies never update
+//      (check.mjs fails until you do).
 //   2. The plugins in .claude-plugin/marketplace.json that serve other people's skills, from the
 //      README's "From others" links (the link that names a skill's SKILL.md is the path served). Each
 //      points at its author's own repo; nothing is copied here.
@@ -87,7 +88,13 @@ const kheAll = readdirSync(join(ROOT, 'skills')).filter((d) => d.startsWith('khe
 const kheSkills = kheAll.filter((d) => !d.startsWith('khe-brain-'))
 const mdIn = (dir) => (isDir(join(ROOT, dir)) ? readdirSync(join(ROOT, dir)).filter((f) => f.endsWith('.md')).sort() : [])
 const agentFiles = mdIn('agents')
-const commandFiles = mdIn('commands')
+// Each brain's command sits in its own folder, skills/khe-brain-<x>/commands/<full-name>.md. khe-brain is
+// rooted at ./skills, which has no agents/ or commands/ of its own, so it loads those commands and nothing
+// else; kheskills is rooted at ./ and has no root commands/ to pick up. Claude Code ignores an empty
+// `commands` or `agents` list and falls back to the default folder, so the layout is what keeps the two
+// plugins apart. Folder entries, because `claude plugin details` (2.1.325) loads nothing from file entries.
+const brainDirs = kheAll.filter((d) => d.startsWith('khe-brain-') && isDir(join(ROOT, 'skills', d, 'commands')))
+const commandFiles = brainDirs.flatMap((d) => mdIn(`skills/${d}/commands`)).sort()
 const m = JSON.parse(readFileSync(MP, 'utf8'))
 const versionOf = (name) => m.plugins.find((p) => p.name === name)?.version || '1.0.0'
 const own = [
@@ -104,11 +111,10 @@ const own = [
     strict: false,
     skills: kheSkills.map((d) => `./skills/${d}`),
     agents: agentFiles.map((f) => `./agents/${f}`),
-    commands: [],
   },
   {
     name: 'khe-brain',
-    source: './',
+    source: './skills',
     description: `Brains: answers from one source's public writing, talks or notes, with the source named. ${commandFiles.map((f) => `/khe-brain:${f.replace(/\.md$/, '')}`).join(', ')}.`,
     version: versionOf('khe-brain'),
     author: AUTHOR,
@@ -117,9 +123,7 @@ const own = [
     license: 'MIT',
     keywords: ['skills', 'brain', 'citations', 'research'],
     strict: false,
-    // commands/ holds no SKILL.md, so no brain loads a second time under khe-brain: (see AGENTS.md).
-    skills: ['./commands'],
-    commands: commandFiles.map((f) => `./commands/${f}`),
+    commands: brainDirs.map((d) => `./${d}/commands/`),
   },
 ]
 const next = { ...m, metadata: { ...m.metadata, description: "The skills Harshit Khemani uses with coding agents: his own (kheskills, khe-brain) and the ones he uses from Emil Kowalski, Benji Taylor, Vercel, Lauren Tan and Matt Pocock, each served from its author's repo." }, plugins: [...own, ...plugins] }
@@ -143,7 +147,7 @@ const apText = JSON.stringify(ap, null, 2) + '\n'
 
 // The sparse list: the marketplace file, the folders the khe plugins read, and every khe skill folder.
 // The linked skills are git submodules under skills/ and are never in it.
-const sparse = ['.claude-plugin', 'agents', 'commands', ...kheAll.map((d) => `skills/${d}`)]
+const sparse = ['.claude-plugin', 'agents', ...kheAll.map((d) => `skills/${d}`)]
 const authors = plugins.map((p) => p.name)
 const block = `<!-- install:start -->
 In Claude Code they install as plugins from one marketplace. Add it with \`--sparse\`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.

@@ -19,6 +19,28 @@ This is Harshit Khemani's reading of Varun Mayya's public videos. Varun Mayya di
 - Keeps each claim in its context: Aeos, his games studio, Indian startups, his own employees, his own career.
 - Never drafts and never decides. It reports his positions and stops.
 
+## How it runs
+
+![khe-brain-varun's flow: khe-auto sends a question that names Varun here and an unnamed startup question to khe-brain-yc or khe-brain-isb; the question is answered from 12 theme files holding 1,378 claims from 18 videos, checked for silence and disagreement, cited with the video and the minute, closed with what is not in his videos, and gated by brain-check; writing the post goes to khe-content-engine](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-varun Pressure-test this against Varun: I am keeping an MBA, a job and a side startup open for a year.
+```
+
+The gold reply for that decision, in full from [examples/pressure-test-career.txt](examples/pressure-test-career.txt):
+
+```text
+The decision runs against his advice to people in their twenties: he says keeping every option open gives the least impact, because each extra option is a tax on willpower (Kata 7 at 8:05).
+Breaks: three doors held open for a year. He says nobody knows the right answer, so a person just has to decide, and making the call puts them ahead of almost everyone (Kata 7 at 24:02).
+Breaks: the MBA as a way to keep choosing. He calls stacking degrees and prestige internships a status game dressed up as choice (Kata 7 at 24:50).
+Holds: a second thing after the first works. He separates diversification from optionality: one thing built to scale, then a second, is fine, and five started at once is not (Why Belief Matters at 33:24).
+Source: Kata 7, https://www.youtube.com/watch?v=Ia_bqazMeIw
+Source: Why Belief Matters, https://www.youtube.com/watch?v=jreQIik5jlE
+Not in his videos: which of the three to pick, and anything about MBA programmes. The choice is yours.
+```
+
 ## The corpus
 
 18 videos, 17 hours 40 minutes, read in full from YouTube's automatic captions on 2026-11-11:

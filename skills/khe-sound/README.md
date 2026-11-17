@@ -13,6 +13,30 @@ npx skills add HKTITAN/skills --skill khe-sound
 - Wires playback for the web: off by default, unlocked on the first gesture, each transient on its contact frame.
 - Places a film's sound on locked picture: the register, the cue sheet, the track's drop and the loudness.
 
+## How it runs
+
+![khe-sound's flow: a settled move from khe-ui, locked picture from khe-launch-film or a locked take from khe-demo comes in; each moment is judged earned or not and most stay silent in the ledger; the rest become one material family of four to six sounds, generated with ElevenLabs or a synth, and placed 0 to 30 ms after the contact frame](assets/flow.svg)
+
+## Used
+
+```text
+/khe-sound Our to-do app feels flat. Should checking off a task make a sound?
+```
+
+No. Seven moments were proposed and four stay silent, each with its reason. From [`examples/product-cues.json`](examples/product-cues.json):
+
+```json
+"defaultOn": false,
+"silent": [
+  { "moment": "typing a task", "why": "heard on every keystroke: never" },
+  { "moment": "checking a task off", "perDay": 40, "why": "nothing the eye misses, and the 100th use reaches for mute" },
+  { "moment": "hovering a row", "why": "hover is 0 ms" },
+  { "moment": "opening the settings sheet", "why": "decoration: the sheet arriving is already the signal" }
+],
+```
+
+The three that earned a sound (a sync that finishes while you are elsewhere, a rejected task, the 30-day streak) come from one material, "felt mallet on a small wooden block", in [`examples/family.json`](examples/family.json). Two of the rendered files: [`tick.wav`](examples/tick.wav) and [`send.wav`](examples/send.wav). The gate on the map, the family, the files and [`examples/wiring.js`](examples/wiring.js) ends `sound check passed`.
+
 ## When to use it
 
 Reach for it when a product or a launch video needs sound and you want fewer, better ones. It answers "should this make a sound?" in one line, builds a family that belongs to one object, and fixes sounds that feel stock, late or annoying. It also covers vibration on the mobile web and the licence check for any recording that goes into a film.

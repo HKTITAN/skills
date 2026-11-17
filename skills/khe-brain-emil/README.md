@@ -24,6 +24,25 @@ Only what he has published openly is used. Nothing from behind a login or a paym
 - Marks every inference of its own as `My reading:` so it is never mistaken for his.
 - Ends every reply with what is not in his writing.
 
+## How it runs
+
+![khe-brain-emil's flow: khe-auto sends a request for his reported writing here and a request to apply his rules to emil-design-eng; the question is answered from 10 theme files built on 13 articles, checked against disagreements and silent topics, cited with numbered Source lines, closed with what is not in his writing, and gated by brain-check; a request to change the UI goes to khe-ui](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-emil What would Emil say about animating our command palette when it opens from the shortcut?
+```
+
+The gold reply for that question, asked there as "should our command palette animate when it opens from the keyboard shortcut?", in full from [examples/direct-question.txt](examples/direct-question.txt):
+
+```text
+It stays still: keyboard-initiated actions never animate, because they repeat hundreds of times a day and motion makes them feel disconnected from the keypress [1][2]. His own example is a launcher: "Raycast has no animations and it feels right." [2]
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Source: [2] Great Animations, https://emilkowal.ski/ui/great-animations
+Not in his writing: whether the palette animates when a click opens it; he states the rule for keyboard actions only.
+```
+
 ## When to use it
 
 Use it when you want an answer from a named source instead of an average of everything: before you repeat a rule as "Emil says", when two people remember his advice differently, or when a decision needs checking against what he has put in writing. To build or review a screen, use `khe-ui`. To have his rules applied to your code, use his own skills (`emil-design-eng`, `animate`, `review-animations`); this skill reports his writing and changes nothing.

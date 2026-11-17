@@ -17,6 +17,44 @@ In Claude Code the brains plugin also gives it as the command `harshitkhemani` (
 - Shows both sides where he changed his mind, with dates, and drafts from the later one.
 - Keeps each line in its context: Smash&Clash, Campus Binge (where he leads Product & Design; the founder is Rishitabh Thapliyal), one tool, or a reply to one person.
 
+## How it runs
+
+![khe-brain-harshit's flow: khe-auto sends one khe.money post or a question about his views here and a post for several platforms to khe-content-engine; the request is answered or drafted from the theme files citing 666 of his posts, checked for silence and changes of mind, cited by post or by Rests on lines, closed with what is not in his posts, and gated by brain-check; a draft goes to Harshit, who posts it himself](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-harshit draft a khe.money post about onboarding in Harshit's voice
+```
+
+The draft opens like this, from [examples/draft-post.txt](examples/draft-post.txt), the gold for that brief:
+
+```text
+Draft:
+most products don't need a better onboarding flow.
+
+they need fewer reasons to have one.
+
+i learned this with Smash&Clash.
+
+people kept asking how the captures worked, so i wrote a tutorial.
+
+i hated it. so did the players.
+
+so i changed the board instead.
+```
+
+After five more lines of post, it ends:
+
+```text
+Rests on: a product that needs explaining has failed at its on-ramp, and the Smash&Clash board zoom replaced a tutorial he and the players disliked (2026-09-13-if-have-explain-your).
+Rests on: the zoom-in also made the game more fun by adding drama to each move (2026-09-13-if-have-explain-your).
+Rests on: motion and feedback shape how attached people get to a product (2026-05-12-most-people-underestimate-how).
+Source: 2026-09-13-if-have-explain-your, https://x.com/HarshitKhemani/status/2099039658323870191
+Source: 2026-05-12-most-people-underestimate-how, https://x.com/HarshitKhemani/status/2054135387707367624
+Not in his posts: a view on onboarding for products other than games; the draft keeps the claim to what he built.
+```
+
 ## The corpus
 
 His own X and LinkedIn exports of 13 November 2026, read on 15 November 2026: 7,853 items from December 2020 to November 2026. That is 1,951 posts, self-threads, long replies, two X articles and 199 LinkedIn posts read in full, and 5,902 short replies read for any view or story. 666 of those posts are cited across ten theme files, a glossary, a story timeline and a file of changes of mind. Every quote in them was checked by script against the post it cites.

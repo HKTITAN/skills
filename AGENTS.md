@@ -131,6 +131,10 @@ To rebuild: copy `index.tsx` and `readme.css` into `examples/khe-readme/` of an 
 
 The scene rests in its finished state. Its first beat presses Review, which clears every tile; the rest of the script puts it all back. So the first frame, the last frame and the still are the same picture, and the reset has a visible cause.
 
+## Skill figures
+
+Every skill README has a `How it runs` figure in `skills/<name>/assets/`, drawn in the khe design system. `.github/showcase/khe-figure.mjs` holds the skin and the node, edge and label helpers; `figures.mjs` builds the repo map, the pyramid and khe-package's flow, and `readme-design.mjs`, `readme-craft.mjs`, `readme-brains.mjs` and `readme-auto.mjs` build the rest. Change a figure in its script, run it with node from the repo root, and check the SVG with khe-diagram's gate (`diagram-check.mjs <file> --gate`). Yellow marks one or two names per figure, never more.
+
 ## Checks
 
 ```bash

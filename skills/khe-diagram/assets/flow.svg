@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-diagram-flow" viewBox="0 0 896 304" role="img" aria-labelledby="khe-diagram-flow-title khe-diagram-flow-desc">
+  <title id="khe-diagram-flow-title">How khe-diagram runs</title>
+  <desc id="khe-diagram-flow-desc">A request is tested against a sentence and a table first; a figure is then built and gated, or a canvas is edited, with the skin read from the project contract and the export passed to khe-svg.</desc>
+  <defs>
+    <marker id="khe-diagram-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-diagram-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-diagram-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-diagram-flow .paper { fill: var(--page); }
+    #khe-diagram-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-diagram-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-diagram-flow .head { fill: var(--ink-3); }
+    #khe-diagram-flow .mask { fill: var(--page); }
+    #khe-diagram-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-diagram-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-diagram-flow .node.strong rect { stroke: var(--ink); }
+    #khe-diagram-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-diagram-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-diagram-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-diagram-flow .name.on { fill: var(--hl-ink); }
+    #khe-diagram-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-diagram-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-diagram-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-diagram-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-diagram-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-diagram-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-diagram-flow .rule { stroke: var(--rule); }
+    #khe-diagram-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="304"/>
+  <g class="edges">
+    <path class="edge " d="M176 100 H208" marker-end="url(#khe-diagram-flow-arrow)"/>
+    <path class="edge " d="M352 100 H384" marker-end="url(#khe-diagram-flow-arrow)"/>
+    <path class="edge " d="M528 100 H560" marker-end="url(#khe-diagram-flow-arrow)"/>
+    <path class="edge " d="M704 100 H736" marker-end="url(#khe-diagram-flow-arrow)"/>
+    <path class="edge " d="M280 128 V200" marker-end="url(#khe-diagram-flow-arrow)"/>
+    <path class="edge " d="M456 128 V200" marker-end="url(#khe-diagram-flow-arrow)"/>
+    <path class="edge " d="M632 200 V128" marker-end="url(#khe-diagram-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="288" y="157" width="20" height="14"/>
+    <text class="label" x="292" y="167">no</text>
+    <rect class="mask" x="464" y="157" width="76" height="14"/>
+    <text class="label" x="468" y="167">a team edits</text>
+    <rect class="mask" x="640" y="157" width="53" height="14"/>
+    <text class="label" x="644" y="167">the skin</text>
+  </g>
+  <text class="caps" x="32" y="48">FROM THE REQUEST TO A FIGURE, OR A CLEAR NO</text>
+  <g class="nodes">
+    <g class="node quiet">
+      <rect x="32" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="96">khe-auto</text>
+      <text class="sub" x="44" y="112">routes the request</text>
+    </g>
+    <g class="node strong">
+      <rect x="208" y="72" width="144" height="56" rx="6"/>
+      <rect class="hl" x="216" y="84" width="94" height="16" rx="2"/>
+      <text class="name on" x="220" y="96">Draw at all?</text>
+      <text class="sub" x="220" y="112">paragraph first</text>
+    </g>
+    <g class="node ">
+      <rect x="384" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="396" y="96">Pick the surface</text>
+      <text class="sub" x="396" y="112">who touches it next</text>
+    </g>
+    <g class="node strong">
+      <rect x="560" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="572" y="96">Finished figure</text>
+      <text class="sub" x="572" y="112">budget, gate, render</text>
+    </g>
+    <g class="node quiet">
+      <rect x="736" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="748" y="96">khe-svg</text>
+      <text class="sub" x="748" y="112">SVGO after export</text>
+    </g>
+    <g class="node ">
+      <rect x="208" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="220" y="224">Sentence or table</text>
+      <text class="sub" x="220" y="240">ships instead</text>
+    </g>
+    <g class="node ">
+      <rect x="384" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="396" y="224">tldraw canvas</text>
+      <text class="sub" x="396" y="240">bound arrows, lint</text>
+    </g>
+    <g class="node quiet">
+      <rect x="560" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="572" y="224">khe-design-tokens</text>
+      <text class="sub" x="572" y="240">the .design contract</text>
+    </g>
+  </g>
+  <text class="callout" x="32" y="288">A no is a correct result. The figure ends with FIGURE.md, the gate's last line and what was not checked.</text>
+</svg>

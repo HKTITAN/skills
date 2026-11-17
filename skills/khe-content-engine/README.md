@@ -17,6 +17,28 @@ npx skills add HKTITAN/skills --skill khe-content-engine
 - Never publishes or schedules anything. A person reads, approves and posts.
 - Ends every reply with what it could not verify.
 
+## How it runs
+
+![khe-content-engine's flow: posts you wrote become the engine of small linked nodes; one idea runs through it into a draft per platform, with views from khe-brain-harshit or the rest of a post from khe-package; a review sends a wrong line to the node that caused it, which is tuned and rerun; a person posts](assets/flow.svg)
+
+## Used
+
+```text
+/khe-content-engine run moving the due date to the top of the invoice for x, linkedin, newsletter
+```
+
+Three drafts came back, one treatment each, every figure traced to the owner's brief. The X draft, from [`examples/runs/invoice-date.md`](examples/runs/invoice-date.md):
+
+```text
+Median time to payment for 14 of my clients went from 38 days to 24.
+
+They changed one line on the invoice. The due date moved to the top, written as a date.
+
+"Net 30" is a sum. Clients do not do sums for you.
+```
+
+Treatment: the single claim, with its one number. Hook: the number. The LinkedIn draft tells how it was found out and what it does not prove; the newsletter gives the wording to copy. The run ends "Not verified: the figures, taken as Ines gave them from her spreadsheet; whether the illustrator approved this exact wording; how any of the three reads on a phone." `content-check` on it ends `content-check passed`.
+
 ## When to use it
 
 Use it when one person's ideas need to reach several platforms without becoming the same post several times, or when drafts written for someone keep failing to sound like them. It writes text only. For a launch film use `khe-launch-film`, for a product demo `khe-demo`, for stickers `khe-sticker`, and for faux product UI `stageshow` (Benji Taylor).

@@ -20,6 +20,28 @@ This is Harshit Khemani's reading of Enrico Tartarotti's public videos. Enrico T
 - Reports a product fact as what he says in that video, never as a checked fact about the product.
 - Never builds, never drafts and never decides. It reports his positions and stops.
 
+## How it runs
+
+![khe-brain-enrico's flow: khe-auto sends a question on why products work here and a question on building or polishing the interface to khe-brain-emil or khe-brain-benji; the question is answered from 12 theme files holding 1,435 claims from 88 videos, checked for silence and disagreement, cited with the video, the minute and the year, closed with what is not in his videos, and gated by brain-check; a screen judged with numbers goes to khe-ui](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-enrico What would Enrico say about showing a spinner while my dashboard loads?
+```
+
+The gold reply for that question, asked there as "should my app show a spinner or a skeleton while it loads", in full from [examples/direct-question.txt](examples/direct-question.txt):
+
+```text
+His stated position, from February 2022, is that the spinning wheel is a poor answer to a wait: it blocks interaction, puts the focus on waiting and then drops a fully loaded screen on the user all at once (The Sneaky Psychology Of Loading Screens at 3:45). He says skeleton loaders make the same wait feel shorter when tested against spinners, because a skeleton points attention at what is coming (The Sneaky Psychology Of Loading Screens at 4:30; The Sneaky Psychology Of Loading Screens at 5:15). His wider line is that the way a product makes people wait counts for more than the length of the wait (The Sneaky Psychology Of Loading Screens at 0:45).
+Also: in December 2023 he notes that skeleton loaders take more time, because the outlines and their animation must load too, and still reduce perceived time (The Lies That Make Your Tech Actually Work at 8:15).
+Also: in March 2026 his rule is that whether to show loading at all depends on how important the action feels, so dozens of small changes a minute show none and a payment confirmation needs one (The Ridiculous Engineering of Loading Screens at 2:15).
+Source: The Sneaky Psychology Of Loading Screens, https://www.youtube.com/watch?v=g8uhdyLTAvY
+Source: The Lies That Make Your Tech Actually Work, https://www.youtube.com/watch?v=rAVV4kAYlI8
+Source: The Ridiculous Engineering of Loading Screens, https://www.youtube.com/watch?v=XqhduyTnEM8
+Not in his videos: which pattern fits one screen of your app, and any test of skeletons on your own users. The test results are his telling and were not checked. His short videos, posts and newsletter were not read.
+```
+
 ## The corpus
 
 88 videos, 17 hours 57 minutes, about 219,000 words of captions, read in full on 2026-11-15. They are every video on the Videos tab of his channel that day, from I'm Switching to English and Starting From Scratch (24 August 2021) to Something New Is Coming (15 November 2026). 86 were read from YouTube's automatic English captions, one from a transcript of its audio made on the reader's own computer because it has no captions, and one, spoken in Italian, through YouTube's machine translation.

@@ -14,6 +14,20 @@ npx skills add HKTITAN/skills --skill khe-diagram
 - Edits tldraw boards with bound arrows, frames and lints, and replies in the comment thread it acted on.
 - Checks a finished figure with a gate script that names every fault as a line, then walks a checklist from a render and hands over a `FIGURE.md`.
 
+## How it runs
+
+![khe-diagram's flow: khe-auto routes the request; the skill asks whether to draw at all, and a no ships a sentence or a table; the surface is picked by who touches it next, a tldraw canvas for a team that edits, otherwise a finished figure skinned from khe-design-tokens and passed to khe-svg after export](assets/flow.svg)
+
+## Used
+
+```text
+/khe-diagram Can you diagram what changes between the old deploy pipeline and the new one?
+```
+
+The answer was no figure. From [`examples/no-diagram.md`](examples/no-diagram.md): "Verdict: table. Both pipelines run the same steps in the same order. Only four attributes of those steps change", followed by a four-row table (trigger, first exposure, rollback, who hears about a failure). It names the one part that does earn a picture, the rollback branch, and that is the gold flow beside it:
+
+![The gold deploy flow: a push passes CI, runs as a canary at 5 percent, then rolls out fully or rolls back and tells the author](examples/flow.svg)
+
 ## When to use it
 
 Use it when you are about to ask for an architecture, flow, sequence, state, timeline or org diagram, when a board needs building or tidying in tldraw, or when a figure you already have reads as auto-generated. It will tell you when a sentence or a table does the job better, and it will ask who edits the picture next when you have not said.

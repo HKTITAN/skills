@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-sound-flow" viewBox="0 0 896 368" role="img" aria-labelledby="khe-sound-flow-title khe-sound-flow-desc">
+  <title id="khe-sound-flow-title">How khe-sound runs</title>
+  <desc id="khe-sound-flow-desc">A settled move, a locked film or a locked take comes in; each moment is judged, most stay silent, and the rest become one material family that is generated and placed on its contact frame.</desc>
+  <defs>
+    <marker id="khe-sound-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-sound-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-sound-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-sound-flow .paper { fill: var(--page); }
+    #khe-sound-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-sound-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-sound-flow .head { fill: var(--ink-3); }
+    #khe-sound-flow .mask { fill: var(--page); }
+    #khe-sound-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-sound-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-sound-flow .node.strong rect { stroke: var(--ink); }
+    #khe-sound-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-sound-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-sound-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-sound-flow .name.on { fill: var(--hl-ink); }
+    #khe-sound-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-sound-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-sound-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-sound-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-sound-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-sound-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-sound-flow .rule { stroke: var(--rule); }
+    #khe-sound-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="368"/>
+  <g class="edges">
+    <path class="edge " d="M176 100 H196 Q204 100 204 108 V174 Q204 182 212 182 H232" marker-end="url(#khe-sound-flow-arrow)"/>
+    <path class="edge " d="M176 196 H232" marker-end="url(#khe-sound-flow-arrow)"/>
+    <path class="edge " d="M176 292 H196 Q204 292 204 284 V218 Q204 210 212 210 H232" marker-end="url(#khe-sound-flow-arrow)"/>
+    <path class="edge " d="M368 196 H400" marker-end="url(#khe-sound-flow-arrow)"/>
+    <path class="edge " d="M536 196 H568" marker-end="url(#khe-sound-flow-arrow)"/>
+    <path class="edge " d="M704 196 H736" marker-end="url(#khe-sound-flow-arrow)"/>
+    <path class="edge " d="M300 224 V264" marker-end="url(#khe-sound-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="308" y="237" width="20" height="14"/>
+    <text class="label" x="312" y="247">no</text>
+  </g>
+  <text class="caps" x="32" y="48">THREE WAYS IN, THEN EVERY MOMENT HAS TO EARN ITS SOUND</text>
+  <g class="nodes">
+    <g class="node quiet">
+      <rect x="32" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="96">khe-ui</text>
+      <text class="sub" x="44" y="112">the move, settled</text>
+    </g>
+    <g class="node quiet">
+      <rect x="32" y="168" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="192">khe-launch-film</text>
+      <text class="sub" x="44" y="208">picture locked</text>
+    </g>
+    <g class="node quiet">
+      <rect x="32" y="264" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="288">khe-demo</text>
+      <text class="sub" x="44" y="304">the take, locked</text>
+    </g>
+    <g class="node strong">
+      <rect x="232" y="168" width="136" height="56" rx="6"/>
+      <rect class="hl" x="240" y="180" width="101" height="16" rx="2"/>
+      <text class="name on" x="244" y="192">Earned or not</text>
+      <text class="sub" x="244" y="208">one row per moment</text>
+    </g>
+    <g class="node ">
+      <rect x="400" y="168" width="136" height="56" rx="6"/>
+      <text class="name" x="412" y="192">One material</text>
+      <text class="sub" x="412" y="208">four to six sounds</text>
+    </g>
+    <g class="node ">
+      <rect x="568" y="168" width="136" height="56" rx="6"/>
+      <text class="name" x="580" y="192">Generate</text>
+      <text class="sub" x="580" y="208">ElevenLabs or synth</text>
+    </g>
+    <g class="node strong">
+      <rect x="736" y="168" width="136" height="56" rx="6"/>
+      <rect class="hl" x="744" y="180" width="108" height="16" rx="2"/>
+      <text class="name on" x="748" y="192">Place on frame</text>
+      <text class="sub" x="748" y="208">0 to 30 ms after</text>
+    </g>
+    <g class="node ">
+      <rect x="232" y="264" width="136" height="56" rx="6"/>
+      <text class="name" x="244" y="288">Stays silent</text>
+      <text class="sub" x="244" y="304">kept in the ledger</text>
+    </g>
+  </g>
+  <text class="callout" x="32" y="352">The gate, sound-check, reads the sound map, the family, the files and the playback code.</text>
+</svg>

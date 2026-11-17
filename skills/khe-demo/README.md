@@ -15,6 +15,26 @@ npx skills add HKTITAN/skills --skill khe-demo
 - Records at a fixed viewport, scale and frame rate, then trims the handles, speeds up the waits and exports an mp4, a webm, a GIF and a poster.
 - Gates the script and the files, and ends by saying what nobody watched.
 
+## How it runs
+
+![khe-demo's flow: the story in two to five beats, seed and reset, the script as demo.json gated, two takes that end on the same screen, then post; a product that cannot run goes to stageshow, a wrong motion goes back to khe-ui, and the take goes on as one shot to khe-launch-film and then khe-sound after the lock](assets/flow.svg)
+
+## Used
+
+```text
+/khe-demo plan http://localhost:4173/ readme
+```
+
+Written for the sample task app in `examples/app/`. The plan is the gold [`examples/readme-loop.demo.json`](examples/readme-loop.demo.json): five seeded tasks, a 1024 x 640 viewport at scale 2, 30 fps, an 800 px GIF at 20 fps, and three beats that loop back to their first frame. Its beats, steps left out:
+
+```json
+{ "id": "finish", "what": "A task is ticked and the count drops from 3 open to 2." },
+{ "id": "filter", "what": "The Done tab is opened." },
+{ "id": "payoff", "payoff": true, "what": "Done holds three tasks, the new one among them." }
+```
+
+`node scripts/demo-check.mjs examples/readme-loop.demo.json --gate` ends `demo-check passed`. The folder holds the script, not a recorded take.
+
 ## When to use it
 
 Use it for a screen recording of a feature for a README, a product page or a post, a GIF of a flow, a walkthrough clip, or a real product shot to cut into a launch film. If the product cannot be run or seeded, or you want a simplified picture of it, that is faux UI: use `stageshow`. For a film with cuts, titles and sound, use `khe-launch-film`.

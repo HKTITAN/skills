@@ -23,6 +23,25 @@ Since version 1.1.0 the corpus also holds 153 session notes from ivi, the I-Vent
 - Reports a session line as its speaker's, with the session note linked, and never as the school's view.
 - Never builds and never advises. It reports and stops.
 
+## How it runs
+
+![khe-brain-isb's flow: khe-auto sends a framework or model question here and a startup question to khe-brain-yc or khe-brain-varun; the question is answered from 12 theme files over 467 notes and 153 ivi session notes, with the ivi notes read before calling silence, cited by file with Source lines, closed with what is not in the notes and that their figures carry no source, and gated by brain-check; applying a framework goes to the nine isb-skills](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-isb Which ISB professor said "never trust net income alone"?
+```
+
+The gold reply for that question, in full from [examples/who-said-that.txt](examples/who-said-that.txt):
+
+```text
+No professor is named: the line "Never trust net income alone" is in one Finance rule file of the isb-skills repository, and that file carries no author (Finance: Key Insight: The Three Statements Connect). The file uses it to open a list on quality of earnings, where operating cash flow above net income is good and below it signals earnings manipulation (Finance: Key Insight: The Three Statements Connect). The finance router gives its author only as "ISB-Knowledge-Repository" (Finance: SKILL.md).
+Source: Finance: Key Insight: The Three Statements Connect, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/rules/statements-key-insight-the-three-statements-connect.md
+Source: Finance: SKILL.md, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/finance/SKILL.md
+Not in the notes: who first wrote the line, and whether it was said in an ISB classroom. No rule file names a professor, a course or a session.
+```
+
 ## When to use it
 
 Use it when you want an answer from a known set of files in place of an average of everything: before quoting a threshold in a deck, when someone says "the ISB rule is 3 to 1" and you want the file, or when a plan should be checked against a stated standard. Do not use it to do the analysis. For that the same repository ships nine skills of its own, which load the frameworks for an agent to apply; this skill only tells you what a file says and where.

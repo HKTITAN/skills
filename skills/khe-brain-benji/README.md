@@ -19,6 +19,31 @@ This is Harshit Khemani's reading of Benji Taylor's public writing and public sk
 - Keeps each claim in its context: faux product UI, the Family wallet, the Honk messenger, a React library, or working with agents.
 - Never builds. It names `stageshow` or `khe-ui` and stops.
 
+## How it runs
+
+![khe-brain-benji's flow: khe-auto sends a request for his reported thinking here and a request to build faux UI to stageshow; the question is answered from 8 theme files built on 28 pieces, checked for silence and disagreement, cited by title with Source lines, closed with what is not in his writing, and gated by brain-check; a screen to fix goes to khe-ui](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-benji Would Benji ship this hero? The whole dashboard sits in a card and every row has real text.
+```
+
+The gold reply for that hero, whose brief there adds that the status flips with no cursor, in full from [examples/pressure-test-faux-ui.txt](examples/pressure-test-faux-ui.txt):
+
+```text
+Against the positions in the Stageshow skill this hero breaks three and holds one. The largest is the frame: a whole window shrunk into a card with even margins is the failure he names boxed (Stageshow, SKILL.md).
+Breaks: the full dashboard sits whole inside the card; a hero is cropped 10 to 40 percent off the stage and fills at least two thirds of its width (Stageshow, references/framing.md).
+Breaks: every row carries real text; a scene usually holds 3 to 7 real strings, with placeholder lines for the rest (Stageshow, references/craft.md).
+Breaks: the status flips with nothing causing it; a scripted change with no cursor reads as automatic (Stageshow).
+Holds: one accent on one neutral family of surfaces (Stageshow, references/craft.md).
+Source: Stageshow, SKILL.md, https://github.com/benjitaylor/skills
+Source: Stageshow, references/framing.md, https://github.com/benjitaylor/skills
+Source: Stageshow, references/craft.md, https://github.com/benjitaylor/skills
+Source: Stageshow, https://benji.org/stageshow
+Not in his writing: whether the real dashboard behind this picture is well designed; these are rules for a picture of a product on a page. To rebuild the hero use `stageshow`, which is his own skill.
+```
+
 ## When to use it
 
 Use it when you want an answer from a known source in place of an average of everything: before quoting him, when someone says "Benji says" and you want the piece, or when a design should be checked against a stated standard. Do not use it to make the thing. For faux product UI his own `stageshow` skill is the source and the tool; this skill only tells you what it says and where.

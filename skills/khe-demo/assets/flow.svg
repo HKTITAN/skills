@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-demo-flow" viewBox="0 0 896 304" role="img" aria-labelledby="khe-demo-flow-title khe-demo-flow-desc">
+  <title id="khe-demo-flow-title">How khe-demo runs</title>
+  <desc id="khe-demo-flow-desc">The story, the seed and the script come before the browser opens; two takes must end on the same screen; the post goes on to a film and its sound, a wrong motion goes back to the product, and a product that cannot run goes to stageshow.</desc>
+  <defs>
+    <marker id="khe-demo-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-demo-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-demo-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-demo-flow .paper { fill: var(--page); }
+    #khe-demo-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-demo-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-demo-flow .head { fill: var(--ink-3); }
+    #khe-demo-flow .mask { fill: var(--page); }
+    #khe-demo-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-demo-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-demo-flow .node.strong rect { stroke: var(--ink); }
+    #khe-demo-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-demo-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-demo-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-demo-flow .name.on { fill: var(--hl-ink); }
+    #khe-demo-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-demo-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-demo-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-demo-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-demo-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-demo-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-demo-flow .rule { stroke: var(--rule); }
+    #khe-demo-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="304"/>
+  <g class="edges">
+    <path class="edge " d="M176 100 H208" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M352 100 H384" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M528 100 H560" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M704 100 H736" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M104 128 V200" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M632 128 V156 Q632 164 624 164 H464 Q456 164 456 172 V200" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M808 128 V200" marker-end="url(#khe-demo-flow-arrow)"/>
+    <path class="edge " d="M736 228 H704" marker-end="url(#khe-demo-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="112" y="157" width="81" height="14"/>
+    <text class="label" x="116" y="167">cannot run it</text>
+    <rect class="mask" x="480" y="142" width="76" height="14"/>
+    <text class="label" x="484" y="152">motion wrong</text>
+    <rect class="mask" x="816" y="157" width="53" height="14"/>
+    <text class="label" x="820" y="167">one shot</text>
+  </g>
+  <text class="caps" x="32" y="48">THE REAL APP, SEEDED AND SCRIPTED, THEN HANDED ON</text>
+  <g class="nodes">
+    <g class="node ">
+      <rect x="32" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="96">The story</text>
+      <text class="sub" x="44" y="112">two to five beats</text>
+    </g>
+    <g class="node ">
+      <rect x="208" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="220" y="96">Seed and reset</text>
+      <text class="sub" x="220" y="112">same first frame</text>
+    </g>
+    <g class="node strong">
+      <rect x="384" y="72" width="144" height="56" rx="6"/>
+      <rect class="hl" x="392" y="84" width="79" height="16" rx="2"/>
+      <text class="name on" x="396" y="96">The script</text>
+      <text class="sub" x="396" y="112">demo.json, gated</text>
+    </g>
+    <g class="node strong">
+      <rect x="560" y="72" width="144" height="56" rx="6"/>
+      <rect class="hl" x="568" y="84" width="72" height="16" rx="2"/>
+      <text class="name on" x="572" y="96">Two takes</text>
+      <text class="sub" x="572" y="112">same last screen</text>
+    </g>
+    <g class="node ">
+      <rect x="736" y="72" width="144" height="56" rx="6"/>
+      <text class="name" x="748" y="96">Post</text>
+      <text class="sub" x="748" y="112">trim, ramp, export</text>
+    </g>
+    <g class="node quiet">
+      <rect x="32" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="224">stageshow</text>
+      <text class="sub" x="44" y="240">a picture of it</text>
+    </g>
+    <g class="node quiet">
+      <rect x="384" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="396" y="224">khe-ui</text>
+      <text class="sub" x="396" y="240">fix it in the app</text>
+    </g>
+    <g class="node quiet">
+      <rect x="560" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="572" y="224">khe-sound</text>
+      <text class="sub" x="572" y="240">after the lock</text>
+    </g>
+    <g class="node quiet">
+      <rect x="736" y="200" width="144" height="56" rx="6"/>
+      <text class="name" x="748" y="224">khe-launch-film</text>
+      <text class="sub" x="748" y="240">cuts and titles</text>
+    </g>
+  </g>
+  <text class="callout" x="32" y="288">demo-check gates the script and the files; the handover says what nobody watched.</text>
+</svg>

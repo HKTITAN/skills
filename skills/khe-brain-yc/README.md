@@ -20,6 +20,31 @@ This is Harshit Khemani's reading of public Y Combinator material: 14 essays by 
 - Keeps each claim at its stage: before launch, before product-market fit, seed, Series A, B2B, consumer.
 - Never advises and never builds. It is not legal, tax or investment advice.
 
+## How it runs
+
+![khe-brain-yc's flow: khe-auto sends an unnamed startup question here and an Indian or bootstrapped case to khe-brain-varun or a model to khe-brain-isb; the question is answered from 12 theme files over 88 pieces, checked for silence and disagreement, cited with the person and the title, closed with what is not in the corpus, and gated by brain-check; an answer to publish goes to khe-content-engine with its Source lines](assets/flow.svg)
+
+## Used
+
+```text
+/khe-brain-yc Pressure-test my seed plan: sell 30% for $1M, a deck of screenshots, a cold email asking for a call.
+```
+
+The gold reply for that plan, in full from [examples/pressure-test-seed-plan.txt](examples/pressure-test-seed-plan.txt):
+
+```text
+Against the seed pieces read, the plan breaks three stated positions, and on one of them the pieces split. The largest is dilution: Geoff Ralston's guide, an undated post, says founders should try to avoid giving up more than 25% in a seed round (A guide to seed fundraising).
+Breaks: 30% sold; Ralston calls as little as 10% wonderful and says most rounds require up to 20%, and Brad Flora said in a talk the library dates to 2023 that founders raising millions of dollars on SAFEs sell only ten to twenty percent (A guide to seed fundraising; How startup fundraising works).
+Breaks: the first email asks for a call; Michael Seibel says the first email should aim for a reply and a back-and-forth, and that founders reach for too much when it asks for a meeting, a call or an investment (How to cold email investors).
+Breaks: a deck built from screenshots; Kevin Hale, writing about Demo Day slides, says he usually hates screenshots because they are almost always illegible, complex and non-obvious (How to design a better pitch deck).
+Disagrees: Ralston says graphics, charts and screenshots in a deck are more powerful than many words (A guide to seed fundraising).
+Source: A guide to seed fundraising, https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+Source: How startup fundraising works, https://www.ycombinator.com/library/Il-how-startup-fundraising-works
+Source: How to cold email investors, https://www.ycombinator.com/library/65-how-to-cold-email-investors
+Source: How to design a better pitch deck, https://www.ycombinator.com/library/4T-how-to-design-a-better-pitch-deck
+Not in the corpus: whether $1M is the right amount for this company, and what a seed round looks like outside Silicon Valley. This is a report of published positions and not investment advice.
+```
+
 ## When to use it
 
 Use it when you want an answer from a known source in place of an average of all startup advice: before quoting a partner, when someone says "YC says" and you want the person and the piece, or when a plan should be checked against a stated position. Do not use it as a lawyer, an accountant or an investor, and do not read its silence as Y Combinator's: it read 88 pieces of a library of more than 400.

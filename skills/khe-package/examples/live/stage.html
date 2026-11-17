@@ -1,0 +1,46 @@
+<!doctype html>
+<!--
+  Gold: a temporary stage route for a live click-through. Only the component, inside #stage, at a fixed
+  height equal to its tallest state, on the page background of the site it lives in. In a real app this
+  is a dev-only route (for example /dev-metrics-stage) that imports the real component; delete it after.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>metrics card stage</title>
+<style>
+  html, body { margin: 0; background: #fafafa; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #18181b; }
+  body { padding: 120px; }
+  #stage { width: 420px; height: 268px; }
+  .card { height: 100%; box-sizing: border-box; padding: 20px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.07), 0 6px 20px rgba(0,0,0,.05); display: grid; grid-template-rows: auto 1fr; gap: 16px; }
+  .tabs { display: flex; gap: 8px; }
+  .tab { appearance: none; border: 0; border-radius: 10px; padding: 8px 12px; background: transparent; font: 600 14px/1 system-ui, sans-serif; color: #71717a; cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
+  .tab[aria-selected="true"] { background: #f4f4f5; color: #18181b; }
+  .tab small { display: block; margin-top: 6px; font: 500 20px/1 system-ui, sans-serif; color: inherit; }
+  .bars { display: flex; align-items: flex-end; gap: 10px; }
+  .bar { flex: 1; border-radius: 6px 6px 2px 2px; background: #3b82f6; transform-origin: bottom; transition: transform 420ms cubic-bezier(0.23, 1, 0.32, 1); height: 140px; }
+</style>
+</head>
+<body>
+  <div id="stage">
+    <div class="card">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-k="v">Visitors<small>12.4k</small></button>
+        <button class="tab" role="tab" aria-selected="false" data-k="s">Signups<small>1,284</small></button>
+      </div>
+      <div class="bars" id="bars"></div>
+    </div>
+  </div>
+<script>
+  const data = { v: [0.42, 0.55, 0.5, 0.7, 0.64, 0.86, 1], s: [0.3, 0.38, 0.62, 0.44, 0.8, 0.58, 0.72] }
+  const bars = document.getElementById('bars')
+  for (let i = 0; i < 7; i++) { const b = document.createElement('div'); b.className = 'bar'; bars.appendChild(b) }
+  function show(k) {
+    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.k === k)))
+    data[k].forEach((h, i) => { bars.children[i].style.transform = `scaleY(${h})` })
+  }
+  document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.k)))
+  show('v')
+</script>
+</body>
+</html>

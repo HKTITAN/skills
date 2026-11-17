@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-package-flow" viewBox="0 0 896 320" role="img" aria-labelledby="khe-package-flow-title khe-package-flow-desc">
+  <title id="khe-package-flow-title">How khe-package runs</title>
+  <desc id="khe-package-flow-desc">Three ideas as stills, your pick and your approval, then a frame-by-frame render, a file check and the first line.</desc>
+  <defs>
+    <marker id="khe-package-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-package-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-package-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-package-flow .paper { fill: var(--page); }
+    #khe-package-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-package-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-package-flow .head { fill: var(--ink-3); }
+    #khe-package-flow .mask { fill: var(--page); }
+    #khe-package-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-package-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-package-flow .node.strong rect { stroke: var(--ink); }
+    #khe-package-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-package-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-package-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-package-flow .name.on { fill: var(--hl-ink); }
+    #khe-package-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-package-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-package-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-package-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-package-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-package-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-package-flow .rule { stroke: var(--rule); }
+    #khe-package-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="320"/>
+  <g class="edges">
+    <path class="edge " d="M192 100 H248" marker-end="url(#khe-package-flow-arrow)"/>
+    <path class="edge " d="M408 100 H464" marker-end="url(#khe-package-flow-arrow)"/>
+    <path class="edge " d="M624 100 H680" marker-end="url(#khe-package-flow-arrow)"/>
+    <path class="edge " d="M760 128 V200" marker-end="url(#khe-package-flow-arrow)"/>
+    <path class="edge " d="M680 228 H624" marker-end="url(#khe-package-flow-arrow)"/>
+    <path class="edge " d="M464 228 H408" marker-end="url(#khe-package-flow-arrow)"/>
+    <path class="edge dashed" d="M560 200 V172 Q560 164 568 164 H704 Q712 164 712 156 V128" marker-end="url(#khe-package-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="576" y="144" width="48" height="14"/>
+    <text class="label" x="580" y="154">a fault</text>
+  </g>
+  <text class="caps" x="32" y="48">SOURCE, THEN THE TWO CALLS THAT ARE YOURS</text>
+  <g class="nodes">
+    <g class="node ">
+      <rect x="32" y="72" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="96">The source</text>
+      <text class="sub" x="44" y="112">page, live stage, Stageshow</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="72" width="160" height="56" rx="6"/>
+      <text class="name" x="260" y="96">Three ideas</text>
+      <text class="sub" x="260" y="112">one still each</text>
+    </g>
+    <g class="node strong">
+      <rect x="464" y="72" width="160" height="56" rx="6"/>
+      <rect class="hl" x="472" y="84" width="94" height="16" rx="2"/>
+      <text class="name on" x="476" y="96">You pick one</text>
+      <text class="sub" x="476" y="112">nothing renders yet</text>
+    </g>
+    <g class="node strong">
+      <rect x="680" y="72" width="160" height="56" rx="6"/>
+      <rect class="hl" x="688" y="84" width="136" height="16" rx="2"/>
+      <text class="name on" x="692" y="96">You agree the look</text>
+      <text class="sub" x="692" y="112">two to four stills</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="200" width="160" height="56" rx="6"/>
+      <text class="name" x="692" y="224">Render</text>
+      <text class="sub" x="692" y="240">paused clock, 60 fps</text>
+    </g>
+    <g class="node ">
+      <rect x="464" y="200" width="160" height="56" rx="6"/>
+      <text class="name" x="476" y="224">Check the file</text>
+      <text class="sub" x="476" y="240">package-check, frames</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="200" width="160" height="56" rx="6"/>
+      <text class="name" x="260" y="224">The first line</text>
+      <text class="sub" x="260" y="240">for a stranger</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 296)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">next step</text>
+    <path class="edge dashed" d="M96 0 H120"/>
+    <text x="128" y="4">back, re-sending only the frames a fault touches</text>
+  </g>
+</svg>

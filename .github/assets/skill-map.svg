@@ -7,81 +7,88 @@
     </marker>
   </defs>
   <style>
-    #kheskills-map { --paper: #fff; --ink: #262628; --muted: #6e6e73; --soft: rgba(38,38,40,0.04); --rule: rgba(0,0,0,0.08); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    #kheskills-map { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
     @media (prefers-color-scheme: dark) {
-      #kheskills-map { --paper: #0d1117; --ink: #e6edf3; --muted: #9198a1; --soft: rgba(230,237,243,0.05); --rule: rgba(255,255,255,0.1); --accent: #4c8dff; --accent-tint: rgba(76,141,255,0.16); }
+      #kheskills-map { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
     }
-    #kheskills-map .paper { fill: var(--paper); }
-    #kheskills-map .zone { fill: none; stroke: var(--muted); stroke-opacity: 0.4; stroke-dasharray: 2 4; }
-    #kheskills-map .zone-name { fill: var(--ink); font-size: 12px; font-weight: 600; }
-    #kheskills-map .zone-sub { fill: var(--muted); font-size: 10px; }
-    #kheskills-map .edge { fill: none; stroke: var(--muted); }
-    #kheskills-map .head { fill: var(--muted); }
-    #kheskills-map .mask { fill: var(--paper); }
-    #kheskills-map .label { fill: var(--muted); font-size: 9px; }
-    #kheskills-map .node rect { fill: var(--paper); stroke: var(--ink); }
-    #kheskills-map .external rect { fill: var(--soft); stroke: var(--muted); stroke-dasharray: 5 4; }
-    #kheskills-map .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #kheskills-map .paper { fill: var(--page); }
+    #kheskills-map .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #kheskills-map .edge.dashed { stroke-dasharray: 5 4; }
+    #kheskills-map .head { fill: var(--ink-3); }
+    #kheskills-map .mask { fill: var(--page); }
+    #kheskills-map .label { fill: var(--ink-3); font-size: 9px; }
+    #kheskills-map .node rect { fill: var(--surface); stroke: var(--line); }
+    #kheskills-map .node.strong rect { stroke: var(--ink); }
+    #kheskills-map .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #kheskills-map .node rect.hl { fill: var(--hl); stroke: none; }
     #kheskills-map .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
-    #kheskills-map .sub { fill: var(--muted); font-size: 10px; }
-    #kheskills-map .legend text { fill: var(--muted); font-size: 10px; }
-    #kheskills-map .legend .rule { stroke: var(--rule); }
+    #kheskills-map .name.on { fill: var(--hl-ink); }
+    #kheskills-map .sub { fill: var(--ink-2); font-size: 10px; }
+    #kheskills-map .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #kheskills-map .skill { fill: var(--ink); font-size: 12px; }
+    #kheskills-map .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #kheskills-map .callout { fill: var(--ink-2); font-size: 10px; }
+    #kheskills-map .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #kheskills-map .rule { stroke: var(--rule); }
+    #kheskills-map .legend text { fill: var(--ink-2); font-size: 10px; }
   </style>
   <rect class="paper" width="896" height="344"/>
   <rect class="zone" x="32" y="24" width="832" height="248" rx="6"/>
-  <text class="zone-name" x="48" y="48">khe-auto</text>
-  <text class="zone-sub" x="112" y="48">routes every request to the skill that owns it, and runs these hand-offs in order</text>
+  <text class="caps" x="48" y="48">KHE-AUTO</text>
+  <text class="sub" x="116" y="48">routes every request to the skill that owns it, runs these hand-offs in order, and places every correction with khe-poteto-pyramid</text>
   <g class="edges">
-    <path class="edge" d="M192 108 H272" marker-end="url(#kheskills-map-arrow)"/>
-    <path class="edge" d="M480 108 H400" marker-end="url(#kheskills-map-arrow)"/>
-    <path class="edge" d="M192 212 H272" marker-end="url(#kheskills-map-arrow)"/>
-    <path class="edge" d="M400 212 H480" marker-end="url(#kheskills-map-arrow)"/>
-    <path class="edge" d="M688 212 H608" marker-end="url(#kheskills-map-arrow)"/>
+    <path class="edge " d="M192 108 H272" marker-end="url(#kheskills-map-arrow)"/>
+    <path class="edge dashed" d="M480 108 H400" marker-end="url(#kheskills-map-arrow)"/>
+    <path class="edge " d="M192 212 H272" marker-end="url(#kheskills-map-arrow)"/>
+    <path class="edge " d="M400 212 H480" marker-end="url(#kheskills-map-arrow)"/>
+    <path class="edge " d="M688 212 H608" marker-end="url(#kheskills-map-arrow)"/>
   </g>
   <g class="labels">
-    <rect class="mask" x="196" y="84" width="72" height="14"/>
+    <rect class="mask" x="196" y="84" width="87" height="14"/>
     <text class="label" x="200" y="94">contract first</text>
-    <rect class="mask" x="408" y="84" width="64" height="14"/>
+    <rect class="mask" x="408" y="84" width="81" height="14"/>
     <text class="label" x="412" y="94">then the look</text>
-    <rect class="mask" x="208" y="188" width="48" height="14"/>
-    <text class="label" x="212" y="198">one take</text>
-    <rect class="mask" x="404" y="188" width="72" height="14"/>
+    <rect class="mask" x="212" y="188" width="53" height="14"/>
+    <text class="label" x="216" y="198">one take</text>
+    <rect class="mask" x="404" y="188" width="87" height="14"/>
     <text class="label" x="408" y="198">picture locked</text>
-    <rect class="mask" x="612" y="188" width="72" height="14"/>
+    <rect class="mask" x="612" y="188" width="76" height="14"/>
     <text class="label" x="616" y="198">reveal sound</text>
   </g>
   <g class="nodes">
-    <g class="node">
+    <g class="node ">
       <rect x="64" y="80" width="128" height="56" rx="6"/>
       <text class="name" x="76" y="104">khe-design-tokens</text>
       <text class="sub" x="76" y="120">reads .design</text>
     </g>
-    <g class="node focal">
+    <g class="node strong">
       <rect x="272" y="80" width="128" height="56" rx="6"/>
-      <text class="name" x="284" y="104">khe-ui</text>
+      <rect class="hl" x="280" y="92" width="51" height="16" rx="2"/>
+      <text class="name on" x="284" y="104">khe-ui</text>
       <text class="sub" x="284" y="120">builds and judges</text>
     </g>
-    <g class="node external">
+    <g class="node quiet">
       <rect x="480" y="80" width="128" height="56" rx="6"/>
       <text class="name" x="492" y="104">ui-sdk</text>
       <text class="sub" x="492" y="120">Vercel, composes</text>
     </g>
-    <g class="node">
+    <g class="node ">
       <rect x="64" y="184" width="128" height="56" rx="6"/>
       <text class="name" x="76" y="208">khe-demo</text>
       <text class="sub" x="76" y="224">records the app</text>
     </g>
-    <g class="node">
+    <g class="node strong">
       <rect x="272" y="184" width="128" height="56" rx="6"/>
-      <text class="name" x="284" y="208">khe-launch-film</text>
+      <rect class="hl" x="280" y="196" width="115" height="16" rx="2"/>
+      <text class="name on" x="284" y="208">khe-launch-film</text>
       <text class="sub" x="284" y="224">plans and cuts</text>
     </g>
-    <g class="node focal">
+    <g class="node ">
       <rect x="480" y="184" width="128" height="56" rx="6"/>
       <text class="name" x="492" y="208">khe-sound</text>
       <text class="sub" x="492" y="224">places each sound</text>
     </g>
-    <g class="node">
+    <g class="node ">
       <rect x="688" y="184" width="128" height="56" rx="6"/>
       <text class="name" x="700" y="208">khe-svg</text>
       <text class="sub" x="700" y="224">vectors that move</text>
@@ -89,7 +96,11 @@
   </g>
   <g class="legend" transform="translate(32 300)">
     <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
-    <text x="0" y="4">Work alone: khe-sticker, khe-diagram, khe-content-engine and the seven brains.</text>
-    <text x="0" y="22">khe-poteto-pyramid and khe-package hand their deep parts to Lauren Tan's, Matt Pocock's and Emil Kowalski's skills, shown in their own READMEs.</text>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">hands off to</text>
+    <path class="edge dashed" d="M112 0 H136"/>
+    <text x="144" y="4">a linked skill hands off</text>
+    <text x="300" y="4">Work alone: khe-sticker, khe-diagram, khe-content-engine, the seven brains.</text>
+    <text x="0" y="22">khe-poteto-pyramid and khe-package hand their deep parts to Lauren Tan's, Matt Pocock's, Emil Kowalski's and Benji Taylor's skills, drawn in their own READMEs.</text>
   </g>
 </svg>

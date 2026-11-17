@@ -48,7 +48,8 @@ Steps 1 and 2 decide most of the result. The loop each skill runs inside step 4 
 5. **Rehearse the reply.** Save it as a `.txt` file and run `node scripts/route-check.mjs <reply.txt> --gate` until it ends `route-check passed`. Fix the largest fault first: the route, then the order, then the evidence, then the wording. Passing is necessary, not sufficient. Exit: the gate's last line, pasted.
 6. **Walk [verify](references/verify.md)** from the reply as it will be sent and from gate output run after the last edit. Exit: every answer is yes and names what you looked at.
 7. **Fresh-eye review** by [review](references/review.md), for every reply that carries work. The reviewer gets the request, the reply, the evidence and the gold, never your reasons. Exit: "nothing", or every finding fixed and steps 5 and 6 run again.
-8. **Hand over.** Write `ROUTE.md` from the template in [verify](references/verify.md), then send the reply in the Output format and stop. Exit: the file exists and its Not checked line says what the reply's last line says.
+8. **Place the corrections.** Every correction from this job (the user's, or a fault caught twice) goes through `khe-poteto-pyramid` `place`, by Non-negotiable 11. Exit: a `PYRAMID.md` record per correction ending `pyramid-check passed`, or the reply says there were none.
+9. **Hand over.** Write `ROUTE.md` from the template in [verify](references/verify.md), then send the reply in the Output format and stop. Exit: the file exists and its Not checked line says what the reply's last line says.
 
 For `which <job>` stop after step 3 and run step 5 on the short reply. For `list` print the tables and stop.
 
@@ -77,6 +78,7 @@ Check these before handing over.
 8. **When nothing fits, say so.** A skill stretched over the wrong problem produces confident nonsense the user cannot tell from a real answer.
 9. **Say what you could not verify.** Every reply ends with it, the short ones included.
 10. **No step is done until its exit is checked from evidence:** gate output, or something you looked at after the last edit. A missing or inconclusive gate is never a pass.
+11. **Every correction is placed before the job closes.** When the user corrects the work, or a gate, a reviewer or a look catches the same fault twice, run `khe-poteto-pyramid` `place` on it: the fix goes to the highest layer that can hold it (the code, a check, verification, then prose), and the record goes in the project's `PYRAMID.md`. The next agent, in this session or another, inherits the check instead of repeating the mistake. A correction left only in the chat is lost when the chat ends.
 
 ## Playbooks
 
@@ -120,6 +122,7 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | Which moments earn a sound or a haptic, one family, generated and placed on the frame | `khe-sound` | here |
 | Plan, cut or review a launch video; "it feels like a slideshow" | `khe-launch-film` | here |
 | A recording of the real app doing one thing: a walkthrough, a README GIF, a shot for a film | `khe-demo` | here |
+| Package something built for people who have never heard of it: three ideas as stills, a frame-by-frame render at 60 fps with the system cursor, the post's first line | `khe-package` | here |
 | A picture of the product for a page: a product shot, a cursor demo, a bento grid | `stageshow` | Benji Taylor |
 | Emil's own bar for UI polish and component design, by name | `emil-design-eng` | Emil Kowalski |
 | Build one animation with the right curve, duration and properties | `animate` | Emil Kowalski |
@@ -259,6 +262,9 @@ Each pair is one question, not two skills to read.
 | `khe-sound` / `khe-launch-film` | Can a user mute it? | Yes: sound, product rules. No: launch film first, then sound once picture is locked. |
 | `khe-launch-film` / `stageshow` | A rendered film the viewer cannot interrupt, or something that plays on a page? | Film: launch film. Page: stageshow. UI durations do not transfer to a film. |
 | `khe-demo` / `stageshow` | Must it be the real product on screen, or a picture of it? | The real app, driven and recorded: demo. An authored illustration that never runs the product: stageshow. |
+| `khe-package` / `khe-demo` | One component or idea shown off to strangers, or a whole product flow recorded from seeded state? | Shown off: khe-package. A flow: khe-demo. |
+| `khe-package` / `khe-launch-film` | A short clip of the work, or a film with titles, cuts and sound? | A clip: khe-package. A film: khe-launch-film, which can use khe-package renders as shots. |
+| `khe-package` / `stageshow` | Is there a scene to render, or does the faux UI still need building? | Build it: stageshow. Render and post it: khe-package, through its `stageshow` format. |
 | `khe-demo` / `khe-launch-film` | One take of the product, or a film with cuts, type and sound? | One take: demo. A film: launch film, which can use a demo take as a shot. |
 | `khe-diagram` / `stageshow` | Does it explain a system, or show the product? | System: diagram. Product: stageshow. |
 | `khe-brain-emil` / `emil-design-eng` | His writing reported with sources, or his rules applied to code? | Reported: khe-brain-emil. Applied: emil-design-eng. |

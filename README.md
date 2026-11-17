@@ -60,6 +60,7 @@ If you already know the skill, call it directly.
 | [khe-brain-harshit](skills/khe-brain-harshit/README.md) | "write a khe.money post in Harshit's voice" | A brain of Harshit Khemani: an answer from every post he made on X and LinkedIn with the post named, and a draft in his current voice that rests only on views he has posted. |
 | [khe-brain-yc](skills/khe-brain-yc/README.md) | "what does YC say about" | An answer from 88 Y Combinator essays, posts and talks with the partner who said it named and the piece linked, and a plan pressure-tested against them. |
 | [khe-poteto-pyramid](skills/khe-poteto-pyramid/README.md) | "the agent keeps doing this" | The correction moved to where the next agent cannot make the mistake: the code, a check whose error names the fix, or verification, proved on the past mistake, with the AGENTS.md line it replaces deleted. |
+| [khe-package](skills/khe-package/README.md) | "package this", "make a video of this for X" | Three ideas as stills, then a video rendered frame by frame at 60 fps, sharp on a phone, with your system's real cursor, and a first line written for a stranger. |
 | [khe-content-engine](skills/khe-content-engine/README.md) | "build me a content engine" | Your voice, audience and platforms written down once, then one idea turned into a different draft for each platform. You post them. |
 
 Install one at a time with `--skill`:
@@ -81,13 +82,14 @@ Each skill works alone. Some call others:
 
 ![How the skills hand off: khe-auto routes every request; khe-design-tokens and ui-sdk feed khe-ui; khe-demo feeds khe-launch-film, which hands to khe-sound, as does khe-svg](.github/assets/skill-map.svg)
 
-
 - `khe-auto` uses all of them.
 - `khe-ui` hands to `khe-design-tokens` first when the project has a contract.
 - `khe-ui` takes over from Vercel's `ui-sdk` on a project built with UI SDK: that skill composes the components, mine decides what they look like and whether they are finished.
 - `khe-launch-film` hands to `khe-sound` once picture is locked.
 - `khe-svg` hands to `khe-sound` when a reveal should make a sound.
 - `khe-demo` hands its take to `khe-launch-film` when the recording is one shot in a film.
+- `khe-package` renders a `stageshow` scene when there is no live build to point at, and hands the post to `khe-content-engine`.
+- `khe-auto` places every correction made during a job with `khe-poteto-pyramid`, so the next agent inherits the fix.
 - `khe-poteto-pyramid` hands the deep parts to Lauren Tan's pstack skills by name: verification skills, formal models, statecharts, comment sweeps.
 
 ## What is in a skill
@@ -109,7 +111,7 @@ The agent reads `SKILL.md` and opens a reference only when the job needs it, so 
 
 One table each: the problem as you would say it, and the value that fixes it.
 
-[UI](cheatsheets/ui.md) · [Motion](cheatsheets/motion.md) · [SVG](cheatsheets/svg.md) · [Sticker](cheatsheets/sticker.md) · [Sound](cheatsheets/sound.md) · [Launch film](cheatsheets/film.md) · [Demo](cheatsheets/demo.md) · [Diagram](cheatsheets/diagram.md) · [Tokens](cheatsheets/tokens.md)
+[UI](cheatsheets/ui.md) · [Motion](cheatsheets/motion.md) · [SVG](cheatsheets/svg.md) · [Sticker](cheatsheets/sticker.md) · [Sound](cheatsheets/sound.md) · [Launch film](cheatsheets/film.md) · [Demo](cheatsheets/demo.md) · [Diagram](cheatsheets/diagram.md) · [Tokens](cheatsheets/tokens.md) · [Package](cheatsheets/package.md) · [Pyramid](cheatsheets/pyramid.md)
 
 ## From others
 

@@ -1,0 +1,24 @@
+{
+  "url": "stage.html",
+  "stage": "#stage",
+  "margin": 60,
+  "scheme": "light",
+  "fps": 60,
+  "shots": [
+    { "enter": "bottom-right", "wait": 0.35 },
+    { "glide": "Signups", "seconds": 0.55, "bow": 0.1 },
+    { "hold": 0.15 },
+    { "click": true },
+    { "hold": 0.6 },
+    { "glide": "Visitors", "seconds": 0.55, "bow": 0.08 },
+    { "hold": 0.15 },
+    { "click": true },
+    { "hold": 0.6 },
+    { "glide": "Signups", "seconds": 0.55, "bow": 0.12 },
+    { "hold": 0.15 },
+    { "click": true },
+    { "hold": 0.9 },
+    { "exit": "bottom-right", "seconds": 0.6 },
+    { "hold": 0.4 }
+  ]
+}

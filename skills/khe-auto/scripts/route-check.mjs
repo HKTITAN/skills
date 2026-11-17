@@ -39,6 +39,7 @@ export const GATES = {
   'khe-brain-enrico': 'khe-brain-enrico/scripts/brain-check.mjs',
   'khe-content-engine': 'khe-content-engine/scripts/content-check.mjs',
   'khe-poteto-pyramid': 'khe-poteto-pyramid/scripts/pyramid-check.mjs',
+  'khe-package': 'khe-package/scripts/package-check.mjs',
   'khe-auto': 'khe-auto/scripts/route-check.mjs',
 }
 

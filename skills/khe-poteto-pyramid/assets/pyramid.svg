@@ -7,65 +7,71 @@
     </marker>
   </defs>
   <style>
-    #poteto-pyramid { --paper: #fff; --ink: #262628; --muted: #6e6e73; --soft: rgba(38,38,40,0.05); --rule: rgba(0,0,0,0.08); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    #poteto-pyramid { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
     @media (prefers-color-scheme: dark) {
-      #poteto-pyramid { --paper: #0d1117; --ink: #e6edf3; --muted: #9198a1; --soft: rgba(230,237,243,0.06); --rule: rgba(255,255,255,0.1); --accent: #4c8dff; --accent-tint: rgba(76,141,255,0.16); }
+      #poteto-pyramid { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
     }
-    #poteto-pyramid .paper { fill: var(--paper); }
-    #poteto-pyramid .edge { fill: none; stroke: var(--muted); }
-    #poteto-pyramid .head { fill: var(--muted); }
-    #poteto-pyramid .mask { fill: var(--paper); }
-    #poteto-pyramid .label { fill: var(--muted); font-size: 9px; }
-    #poteto-pyramid .node rect { fill: var(--paper); stroke: var(--ink); }
-    #poteto-pyramid .soft rect { fill: var(--soft); }
-    #poteto-pyramid .dashed rect { stroke-dasharray: 5 4; }
-    #poteto-pyramid .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #poteto-pyramid .paper { fill: var(--page); }
+    #poteto-pyramid .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #poteto-pyramid .edge.dashed { stroke-dasharray: 5 4; }
+    #poteto-pyramid .head { fill: var(--ink-3); }
+    #poteto-pyramid .mask { fill: var(--page); }
+    #poteto-pyramid .label { fill: var(--ink-3); font-size: 9px; }
+    #poteto-pyramid .node rect { fill: var(--surface); stroke: var(--line); }
+    #poteto-pyramid .node.strong rect { stroke: var(--ink); }
+    #poteto-pyramid .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #poteto-pyramid .node rect.hl { fill: var(--hl); stroke: none; }
     #poteto-pyramid .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
-    #poteto-pyramid .sub { fill: var(--muted); font-size: 10px; }
+    #poteto-pyramid .name.on { fill: var(--hl-ink); }
+    #poteto-pyramid .sub { fill: var(--ink-2); font-size: 10px; }
+    #poteto-pyramid .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
     #poteto-pyramid .skill { fill: var(--ink); font-size: 12px; }
-    #poteto-pyramid .head-row { fill: var(--muted); font-size: 10px; letter-spacing: 0.04em; }
-    #poteto-pyramid .callout { fill: var(--muted); font-size: 10px; }
+    #poteto-pyramid .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #poteto-pyramid .callout { fill: var(--ink-2); font-size: 10px; }
+    #poteto-pyramid .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
     #poteto-pyramid .rule { stroke: var(--rule); }
+    #poteto-pyramid .legend text { fill: var(--ink-2); font-size: 10px; }
   </style>
   <rect class="paper" width="896" height="368"/>
   <g class="edges">
-    <path class="edge" d="M36 64 V320" marker-end="url(#poteto-pyramid-arrow)"/>
+    <path class="edge " d="M36 64 V320" marker-end="url(#poteto-pyramid-arrow)"/>
   </g>
   <g class="labels">
-    <rect class="mask" x="44" y="178" width="24" height="16"/>
-    <text class="label" x="46" y="189">cost</text>
+    <rect class="mask" x="44" y="178" width="31" height="14"/>
+    <text class="label" x="48" y="188">cost</text>
   </g>
-  <text class="head-row" x="72" y="40">LAYER, TOP FIRST</text>
-  <text class="head-row" x="456" y="40">THE DEEP PART GOES TO</text>
+  <text class="caps" x="72" y="40">LAYER, TOP FIRST</text>
+  <text class="caps" x="456" y="40">THE DEEP PART GOES TO</text>
   <line class="rule" x1="456" y1="112" x2="864" y2="112"/>
   <line class="rule" x1="456" y1="168" x2="864" y2="168"/>
   <line class="rule" x1="456" y1="224" x2="864" y2="224"/>
   <line class="rule" x1="456" y1="280" x2="864" y2="280"/>
   <g class="nodes">
-    <g class="node focal">
+    <g class="node strong">
       <rect x="72" y="56" width="352" height="48" rx="6"/>
-      <text class="name" x="88" y="77">Codebase</text>
-      <text class="sub" x="88" y="93">architecture, API design, folders, deletion</text>
+      <rect class="hl" x="80" y="65" width="65" height="16" rx="2"/>
+      <text class="name on" x="84" y="77">Codebase</text>
+      <text class="sub" x="84" y="93">architecture, API design, folders, deletion</text>
     </g>
-    <g class="node">
+    <g class="node ">
       <rect x="100" y="112" width="296" height="48" rx="6"/>
-      <text class="name" x="116" y="133">Static analysis</text>
-      <text class="sub" x="116" y="149">lints, types, compilers, tests, CI</text>
+      <text class="name" x="112" y="133">Static analysis</text>
+      <text class="sub" x="112" y="149">lints, types, compilers, tests, CI</text>
     </g>
-    <g class="node">
+    <g class="node ">
       <rect x="128" y="168" width="240" height="48" rx="6"/>
-      <text class="name" x="144" y="189">Verification</text>
-      <text class="sub" x="144" y="205">run the app, formal models</text>
+      <text class="name" x="140" y="189">Verification</text>
+      <text class="sub" x="140" y="205">run the app, formal models</text>
     </g>
-    <g class="node soft">
+    <g class="node quiet">
       <rect x="156" y="224" width="184" height="48" rx="6"/>
-      <text class="name" x="172" y="245">Prose</text>
-      <text class="sub" x="172" y="261">judgment calls only</text>
+      <text class="name" x="168" y="245">Prose</text>
+      <text class="sub" x="168" y="261">judgment calls only</text>
     </g>
-    <g class="node soft dashed">
+    <g class="node quiet">
       <rect x="184" y="280" width="128" height="48" rx="6"/>
-      <text class="name" x="200" y="301">Human review</text>
-      <text class="sub" x="200" y="317">feeds back up</text>
+      <text class="name" x="196" y="301">Human review</text>
+      <text class="sub" x="196" y="317">feeds back up</text>
     </g>
   </g>
   <g class="handoffs">

@@ -11,7 +11,7 @@
     },
     {
       "title": "Design",
-      "description": "UI craft, tokens, vectors, stickers, diagrams, sound, launch films and real-app demos.",
+      "description": "UI craft, tokens, vectors, stickers, diagrams, sound, launch films, real-app demos, and packaging work for people who have never seen it.",
       "skills": [
         "khe-ui",
         "khe-design-tokens",
@@ -20,7 +20,8 @@
         "khe-diagram",
         "khe-sound",
         "khe-launch-film",
-        "khe-demo"
+        "khe-demo",
+        "khe-package"
       ]
     },
     {

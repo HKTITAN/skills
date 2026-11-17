@@ -27,7 +27,7 @@ Taken as ideas:
 
 ## Hers, unverified
 
-Her figures are reported as she gave them and were not checked: about 3,000 PRs shipped in a month (a phone recording says 2,000); PRs merged by her team rising from 809 in June to 10,926 in October; people merging rising from 15 to 227; the revert rate falling from 0.98% to about 0.47%; deterministic checks rising from 7 to 167 (read off a photo of a slide caught mid-animation); and Cindy Sridharan's 70% of token spend on verification, which the guide did not trace to her original post. The guide's audio transcripts are machine-made, so short quotations may not be word for word. Her employer is given differently on stage and in the conference bio.
+Her own write-up calls the figure an inverse trust pyramid; "poteto pyramid" is the study guide's name for it, kept here because people search for it. Her figures are reported as she gave them and were not checked: about 3,000 PRs shipped in a month (a phone recording says 2,000); PRs merged by her team rising from 809 in June to 10,926 in October; people merging rising from 15 to 227; the revert rate falling from 0.98% to about 0.47%; deterministic checks rising from 7 to 167 (read off a photo of a slide caught mid-animation); and Cindy Sridharan's 70% of token spend on verification, which the guide did not trace to her original post. The guide's audio transcripts are machine-made, so short quotations may not be word for word. Her employer is given differently on stage and in the conference bio. Her write-up adds a caveat to the revert rate: it counts reverts only, so a bug fixed by a later PR does not show in it.
 
 ## Left out, and why
 
@@ -42,6 +42,7 @@ Her figures are reported as she gave them and were not checked: about 3,000 PRs 
 ## Pages
 
 - The guide: [all code is slop: an interactive guide to the poteto pyramid](https://artesano.build/all-code-is-slop), Artesano, read 2026-11-17.
+- The talk's own page, with an edited write-up, chapters and the 17:31 video: [ai.engineer/talks/O_zcc6Xl12g-all-code-is-slop-except-mine](https://ai.engineer/talks/O_zcc6Xl12g-all-code-is-slop-except-mine), read 2026-11-17. Chapters: 0:01 the trust question, 5:00 Dune, 6:56 the timer workaround, 9:40 running the app and describing it, 11:51 where verification tokens go, 13:32 eleven thousand PRs, 15:11 the release fuzzer.
 - The talk on the AI Engineer livestream: [youtube.com/watch?v=ZZ19zhYnDKY](https://www.youtube.com/watch?v=ZZ19zhYnDKY&t=3625s), about 1:00:25 to 1:18:45.
 - Her speaker page: [ai.engineer/speakers/lauren-tan](https://ai.engineer/speakers/lauren-tan).
 - pstack, her skills: [github.com/cursor/plugins/tree/main/pstack](https://github.com/cursor/plugins/tree/main/pstack), MIT. Read: the README and `correct`, `no-comments`, `create-verification-skill`, `principle-encode-lessons-in-structure`.

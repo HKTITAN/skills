@@ -37,7 +37,7 @@ The question: can the wrong version of this be made impossible to write, or obvi
 - **A test** for behavior, asserting what a user can observe, so it fails when the behavior breaks and keeps passing when only internals change.
 - **CI** runs the same command locally and on the server, so "passes on my machine" and "passes in CI" mean one thing.
 
-Her cautionary tale is quick fixes. Agents patched a clash between imperative and declarative code with `setTimeout(…, 0)`, and each patch came with a comment explaining why the shortcut was justified. The comment made it copyable. On her slide one timer on 9 September became a shared module by 3 October and 183 timers by 17 October; short-lived timers caused garbage-collection churn, then lag. The fix was lint rules whose messages say to fix the root cause, and a ban on the comments that excused it. Details in [checks](checks.md).
+Her cautionary tale is quick fixes. Agents patched a clash between imperative and declarative code with `setTimeout(…, 0)`, and each patch came with a comment explaining why the shortcut was justified. The comment made it copyable. On her slide one timer on 9 September became a shared module by 3 October and 183 timers by 17 October; short-lived timers caused garbage-collection churn, then lag. This happened at Cursor, before her current team. The fix was lint rules whose messages say to fix the root cause, and a ban on the comments that excused it: her team bans about 99% of comments, and the guidance that used to live in them goes into lint diagnostics instead. Details in [checks](checks.md).
 
 The question: if an agent writes the wrong version, can a tool reject it before a person sees it?
 

@@ -27,6 +27,6 @@ A no names the one thing to fix first. Fix it, then ask again.
 
 ## The outer loop
 
-Once the inner loop verifies itself, triggers can start it: feedback in a channel, a ticket created, a new message, a schedule, a monitoring alert. Her team's example, from a talk that was partly a pitch for her employer's product: on each release a bot starts agents that use the app like a user (fuzzing the build), and each bug found becomes a fix the agents merge themselves. She says this works only because the codebase is good enough that PRs are good by default.
+Once the inner loop verifies itself, triggers can start it: feedback in a channel, a ticket created, a new message, a schedule, a monitoring alert. Her team's example, from a talk that was partly a pitch for her employer's product: on each release a bot starts agents that use the app like a user (fuzzing the build), and each bug found becomes a fix the agents merge themselves. She says automerging those fixes is reasonable only because the framework's limits and the verification tools already apply to the repair path, so the PRs are good by default. Running more copies of a loop that writes slop multiplies the tokens spent repairing it.
 
 Wiring a trigger, a schedule or a bot is an outward-facing change: it runs without anyone watching. Describe it and get the user's yes before setting one up.

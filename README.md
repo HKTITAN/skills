@@ -69,28 +69,44 @@ Install one at a time with `--skill`:
 npx skills add HKTITAN/skills --skill khe-ui
 ```
 
-In Claude Code they also install as two plugins: `kheskills` for every skill above except the brains, and `khe-brain` for the brains, so they sit under two names instead of crowding the list:
+<!-- install:start -->
+In Claude Code they install as plugins from one marketplace. Add it with `--sparse`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.
 
 ```text
-/plugin marketplace add HKTITAN/skills
+/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents commands skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
 /plugin install kheskills@kheskills
 /plugin install khe-brain@kheskills
 ```
 
-The same marketplace serves the skills I use from other people, each straight from its author's repo, so one marketplace gets everything:
+`kheskills` is every skill above except the brains, plus the four kheAgents; `khe-brain` is the brains. The skills are then `/kheskills:khe-ui`, `/kheskills:khe-auto` and so on.
 
-```text
-/plugin install emil-kowalski@kheskills
-/plugin install benji-taylor@kheskills
-/plugin install vercel@kheskills
-/plugin install vercel-ui-sdk@kheskills
-/plugin install pstack@kheskills
-/plugin install matt-pocock@kheskills
+For a team, put the same in the project's `.claude/settings.json`, so everyone who trusts the folder gets the marketplace without typing the list:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "kheskills": {
+      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","commands","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
+    }
+  }
+}
 ```
 
-`pstack` here is the Claude Code build of Lauren Tan's Cursor plugin, so its skills are `/pstack:<name>` as in Cursor's own marketplace. The others serve exactly the skills listed under From others below.
+The same marketplace serves the skills I use from other people, each straight from its author's repo:
 
-On Claude Code 2.1.275 or later the first install is one line: `/plugin install kheskills --marketplace HKTITAN/skills`. The skills are then `/kheskills:khe-ui`, `/kheskills:khe-auto` and so on.
+```text
+/plugin install benji-taylor@kheskills
+/plugin install emil-kowalski@kheskills
+/plugin install matt-pocock@kheskills
+/plugin install pstack@kheskills
+/plugin install vercel@kheskills
+/plugin install vercel-ui-sdk@kheskills
+```
+
+`pstack` here is the Claude Code build of Lauren Tan's Cursor plugin, so its skills are `/pstack:<name>`. `matt-pocock` is Matt Pocock's own plugin, as his manifest defines it. The others serve exactly the skills listed under From others below.
+
+If an add or update still times out on a slow connection, raise Claude Code's clone timeout (milliseconds) and run it again: `CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS=300000`.
+<!-- install:end -->
 
 Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya`, `/khe-brain:isb`, `/khe-brain:yc`, `/khe-brain:harshitkhemani` and `/khe-brain:enrico-tartarotti` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
 

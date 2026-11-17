@@ -231,7 +231,7 @@ Where the host has slash commands or a skill tool, invoke the skill by name with
 
 If the folder is not there, the skill is not installed. Name it and give the line:
 
-- A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`, or in Claude Code all of them as one plugin, `/plugin install kheskills --marketplace HKTITAN/skills` (the brains are the second plugin in the same marketplace)
+- A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`, or in Claude Code all of them as one plugin from the marketplace, added with the `--sparse` path list in the README's install block (the brains are the second plugin in the same marketplace)
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
 - Vercel's agent skills: `npx skills add vercel-labs/agent-skills --skill <name>`

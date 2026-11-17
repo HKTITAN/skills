@@ -59,6 +59,7 @@ If you already know the skill, call it directly.
 | [khe-brain-isb](skills/khe-brain-isb/README.md) | "what do the ISB notes say" | An answer from the public isb-skills notes with the file named, benchmarks marked as unsourced, and a plan pressure-tested against it. |
 | [khe-brain-harshit](skills/khe-brain-harshit/README.md) | "write a khe.money post in Harshit's voice" | A brain of Harshit Khemani: an answer from every post he made on X and LinkedIn with the post named, and a draft in his current voice that rests only on views he has posted. |
 | [khe-brain-yc](skills/khe-brain-yc/README.md) | "what does YC say about" | An answer from 88 Y Combinator essays, posts and talks with the partner who said it named and the piece linked, and a plan pressure-tested against them. |
+| [khe-poteto-pyramid](skills/khe-poteto-pyramid/README.md) | "the agent keeps doing this" | The correction moved to where the next agent cannot make the mistake: the code, a check whose error names the fix, or verification, proved on the past mistake, with the AGENTS.md line it replaces deleted. |
 | [khe-content-engine](skills/khe-content-engine/README.md) | "build me a content engine" | Your voice, audience and platforms written down once, then one idea turned into a different draft for each platform. You post them. |
 
 Install one at a time with `--skill`:
@@ -78,12 +79,16 @@ Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-ma
 
 Each skill works alone. Some call others:
 
+![How the skills hand off: khe-auto routes every request; khe-design-tokens and ui-sdk feed khe-ui; khe-demo feeds khe-launch-film, which hands to khe-sound, as does khe-svg](.github/assets/skill-map.svg)
+
+
 - `khe-auto` uses all of them.
 - `khe-ui` hands to `khe-design-tokens` first when the project has a contract.
 - `khe-ui` takes over from Vercel's `ui-sdk` on a project built with UI SDK: that skill composes the components, mine decides what they look like and whether they are finished.
 - `khe-launch-film` hands to `khe-sound` once picture is locked.
 - `khe-svg` hands to `khe-sound` when a reveal should make a sound.
 - `khe-demo` hands its take to `khe-launch-film` when the recording is one shot in a film.
+- `khe-poteto-pyramid` hands the deep parts to Lauren Tan's pstack skills by name: verification skills, formal models, statecharts, comment sweeps.
 
 ## What is in a skill
 
@@ -108,7 +113,7 @@ One table each: the problem as you would say it, and the value that fixes it.
 
 ## From others
 
-Skills by other people that I use next to mine. They are not copied here. Emil's, Benji's and Vercel's are linked in [`skills/`](skills) as git submodules that follow their repos automatically. Each link below goes to the original file, and `khe-auto` routes to all of them by name.
+Skills by other people that I use next to mine. They are not copied here. Emil's, Benji's, Vercel's, Lauren Tan's and Matt Pocock's are linked in [`skills/`](skills) as git submodules that follow their repos automatically. Each link below goes to the original file, and `khe-auto` routes to all of them by name.
 
 ### Benji Taylor
 
@@ -175,6 +180,65 @@ npx skills add vercel-labs/agent-skills
 All fourteen are pinned in `skills/` like the others: nine from [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) and five from [vercel-labs/ui](https://github.com/vercel-labs/ui). The four `ui-sdk-*` skills are that repository's own contributor skills, from its `.agents/skills` folder, and are useful only for work inside it. `ui-sdk` is the one to install for building with the library. The skill lives inside the UI SDK monorepo, at `packages/core/skills/ui-sdk`, so the pin follows the whole library and moves whenever the library does. The copy that matches your project ships with the package, at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`. UI SDK is in beta.
 
 `npx skills add HKTITAN/skills` installs only my skills. Install theirs from their repos with the commands above.
+
+### Lauren Tan (poteto)
+
+Her pstack skills, the source of the pyramid in `khe-poteto-pyramid`. They lean on each other and on her principles, so install the whole plugin:
+
+```text
+/plugin marketplace add cursor/plugins
+/plugin install pstack@cursor-plugins
+```
+
+| Skill | What I use it for |
+|---|---|
+| [poteto-mode](https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/SKILL.md) | Her whole workflow for any non-trivial task. It routes to her playbooks and principles. |
+| [poteto-help](https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-help/SKILL.md) | Finding which of her skills or playbooks fits. |
+| [correct](https://github.com/cursor/plugins/blob/main/pstack/skills/correct/SKILL.md) | Her own sweep for the mistakes agents repeat, fixed at the highest level that works. |
+| [no-comments](https://github.com/cursor/plugins/blob/main/pstack/skills/no-comments/SKILL.md) | Stripping comments from a diff and encoding the constraints they claim. |
+| [create-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/SKILL.md) | A project skill that launches, drives and records the real app, with a feature map. |
+| [maintain-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/maintain-verification-skill/SKILL.md) | Keeping that feature map in line with the app. |
+| [create-formal-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/create-formal-verification-skill/SKILL.md) | Checking a race, retry or state machine formally and keeping it checked. |
+| [maintain-formal-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/maintain-formal-verification-skill/SKILL.md) | Updating a formal model after the code changed. |
+| [statechart](https://github.com/cursor/plugins/blob/main/pstack/skills/statechart/SKILL.md) | A behavior drawn as a statechart from a checked TLA+ model. |
+| [how](https://github.com/cursor/plugins/blob/main/pstack/skills/how/SKILL.md) | How a subsystem works at runtime. |
+| [why](https://github.com/cursor/plugins/blob/main/pstack/skills/why/SKILL.md) | Why something was built this way, from the record. |
+| [recall](https://github.com/cursor/plugins/blob/main/pstack/skills/recall/SKILL.md) | Rebuilding recent context from chat history. |
+| [teach](https://github.com/cursor/plugins/blob/main/pstack/skills/teach/SKILL.md) | Understanding a change, diagram by diagram. |
+| [architect](https://github.com/cursor/plugins/blob/main/pstack/skills/architect/SKILL.md) | Settling usage, types and module shape before writing code across a boundary. |
+| [arena](https://github.com/cursor/plugins/blob/main/pstack/skills/arena/SKILL.md) | Several parallel attempts, then the best parts of each. |
+| [swarm](https://github.com/cursor/plugins/blob/main/pstack/skills/swarm/SKILL.md) | Many parallel workers, one report. |
+| [interrogate](https://github.com/cursor/plugins/blob/main/pstack/skills/interrogate/SKILL.md) | Other models trying to break a diff, keeping only proven findings. |
+| [blast-radius](https://github.com/cursor/plugins/blob/main/pstack/skills/blast-radius/SKILL.md) | What else a small change could break. |
+| [tdd](https://github.com/cursor/plugins/blob/main/pstack/skills/tdd/SKILL.md) | A bug fixed test-first when the test path is cheap. |
+| [benchmark-checklist](https://github.com/cursor/plugins/blob/main/pstack/skills/benchmark-checklist/SKILL.md) | Vetting a measured number before reporting it. |
+| [technical-writing](https://github.com/cursor/plugins/blob/main/pstack/skills/technical-writing/SKILL.md) | Docs, READMEs, PR descriptions and commit messages. |
+
+These 21 are pinned in `skills/` from [cursor/plugins](https://github.com/cursor/plugins). Her other skills (the 24 principles, the catch-up and bot-UI skills, setup) come with the plugin and are not linked here. The plugin lives in Cursor's plugin monorepo, so the pin moves whenever that repo does.
+
+### Matt Pocock
+
+```sh
+npx skills add mattpocock/skills
+```
+
+| Skill | What I use it for |
+|---|---|
+| [codebase-design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md) | Deep modules: interfaces, seams and adapters. |
+| [improve-codebase-architecture](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md) | Finding the shallow modules worth deepening. |
+| [diagnosing-bugs](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md) | A diagnosis loop for hard bugs and regressions. |
+| [domain-modeling](https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md) | A project's glossary and ADRs. |
+| [grill-with-docs](https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-with-docs/SKILL.md) | An interview that sharpens a plan and writes the docs as it goes. |
+| [grill-me](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) | An interview that sharpens a plan. |
+| [pocock-code-review](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) | A branch reviewed against the repo's standards and its spec. Named `code-review` in his repo. |
+| [setup-pre-commit](https://github.com/mattpocock/skills/blob/main/skills/misc/setup-pre-commit/SKILL.md) | Pre-commit hooks that format, type-check and test. |
+| [git-guardrails-claude-code](https://github.com/mattpocock/skills/blob/main/skills/misc/git-guardrails-claude-code/SKILL.md) | Hooks that block destructive git commands. |
+| [to-spec](https://github.com/mattpocock/skills/blob/main/skills/engineering/to-spec/SKILL.md) | The conversation turned into a spec on the tracker. |
+| [wayfinder](https://github.com/mattpocock/skills/blob/main/skills/engineering/wayfinder/SKILL.md) | Work bigger than one session, as decision tickets. |
+| [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md) | A handoff document for the next agent. |
+| [pocock-tdd](https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md) | Red, green, refactor. Named `tdd` in his repo. |
+
+These 13 are pinned in `skills/` from [mattpocock/skills](https://github.com/mattpocock/skills). Two take a `pocock-` prefix here because Emil's `prototype` and Lauren's `tdd` already use the short names; the links go to the originals.
 
 ## khe, my design system
 

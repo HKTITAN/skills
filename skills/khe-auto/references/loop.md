@@ -57,6 +57,7 @@ The gate belongs to the skill that did the step. Run it from the folder that hol
 | `khe-brain-yc` | `khe-brain-yc/scripts/brain-check.mjs` | its passed line |
 | `khe-brain-enrico` | `khe-brain-enrico/scripts/brain-check.mjs` | its passed line |
 | `khe-content-engine` | `khe-content-engine/scripts/content-check.mjs` | `content-check passed` |
+| `khe-poteto-pyramid` | `khe-poteto-pyramid/scripts/pyramid-check.mjs` | `pyramid-check passed` |
 | `khe-auto` | `khe-auto/scripts/route-check.mjs` | `route-check passed` |
 | `stageshow` | its own rehearsal gate, described in its own files | its own passed line |
 | Any other linked skill | none | nothing; the exit is checked from evidence alone |

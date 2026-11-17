@@ -37,6 +37,13 @@
       ]
     },
     {
+      "title": "Engineering",
+      "description": "How far you can trust coding agents: every correction moved to the code, a check, or verification, before a line of prose.",
+      "skills": [
+        "khe-poteto-pyramid"
+      ]
+    },
+    {
       "title": "Content",
       "description": "A content engine in your own voice: one idea in, a draft per platform out.",
       "skills": [

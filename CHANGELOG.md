@@ -2,6 +2,15 @@
 
 What changed in kheSkills, newest first. One entry per day that something a user can see changed: a skill added, a command renamed, a rule tightened. Fixes to wording inside a skill are in the commit history.
 
+## 2026-11-17
+
+### Added
+
+- `khe-poteto-pyramid`, built on Lauren Tan's ("poteto") pyramid from her talk "All Code Is Slop" at AI Engineer Code Summit (11 November 2026), read through Miguel Alvarado's study guide on Artesano and her pstack guides. It puts each correction you give a coding agent at the highest layer that can hold it (codebase, then lints, types and CI, then verification, then prose, with review last), builds it there, proves the check fails on the past mistake, and deletes the instruction it replaces. Four jobs: `place`, `sweep`, `triage` (an AGENTS.md into checks and judgment calls) and `audit` (ten questions, and whether a loop is ready to automate). Six gold placement records and a triaged AGENTS.md for an invented app, eleven teaching pairs, and a gate, `pyramid-check.mjs`, that reads placement records and rules files.
+- A new Engineering domain in `khe-auto`, with eight overlap rows.
+- 21 of Lauren Tan's pstack skills are linked from `cursor/plugins` and routed (`poteto-mode`, `correct`, `create-verification-skill`, `create-formal-verification-skill`, `statechart`, `how`, `why`, `architect`, `interrogate` and others), with her plugin install line.
+- 13 of Matt Pocock's skills are linked from `mattpocock/skills` and routed (`codebase-design`, `improve-codebase-architecture`, `diagnosing-bugs`, `setup-pre-commit`, `git-guardrails-claude-code` and others); his `code-review` and `tdd` are `pocock-code-review` and `pocock-tdd` here.
+
 ## 2026-11-15
 
 ### Added

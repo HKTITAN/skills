@@ -38,6 +38,7 @@ export const GATES = {
   'khe-brain-yc': 'khe-brain-yc/scripts/brain-check.mjs',
   'khe-brain-enrico': 'khe-brain-enrico/scripts/brain-check.mjs',
   'khe-content-engine': 'khe-content-engine/scripts/content-check.mjs',
+  'khe-poteto-pyramid': 'khe-poteto-pyramid/scripts/pyramid-check.mjs',
   'khe-auto': 'khe-auto/scripts/route-check.mjs',
 }
 
@@ -134,7 +135,7 @@ export function readCollection(skillDir = SKILL_DIR) {
   if (!existsSync(path)) return null
   const text = norm(readFileSync(path, 'utf8'))
   const skills = new Map()
-  for (const heading of ['Design', 'Code', 'Brains', 'Content']) {
+  for (const heading of ['Design', 'Code', 'Brains', 'Content', 'Engineering']) {
     for (const row of sectionOf(text, heading).split('\n')) {
       const cells = row.split('|').map((c) => c.trim())
       const m = cells.length >= 5 && cells[2].match(/^`([a-z0-9-]+)`$/)

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="poteto-pyramid" viewBox="0 0 896 368" role="img" aria-labelledby="poteto-pyramid-title poteto-pyramid-desc">
+  <title id="poteto-pyramid-title">The poteto pyramid and where each layer hands off</title>
+  <desc id="poteto-pyramid-desc">A correction goes to the highest layer that can hold it, and each layer names the skills that take its deep part.</desc>
+  <defs>
+    <marker id="poteto-pyramid-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #poteto-pyramid { --paper: #fff; --ink: #262628; --muted: #6e6e73; --soft: rgba(38,38,40,0.05); --rule: rgba(0,0,0,0.08); --accent: #3b82f6; --accent-tint: rgba(59,130,246,0.12); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #poteto-pyramid { --paper: #0d1117; --ink: #e6edf3; --muted: #9198a1; --soft: rgba(230,237,243,0.06); --rule: rgba(255,255,255,0.1); --accent: #4c8dff; --accent-tint: rgba(76,141,255,0.16); }
+    }
+    #poteto-pyramid .paper { fill: var(--paper); }
+    #poteto-pyramid .edge { fill: none; stroke: var(--muted); }
+    #poteto-pyramid .head { fill: var(--muted); }
+    #poteto-pyramid .mask { fill: var(--paper); }
+    #poteto-pyramid .label { fill: var(--muted); font-size: 9px; }
+    #poteto-pyramid .node rect { fill: var(--paper); stroke: var(--ink); }
+    #poteto-pyramid .soft rect { fill: var(--soft); }
+    #poteto-pyramid .dashed rect { stroke-dasharray: 5 4; }
+    #poteto-pyramid .focal rect { fill: var(--accent-tint); stroke: var(--accent); }
+    #poteto-pyramid .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #poteto-pyramid .sub { fill: var(--muted); font-size: 10px; }
+    #poteto-pyramid .skill { fill: var(--ink); font-size: 12px; }
+    #poteto-pyramid .head-row { fill: var(--muted); font-size: 10px; letter-spacing: 0.04em; }
+    #poteto-pyramid .callout { fill: var(--muted); font-size: 10px; }
+    #poteto-pyramid .rule { stroke: var(--rule); }
+  </style>
+  <rect class="paper" width="896" height="368"/>
+  <g class="edges">
+    <path class="edge" d="M36 64 V320" marker-end="url(#poteto-pyramid-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="44" y="178" width="24" height="16"/>
+    <text class="label" x="46" y="189">cost</text>
+  </g>
+  <text class="head-row" x="72" y="40">LAYER, TOP FIRST</text>
+  <text class="head-row" x="456" y="40">THE DEEP PART GOES TO</text>
+  <line class="rule" x1="456" y1="112" x2="864" y2="112"/>
+  <line class="rule" x1="456" y1="168" x2="864" y2="168"/>
+  <line class="rule" x1="456" y1="224" x2="864" y2="224"/>
+  <line class="rule" x1="456" y1="280" x2="864" y2="280"/>
+  <g class="nodes">
+    <g class="node focal">
+      <rect x="72" y="56" width="352" height="48" rx="6"/>
+      <text class="name" x="88" y="77">Codebase</text>
+      <text class="sub" x="88" y="93">architecture, API design, folders, deletion</text>
+    </g>
+    <g class="node">
+      <rect x="100" y="112" width="296" height="48" rx="6"/>
+      <text class="name" x="116" y="133">Static analysis</text>
+      <text class="sub" x="116" y="149">lints, types, compilers, tests, CI</text>
+    </g>
+    <g class="node">
+      <rect x="128" y="168" width="240" height="48" rx="6"/>
+      <text class="name" x="144" y="189">Verification</text>
+      <text class="sub" x="144" y="205">run the app, formal models</text>
+    </g>
+    <g class="node soft">
+      <rect x="156" y="224" width="184" height="48" rx="6"/>
+      <text class="name" x="172" y="245">Prose</text>
+      <text class="sub" x="172" y="261">judgment calls only</text>
+    </g>
+    <g class="node soft dashed">
+      <rect x="184" y="280" width="128" height="48" rx="6"/>
+      <text class="name" x="200" y="301">Human review</text>
+      <text class="sub" x="200" y="317">feeds back up</text>
+    </g>
+  </g>
+  <g class="handoffs">
+    <text class="skill" x="456" y="77">codebase-design · improve-codebase-architecture</text>
+    <text class="sub" x="456" y="93">Matt Pocock</text>
+    <text class="skill" x="456" y="133">no-comments · setup-pre-commit · git-guardrails</text>
+    <text class="sub" x="456" y="149">Lauren Tan · Matt Pocock</text>
+    <text class="skill" x="456" y="189">create-verification-skill · statechart · khe-demo</text>
+    <text class="sub" x="456" y="205">Lauren Tan, and her formal-verification pair · here</text>
+    <text class="skill" x="456" y="245">learn-taste · correct</text>
+    <text class="sub" x="456" y="261">Emil Kowalski · Lauren Tan</text>
+    <text class="skill" x="456" y="301">interrogate · pocock-code-review · khe-ui</text>
+    <text class="sub" x="456" y="317">Lauren Tan · Matt Pocock · here</text>
+  </g>
+  <text class="callout" x="72" y="352">Start at the top band. A layer gets a correction only when every layer above it could not hold it.</text>
+</svg>

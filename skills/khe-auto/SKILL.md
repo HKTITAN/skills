@@ -1,6 +1,6 @@
 ---
 name: khe-auto
-description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films), the skills by Emil Kowalski and Benji Taylor linked beside them, and Vercel's `ui-sdk` and agent skills. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"build it with ui-sdk\", \"we ship Thursday\". When the request already names a skill, use that skill."
+description: "The mode that runs the rest. Reads a request, picks a playbook or the one or two skills that own it, says why in a line, then does the work in order. Covers every skill in this collection: the khe skills (UI craft, design tokens, SVG, diagrams, sound, launch films), the skills by Emil Kowalski and Benji Taylor linked beside them, Vercel's `ui-sdk` and agent skills, and the engineering skills of Lauren Tan (poteto) and Matt Pocock. Use when a request names no skill, spans several, or someone says \"auto\", \"which skill\", \"where do I start\", \"what order\", \"list the skills\", \"make this better\", \"I need a launch video\", \"build this screen\", \"build it with ui-sdk\", \"we ship Thursday\", \"the agent keeps doing this\". When the request already names a skill, use that skill."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -102,6 +102,7 @@ A playbook is a whole job, start to finish. Open the file when the request match
 | Code | Writing, reviewing or migrating code in a language a skill here covers | The Code table below |
 | Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "what would Varun say", "what would Enrico say", "who said that", "write a khe.money post in Harshit's voice" | The Brains table below |
 | Content | Posts for social platforms and a newsletter, written in one person's voice from one idea | The Content table below |
+| Engineering | How agents write code in a repo: a mistake they keep making, an AGENTS.md that grows, verification, architecture, bugs, specs, review, handing work between agents | The Engineering table below |
 
 A new domain adds one row here and one table below it. Nothing else in this file changes.
 
@@ -179,6 +180,48 @@ A brain answers from one person's public writing or public talks and names the s
 |---|---|---|
 | Build a content engine for a person or brand, turn one idea into platform-native drafts, review or tune them. It never posts | `khe-content-engine` | here |
 
+## Engineering
+
+Start with `khe-poteto-pyramid` when the request is about agents repeating a mistake or how far to trust them. Lauren Tan's skills come from her pstack plugin and work best under her `poteto-mode`; Matt Pocock's are small and composable.
+
+| The job | Skill | Whose |
+|---|---|---|
+| The agent keeps making the same mistake: put the correction at the highest layer of the pyramid that holds it, build it, prove it fails on the past case; sweep a repo for repeat mistakes, triage an AGENTS.md, audit how far agents can be trusted | `khe-poteto-pyramid` | here |
+| Her whole rigorous workflow for any non-trivial task, routing to her playbooks and principles | `poteto-mode` | Lauren Tan |
+| Which of her skills or playbooks fits a task | `poteto-help` | Lauren Tan |
+| Her own sweep: mine history for mistake classes and fix each at the highest level, keeping a rule table | `correct` | Lauren Tan |
+| Strip comments from a diff and encode the constraints they claim | `no-comments` | Lauren Tan |
+| Generate a project skill that launches, drives and records the real app, with a feature map | `create-verification-skill` | Lauren Tan |
+| Bring a verification skill's feature map back in line with the app | `maintain-verification-skill` | Lauren Tan |
+| A race, retry, state machine or parser tests cannot reach: verify one property formally and keep it checked | `create-formal-verification-skill` | Lauren Tan |
+| Update a formal model after the code it covers changed | `maintain-formal-verification-skill` | Lauren Tan |
+| Show a behavior as a statechart from a checked TLA+ model, with every state that breaks a rule | `statechart` | Lauren Tan |
+| How a subsystem works at runtime | `how` | Lauren Tan |
+| Why something was built this way, from commits, PR discussions and other records | `why` | Lauren Tan |
+| Rebuild recent context on a topic from chat history before resuming work | `recall` | Lauren Tan |
+| Understand a change or subsystem, explained diagram by diagram | `teach` | Lauren Tan |
+| Settle the caller's usage, types and module shape before code crosses a function boundary | `architect` | Lauren Tan |
+| Several parallel attempts at one thing, then the best parts of each | `arena` | Lauren Tan |
+| Many parallel workers over slices or races, one aggregated report | `swarm` | Lauren Tan |
+| Different models try to break a diff; only findings a run proves are kept | `interrogate` | Lauren Tan |
+| What else a small-looking change could break, proven by running code | `blast-radius` | Lauren Tan |
+| A bug with a cheap local test path: the failing test first, then the fix | `tdd` | Lauren Tan |
+| Vet a benchmark or a measured speedup before reporting it | `benchmark-checklist` | Lauren Tan |
+| Docs, RFCs, READMEs, PR descriptions and commit messages to a layered standard | `technical-writing` | Lauren Tan |
+| Design or deepen a module's interface: depth, seams, adapters | `codebase-design` | Matt Pocock |
+| Scan a codebase for shallow modules worth deepening, as a report | `improve-codebase-architecture` | Matt Pocock |
+| A hard bug or a performance regression, as a diagnosis loop | `diagnosing-bugs` | Matt Pocock |
+| A project's domain language: GLOSSARY.md and ADRs | `domain-modeling` | Matt Pocock |
+| Stress-test a plan or design by interview, writing ADRs and the glossary as it goes | `grill-with-docs` | Matt Pocock |
+| Stress-test a plan or design by interview | `grill-me` | Matt Pocock |
+| Review a branch against the repo's standards and against its spec, in parallel | `pocock-code-review` | Matt Pocock |
+| Pre-commit hooks that format, type-check and test | `setup-pre-commit` | Matt Pocock |
+| Claude Code hooks that block destructive git commands | `git-guardrails-claude-code` | Matt Pocock |
+| Turn the conversation into a spec on the issue tracker | `to-spec` | Matt Pocock |
+| Plan work larger than one session as a map of decision tickets | `wayfinder` | Matt Pocock |
+| Compact the conversation into a handoff for another agent | `handoff` | Matt Pocock |
+| Test-driven development, red, green, refactor, with integration tests | `pocock-tdd` | Matt Pocock |
+
 ## How to run a skill
 
 Where the host has slash commands or a skill tool, invoke the skill by name with the user's request. Otherwise open its `SKILL.md`, which sits beside this skill's folder (`../<name>/SKILL.md`), and follow it from the top.
@@ -189,6 +232,8 @@ If the folder is not there, the skill is not installed. Name it and give the lin
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
 - Vercel's agent skills: `npx skills add vercel-labs/agent-skills --skill <name>`
+- Lauren Tan's pstack: `npx skills add cursor/plugins --skill <name>` for one skill. Her skills lean on each other, so the whole plugin is better: in Claude Code, `/plugin marketplace add cursor/plugins` then `/plugin install pstack@cursor-plugins`, and each command is `/pstack:<name>`.
+- Matt Pocock's: `npx skills add mattpocock/skills --skill <name>`, or the whole set with `claude plugin install mattpocock-skills@claude-plugins-official`. `pocock-code-review` and `pocock-tdd` are named `code-review` and `tdd` in his repo.
 - The four `ui-sdk-*` skills are the UI SDK repository's own contributor skills, in its `.agents/skills` folder. They are for work inside that repository and are read from a clone of it.
 - Vercel's `ui-sdk`: `npx skills add vercel-labs/ui --skill ui-sdk`. The copy that matches the project's version also ships at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`; when that file is there, read it in place of installing.
 
@@ -223,11 +268,19 @@ Each pair is one question, not two skills to read.
 | `khe-brain-yc` / `khe-brain-varun` / `khe-brain-isb` | Whose answer is wanted: the Y Combinator partners, Varun Mayya, or the isb-skills notes? | Named: that brain. Not named, a startup question: khe-brain-yc first, then khe-brain-varun for an Indian or bootstrapped case. A textbook framework or a model: khe-brain-isb. Never blend two brains into one answer. |
 | `khe-brain-harshit` / `khe-content-engine` | One khe.money post in Harshit's voice resting on his posted views, or one idea turned into a draft per platform from a voice node? | khe.money post or "what do I think about": khe-brain-harshit. Several platforms or a content system: khe-content-engine, which may take its views from khe-brain-harshit. |
 | `khe-brain-varun` / `khe-content-engine` | His stated view reported with its video, or a post drafted in your own voice? | Reported: khe-brain-varun. Drafted: khe-content-engine. |
+| `khe-poteto-pyramid` / `correct` | Her own procedure by name, or a correction placed and proved with a record and a gate? | Named: correct. Otherwise khe-poteto-pyramid, which links her skills for the deep parts. |
+| `khe-poteto-pyramid` / `learn-taste` | A design taste to write down, or a mistake a tool could stop? | Taste, from a design session: learn-taste. A repeat mistake in code: khe-poteto-pyramid. |
+| `tdd` / `pocock-tdd` | Fixing a bug with a cheap local test, or building a feature test-first? | A bug, or inside poteto-mode: tdd. A feature, red-green-refactor, integration tests: pocock-tdd. |
+| `teach` / `how` / `why` | Understand it, see how it runs, or learn why it was built so? | Runtime mechanics: how. The record of intent: why. Both, explained: teach. |
+| `architect` / `codebase-design` / `improve-codebase-architecture` | A new boundary to settle, one module to deepen, or a codebase to scan? | New code crossing a boundary: architect. One module's interface: codebase-design. Where to look: improve-codebase-architecture. |
+| `interrogate` / `pocock-code-review` | Try to break the diff, or check it against standards and spec? | Break it: interrogate. Standards and spec: pocock-code-review. |
+| `grill-me` / `grill-with-docs` | Should the interview leave ADRs and a glossary behind? | Yes: grill-with-docs. No: grill-me. |
+| `create-verification-skill` / `khe-demo` | A repeatable way for agents to prove behavior, or one clean recording? | Repeatable proof: create-verification-skill. A take for a PR, README or film: khe-demo. |
 | `prototype` / any building skill | Has the decision been made? | No: prototype. Yes: build the one thing. |
 
 ## When nothing fits
 
-Say so. The skills here cover design and Swift and nothing else. Backend logic, data fetching, state management, build tooling and tests have no skill here yet. Answer normally and say no skill here applies.
+Say so. The skills here cover design, Swift, React and the engineering practices in the Engineering table. Backend logic, data fetching, state management and build tooling have no skill of their own here yet. Answer normally and say no skill here applies.
 
 ## Examples
 

@@ -100,3 +100,105 @@
 [submodule "skills/learn-taste"]
 	path = skills/learn-taste
 	url = https://github.com/emilkowalski/skills.git
+[submodule "skills/poteto-mode"]
+	path = skills/poteto-mode
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/poteto-help"]
+	path = skills/poteto-help
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/correct"]
+	path = skills/correct
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/no-comments"]
+	path = skills/no-comments
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/create-verification-skill"]
+	path = skills/create-verification-skill
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/maintain-verification-skill"]
+	path = skills/maintain-verification-skill
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/create-formal-verification-skill"]
+	path = skills/create-formal-verification-skill
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/maintain-formal-verification-skill"]
+	path = skills/maintain-formal-verification-skill
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/statechart"]
+	path = skills/statechart
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/how"]
+	path = skills/how
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/why"]
+	path = skills/why
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/recall"]
+	path = skills/recall
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/teach"]
+	path = skills/teach
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/architect"]
+	path = skills/architect
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/arena"]
+	path = skills/arena
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/swarm"]
+	path = skills/swarm
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/interrogate"]
+	path = skills/interrogate
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/blast-radius"]
+	path = skills/blast-radius
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/tdd"]
+	path = skills/tdd
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/benchmark-checklist"]
+	path = skills/benchmark-checklist
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/technical-writing"]
+	path = skills/technical-writing
+	url = https://github.com/cursor/plugins.git
+[submodule "skills/codebase-design"]
+	path = skills/codebase-design
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/improve-codebase-architecture"]
+	path = skills/improve-codebase-architecture
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/diagnosing-bugs"]
+	path = skills/diagnosing-bugs
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/domain-modeling"]
+	path = skills/domain-modeling
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/grill-with-docs"]
+	path = skills/grill-with-docs
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/grill-me"]
+	path = skills/grill-me
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/pocock-code-review"]
+	path = skills/pocock-code-review
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/setup-pre-commit"]
+	path = skills/setup-pre-commit
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/git-guardrails-claude-code"]
+	path = skills/git-guardrails-claude-code
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/to-spec"]
+	path = skills/to-spec
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/wayfinder"]
+	path = skills/wayfinder
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/handoff"]
+	path = skills/handoff
+	url = https://github.com/mattpocock/skills.git
+[submodule "skills/pocock-tdd"]
+	path = skills/pocock-tdd
+	url = https://github.com/mattpocock/skills.git

@@ -15,13 +15,15 @@ A plan is one JSON file, written before any timeline exists. It holds every deci
 ```json
 {
   "//": "what this plan is for",
+  "brief": { "viewer": "an engineer whose deploys queue all afternoon", "promise": "a fix reaches staging in minutes", "moment": { "beat": "result", "what": "the staging URL turns green" }, "evidence": "capture/relay-deploy-staging.mov", "next": "start a deploy" },
+  "structure": "short path to success",
   "register": "ui-motion",
   "engine": "hyperframes",
   "runtime": 60,
   "fps": 30,
   "known_brand": false,
   "formats": [{ "aspect": "16:9", "width": 1920, "height": 1080, "layout": "master" }],
-  "beats": [{ "id": "hook", "start": 0, "end": 1.6, "what": "first word at 0.2 s", "from": "structure: first seam 1.6 s" }],
+  "beats": [{ "id": "hook", "start": 0, "end": 1.6, "what": "first word at 0.2 s", "from": "structure: first seam 1.6 s", "question": "why care?", "source": "capture/relay-queue.mov", "claim": "deploys wait in a queue" }],
   "first_word": 0.2,
   "first_seam": 1.6,
   "name": { "at": 17.4, "mode": "problem-end" },
@@ -39,9 +41,11 @@ A plan is one JSON file, written before any timeline exists. It holds every deci
 
 | Key | Rule |
 |---|---|
+| `brief` | `viewer`, `promise`, `evidence` and `next` as one line each, and `moment` with the `beat` id that shows it ([brief](brief.md)). Without it the gate prints the candidate `no-brief:` |
+| `structure` | The structure picked by the viewer's question ([structures](structures.md)). Not checked by the gate |
 | `register` | One of `ui-motion`, `founder-hybrid`, `live-action`, `product-camera`, `keynote-cards`, `kinetic-type`, `beat-cut`, `continuous-camera`. The two single-film rows (the CG teaser, the character-led film) are not registers a plan can name |
 | `runtime`, `fps` | Seconds, and the native frame rate |
-| `beats` | Contiguous from 0 to `runtime`: each `start` equals the `end` above it, within half a frame |
+| `beats` | Contiguous from 0 to `runtime`: each `start` equals the `end` above it, within half a frame. The Shot Map fields `question`, `source` and `claim` ride on each beat; the moment's beat holds at least 1.5 s and names a real `source` |
 | `first_word` | Seconds, or `null` when the film carries no display copy |
 | `name` | `at` in seconds and a `mode`: `early`, `problem-end` or `late`. `late` needs `known_brand: true` |
 | `endcard` | `start` on a beat boundary and the final `hold`; `url` only with a `verb` |
@@ -69,7 +73,15 @@ node scripts/film-check.mjs plan.json render.mp4 --gate
 
 "Passed" means every never-intentional line is at 0 in the files the gate read. Passing is necessary, not sufficient: the gate reads a plan and a container, and no pixel.
 
-## Register (first, because every other number depends on it)
+## The moment (first, because a film can pass every number and miss it)
+
+- Does the plan carry a brief whose moment names a beat? ([brief](brief.md))
+- On the render: is the moment on screen for at least 1.5 s, readable at the destination size with the sound off?
+- Does every state, label and number in the moment come from an `evidence` file, and does the beat order describe a path the product really takes?
+- Did the user approve the plan before it was rendered?
+- Did a cold viewer, stopped at 3 s, 10 s and the last frame, describe the promise and name the moment's shot? ([review](review.md), The cold viewer)
+
+## Register (every other number depends on it)
 
 - Is one register named on line one, with its cuts a minute, still share and loudness beside it? ([launch-video-registers](launch-video-registers.md))
 - Does every number in the plan trace to that row, with none borrowed from a second row?
@@ -140,6 +152,7 @@ Not candidates for judgment. Fix the cause and run the gate again. Clearing a li
 | `true-peak:` | A true-peak ceiling above -1 dBTP |
 | `cropped-vertical:` | A vertical or square cut cropped from, or letterboxed around, the master |
 | `unsourced-beat:` | A beat-sheet row with an empty "taken from" cell |
+| `moment-missing:` | The brief's moment names no beat, its beat holds under 1.5 s, or its `source` is empty or `missing` |
 | `missing-beat:` | A beat sheet without the first word, the first seam, the name, the payoff, or the endcard and its hold |
 | `no-frame:` | A review row whose Before has no time and frame, no quoted source line and no "whole film" |
 | `no-owner:` | A review row whose Why names no owning reference |
@@ -177,6 +190,7 @@ Reported for judgment. Each one that stands is written into FILM.md with its rea
 | `format-size:` | A format whose size is not the one given for its aspect |
 | `render-format:` | A file size the references do not list |
 | `no-film-json:` | A review with no per-film JSON block |
+| `no-brief:` | A plan with no `brief`, so nothing says which moment the film must show |
 
 ## Where the gate's numbers come from
 
@@ -196,6 +210,8 @@ Three places where the references print a spread instead of one limit, and the f
 | Two registers joined with a plus (`unknown-register:`) | Pick the primary row; the second rides inside it as an act and gives no numbers |
 | A second the plan does not cover (`beat-gap:`, `beat-sum:`) | Extend the beat before it or start the next one there; a hold is a beat too |
 | The name at 70 % for a product nobody knows (`name-window:`) | Move it to 11 % or earlier, or to where the problem act ends, median 29 % |
+| The result the brief names gets under 1.5 s, or no beat (`moment-missing:`) | Take the time from the route to it: cut the picking and navigating, then hold the result until it reads |
+| A moment whose source is `missing` (`moment-missing:`) | Capture the product doing it, or change the promise; never fill it with a screen the product never showed |
 | An endcard that leaves before it is read (`endcard-hold:`) | Run it 4.4 to 6.3 s and hold the final frame about 2 s |
 | A seam row with no type (`seam-untyped:`) | Decide it now: a `cut` needs a vector on both sides, a `morph` a carrier |
 | A pull answered by a push (`vector-mismatch:`) | Match the Z sign: 1 to 1.2 out and 0.75 to 1 in, or the stamp's 1.18 and 0.78 inside HyperFrames |
@@ -222,6 +238,7 @@ The script reads a plan and a container. It cannot check:
 - Motion inside a shot: a float on a UI object, a spring on a camera, a cursor too small to read.
 - That every rendered frame decodes, and that the file plays on the hardware decoder.
 - That a `taken from` cell is true. It checks that the cell is filled.
+- That a `source` file shows what its beat claims, and that a viewer who never used the product understands the moment.
 
 ## Hand over
 
@@ -229,6 +246,8 @@ Write `FILM.md` beside the plan. A template:
 
 ```md
 # Film: <name>
+Brief: <viewer> / <promise> / moment <beat id, what> / evidence <file> / next <action and its test>
+Structure: <the one picked> (set aside: <approach>, <reason>; <approach>, <reason>)
 Register: <row>, <cuts a minute>, <still share>, <LUFS>
 Gold: <the example you started from> (what you kept, what you changed)
 Beats: first word <t>, first seam <t>, name <t> (<% and mode>), payoff <t>, endcard <start to end>, hold <s>
@@ -237,6 +256,8 @@ Measured: <file>, <duration> at <native fps>, <size>; frames decoded <n of n>; c
 Gate: <the last line of film-check.mjs --gate, pasted>
 Lines: <each line the gate printed> -> <fix, or why it stands>
 Review: <the reviewer's list> -> <your response>
+Cold viewers: <who, at what size, sound off or on>: 3 s <answer>; 10 s <answer>; last frame <answer, and the shot named>
+Revisions: <version> wanted <meaning>; first cut showed <what, at t>; missing <the moment or fault>; changed <scene, why>; new viewer said <answer>
 Assumptions:
 Unresolved:
 Not checked: <formats, looks and cases nobody watched>
@@ -244,3 +265,4 @@ Not checked: <formats, looks and cases nobody watched>
 
 - Is the gate's last line pasted, not retyped?
 - Does `Not checked:` name every format and case nobody watched?
+- Are the first render, the brief and the revision record kept beside the final cut, so the next film starts from them?

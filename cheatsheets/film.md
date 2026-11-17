@@ -2,6 +2,9 @@
 
 | Problem                              | Solution                                                                       |
 | ------------------------------------ | ------------------------------------------------------------------------------ |
+| The result is barely in the cut      | Give the brief's moment its own beat, at least `1.5 s`                         |
+| Strangers cannot say what it does    | Stop a cold viewer at `3 s`, `10 s` and the last frame and ask                 |
+| Which story should the film tell     | Pick by the viewer's question; "how fast?" is a `short path to success`        |
 | Sentence arrives as one block        | Build it per word about `0.2 s` apart, then hold `1.15` to `1.5 s`             |
 | Nobody can read the typed prompt     | About `15` characters a second, then a `1.15 s` hold                           |
 | Name shows up too late               | By `11 %` of the runtime, or where the problem act ends (median `29 %`)        |

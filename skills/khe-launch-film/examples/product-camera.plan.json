@@ -1,6 +1,14 @@
 {
   "//": "Gold for a known brand whose product is the hero: the product-camera row. Learn: 49 % still at 14 cuts a minute is this register, not a flaw, and the late name is open only because the brand is known.",
   "film": "Atlas Agent, from a brand its audience knows. 50 s, the real product",
+  "brief": {
+    "viewer": "an analyst who already uses Atlas and rebuilds the same weekly report by hand",
+    "promise": "the agent builds the report from one sentence",
+    "moment": { "beat": "answer", "what": "the rows resolving into the finished report" },
+    "evidence": "capture/atlas-agent-report.mov, the real product",
+    "next": "try the agent on this week's report"
+  },
+  "structure": "one guided task",
   "register": "product-camera",
   "engine": "hyperframes",
   "runtime": 50,
@@ -12,7 +20,7 @@
   "beats": [
     { "id": "open", "start": 0, "end": 2.33, "what": "the product already working, readable on frame 0", "from": "structure: product-first 16/18, the product working by 2 s" },
     { "id": "prompt", "start": 2.33, "end": 12, "what": "the human types with a caret, then Enter", "from": "ui-demo: human at 10 characters a second" },
-    { "id": "answer", "start": 12, "end": 26, "what": "cut past the wait: the prompt already posted, the rows resolving", "from": "ui-demo: the wait is stepped or cut" },
+    { "id": "answer", "start": 12, "end": 26, "what": "cut past the wait: the prompt already posted, the rows resolving", "from": "ui-demo: the wait is stepped or cut", "source": "capture/atlas-agent-report.mov" },
     { "id": "second-action", "start": 26, "end": 41, "what": "one more action, the camera still drifting", "from": "motion: a camera drifts at constant speed and is cut mid-drift" },
     { "id": "name", "start": 41, "end": 43.4, "what": "the name converges after the product has worked", "from": "structure: late mode, 40 to 83 %, known brands" },
     { "id": "payoff", "start": 43.4, "end": 44, "what": "the finished result, 0.6 s before the endcard cut", "from": "structure: payoff 0.1 to 1.2 s before the endcard" },

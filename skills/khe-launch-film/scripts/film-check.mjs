@@ -59,6 +59,7 @@ const T = {
   stillTol: 0.03,                 // launch-video-review: pulldown alone adds about 3 points of still share
   seamTechniques: 3, seamPrimary: 0.6, // launch-video-seams, the budget
   stingMax: 15,                   // launch-video-sound, register A: reveals and stings under 15 s
+  momentHold: 1.5,                // brief, The moment: the acclaimed films hold a card or line about 1.5 s (launch-video-type)
 }
 // launch-video-formats (Vertical and square) and film-as-function-of-time (Delivery gates)
 const FORMATS = { '16:9': [[1920, 1080], [3840, 2160]], '9:16': [[1080, 1920]], '1:1': [[1080, 1080]], '4:5': [[1080, 1350]] }
@@ -91,6 +92,7 @@ const NEVER = {
   'cropped-vertical': 'a vertical or square cut cropped from, or letterboxed around, the master',
   'unsourced-beat': 'a beat-sheet row with an empty "taken from" cell',
   'missing-beat': 'a beat sheet without one of its required beats',
+  'moment-missing': 'the moment in the brief names no beat, its beat holds under 1.5 s, or it has no real source',
   'no-frame': 'a review row whose Before has no time and frame, no quoted source line and no "whole film"',
   'no-owner': 'a review row whose Why names no owning reference',
   'no-not-checked': 'a review with no "Not checked:" line',
@@ -122,6 +124,7 @@ const CANDIDATE = {
   'format-size': 'a format whose size is not the one the references give for its aspect',
   'render-format': 'a file size the references do not list as a delivery format',
   'no-film-json': 'a review with no per-film JSON block',
+  'no-brief': 'a plan with no five-line brief, so nothing says which moment the film must show',
 }
 const NOT_CHECKED = [
   'whether the film is worth watching, and whether its register was the right pick',
@@ -130,6 +133,7 @@ const NOT_CHECKED = [
   'loudness, true peak and sync on a render (ffmpeg ebur128 and frames)',
   'motion inside a shot: floats, springs on a camera, cursor size',
   'that every rendered frame decodes, on the hardware decoder',
+  'whether a viewer who never used the product can say what it does after watching',
 ]
 
 // ---- Small helpers ---------------------------------------------------------
@@ -288,6 +292,21 @@ function checkPlan(text, add) {
       }
       const sum = plan.beats.reduce((s, b) => s + (b.end - b.start), 0)
       if (!broken && okRuntime && Math.abs(sum - runtime) > tol) add('beat-sum', L(`beats[${plan.beats.length - 1}]`), `the beats cover ${num(sum)} s; the runtime is ${num(runtime)} s`)
+    }
+  }
+
+  // 2b. The brief: the one moment the film exists to show, on a beat, from a real source (references/brief.md).
+  const brief = plan.brief
+  if (brief === undefined) add('no-brief', 1, 'no brief: write viewer, promise, moment, evidence and next before the beats, so the plan says what must be seen')
+  else if (need('brief', brief && typeof brief === 'object' && !Array.isArray(brief), 'brief must be { "viewer", "promise", "moment": { "beat", "what" }, "evidence", "next" }')) {
+    for (const k of ['viewer', 'promise', 'evidence', 'next']) need(`brief.${k}`, typeof brief[k] === 'string' && brief[k].trim() !== '', `brief.${k} must be one written line`)
+    const m = brief.moment
+    if (need('brief.moment', m && typeof m === 'object' && typeof m.beat === 'string' && m.beat.trim() !== '', 'brief.moment must name the beat that shows it: { "beat": id, "what": "..." }') && beatsOk) {
+      const b = plan.beats.find((x) => x.id === m.beat)
+      const src = String(b?.source ?? '').trim()
+      if (!b) add('moment-missing', L('brief.moment'), `the moment names beat "${m.beat}", and no beat has that id; the film never shows what the brief says it must`)
+      else if (b.end - b.start < T.momentHold - 1e-9) add('moment-missing', L('brief.moment'), `the moment's beat "${b.id}" holds ${num(b.end - b.start)} s; give it at least ${T.momentHold} s, and take the time from the route to it`)
+      else if (!src || /^(missing|none|tbd|todo|generated)$/i.test(src)) add('moment-missing', L('brief.moment'), `the moment's beat "${b.id}" has ${src ? `source "${src}"` : 'no source'}; record the real product doing it, or change the promise`)
     }
   }
 
@@ -656,6 +675,9 @@ function selfTest() {
   })
   const planLines = (edit) => { const p = base(); edit(p); const lines = []; checkPlan(JSON.stringify(p, null, 2), (line) => lines.push(line)); return lines }
   say(planLines(() => {}).filter((l) => NEVER[l]).length === 0, 'the inline base plan raises no never-intentional line')
+  say(planLines(() => {}).includes('no-brief'), 'a plan with no brief raises the candidate no-brief:')
+  const briefed = (p) => { p.beats[2].source = 'capture/deploy.mov'; p.brief = { viewer: 'v', promise: 'p', moment: { beat: 'body', what: 'w' }, evidence: 'e', next: 'n' } }
+  say(planLines(briefed).every((l) => !NEVER[l] && l !== 'no-brief'), 'a plan whose moment has a beat, a hold and a source raises nothing about the brief')
   const inline = [
     ['vector-mismatch', (p) => { p.seams[2].exit = { axis: 'z', dir: -1 }; p.seams[2].entry = { axis: 'z', dir: 1 } }],
     ['dead-cut', (p) => { p.seams[1].exit_moving = false; p.seams[1].entry_acts_in = 0.9 }],
@@ -666,6 +688,9 @@ function selfTest() {
     ['plan-mismatch', (p) => { p.cuts = 6 }],
     ['plan-incomplete', (p) => { delete p.still_share }],
     ['beat-overlap', (p) => { p.beats[2].start = 16 }],
+    ['moment-missing', (p) => { briefed(p); p.brief.moment.beat = 'result' }],
+    ['moment-missing', (p) => { briefed(p); p.beats[2].source = 'missing' }],
+    ['plan-incomplete', (p) => { briefed(p); delete p.brief.evidence }],
   ]
   for (const [line, edit] of inline) say(planLines(edit).includes(line), `an inline plan raises ${line}:`)
   say(planLines((p) => { p.cuts = 5; p.seams.push({ ...p.seams[0], at: 44 }) }).every((l) => !NEVER[l]), 'a plan one cut past the median stays clear of never-intentional lines')

@@ -6,7 +6,7 @@ tags: [launch-video, teaching, pairs]
 
 # Teaching pairs
 
-`teaching/` holds fourteen pairs. Each folder is named for the gate line its `bad` half raises. The `bad` and `good` halves are the same plan or the same beat sheet with one thing changed, and the first line of each file says what.
+`teaching/` holds fifteen pairs. Each folder is named for the gate line its `bad` half raises. The `bad` and `good` halves are the same plan or the same beat sheet with one thing changed, and the first line of each file says what.
 
 Use a pair to diagnose your own plan: find the folder whose line the gate printed, or whose description sounds like your film, and read why the good half works. Diff the two halves; the diff is the whole lesson. The bad halves are never starting points. Start from the closest gold in `examples/`.
 
@@ -29,6 +29,7 @@ The pairs are also the gate's tests. `node scripts/film-check.mjs --self-test` f
 | `teaching/beat-overlap/` | The demo starts at 19.0 s while the reveal runs to 20.0 s | Two beats cannot own the same second. Move one boundary |
 | `teaching/beat-sum/` | The endcard beat ends at 58 s in a 60 s film | The last beat ends on the runtime, or the runtime is wrong |
 | `teaching/name-window/` | The name at 42 s, 70 % of the film, with `known_brand: false` | The late mode is open only to a brand the audience knows. Name it by 11 %, or where the problem act ends, median 29 % ([launch-video-structure](launch-video-structure.md)) |
+| `teaching/moment-missing/` | The first cut spends 33.8 s on the environment picker and the branch menu; the moment the brief names, the staging URL turning green, holds 0.6 s | The route is cut to 28 s and the result holds 6.4 s from the real capture. A film can pass every pacing number and still never show what the product does ([brief](brief.md)) |
 | `teaching/endcard-hold/` | A 5.0 s endcard whose final frame holds 0.5 s | Hold the final frame about 2 s; the gate's floor for this row is 1.1 s |
 
 ## Seams, type and sound

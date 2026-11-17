@@ -6,7 +6,7 @@ Picture locks before sound. Sound is placed on frames, and it cannot be placed o
 
 Every step runs the [loop](../references/loop.md): the owning skill's closest gold first, its gate until it passes, and the exit checked from evidence before the next step starts. A gate that is missing or says `inconclusive` is reported, never counted as a pass.
 
-1. **Name the register** with `khe-launch-film`. One register, written down, before any beat is timed. Exit: the register and the runtime are stated in one line. Gate: none, a decision; the written line is the evidence.
+1. **Write the brief, then name the register** with `khe-launch-film`. The five-line brief and the one moment the viewer must understand come first, then the structure, three approaches and the user's pick, then one register, all before any beat is timed. Exit: the brief, the structure and the register with the runtime, each in one line. Gate: none, a decision; the written line is the evidence.
 2. **Time the beats, the words and the product demo** with `khe-launch-film`. Exit: a beat sheet with a time for the first word, the name and the endcard. Gate: `khe-launch-film/scripts/film-check.mjs` on the beat sheet.
 3. **Build it** with `khe-launch-film`, in the project's film engine. A product demo inside the film follows `khe-launch-film`; one that plays on a page is `stageshow` and belongs to the Landing page playbook. Exit: a render that plays from the first frame to the endcard at native frame rate. Gate: `khe-launch-film/scripts/film-check.mjs`.
 4. **Lock picture** with `khe-launch-film`. Seams and cuts settled, nothing left to retime. Exit: you can say "no frame will move again". Gate: `khe-launch-film/scripts/film-check.mjs`, run again on the locked cut.

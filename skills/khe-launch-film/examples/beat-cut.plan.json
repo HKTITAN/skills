@@ -1,6 +1,14 @@
 {
   "//": "Gold for a feed sizzle of 40 s or less: the beat-cut row. Learn: 30 cuts a minute is right here and wrong everywhere else, and one technique still carries two thirds of the cuts.",
   "film": "Prism 2, a feed sizzle. 30 s, every shot a live component",
+  "brief": {
+    "viewer": "a front-end developer scrolling a feed, who builds the same components every project",
+    "promise": "Prism 2's components are finished and alive out of the box",
+    "moment": { "beat": "hero", "what": "the one component that holds long enough to see it work" },
+    "evidence": "capture/prism-hero-component.mov, a live component",
+    "next": "open the component gallery"
+  },
+  "structure": "one outcome per card",
   "register": "beat-cut",
   "engine": "hyperframes",
   "runtime": 30,
@@ -15,7 +23,7 @@
     { "id": "name", "start": 2.33, "end": 4, "what": "the name at 2.5 s, the low end with it", "from": "structure: early mode, 2.5 s, by 11 %" },
     { "id": "run", "start": 4, "end": 18, "what": "ten live components, one cut per bar", "from": "registers: every shot a live component" },
     { "id": "ladder", "start": 18, "end": 20, "what": "holds shrink .8, .5, .4, .3 s while the zoom only climbs", "from": "cuts: the accelerating ladder" },
-    { "id": "hero", "start": 20, "end": 24.4, "what": "the one shot that holds", "from": "structure: sizzle shots run 0.75 to 3.8 s; this one is the hold the ladder snaps to" },
+    { "id": "hero", "start": 20, "end": 24.4, "what": "the one shot that holds", "from": "structure: sizzle shots run 0.75 to 3.8 s; this one is the hold the ladder snaps to", "source": "capture/prism-hero-component.mov" },
     { "id": "payoff", "start": 24.4, "end": 25, "what": "the finished surface, 0.6 s before the endcard cut", "from": "structure: payoff 0.1 to 1.2 s before the endcard" },
     { "id": "endcard", "start": 25, "end": 30, "what": "5.0 s, the last 2.0 s hold still", "from": "structure: endcard 4.4 to 6.3 s, hold about 2 s" }
   ],

@@ -9,6 +9,31 @@
   },
   "plugins": [
     {
+      "name": "kheskills",
+      "source": "./",
+      "description": "Every khe skill except the brains, as one Claude Code plugin: /kheskills:khe-auto, /kheskills:khe-content-engine, /kheskills:khe-demo, /kheskills:khe-design-tokens, /kheskills:khe-diagram, /kheskills:khe-launch-film, /kheskills:khe-package, /kheskills:khe-poteto-pyramid, /kheskills:khe-sound, /kheskills:khe-sticker, /kheskills:khe-svg, /kheskills:khe-ui. The brains are the khe-brain plugin.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Harshit Khemani"
+      },
+      "license": "MIT",
+      "strict": false,
+      "skills": [
+        "./skills/khe-auto",
+        "./skills/khe-content-engine",
+        "./skills/khe-demo",
+        "./skills/khe-design-tokens",
+        "./skills/khe-diagram",
+        "./skills/khe-launch-film",
+        "./skills/khe-package",
+        "./skills/khe-poteto-pyramid",
+        "./skills/khe-sound",
+        "./skills/khe-sticker",
+        "./skills/khe-svg",
+        "./skills/khe-ui"
+      ]
+    },
+    {
       "name": "khe-brain",
       "source": "./",
       "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani, /khe-brain:enrico-tartarotti.",

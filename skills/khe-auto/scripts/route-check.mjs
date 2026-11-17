@@ -59,6 +59,7 @@ export const LINES = {
   'sound-before-picture': ['never', 'khe-sound ordered before khe-launch-film'],
   'no-install-line': ['never', 'A skill called not installed without its install line, or with the wrong repo'],
   'no-unverified': ['never', 'The last line is not a Not verified: line'],
+  'stock-phrase': ['never', 'A help-desk phrase in the reply ("let me know if you need anything", "great question", "I apologize for the confusion"); see references/voice.md'],
   // playbooks
   'no-ownership': ['never', 'The playbook does not open with its bold "You own this" line'],
   'no-steps': ['never', 'The playbook has no numbered steps'],
@@ -187,6 +188,7 @@ function content(text) {
 
 // ---- A routing reply --------------------------------------------------------
 
+const STOCK = /\b(let me know if you need (?:anything|any(?:thing)? (?:more|else)|more help|help|assistance)|feel free to (?:ask|reach out)|how can i help|anything (?:else|specific) you(?:'d| would)? (?:like|want)|great question|happy to help|i hope this helps|no problem at all|i'll carry that out|i apologi[sz]e for the confusion|here's what i found)\b/i
 const VALUE = /\b\d+(?:\.\d+)?\s?(?:ms|px|dB|LUFS|fps|Hz|rem)\b|cubic-bezier\(|\b\d+(?:\.\d+)?%/
 
 export function checkReply(text, file, col) {
@@ -195,6 +197,12 @@ export function checkReply(text, file, col) {
   const rows = content(text)
   if (!rows.length) return out
   const all = text.split('\n')
+
+  // Help-desk filler: say what is happening instead (references/voice.md, Never say).
+  for (const [n, l] of rows) {
+    const m = l.match(STOCK)
+    if (m) add('stock-phrase', n, '"' + m[0] + '": say what is happening instead')
+  }
 
   const [gn, gl] = rows[0]
   if (!/^Goal:\s*\S/.test(gl)) add('no-goal', gn, 'the first line is not "Goal: <what the user wants and what comes back>"')

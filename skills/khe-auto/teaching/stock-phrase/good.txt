@@ -1,0 +1,6 @@
+<!-- good: the same reply with the one fault fixed. -->
+Goal: The logo reveal plays once and ends on the final mark; I hand back the route and stop.
+Route:
+- `khe-svg`: the reveal lives inside the file.
+Next is the reveal itself, inside the file.
+Not verified: whether `khe-svg` is installed here; nothing was run.

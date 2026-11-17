@@ -10,6 +10,8 @@ What changed in kheSkills, newest first. One entry per day that something a user
 - `khe-auto` places every correction made during a job with `khe-poteto-pyramid` before handing over (Non-negotiable 11 and a new step 8), so a fix outlives the chat and the next agent inherits it.
 - README figures in the khe design system: the poteto pyramid with each layer's hand-offs, `khe-package`'s flow, and a map of how the skills hand off, built by `.github/showcase/figures.mjs` and checked with `khe-diagram`'s gate.
 - Cheatsheets for `khe-poteto-pyramid` and `khe-package`.
+- A `kheskills` plugin in the marketplace: every khe skill except the brains in one Claude Code install, `/plugin install kheskills --marketplace HKTITAN/skills`. `scripts/check.mjs` fails when a skill is left out of it.
+- `khe-auto` has a voice: one friend's voice over every skill, warm and dry, no preamble, matched to the person's length and lowercase, emoji only after they use one. Its gate adds `stock-phrase:` for help-desk filler such as "let me know if you need anything" and "great question".
 - Lauren Tan's pstack skills are linked and installed through their Claude Code build (`harness/pstack/claude-code`, called as `/pstack:<name>`) instead of the Cursor originals. `khe-auto`'s README shows how it runs and a real routed reply.
 - `khe-launch-film` starts from a five-line brief and the one moment the film must show (new brief, structures, publish and sources references, after Hiten Shah's Product Launch Video Playbook of 16 November 2026); its gate adds `moment-missing:` and the candidate `no-brief:`, reviews end with a cold-viewer test, and the router's launch-film playbook opens with the brief.
 

@@ -48,6 +48,10 @@ If the answer is a new skill, build it in this order, and tell the user which ro
 
 A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login.
 
+## The kheskills plugin
+
+`.claude-plugin/marketplace.json` also offers `kheskills`: every `khe-` skill except the brains, listed one folder at a time in its `skills` array, so Claude Code shows each as `/kheskills:<name>`. A new skill outside the brains adds its folder there; `scripts/check.mjs` fails when one is missing. The brains stay out of it so nobody who installs both plugins sees them twice.
+
 ## The khe-brain plugin
 
 Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for a person in full (`varun-mayya`, never `varun`) and for an institution by its usual short name (`isb`, `yc`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`skills/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.

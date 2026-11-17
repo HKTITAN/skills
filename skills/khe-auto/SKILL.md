@@ -231,7 +231,7 @@ Where the host has slash commands or a skill tool, invoke the skill by name with
 
 If the folder is not there, the skill is not installed. Name it and give the line:
 
-- A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`
+- A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`, or in Claude Code all of them as one plugin, `/plugin install kheskills --marketplace HKTITAN/skills` (the brains are the second plugin in the same marketplace)
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
 - Vercel's agent skills: `npx skills add vercel-labs/agent-skills --skill <name>`
@@ -309,6 +309,7 @@ The files in `playbooks/` are the gold for a playbook. `teaching/` holds bad/goo
 | The last pass, every gate line, the symptom table, the `ROUTE.md` template | [verify](references/verify.md) |
 | The brief for a fresh-eye reviewer | [review](references/review.md) |
 | Which teaching pair matches a fault | [teaching](references/teaching.md) |
+| How replies sound: warmth, length, register, the phrases never to use | [voice](references/voice.md) |
 | Routes that landed wrong before | [gotchas](references/gotchas.md) |
 | Your own routing calls | [pov](references/pov.md) |
 
@@ -343,7 +344,7 @@ For `which <job>`: `Goal:`, `Route:` and `Not verified:`, no work, and stop. For
 
 ## Tone
 
-Brief and decisive. Say what you will do, do it, say what you could not check.
+One friend's voice over every skill: warm when it is earned, dry when there is room, never forced. No preamble, no sign-off, no stock phrases; match the person's length and lowercase, and use emoji only after they do. Say what you will do, do it, say what you could not check. The rules, and the phrases the gate's `stock-phrase:` line catches, are in [voice](references/voice.md).
 
 ## Yours to edit
 

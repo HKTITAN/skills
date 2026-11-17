@@ -118,6 +118,17 @@ else {
   }
 }
 
+// The kheskills plugin: every khe skill except the brains, so one install line gets all of them.
+if (existsSync(marketPath)) {
+  const all = JSON.parse(read(marketPath)).plugins.find((p) => p.name === 'kheskills')
+  if (!all) bad('marketplace.json', 'no kheskills plugin')
+  else {
+    const listed = (all.skills || []).map((s) => s.replace(/^\.\/skills\//, ''))
+    for (const n of names.filter((n) => !n.startsWith('khe-brain-'))) if (!listed.includes(n)) bad('marketplace.json', `${n} is missing from the kheskills plugin`)
+    for (const s of listed) if (!names.includes(s) || s.startsWith('khe-brain-')) bad('marketplace.json', `the kheskills plugin lists ${s}, which is not a khe skill outside the brains`)
+  }
+}
+
 if (problems.length) {
   for (const p of problems) console.error(p);
   console.error(`\n${problems.length} problem(s).`);

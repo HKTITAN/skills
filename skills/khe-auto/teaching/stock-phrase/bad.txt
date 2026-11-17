@@ -1,0 +1,6 @@
+<!-- stock-phrase: the reply ends its route with help-desk filler instead of saying what happens next. -->
+Goal: The logo reveal plays once and ends on the final mark; I hand back the route and stop.
+Route:
+- `khe-svg`: the reveal lives inside the file.
+Great question, happy to help with the rest.
+Not verified: whether `khe-svg` is installed here; nothing was run.

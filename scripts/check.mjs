@@ -244,10 +244,16 @@ if (market) {
     for (const p of market.plugins.filter((p) => typeof p.source === "string")) {
       const prev = before.find((b) => b.name === p.name);
       if (!prev?.version) continue;
-      // What it serves: its listed folders and files, and for the brains the skill folders the commands read.
-      const paths = [...(p.skills || []), ...(p.agents || []), ...(p.commands || [])].map((c) => join(p.source, c).replace(/\\/g, "/"));
-      if (p.name === "khe-brain") paths.push(...names.filter((n) => n.startsWith("khe-brain-")).map((n) => `skills/${n}`));
-      const changed = git("diff", "--name-only", at, "--", ...paths).stdout.trim();
+      // What it serves now and what it served at the base, so a deleted agent, skill or command counts;
+      // for the brains, every brain folder on either side, since the commands read them.
+      const served = (q) => [...(q.skills || []), ...(q.agents || []), ...(q.commands || [])].map((c) => join(q.source, c).replace(/\\/g, "/"));
+      const paths = new Set([...served(p), ...served(prev)]);
+      if (p.name === "khe-brain") {
+        const thenBrains = git("ls-tree", "-d", "--name-only", at, "skills/").stdout.split("\n").filter((d) => d.startsWith("skills/khe-brain-"));
+        for (const d of [...thenBrains, ...names.filter((n) => n.startsWith("khe-brain-")).map((n) => `skills/${n}`)]) paths.add(d);
+      }
+      // Committed and uncommitted edits, and new files not yet added, so a local run catches it too.
+      const changed = [git("diff", "--name-only", at, "--", ...paths).stdout, git("ls-files", "--others", "--exclude-standard", "--", ...paths).stdout].join("\n").trim();
       if (changed && prev.version === p.version) bad("marketplace.json", `${p.name} serves changed files (${changed.split("\n").slice(0, 3).join(", ")}${changed.split("\n").length > 3 ? ", ..." : ""}) but is still ${p.version}: bump its version and say why in CHANGELOG.md`);
     }
   }

@@ -82,6 +82,14 @@ for (const n of names) {
   if (n !== "khe-auto" && !router.includes(`\`${n}\``)) bad("khe-auto", `the router never names ${n}`);
 }
 
+// Linked skills are pins, never checkouts. The skills CLI runs `git submodule update --init` on every
+// remote install, and its skills/ walk goes three folders deep, so a checked-out link would install
+// skills/animate/skills/animate as if it were mine. `update = none` makes git skip it.
+for (const block of read(join(ROOT, ".gitmodules")).split(/^(?=\[submodule )/m).filter((b) => b.trim())) {
+  const path = block.match(/^\s*path = (.+)$/m)?.[1]?.trim();
+  if (!/^\s*update = none$/m.test(block)) bad(".gitmodules", `${path} needs "update = none", or npx skills add HKTITAN/skills installs its contents as this repo's skills`);
+}
+
 // Linked skills: never prefixed khe-, each named by the router and linked from the README.
 for (const n of linked) {
   if (n.startsWith("khe-")) bad(".gitmodules", `${n} is linked from another repo and must not use the khe- prefix`);

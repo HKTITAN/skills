@@ -5,7 +5,7 @@
     "url": "https://www.khe.money"
   },
   "metadata": {
-    "description": "The skills Harshit Khemani uses with coding agents, grouped as Claude Code plugins."
+    "description": "The skills Harshit Khemani uses with coding agents: his own (kheskills, khe-brain) and the ones he uses from Emil Kowalski, Benji Taylor, Vercel, Lauren Tan and Matt Pocock, each served from its author's repo."
   },
   "plugins": [
     {
@@ -54,6 +54,135 @@
         "./commands/yc.md",
         "./commands/harshitkhemani.md",
         "./commands/enrico-tartarotti.md"
+      ]
+    },
+    {
+      "name": "benji-taylor",
+      "source": {
+        "source": "github",
+        "repo": "benjitaylor/skills"
+      },
+      "description": "Benji Taylor's Stageshow: faux product UI, still or animated. Served from benjitaylor/skills, not copied.",
+      "author": {
+        "name": "Benji Taylor"
+      },
+      "strict": false,
+      "skills": [
+        "./stageshow"
+      ]
+    },
+    {
+      "name": "emil-kowalski",
+      "source": {
+        "source": "github",
+        "repo": "emilkowalski/skills"
+      },
+      "description": "Emil Kowalski's skills: UI craft, motion, gestures, mobile feel, taste. Served from emilkowalski/skills, not copied.",
+      "author": {
+        "name": "Emil Kowalski"
+      },
+      "strict": false,
+      "skills": [
+        "./skills/animate",
+        "./skills/animate-expo",
+        "./skills/animation-performance",
+        "./skills/animation-vocabulary",
+        "./skills/apple-design",
+        "./skills/ask-sonner",
+        "./skills/break-ui",
+        "./skills/choreograph",
+        "./skills/emil-design-eng",
+        "./skills/find-animation-opportunities",
+        "./skills/gestures",
+        "./skills/improve-animations",
+        "./skills/learn-taste",
+        "./skills/mobile-native",
+        "./skills/pick-ui-library",
+        "./skills/prototype",
+        "./skills/remove-animations",
+        "./skills/review-animations",
+        "./skills/write-swift"
+      ]
+    },
+    {
+      "name": "matt-pocock",
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      },
+      "description": "Matt Pocock's engineering skills: deep modules, diagnosis, domain models, specs, guardrails. Served from mattpocock/skills, not copied.",
+      "author": {
+        "name": "Matt Pocock"
+      },
+      "strict": false,
+      "skills": [
+        "./skills/engineering/code-review",
+        "./skills/engineering/codebase-design",
+        "./skills/engineering/diagnosing-bugs",
+        "./skills/engineering/domain-modeling",
+        "./skills/engineering/grill-with-docs",
+        "./skills/engineering/improve-codebase-architecture",
+        "./skills/engineering/tdd",
+        "./skills/engineering/to-spec",
+        "./skills/engineering/wayfinder",
+        "./skills/misc/git-guardrails-claude-code",
+        "./skills/misc/setup-pre-commit",
+        "./skills/productivity/grill-me",
+        "./skills/productivity/handoff"
+      ]
+    },
+    {
+      "name": "pstack",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/cursor/plugins.git",
+        "path": "harness/pstack/claude-code"
+      },
+      "description": "Lauren Tan's (poteto) pstack, the Claude Code build Cursor generates from her Cursor plugin: /pstack:poteto-mode, /pstack:correct and the rest. Served from cursor/plugins, not copied.",
+      "author": {
+        "name": "Lauren Tan"
+      }
+    },
+    {
+      "name": "vercel",
+      "source": {
+        "source": "github",
+        "repo": "vercel-labs/agent-skills"
+      },
+      "description": "Vercel's agent skills: React and Next.js performance, composition, deploying, the web interface and writing guidelines. Served from vercel-labs/agent-skills, not copied.",
+      "author": {
+        "name": "Vercel"
+      },
+      "strict": false,
+      "skills": [
+        "./skills/composition-patterns",
+        "./skills/deploy-to-vercel",
+        "./skills/react-best-practices",
+        "./skills/react-native-skills",
+        "./skills/react-view-transitions",
+        "./skills/vercel-cli-with-tokens",
+        "./skills/vercel-optimize",
+        "./skills/web-design-guidelines",
+        "./skills/writing-guidelines"
+      ]
+    },
+    {
+      "name": "vercel-ui-sdk",
+      "source": {
+        "source": "github",
+        "repo": "vercel-labs/ui"
+      },
+      "description": "Vercel's UI SDK skill, and the UI SDK repository's own contributor skills. Served from vercel-labs/ui, not copied.",
+      "author": {
+        "name": "Vercel"
+      },
+      "strict": false,
+      "skills": [
+        "./.agents/skills/ui-sdk-expert-review",
+        "./.agents/skills/ui-sdk-unslop",
+        "./.agents/skills/ui-sdk-write-code",
+        "./.agents/skills/ui-sdk-write-docs",
+        "./packages/core/skills/ui-sdk"
       ]
     }
   ]

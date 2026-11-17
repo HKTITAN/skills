@@ -4,6 +4,7 @@
 // Exits 1 with one line per problem.
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -127,6 +128,12 @@ if (existsSync(marketPath)) {
     for (const n of names.filter((n) => !n.startsWith('khe-brain-'))) if (!listed.includes(n)) bad('marketplace.json', `${n} is missing from the kheskills plugin`)
     for (const s of listed) if (!names.includes(s) || s.startsWith('khe-brain-')) bad('marketplace.json', `the kheskills plugin lists ${s}, which is not a khe skill outside the brains`)
   }
+}
+
+// The plugins that serve other people's skills are generated from the README's links.
+{
+  const r = spawnSync(process.execPath, [join(ROOT, "scripts", "marketplace.mjs"), "--check"], { encoding: "utf8" });
+  if (r.status !== 0) bad("marketplace.json", (r.stderr || r.stdout).trim());
 }
 
 if (problems.length) {

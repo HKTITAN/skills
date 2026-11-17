@@ -77,6 +77,19 @@ In Claude Code they also install as two plugins: `kheskills` for every skill abo
 /plugin install khe-brain@kheskills
 ```
 
+The same marketplace serves the skills I use from other people, each straight from its author's repo, so one marketplace gets everything:
+
+```text
+/plugin install emil-kowalski@kheskills
+/plugin install benji-taylor@kheskills
+/plugin install vercel@kheskills
+/plugin install vercel-ui-sdk@kheskills
+/plugin install pstack@kheskills
+/plugin install matt-pocock@kheskills
+```
+
+`pstack` here is the Claude Code build of Lauren Tan's Cursor plugin, so its skills are `/pstack:<name>` as in Cursor's own marketplace. The others serve exactly the skills listed under From others below.
+
 On Claude Code 2.1.275 or later the first install is one line: `/plugin install kheskills --marketplace HKTITAN/skills`. The skills are then `/kheskills:khe-ui`, `/kheskills:khe-auto` and so on.
 
 Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya`, `/khe-brain:isb`, `/khe-brain:yc`, `/khe-brain:harshitkhemani` and `/khe-brain:enrico-tartarotti` each take a question. The plugin reads the same skill folders, so the answers are the same either way.

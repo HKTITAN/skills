@@ -52,6 +52,10 @@ A skill built from one person's published work (a "brain" skill, `khe-brain-<nam
 
 `.claude-plugin/marketplace.json` also offers `kheskills`: every `khe-` skill except the brains, listed one folder at a time in its `skills` array, so Claude Code shows each as `/kheskills:<name>`. A new skill outside the brains adds its folder there; `scripts/check.mjs` fails when one is missing. The brains stay out of it so nobody who installs both plugins sees them twice.
 
+## Other people's skills in the marketplace
+
+`scripts/marketplace.mjs` writes one plugin per author into `.claude-plugin/marketplace.json` (`emil-kowalski`, `benji-taylor`, `vercel`, `vercel-ui-sdk`, `pstack`, `matt-pocock`), each with a `github` source pointing at the author's repo and `strict: false` with the skill folders the README's From others links name. pstack is served whole through a `git-subdir` source at `harness/pstack/claude-code`, Cursor's Claude Code build. After linking a skill and adding its README link, run `node scripts/marketplace.mjs`; `scripts/check.mjs` fails while the file is out of date.
+
 ## The khe-brain plugin
 
 Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for a person in full (`varun-mayya`, never `varun`) and for an institution by its usual short name (`isb`, `yc`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`skills/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.

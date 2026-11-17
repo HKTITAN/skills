@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # check.mjs compares each plugin's version with main's, so main has to be here.
+          fetch-depth: 0
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
@@ -36,3 +39,5 @@ jobs:
           want=$(ls -d skills/*/SKILL.md | wc -l)
           out=$(npx -y skills add ./ --list 2>&1)
           echo "$out" | grep -Eq "Found[^0-9]*${want}[^0-9]*skills" || { echo "$out"; echo "::error::npx skills add must find ${want} skills"; exit 1; }
+      - name: Claude Code accepts the marketplace
+        run: npx -y @anthropic-ai/claude-code@2.1.325 plugin validate . --strict

@@ -73,7 +73,7 @@ npx skills add HKTITAN/skills --skill khe-ui
 In Claude Code they install as plugins from one marketplace. Add it with `--sparse`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.
 
 ```text
-/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents commands skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
+/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
 /plugin install kheskills@kheskills
 /plugin install khe-brain@kheskills
 ```
@@ -86,7 +86,7 @@ For a team, put the same in the project's `.claude/settings.json`, so everyone w
 {
   "extraKnownMarketplaces": {
     "kheskills": {
-      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","commands","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
+      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
     }
   }
 }
@@ -110,6 +110,8 @@ If an add or update still times out on a slow connection, raise Claude Code's cl
 
 Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya`, `/khe-brain:isb`, `/khe-brain:yc`, `/khe-brain:harshitkhemani` and `/khe-brain:enrico-tartarotti` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
 
+Agents that load the [Agent Plugins](https://agent-plugins.org) standard read [`plugin.json`](plugin.json) at the root: the repo is one plugin, `kheskills`, holding every khe skill, brains included. That standard has no agents or commands yet, so the kheAgents and the `/khe-brain:` commands are Claude Code only.
+
 Each skill works alone. Some call others:
 
 ![How the skills hand off: khe-auto routes every request; khe-design-tokens and ui-sdk feed khe-ui; khe-demo feeds khe-launch-film, which hands to khe-sound, as does khe-svg](.github/assets/skill-map.svg)
@@ -130,7 +132,7 @@ The `kheskills` plugin also installs four agents for orchestrated work, as `khes
 
 | Agent | Does |
 |---|---|
-| [khe-router](agents/khe-router.md) | Routes one request through `khe-auto` and returns only the route. Haiku, read-only |
+| [khe-router](agents/khe-router.md) | Routes one request through `khe-auto` and returns only the route. Read-only |
 | [khe-executor](agents/khe-executor.md) | Executes one build, test or check step by the skill that owns it, runs its gate, returns evidence |
 | [khe-reviewer](agents/khe-reviewer.md) | A fresh-eye review of an executor's result: runs the gate itself, ranks findings, gives a verdict |
 | [khe-pyramid](agents/khe-pyramid.md) | Places one correction with `khe-poteto-pyramid` into `PYRAMID.md` |

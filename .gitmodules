@@ -1,204 +1,272 @@
 [submodule "skills/animate"]
 	path = skills/animate
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/animate-expo"]
 	path = skills/animate-expo
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/animation-performance"]
 	path = skills/animation-performance
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/animation-vocabulary"]
 	path = skills/animation-vocabulary
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/apple-design"]
 	path = skills/apple-design
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/ask-sonner"]
 	path = skills/ask-sonner
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/break-ui"]
 	path = skills/break-ui
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/choreograph"]
 	path = skills/choreograph
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/emil-design-eng"]
 	path = skills/emil-design-eng
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/find-animation-opportunities"]
 	path = skills/find-animation-opportunities
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/gestures"]
 	path = skills/gestures
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/improve-animations"]
 	path = skills/improve-animations
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/mobile-native"]
 	path = skills/mobile-native
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/pick-ui-library"]
 	path = skills/pick-ui-library
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/prototype"]
 	path = skills/prototype
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/remove-animations"]
 	path = skills/remove-animations
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/review-animations"]
 	path = skills/review-animations
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/write-swift"]
 	path = skills/write-swift
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/stageshow"]
 	path = skills/stageshow
 	url = https://github.com/benjitaylor/skills.git
+	update = none
 [submodule "skills/ui-sdk"]
 	path = skills/ui-sdk
 	url = https://github.com/vercel-labs/ui.git
+	update = none
 [submodule "skills/web-design-guidelines"]
 	path = skills/web-design-guidelines
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/vercel-react-view-transitions"]
 	path = skills/vercel-react-view-transitions
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/vercel-react-best-practices"]
 	path = skills/vercel-react-best-practices
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/vercel-composition-patterns"]
 	path = skills/vercel-composition-patterns
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/vercel-react-native-skills"]
 	path = skills/vercel-react-native-skills
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/deploy-to-vercel"]
 	path = skills/deploy-to-vercel
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/vercel-cli-with-tokens"]
 	path = skills/vercel-cli-with-tokens
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/vercel-optimize"]
 	path = skills/vercel-optimize
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/writing-guidelines"]
 	path = skills/writing-guidelines
 	url = https://github.com/vercel-labs/agent-skills.git
+	update = none
 [submodule "skills/ui-sdk-write-code"]
 	path = skills/ui-sdk-write-code
 	url = https://github.com/vercel-labs/ui.git
+	update = none
 [submodule "skills/ui-sdk-expert-review"]
 	path = skills/ui-sdk-expert-review
 	url = https://github.com/vercel-labs/ui.git
+	update = none
 [submodule "skills/ui-sdk-unslop"]
 	path = skills/ui-sdk-unslop
 	url = https://github.com/vercel-labs/ui.git
+	update = none
 [submodule "skills/ui-sdk-write-docs"]
 	path = skills/ui-sdk-write-docs
 	url = https://github.com/vercel-labs/ui.git
+	update = none
 [submodule "skills/learn-taste"]
 	path = skills/learn-taste
 	url = https://github.com/emilkowalski/skills.git
+	update = none
 [submodule "skills/poteto-mode"]
 	path = skills/poteto-mode
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/poteto-help"]
 	path = skills/poteto-help
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/correct"]
 	path = skills/correct
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/no-comments"]
 	path = skills/no-comments
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/create-verification-skill"]
 	path = skills/create-verification-skill
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/maintain-verification-skill"]
 	path = skills/maintain-verification-skill
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/create-formal-verification-skill"]
 	path = skills/create-formal-verification-skill
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/maintain-formal-verification-skill"]
 	path = skills/maintain-formal-verification-skill
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/statechart"]
 	path = skills/statechart
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/how"]
 	path = skills/how
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/why"]
 	path = skills/why
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/recall"]
 	path = skills/recall
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/teach"]
 	path = skills/teach
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/architect"]
 	path = skills/architect
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/arena"]
 	path = skills/arena
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/swarm"]
 	path = skills/swarm
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/interrogate"]
 	path = skills/interrogate
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/blast-radius"]
 	path = skills/blast-radius
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/tdd"]
 	path = skills/tdd
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/benchmark-checklist"]
 	path = skills/benchmark-checklist
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/technical-writing"]
 	path = skills/technical-writing
 	url = https://github.com/cursor/plugins.git
+	update = none
 [submodule "skills/codebase-design"]
 	path = skills/codebase-design
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/improve-codebase-architecture"]
 	path = skills/improve-codebase-architecture
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/diagnosing-bugs"]
 	path = skills/diagnosing-bugs
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/domain-modeling"]
 	path = skills/domain-modeling
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/grill-with-docs"]
 	path = skills/grill-with-docs
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/grill-me"]
 	path = skills/grill-me
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/pocock-code-review"]
 	path = skills/pocock-code-review
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/setup-pre-commit"]
 	path = skills/setup-pre-commit
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/git-guardrails-claude-code"]
 	path = skills/git-guardrails-claude-code
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/to-spec"]
 	path = skills/to-spec
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/wayfinder"]
 	path = skills/wayfinder
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/handoff"]
 	path = skills/handoff
 	url = https://github.com/mattpocock/skills.git
+	update = none
 [submodule "skills/pocock-tdd"]
 	path = skills/pocock-tdd
 	url = https://github.com/mattpocock/skills.git
+	update = none

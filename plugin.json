@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kheskills",
+  "description": "Harshit Khemani's 19 agent skills: UI craft, design tokens, SVG, stickers, diagrams, sound, launch films, demos, packaging, the poteto pyramid, a content engine, and brains that answer from one source's public work with the source named. Start with khe-auto.",
+  "author": {
+    "name": "Harshit Khemani",
+    "url": "https://www.khe.money"
+  },
+  "homepage": "https://github.com/HKTITAN/skills",
+  "repository": "https://github.com/HKTITAN/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "design-engineering",
+    "ui",
+    "motion",
+    "agents"
+  ]
+}

@@ -11,12 +11,26 @@
     {
       "name": "kheskills",
       "source": "./",
-      "description": "Every khe skill except the brains, as one Claude Code plugin: /kheskills:khe-auto, /kheskills:khe-content-engine, /kheskills:khe-demo, /kheskills:khe-design-tokens, /kheskills:khe-diagram, /kheskills:khe-launch-film, /kheskills:khe-package, /kheskills:khe-poteto-pyramid, /kheskills:khe-sound, /kheskills:khe-sticker, /kheskills:khe-svg, /kheskills:khe-ui. Also four kheAgents for orchestrated work: kheskills:khe-router, kheskills:khe-executor, kheskills:khe-reviewer, kheskills:khe-pyramid. The brains are the khe-brain plugin.",
-      "version": "1.2.0",
+      "description": "Every khe skill except the brains, as one Claude Code plugin: /kheskills:khe-auto, /kheskills:khe-content-engine, /kheskills:khe-demo, /kheskills:khe-design-tokens, /kheskills:khe-diagram, /kheskills:khe-launch-film, /kheskills:khe-package, /kheskills:khe-poteto-pyramid, /kheskills:khe-sound, /kheskills:khe-sticker, /kheskills:khe-svg, /kheskills:khe-ui. Also 4 kheAgents for orchestrated work: kheskills:khe-executor, kheskills:khe-pyramid, kheskills:khe-reviewer, kheskills:khe-router. The brains are the khe-brain plugin.",
+      "version": "1.2.1",
       "author": {
-        "name": "Harshit Khemani"
+        "name": "Harshit Khemani",
+        "url": "https://www.khe.money"
       },
+      "homepage": "https://github.com/HKTITAN/skills",
+      "repository": "https://github.com/HKTITAN/skills",
       "license": "MIT",
+      "keywords": [
+        "skills",
+        "design-engineering",
+        "ui",
+        "motion",
+        "svg",
+        "sound",
+        "launch-video",
+        "agents",
+        "orchestration"
+      ],
       "strict": false,
       "skills": [
         "./skills/khe-auto",
@@ -37,30 +51,35 @@
         "./agents/khe-pyramid.md",
         "./agents/khe-reviewer.md",
         "./agents/khe-router.md"
-      ],
-      "commands": []
+      ]
     },
     {
       "name": "khe-brain",
-      "source": "./",
-      "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani, /khe-brain:enrico-tartarotti.",
-      "version": "1.6.0",
+      "source": "./skills",
+      "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:benji-taylor, /khe-brain:emil-kowalski, /khe-brain:enrico-tartarotti, /khe-brain:harshitkhemani, /khe-brain:isb, /khe-brain:varun-mayya, /khe-brain:yc.",
+      "version": "1.6.1",
       "author": {
-        "name": "Harshit Khemani"
+        "name": "Harshit Khemani",
+        "url": "https://www.khe.money"
       },
+      "homepage": "https://github.com/HKTITAN/skills",
+      "repository": "https://github.com/HKTITAN/skills",
       "license": "MIT",
-      "strict": false,
-      "skills": [
-        "./commands"
+      "keywords": [
+        "skills",
+        "brain",
+        "citations",
+        "research"
       ],
+      "strict": false,
       "commands": [
-        "./commands/emil-kowalski.md",
-        "./commands/benji-taylor.md",
-        "./commands/varun-mayya.md",
-        "./commands/isb.md",
-        "./commands/yc.md",
-        "./commands/harshitkhemani.md",
-        "./commands/enrico-tartarotti.md"
+        "./khe-brain-benji/commands/",
+        "./khe-brain-emil/commands/",
+        "./khe-brain-enrico/commands/",
+        "./khe-brain-harshit/commands/",
+        "./khe-brain-isb/commands/",
+        "./khe-brain-varun/commands/",
+        "./khe-brain-yc/commands/"
       ]
     },
     {
@@ -70,6 +89,7 @@
         "repo": "benjitaylor/skills"
       },
       "description": "Benji Taylor's Stageshow: faux product UI, still or animated. Served from benjitaylor/skills, not copied.",
+      "homepage": "https://github.com/benjitaylor/skills",
       "author": {
         "name": "Benji Taylor"
       },
@@ -85,6 +105,7 @@
         "repo": "emilkowalski/skills"
       },
       "description": "Emil Kowalski's skills: UI craft, motion, gestures, mobile feel, taste. Served from emilkowalski/skills, not copied.",
+      "homepage": "https://github.com/emilkowalski/skills",
       "author": {
         "name": "Emil Kowalski"
       },
@@ -118,6 +139,7 @@
         "repo": "mattpocock/skills"
       },
       "description": "Matt Pocock's engineering skills: deep modules, diagnosis, domain models, specs, guardrails. Served from mattpocock/skills as its own plugin, not copied.",
+      "homepage": "https://github.com/mattpocock/skills",
       "author": {
         "name": "Matt Pocock"
       }
@@ -130,6 +152,7 @@
         "path": "harness/pstack/claude-code"
       },
       "description": "Lauren Tan's (poteto) pstack, the Claude Code build Cursor generates from her Cursor plugin: /pstack:poteto-mode, /pstack:correct and the rest. Served from cursor/plugins, not copied.",
+      "homepage": "https://github.com/cursor/plugins/tree/main/harness/pstack/claude-code",
       "author": {
         "name": "Lauren Tan"
       }
@@ -141,6 +164,7 @@
         "repo": "vercel-labs/agent-skills"
       },
       "description": "Vercel's agent skills: React and Next.js performance, composition, deploying, the web interface and writing guidelines. Served from vercel-labs/agent-skills, not copied.",
+      "homepage": "https://github.com/vercel-labs/agent-skills",
       "author": {
         "name": "Vercel"
       },
@@ -164,6 +188,7 @@
         "repo": "vercel-labs/ui"
       },
       "description": "Vercel's UI SDK skill, and the UI SDK repository's own contributor skills. Served from vercel-labs/ui, not copied.",
+      "homepage": "https://github.com/vercel-labs/ui",
       "author": {
         "name": "Vercel"
       },

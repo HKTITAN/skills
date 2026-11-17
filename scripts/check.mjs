@@ -82,6 +82,14 @@ for (const n of names) {
   if (n !== "khe-auto" && !router.includes(`\`${n}\``)) bad("khe-auto", `the router never names ${n}`);
 }
 
+// Linked skills are pins, never checkouts. The skills CLI runs `git submodule update --init` on every
+// remote install, and its skills/ walk goes three folders deep, so a checked-out link would install
+// skills/animate/skills/animate as if it were mine. `update = none` makes git skip it.
+for (const block of read(join(ROOT, ".gitmodules")).split(/^(?=\[submodule )/m).filter((b) => b.trim())) {
+  const path = block.match(/^\s*path = (.+)$/m)?.[1]?.trim();
+  if (!/^\s*update = none$/m.test(block)) bad(".gitmodules", `${path} needs "update = none", or npx skills add HKTITAN/skills installs its contents as this repo's skills`);
+}
+
 // Linked skills: never prefixed khe-, each named by the router and linked from the README.
 for (const n of linked) {
   if (n.startsWith("khe-")) bad(".gitmodules", `${n} is linked from another repo and must not use the khe- prefix`);
@@ -89,33 +97,37 @@ for (const n of linked) {
   if (!new RegExp(`\\[${n}\\]\\(https://github\\.com/`).test(readme)) bad("README.md", `${n} is not linked to its original`);
 }
 
-// The khe-brain plugin: one command per brain skill, each listed in the marketplace file and
-// pointing at its skill's folder.
+// The khe-brain plugin: one command per brain, in that brain's own folder
+// (skills/khe-brain-varun/commands/varun-mayya.md is /khe-brain:varun-mayya), served by a plugin
+// rooted at ./skills. Claude Code loads a root plugin's commands/ and agents/ whatever its entry says
+// (an empty list falls back to the default folder), so the layout is what keeps the two plugins apart:
+// no commands/ at the root, and khe-brain rooted where there are no agents.
 const marketPath = join(ROOT, ".claude-plugin", "marketplace.json");
+if (existsSync(join(ROOT, "commands"))) bad("commands/", "kheskills is rooted at ./ and would load every file here as its own command; a brain's command goes in skills/khe-brain-<x>/commands/");
 if (!existsSync(marketPath)) bad(".claude-plugin", "no marketplace.json");
 else {
   const plugin = JSON.parse(read(marketPath)).plugins.find((p) => p.name === "khe-brain");
   if (!plugin) bad("marketplace.json", "no khe-brain plugin");
   else {
-    // A command is named for the person in full (commands/varun-mayya.md is /khe-brain:varun-mayya)
-    // and names the one skill it reads, so the two are matched by that path, not by file name.
+    if (plugin.source !== "./skills") bad("marketplace.json", 'khe-brain must be rooted at "./skills": rooted at ./ it loads agents/ a second time');
+    if (plugin.skills) bad("marketplace.json", "the khe-brain plugin must not list skills; each brain would show twice");
+    if (plugin.agents) bad("marketplace.json", "the khe-brain plugin serves no agents; kheskills does");
     const listed = plugin.commands || [];
     const brains = names.filter((n) => n.startsWith("khe-brain-"));
-    const commandDir = join(ROOT, "commands");
-    const files = existsSync(commandDir) ? readdirSync(commandDir).filter((f) => f.endsWith(".md")).sort() : [];
-    const reads = new Map();
-    for (const f of files) {
-      if (!/^[a-z0-9]+(-[a-z0-9]+)*\.md$/.test(f)) bad(`commands/${f}`, "a command name is lowercase letters, digits and single hyphens");
-      if (!listed.includes(`./commands/${f}`)) bad("marketplace.json", `./commands/${f} is not in the khe-brain plugin's commands`);
-      const target = read(join(commandDir, f)).match(/\/skills\/(khe-brain-[a-z0-9-]+)\/SKILL\.md/)?.[1];
-      if (!target) bad(`commands/${f}`, "does not point at a skills/khe-brain-*/SKILL.md");
-      else if (!brains.includes(target)) bad(`commands/${f}`, `points at ${target}, which is not a skill here`);
-      else if (reads.has(target)) bad(`commands/${f}`, `${target} already has commands/${reads.get(target)}`);
-      else reads.set(target, f);
+    for (const n of brains) {
+      const dir = join(SKILLS, n, "commands");
+      const files = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith(".md")) : [];
+      if (files.length !== 1) { bad(n, `needs exactly one command in commands/, has ${files.length}, so it is missing from /khe-brain:`); continue; }
+      const f = files[0];
+      const at = `${n}/commands/${f}`;
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*\.md$/.test(f)) bad(at, "a command name is lowercase letters, digits and single hyphens");
+      if (readdirSync(dir).length !== 1) bad(at, "commands/ holds only the command: Claude Code loads every file in it");
+      if (!listed.includes(`./${n}/commands/`)) bad("marketplace.json", `./${n}/commands/ is not in the khe-brain plugin's commands`);
+      // The command reads its own skill from the plugin root, which is skills/.
+      const target = read(join(dir, f)).match(/\$\{CLAUDE_PLUGIN_ROOT\}\/(khe-brain-[a-z0-9-]+)\/SKILL\.md/)?.[1];
+      if (target !== n) bad(at, `must read \${CLAUDE_PLUGIN_ROOT}/${n}/SKILL.md${target ? `, not ${target}` : ""}`);
     }
-    for (const n of brains) if (!reads.has(n)) bad("commands", `${n} has no command, so it is missing from /khe-brain:`);
-    for (const c of listed) if (!files.includes(c.replace(/^\.\/commands\//, ""))) bad("marketplace.json", `${c} is listed and does not exist`);
-    for (const s of plugin.skills || []) if (existsSync(join(ROOT, s, "SKILL.md")) || /^\.\/skills/.test(s)) bad("marketplace.json", `the khe-brain plugin must not list ${s} as a skill; each brain would show twice`);
+    for (const c of listed) if (!existsSync(join(SKILLS, c))) bad("marketplace.json", `khe-brain lists ${c}, which does not exist`);
   }
 }
 
@@ -143,6 +155,130 @@ if (existsSync(marketPath)) {
 {
   const r = spawnSync(process.execPath, [join(ROOT, "scripts", "marketplace.mjs"), "--check"], { encoding: "utf8" });
   if (r.status !== 0) bad("marketplace.json", (r.stderr || r.stdout).trim());
+}
+
+// The manifests each install path reads, held to its own spec, so a hand edit that would break an
+// install fails here instead of on someone's machine. marketplace.mjs --check (above) catches drift
+// from the folders; these catch what generation cannot: the specs' own rules.
+const NAME = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+const json = (rel) => { try { return JSON.parse(read(join(ROOT, rel))); } catch (e) { bad(rel, `is not valid JSON: ${e.message}`); return null; } };
+const onlyKeys = (where, obj, keys) => { for (const k of Object.keys(obj || {})) if (!keys.includes(k)) bad(where, `unknown field "${k}"; the spec allows ${keys.join(", ")}`); };
+
+// skills.sh (https://skills.sh/schemas/skills.sh.schema.json): closed fields, the limits its schema sets.
+{
+  const s = json("skills.sh.json");
+  if (s) {
+    onlyKeys("skills.sh.json", s, ["$schema", "schema", "notGrouped", "groupings", "paths"]);
+    if (s.$schema !== "https://skills.sh/schemas/skills.sh.schema.json") bad("skills.sh.json", "$schema must be https://skills.sh/schemas/skills.sh.schema.json");
+    if (s.notGrouped !== undefined && !["top", "bottom"].includes(s.notGrouped)) bad("skills.sh.json", 'notGrouped must be "top" or "bottom"');
+    if (!Array.isArray(s.groupings) || s.groupings.length < 1 || s.groupings.length > 50) bad("skills.sh.json", "groupings must hold 1 to 50 groups");
+    for (const [i, g] of (s.groupings || []).entries()) {
+      const at = `skills.sh.json groupings[${i}]`;
+      onlyKeys(at, g, ["title", "description", "skills"]);
+      if (typeof g.title !== "string" || g.title.length < 1 || g.title.length > 120) bad(at, "title must be 1 to 120 characters");
+      if (g.description !== undefined && (typeof g.description !== "string" || g.description.length > 500)) bad(at, `description is ${g.description?.length} characters; the schema caps it at 500`);
+      if (!Array.isArray(g.skills) || g.skills.length < 1 || g.skills.length > 500) bad(at, "skills must hold 1 to 500 names");
+    }
+    for (const p of s.paths || []) if (!/^\.\/[^\\]+$/.test(p)) bad("skills.sh.json", `paths entry ${p} must start with ./`);
+    // The Brains group names every brain command, so the repo page tells Claude Code users what to type.
+    const brains = (s.groupings || []).find((g) => (g.skills || []).some((n) => n.startsWith("khe-brain-")));
+    const commands = names.filter((n) => n.startsWith("khe-brain-") && existsSync(join(SKILLS, n, "commands"))).flatMap((n) => readdirSync(join(SKILLS, n, "commands")).filter((f) => f.endsWith(".md")));
+    for (const f of commands) if (brains && !brains.description?.includes(`/khe-brain:${f.replace(/\.md$/, "")}`)) bad("skills.sh.json", `the ${brains.title} group's description never names /khe-brain:${f.replace(/\.md$/, "")}`);
+  }
+}
+
+// Agent Plugins 1.0.0 (https://agent-plugins.org/specification): plugin.json at the root, closed fields.
+{
+  const ap = existsSync(join(ROOT, "plugin.json")) ? json("plugin.json") : (bad("plugin.json", "missing; the Agent Plugins spec needs it at the root (node scripts/marketplace.mjs writes it)"), null);
+  if (ap) {
+    onlyKeys("plugin.json", ap, ["$schema", "name", "version", "description", "author", "homepage", "repository", "license", "keywords", "extensions"]);
+    if (ap.$schema !== "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json") bad("plugin.json", "$schema must be https://agent-plugins.org/schemas/1.0.0/plugin.schema.json");
+    if (typeof ap.name !== "string" || ap.name.length > 64 || !/^(?!.*(?:--|\.\.))[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/.test(ap.name)) bad("plugin.json", "name must be 1 to 64 lowercase letters, digits, hyphens and periods");
+    if (ap.author) onlyKeys("plugin.json author", ap.author, ["name", "email", "url"]);
+    for (const k of ["version", "description", "homepage", "repository", "license"]) if (ap[k] !== undefined && typeof ap[k] !== "string") bad("plugin.json", `${k} must be a string`);
+    if (ap.keywords && !(Array.isArray(ap.keywords) && ap.keywords.every((k) => typeof k === "string"))) bad("plugin.json", "keywords must be strings");
+    if (existsSync(join(ROOT, "mcp.json"))) bad("plugin.json", "mcp.json exists; give it the 1.0.0 mcp $schema and check it here");
+  }
+}
+
+// Claude Code (code.claude.com/docs/en/plugins/marketplace-reference): what `claude plugin validate`
+// checks, offline, plus the version rule it cannot see.
+const market = existsSync(marketPath) ? json(".claude-plugin/marketplace.json") : null;
+if (market) {
+  if (!NAME.test(market.name || "")) bad("marketplace.json", "name must be lowercase letters, digits and single hyphens");
+  if (!market.owner?.name) bad("marketplace.json", "owner.name is required");
+  if (!market.description && !market.metadata?.description) bad("marketplace.json", "needs a description (metadata.description)");
+  const seen = new Set();
+  for (const p of market.plugins || []) {
+    const at = `marketplace.json ${p.name}`;
+    if (!NAME.test(p.name || "")) bad(at, "a plugin name is lowercase letters, digits and single hyphens");
+    if (seen.has(p.name)) bad(at, "is listed twice"); seen.add(p.name);
+    if (!p.description) bad(at, "no description");
+    if (!p.author?.name) bad(at, "no author.name");
+    if (!p.homepage) bad(at, "no homepage");
+    if (typeof p.source === "string") {
+      if (!/^\.\/?/.test(p.source) || p.source.includes("..")) bad(at, "a relative source starts with ./ and never contains ..");
+      if (!p.version || !/^\d+\.\d+\.\d+$/.test(p.version)) bad(at, "a plugin served from this repo needs a semver version");
+      for (const key of ["skills", "agents", "commands"]) for (const c of p[key] || []) {
+        if (!c.startsWith("./") || c.includes("..")) bad(at, `${key} path ${c} must start with ./ and stay inside the repo`);
+        else if (!existsSync(join(ROOT, p.source, c))) bad(at, `${key} path ${c} does not exist`);
+      }
+      // Every version must be explained to the people who update: a CHANGELOG line names it.
+      if (p.version && !read(join(ROOT, "CHANGELOG.md")).split("\n").some((l) => l.includes(p.name) && l.includes(p.version))) bad("CHANGELOG.md", `no line names ${p.name} with its version ${p.version}`);
+    } else if (!p.source?.source) bad(at, "source must be ./path or an object with a source type");
+  }
+}
+
+// A served version that does not move is a plugin that never updates: Claude Code compares versions,
+// and "already at the latest version" keeps the old copy. So when what a plugin serves changed since
+// the base branch, its version must change too. Skipped (with a note) where the base is not fetched.
+if (market) {
+  const base = process.env.CHECK_BASE || "origin/main";
+  const git = (...a) => spawnSync("git", a, { cwd: ROOT, encoding: "utf8" });
+  const mb = git("merge-base", "HEAD", base);
+  if (mb.status !== 0) console.log(`version check skipped: ${base} is not fetched`);
+  else {
+    const at = mb.stdout.trim();
+    const old = git("show", `${at}:.claude-plugin/marketplace.json`);
+    const before = old.status === 0 ? JSON.parse(old.stdout).plugins : [];
+    for (const p of market.plugins.filter((p) => typeof p.source === "string")) {
+      const prev = before.find((b) => b.name === p.name);
+      if (!prev?.version) continue;
+      // What it serves now and what it served at the base, so a deleted agent, skill or command counts;
+      // for the brains, every brain folder on either side, since the commands read them.
+      const served = (q) => [...(q.skills || []), ...(q.agents || []), ...(q.commands || [])].map((c) => join(q.source, c).replace(/\\/g, "/"));
+      const paths = new Set([...served(p), ...served(prev)]);
+      if (p.name === "khe-brain") {
+        const thenBrains = git("ls-tree", "-d", "--name-only", at, "skills/").stdout.split("\n").filter((d) => d.startsWith("skills/khe-brain-"));
+        for (const d of [...thenBrains, ...names.filter((n) => n.startsWith("khe-brain-")).map((n) => `skills/${n}`)]) paths.add(d);
+      }
+      // Committed and uncommitted edits, and new files not yet added, so a local run catches it too.
+      const changed = [git("diff", "--name-only", at, "--", ...paths).stdout, git("ls-files", "--others", "--exclude-standard", "--", ...paths).stdout].join("\n").trim();
+      if (changed && prev.version === p.version) bad("marketplace.json", `${p.name} serves changed files (${changed.split("\n").slice(0, 3).join(", ")}${changed.split("\n").length > 3 ? ", ..." : ""}) but is still ${p.version}: bump its version and say why in CHANGELOG.md (or delete the file, if it is an untracked scratch file)`);
+    }
+  }
+}
+
+// No model is hardcoded: agents inherit the session's model, and the policy picks a tier by the task.
+// Scoped to config and policy; a launch film called "Claude Opus 4.6" in a reference is a film title.
+{
+  const files = [
+    ...["agents", "orchestration"].flatMap((d) => (existsSync(join(ROOT, d)) ? walk(join(ROOT, d)) : [])),
+    ...names.filter((n) => existsSync(join(SKILLS, n, "commands"))).flatMap((n) => walk(join(SKILLS, n, "commands"))),
+    ...walk(join(SKILLS, "khe-auto")).filter((f) => f.endsWith(".md")),
+    ...[".claude-plugin/marketplace.json", "plugin.json", "skills.sh.json", "README.md", "AGENTS.md", "CONTRIBUTING.md", "CHANGELOG.md"].map((f) => join(ROOT, f)),
+  ].filter((f) => existsSync(f));
+  for (const f of files) {
+    const rel = f.slice(ROOT.length + 1).replace(/\\/g, "/");
+    read(f).split("\n").forEach((line, i) => {
+      const m = line.match(/\b(sonnet|opus|haiku|fable)\b/i);
+      if (m) bad(`${rel}:${i + 1}`, `names the model "${m[0]}"; pick the tier by the task instead of hardcoding one`);
+    });
+    if (rel.startsWith("agents/")) {
+      const model = read(f).match(/^---\n[\s\S]*?^model:\s*(.+)$[\s\S]*?\n---\n/m)?.[1]?.trim();
+      if (model && model !== "inherit") bad(rel, `model is "${model}"; use model: inherit`);
+    }
+  }
 }
 
 if (problems.length) {

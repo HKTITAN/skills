@@ -12,14 +12,18 @@ skills/khe-<name>/
   examples/       gold examples: the bar, and the place to start from
   teaching/       bad and good pairs, one fault each; the gate's tests
   scripts/        the gate, and any tool the skill ships
+  commands/       a brain only: its one Claude Code command (`commands/varun-mayya.md` is `/khe-brain:varun-mayya`)
   LICENSE
 CONTRIBUTING.md   how to write a skill, and how to tell whether something should be one
 skills/<name>     no khe- prefix: someone else's skill, linked as a git submodule. Never edit it.
 skills.sh.json    groups the repo page on skills.sh
 CHANGELOG.md      what changed that a user can see, newest first
 .claude-plugin/   marketplace.json: the Claude Code plugins this repo offers
-commands/         one file per plugin command (`commands/emil-kowalski.md` is `/khe-brain:emil-kowalski`)
-scripts/check.mjs the checks CI runs
+plugin.json       the Agent Plugins manifest (agent-plugins.org): the repo as one plugin of every khe skill
+agents/           the kheAgents, Claude Code subagents the kheskills plugin ships
+orchestration/    CLAUDE.md, the policy that uses the kheAgents, for people to paste into their own
+cheatsheets/      one Problem | Solution table per skill
+scripts/          check.mjs, the checks CI runs; marketplace.mjs, which writes every install manifest
 ```
 
 ## Before adding a skill
@@ -48,9 +52,23 @@ If the answer is a new skill, build it in this order, and tell the user which ro
 
 A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login.
 
+## Where people install from
+
+Three install paths read this repo, each through its own manifest. `scripts/marketplace.mjs` writes all of them from the folders, so after adding, renaming or removing a skill, an agent or a command, run `node scripts/marketplace.mjs` and commit what it changed. `scripts/check.mjs` fails while any of them is out of date or breaks its spec.
+
+| Path | Reads | What it gets |
+|---|---|---|
+| skills.sh, `npx skills add HKTITAN/skills` | `skills/<name>/SKILL.md`, and `skills.sh.json` for the repo page's groups | the 19 khe skills; the linked ones are empty submodule folders and are skipped |
+| Claude Code, `/plugin marketplace add HKTITAN/skills --sparse ...` | `.claude-plugin/marketplace.json` | `kheskills` (rooted at `./`), `khe-brain` (rooted at `./skills`) and one plugin per author |
+| Agent Plugins (agent-plugins.org 1.0.0) | `plugin.json` at the root, then `skills/<name>/SKILL.md` | every khe skill, brains included, as one plugin; that spec has no agents or commands yet |
+
+`skills.sh.json` is written by hand: every khe skill sits in exactly one group, and the Brains group names every `/khe-brain:` command.
+
+**Versions.** The `kheskills` and `khe-brain` entries carry a `version`, the only field in them written by hand. Claude Code keeps an installed copy until that string changes, so when a change touches what a plugin serves (its skill folders and `agents/` for `kheskills`, a brain's folder for `khe-brain`), bump its version in `marketplace.json` and name the new version on a `CHANGELOG.md` line with the plugin's name. `scripts/check.mjs` compares against `origin/main` and fails when the files moved and the version did not. `plugin.json` has no version. Agent Plugins makes it optional and says clients use it for update checks; one version over all 19 skills would be a third hand-kept number that nothing here could check, so it is left out until a client of that standard needs it (then `scripts/marketplace.mjs` writes it).
+
 ## The kheskills plugin
 
-`.claude-plugin/marketplace.json` also offers `kheskills`: every `khe-` skill except the brains, listed one folder at a time in its `skills` array, so Claude Code shows each as `/kheskills:<name>`. A new skill outside the brains adds its folder there; `scripts/check.mjs` fails when one is missing. The brains stay out of it so nobody who installs both plugins sees them twice.
+`.claude-plugin/marketplace.json` also offers `kheskills`: every `khe-` skill except the brains, listed one folder at a time in its `skills` array, so Claude Code shows each as `/kheskills:<name>`. The list is generated from `skills/`. The brains stay out of it so nobody who installs both plugins sees them twice.
 
 ## Other people's skills in the marketplace
 
@@ -58,16 +76,16 @@ A skill built from one person's published work (a "brain" skill, `khe-brain-<nam
 
 ## kheAgents
 
-`agents/<name>.md` are Claude Code subagents the `kheskills` plugin ships (listed in its `agents` array, shown as `kheskills:<name>`). Each owns one role in orchestrated work and points at the skills for the craft; none restates a skill's rules. Frontmatter: `name` (matching the file), `description`, and `model` and `tools` where the role needs them. `scripts/check.mjs` fails when an agent file is missing from the plugin or its name does not match. `orchestration/CLAUDE.md` is the policy that uses them, for people to paste into their own CLAUDE.md.
+`agents/<name>.md` are Claude Code subagents the `kheskills` plugin ships (listed in its `agents` array, shown as `kheskills:<name>`). Each owns one role in orchestrated work and points at the skills for the craft; none restates a skill's rules. Frontmatter: `name` (matching the file), `description`, `model: inherit` (never a model name: whoever starts the agent picks the tier), and `tools` where the role needs them. `scripts/check.mjs` fails when an agent's name does not match its file, when it sets any other model, or when a model name appears in the agents, the commands, the policy, the router or the top-level docs. `orchestration/CLAUDE.md` is the policy that uses them, for people to paste into their own CLAUDE.md.
 
 ## The khe-brain plugin
 
-Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for a person in full (`varun-mayya`, never `varun`) and for an institution by its usual short name (`isb`, `yc`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`skills/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.
+Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, rooted at `skills/`, and each brain's `skills/khe-brain-<x>/commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for a person in full (`varun-mayya`, never `varun`) and for an institution by its usual short name (`isb`, `yc`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`${CLAUDE_PLUGIN_ROOT}/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.
 
 - The skill folder keeps its own name (`khe-brain-varun`) for `npx skills add`, so installs and links do not break. The command carries the full name.
-- The plugin's `skills` entry points at `commands/`, which holds no `SKILL.md`. That is on purpose: without it Claude Code would load every skill in `skills/` under the `khe-brain:` name, and with the brain folders listed each brain would show twice.
-- A new brain adds `commands/<full-name>.md`, its path in the plugin's `commands` list, and its name in the plugin's description. `scripts/check.mjs` fails when a `khe-brain-*` skill has no command or a command has no skill.
-- Check a change with `claude plugin validate .`.
+- The layout keeps the two plugins apart, because Claude Code loads a plugin root's `commands/` and `agents/` whatever its entry lists (an empty list falls back to the default folder). `kheskills` is rooted at `./`, so there is no `commands/` at the repo root. `khe-brain` is rooted at `./skills`, which has no `agents/`, `commands/` or `skills/` of its own, so it loads the brain commands and nothing else. It lists each brain's `commands/` folder, since `claude plugin details` (2.1.325) loads nothing from file entries in `commands`, so that folder holds the command and nothing else. It lists no skills: with the brain folders listed, each brain would show twice.
+- A new brain adds `skills/khe-brain-<x>/commands/<full-name>.md` and its name in the Brains group of `skills.sh.json`; `node scripts/marketplace.mjs` adds it to the plugin's `commands` list and description. `scripts/check.mjs` fails when a brain has no command or more than one, when a command reads another folder's skill, and when a root `commands/` folder exists.
+- Check a change with `claude plugin validate . --strict` (CI runs it too).
 
 ## Rules for every skill
 
@@ -105,10 +123,10 @@ Skills by Emil Kowalski and Benji Taylor are used next to these and are never co
 
 - Each of their skills has its own entry in `skills/` (`skills/animate`, `skills/stageshow`), a git submodule of the author's repo, so GitHub shows it beside the khe skills and links it to the original at a pinned commit. A submodule can only point at a whole repo, so the link opens the repo, not the skill's subfolder; the README links the exact file.
 - The pins sync themselves. GitHub sends this repo no event when someone else's repo changes, so `.github/workflows/sync-linked-skills.yml` asks every 15 minutes and does nothing unless a pin has moved. When one has, it runs `scripts/check.mjs` and commits the new pins to `main`. For that push to work, `main` has no required status check; force-pushes and deletion stay blocked. A new skill in their repo is not picked up by the sync: it needs its own entry, added by hand.
-- To add one: add its block to `.gitmodules`, then `git update-index --add --cacheinfo 160000,<commit>,skills/<name>`. To move the pin, run the same command with the new commit. The folders stay empty locally on purpose.
+- To add one: add its block to `.gitmodules` with `update = none`, then `git update-index --add --cacheinfo 160000,<commit>,skills/<name>`. To move the pin, run the same command with the new commit. The folders stay empty locally on purpose.
 - The README links each of their skills to its original `SKILL.md`.
 - `khe-auto` covers every skill in `skills/`, linked ones included, and says whose each one is. A name without `khe-` in any skill here is someone else's skill.
-- The skills CLI does not fetch submodules, so `npx skills add HKTITAN/skills` installs only the `khe-` skills.
+- The skills CLI (1.9) runs `git submodule update --init` on every remote install and looks three folders deep under `skills/`, so a checked-out link would install the author's skills as this repo's. Every block in `.gitmodules` carries `update = none`, which makes git skip it, so `npx skills add HKTITAN/skills` installs only the `khe-` skills. `scripts/check.mjs` fails on a block without it.
 - Vercel's `ui-sdk` (in `vercel-labs/ui`, at `packages/core/skills/ui-sdk`) is pinned in `skills/ui-sdk` like the other linked skills, since 2026-11-13. Thirteen more of Vercel's skills are pinned beside it since the same day: nine from `vercel-labs/agent-skills`, under their skill names (`vercel-react-best-practices` for the folder `react-best-practices`), and the four contributor skills in `vercel-labs/ui`'s `.agents/skills` folder. Its repo is a library monorepo, so the pin follows the whole library and the sync commits to `main` whenever the library moves; the copy that matches a project ships inside `@ui-sdk/core`. It has its README row, its `khe-auto` row and its install line. `khe-ui` holds only what this collection adds on top: the `ui-sdk` lane, which says where each value is written on a UI SDK screen and never restates the library.
 
 - Lauren Tan's pstack skills (21, from `cursor/plugins`, at `pstack/skills/<name>`) and Matt Pocock's skills (13, from `mattpocock/skills`) are pinned the same way since 2026-11-17, routed from the Engineering table of `khe-auto`. pstack is a Cursor plugin; the README links and install lines use the Claude Code build Cursor generates at `harness/pstack/claude-code` (installed with `/plugin install pstack@cursor-plugins`, called as `/pstack:<name>`), never the Cursor originals under `pstack/skills`. Only the ones that help a job here are linked: pstack's 24 principle skills, catch-up, bot-UI and setup skills are left to her plugin. Two of Matt's take a `pocock-` prefix (`pocock-code-review`, `pocock-tdd`) because the short names were taken; the README links each to its original path.
@@ -151,8 +169,10 @@ Every skill README has a `How it runs` figure in `skills/<name>/assets/`, drawn 
 
 ```bash
 node scripts/check.mjs
+node skills/khe-auto/scripts/gate-all.mjs
 npx -y markdownlint-cli@0.41.0 '**/*.md' --config .github/markdownlint.jsonc
 npx -y skills add ./ --list
+claude plugin validate . --strict
 ```
 
-Run all three before a commit. When the change is one a user can see (a skill added, renamed or removed, a command, a rule in a gate), add a line to `CHANGELOG.md` under today's date in the same commit. Use a branch for changes; keep unrelated skills in separate commits. Never commit credentials, generated recordings or machine-specific paths.
+Run all five before a commit; CI runs the same. When the change is one a user can see (a skill added, renamed or removed, a command, a rule in a gate), add a line to `CHANGELOG.md` under today's date in the same commit. Use a branch for changes; keep unrelated skills in separate commits. Never commit credentials, generated recordings or machine-specific paths.

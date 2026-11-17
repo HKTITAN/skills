@@ -108,6 +108,19 @@ Each skill works alone. Some call others:
 - `khe-auto` places every correction made during a job with `khe-poteto-pyramid`, so the next agent inherits the fix.
 - `khe-poteto-pyramid` hands the deep parts to Lauren Tan's pstack skills by name: verification skills, formal models, statecharts, comment sweeps.
 
+## kheAgents and orchestration
+
+The `kheskills` plugin also installs four agents for orchestrated work, as `kheskills:<name>`:
+
+| Agent | Does |
+|---|---|
+| [khe-router](agents/khe-router.md) | Routes one request through `khe-auto` and returns only the route. Haiku, read-only |
+| [khe-executor](agents/khe-executor.md) | Executes one build, test or check step by the skill that owns it, runs its gate, returns evidence |
+| [khe-reviewer](agents/khe-reviewer.md) | A fresh-eye review of an executor's result: runs the gate itself, ranks findings, gives a verdict |
+| [khe-pyramid](agents/khe-pyramid.md) | Places one correction with `khe-poteto-pyramid` into `PYRAMID.md` |
+
+[`orchestration/CLAUDE.md`](orchestration/CLAUDE.md) is the policy that uses them: the top session routes and orchestrates, one sub-session per task on Sonnet 5.5, executors do the work, every "done" carries its evidence, and every correction is placed. Paste it into your own `~/.claude/CLAUDE.md`; a plugin cannot install a CLAUDE.md for you.
+
 ## What is in a skill
 
 ```text

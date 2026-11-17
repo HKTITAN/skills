@@ -56,6 +56,10 @@ A skill built from one person's published work (a "brain" skill, `khe-brain-<nam
 
 `scripts/marketplace.mjs` writes one plugin per author into `.claude-plugin/marketplace.json` (`emil-kowalski`, `benji-taylor`, `vercel`, `vercel-ui-sdk`, `pstack`, `matt-pocock`), each with a `github` source pointing at the author's repo and `strict: false` with the skill folders the README's From others links name. pstack is served whole through a `git-subdir` source at `harness/pstack/claude-code`, Cursor's Claude Code build. After linking a skill and adding its README link, run `node scripts/marketplace.mjs`; `scripts/check.mjs` fails while the file is out of date.
 
+## kheAgents
+
+`agents/<name>.md` are Claude Code subagents the `kheskills` plugin ships (listed in its `agents` array, shown as `kheskills:<name>`). Each owns one role in orchestrated work and points at the skills for the craft; none restates a skill's rules. Frontmatter: `name` (matching the file), `description`, and `model` and `tools` where the role needs them. `scripts/check.mjs` fails when an agent file is missing from the plugin or its name does not match. `orchestration/CLAUDE.md` is the policy that uses them, for people to paste into their own CLAUDE.md.
+
 ## The khe-brain plugin
 
 Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/marketplace.json` offers one plugin, `khe-brain`, whose root is this repo, and `commands/<full-name>.md` is its `/khe-brain:<full-name>` command, named for a person in full (`varun-mayya`, never `varun`) and for an institution by its usual short name (`isb`, `yc`). Each command holds no knowledge of its own: it tells the agent to read its skill's `SKILL.md` (`skills/khe-brain-varun/SKILL.md`) from the plugin's folder and work as that skill, so the skill folder stays the one source.

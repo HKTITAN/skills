@@ -126,6 +126,15 @@ if (existsSync(marketPath)) {
   else {
     const listed = (all.skills || []).map((s) => s.replace(/^\.\/skills\//, ''))
     for (const n of names.filter((n) => !n.startsWith('khe-brain-'))) if (!listed.includes(n)) bad('marketplace.json', `${n} is missing from the kheskills plugin`)
+    const agentDir = join(ROOT, "agents");
+    const agentFiles = existsSync(agentDir) ? readdirSync(agentDir).filter((f) => f.endsWith(".md")) : [];
+    for (const f of agentFiles) {
+      if (!(all.agents || []).includes(`./agents/${f}`)) bad("marketplace.json", `agents/${f} is missing from the kheskills plugin's agents`);
+      const fm = read(join(agentDir, f)).match(/^---\n([\s\S]*?)\n---\n/)?.[1] || "";
+      if (fm.match(/^name:\s*(.+)$/m)?.[1]?.trim() !== f.replace(/\.md$/, "")) bad(`agents/${f}`, "its name must match its file name");
+      if (!/^description:\s*\S/m.test(fm)) bad(`agents/${f}`, "no description");
+    }
+    for (const a of all.agents || []) if (!agentFiles.includes(a.replace(/^\.\/agents\//, ""))) bad("marketplace.json", `the kheskills plugin lists ${a}, which does not exist`);
     for (const s of listed) if (!names.includes(s) || s.startsWith('khe-brain-')) bad('marketplace.json', `the kheskills plugin lists ${s}, which is not a khe skill outside the brains`)
   }
 }

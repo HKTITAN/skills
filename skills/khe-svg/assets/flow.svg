@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-svg-flow" viewBox="0 0 896 344" role="img" aria-labelledby="khe-svg-flow-title khe-svg-flow-desc">
+  <title id="khe-svg-flow-title">How khe-svg runs</title>
+  <desc id="khe-svg-flow-desc">A plan decides the home, the engine and whether it moves; the file is built, given motion only with a cause and gated, while stickers, page motion and sound go to the skills that own them.</desc>
+  <defs>
+    <marker id="khe-svg-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-svg-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-svg-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-svg-flow .paper { fill: var(--page); }
+    #khe-svg-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-svg-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-svg-flow .head { fill: var(--ink-3); }
+    #khe-svg-flow .mask { fill: var(--page); }
+    #khe-svg-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-svg-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-svg-flow .node.strong rect { stroke: var(--ink); }
+    #khe-svg-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-svg-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-svg-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-svg-flow .name.on { fill: var(--hl-ink); }
+    #khe-svg-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-svg-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-svg-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-svg-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-svg-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-svg-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-svg-flow .rule { stroke: var(--rule); }
+    #khe-svg-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="344"/>
+  <g class="edges">
+    <path class="edge " d="M192 132 H248" marker-end="url(#khe-svg-flow-arrow)"/>
+    <path class="edge " d="M408 132 H464" marker-end="url(#khe-svg-flow-arrow)"/>
+    <path class="edge " d="M624 132 H680" marker-end="url(#khe-svg-flow-arrow)"/>
+    <path class="edge dashed" d="M376 104 V84 Q376 76 384 76 H704 Q712 76 712 84 V104" marker-end="url(#khe-svg-flow-arrow)"/>
+    <path class="edge " d="M112 160 V232" marker-end="url(#khe-svg-flow-arrow)"/>
+    <path class="edge " d="M544 160 V232" marker-end="url(#khe-svg-flow-arrow)"/>
+    <path class="edge " d="M720 160 V232" marker-end="url(#khe-svg-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="516" y="54" width="59" height="14"/>
+    <text class="label" x="520" y="64">no motion</text>
+    <rect class="mask" x="122" y="188" width="59" height="14"/>
+    <text class="label" x="126" y="198">a sticker</text>
+    <rect class="mask" x="554" y="188" width="70" height="14"/>
+    <text class="label" x="558" y="198">on the page</text>
+    <rect class="mask" x="730" y="188" width="81" height="14"/>
+    <text class="label" x="734" y="198">contact frame</text>
+  </g>
+  <text class="caps" x="32" y="40">ONE FILE, FROM PLAN TO GATE</text>
+  <g class="nodes">
+    <g class="node strong">
+      <rect x="32" y="104" width="160" height="56" rx="6"/>
+      <rect class="hl" x="40" y="116" width="37" height="16" rx="2"/>
+      <text class="name on" x="44" y="128">Plan</text>
+      <text class="sub" x="44" y="144">home, engine, a cause</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="104" width="160" height="56" rx="6"/>
+      <text class="name" x="260" y="128">Build the file</text>
+      <text class="sub" x="260" y="144">grid, named groups</text>
+    </g>
+    <g class="node ">
+      <rect x="464" y="104" width="160" height="56" rx="6"/>
+      <rect class="hl" x="472" y="116" width="108" height="16" rx="2"/>
+      <text class="name on" x="476" y="128">Add the motion</text>
+      <text class="sub" x="476" y="144">one curve, one duration</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="104" width="160" height="56" rx="6"/>
+      <text class="name" x="692" y="128">The gate</text>
+      <text class="sub" x="692" y="144">SVGO, then svg-check</text>
+    </g>
+    <g class="node ">
+      <rect x="32" y="232" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="256">khe-sticker</text>
+      <text class="sub" x="44" y="272">stickers and packs</text>
+    </g>
+    <g class="node ">
+      <rect x="464" y="232" width="160" height="56" rx="6"/>
+      <text class="name" x="476" y="256">khe-ui</text>
+      <text class="sub" x="476" y="272">motion around the file</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="232" width="160" height="56" rx="6"/>
+      <text class="name" x="692" y="256">khe-sound</text>
+      <text class="sub" x="692" y="272">a sound on the reveal</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 320)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">next step, or a hand-off</text>
+    <path class="edge dashed" d="M176 0 H200"/>
+    <text x="208" y="4">skipped when nothing should move</text>
+  </g>
+</svg>

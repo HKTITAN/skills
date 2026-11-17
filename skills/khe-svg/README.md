@@ -13,6 +13,22 @@ npx skills add HKTITAN/skills --skill khe-svg
 - Handles stroke draw-ons, path morphs and the pipeline from a flat clip to a vector flipbook.
 - Optimizes with SVGO and reports the size before and after.
 
+## How it runs
+
+![khe-svg's flow: a plan names the home, the engine and the cause; the file is built on the grid with named groups, given motion only when something should move, then optimized and gated; a sticker goes to khe-sticker, motion on the page around the file to khe-ui, and a sound on the reveal to khe-sound](assets/flow.svg)
+
+## Used
+
+```text
+I want our logo to draw itself in on the landing page, and it's loaded as an img tag.
+```
+
+The gold for that request, [examples/logo-draw.svg](examples/logo-draw.svg), as it renders:
+
+![The Spark logo from examples/logo-draw.svg: a zigzag line that draws itself in over 1 second, and a red dot that fades in on the frame the line reaches it](examples/logo-draw.svg)
+
+It is 1,420 bytes with `data-home="img"` on the root. The keyframes and the reduced-motion state both live inside the file, because an `<img>` cannot reach the page's CSS; with reduced motion on, it lands on the finished mark in one frame. The ink and dot colours are `var(--logo-ink, #111111)` and `var(--logo-accent, #e5484d)`, hex fallbacks standing in for the project's tokens.
+
 ## When to use it
 
 Use it when you need an SVG made, cleaned up or set in motion: an icon that will not recolour, a logo that should draw itself in, a play and pause toggle, a mascot loop, or a flat character clip that has to become an editable vector. It works on the file. Timing for the rest of the page belongs to the motion skill. Stickers and sticker packs belong to `khe-sticker`.

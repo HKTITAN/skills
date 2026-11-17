@@ -11,9 +11,47 @@ npx skills add HKTITAN/skills --skill khe-auto
 - Reads a request and names the one or two skills that own it, with a one-line reason each.
 - Runs them in order, one at a time, looking at the result between them.
 - Routes to the khe skills, to Emil Kowalski's and Benji Taylor's skills and to Vercel's `ui-sdk` and agent skills, and to Lauren Tan's (poteto) and Matt Pocock's engineering skills by name, and says whose each one is.
+- Routes by five domains: Design, Code, Brains, Content and Engineering. Engineering covers how agents work in a repo, starting with `khe-poteto-pyramid`.
+- Sends "show this off" jobs to `khe-package`: a clip of one thing you built, made for people who have never heard of it.
 - Says so when no skill applies, instead of stretching one over the wrong problem.
 - Runs one loop for whichever skill it routed to: plan, start from gold, build, run that skill's gate, fix the largest fault, walk verify, fresh-eye review, hand over.
+- Places every correction made during the job with `khe-poteto-pyramid` before handing over: the fix goes to the highest layer that can hold it, and the record goes in the project's `PYRAMID.md`.
 - Ends every reply with what it could not verify.
+
+## How it runs
+
+![khe-auto's flow: a request becomes a goal line, then a route to a playbook or to one or two skills by domain; each skill runs its own loop and gate, every correction is placed with khe-poteto-pyramid, the reply passes route-check, and the job is handed over with ROUTE.md](assets/flow.svg)
+
+Every request lands in one of five domains. Most of the skills are linked from their authors' repos rather than kept here; the counts are the rows in SKILL.md's domain tables.
+
+![The five domains and how many skills each routes to: Design 9 here and 22 linked, Code 12 linked, Brains 7 here, Content 1 here, Engineering 1 here and 34 linked](assets/domains.svg)
+
+## Used
+
+A request in the words of the playbook table:
+
+```text
+/khe-auto I need a launch video for Friday.
+```
+
+The reply for it is the gold in [examples/playbook.txt](examples/playbook.txt), the bar every playbook reply is held to. It was written by hand as the standard, not logged from one session:
+
+```text
+Goal: A launch film for Friday's release that can be posted as it is; I hand back the render and its measured numbers.
+Route: playbook `launch-film`
+Work:
+1. Register: named and written down with the runtime, by `khe-launch-film`. No gate, a decision.
+2. Beats: a beat sheet with a time for the first word, the name and the endcard. `khe-launch-film/scripts/film-check.mjs --gate` on the sheet, last line pasted in the handover file.
+3. Build: rendered in the project's film engine from the closest gold beat sheet. Same gate, run on the render.
+4. Lock picture: no frame will move again. Same gate, run on the locked cut.
+5. Sound: one family, a cue sheet with a frame number per sound, by `khe-sound`. `khe-sound/scripts/sound-check.mjs --gate` on the cue sheet.
+6. Review: cuts per minute, still share and loudness measured on the file and listed in the handover file. Both gates run on the final file.
+- Step 4 was reopened once: a cut landed off its beat. Fixed in step 4, then steps 5 and 6 run again from the top.
+- Fresh-eye review saw the render and the gold only, and returned "nothing".
+Not verified: loudness on phone speakers, and the vertical cut, which was not rendered.
+```
+
+`node scripts/route-check.mjs examples/playbook.txt --gate` on that file ends `route-check passed`, with 0 never-intentional lines and 0 candidates.
 
 ## When to use it
 
@@ -62,4 +100,5 @@ What it does not prove: that the route is the right one for the request, that th
 - `examples/`: six gold routing replies: one skill, two skills, a playbook, nothing fits, not installed, and `which`.
 - `teaching/`: fourteen bad/good pairs, each named for the gate line its bad half raises. They are the gate's tests.
 - `scripts/`: `route-check.mjs` (the gate) and `gate-all.mjs` (every gate's self-test). Node 20 or newer, no dependencies.
+- `assets/`: the two figures above, `flow.svg` and `domains.svg`.
 - [LICENSE](LICENSE): MIT.

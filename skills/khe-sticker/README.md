@@ -13,6 +13,22 @@ npx skills add HKTITAN/skills --skill khe-sticker
 - Gives a sticker one motion with a cause: a pop from scale 0.2, children a few frames late, marks switched on the hit, then a still hold and a reduced-motion still inside the file.
 - Builds the pack: static and animated SVG, 512 px PNG, WhatsApp static and animated WebP, the tray icon and Telegram WebM, each checked against its size and limit.
 
+## How it runs
+
+![khe-sticker's flow: a brief becomes a silhouette that reads filled black at 64 px, then a still with one outline and a die-cut, then at most one motion; the gate checks the whole set and the pack is built for a chat; icons and logos go to khe-svg, the palette comes from khe-design-tokens, and a sound on the hit goes to khe-sound](assets/flow.svg)
+
+## Used
+
+```text
+Animate this sticker so it pops once when the section scrolls into view, then sits still.
+```
+
+The gold for that request: the still, [examples/character-buddy.svg](examples/character-buddy.svg), and its one motion, [examples/character-buddy-jump.svg](examples/character-buddy-jump.svg).
+
+![The Cheering character sticker as its still: a blue round character with both arms up, eyes and mouth open, red cheeks](examples/character-buddy.svg) ![The same sticker with its one motion: it crouches, jumps 72 units, lands with a squash and dust marks, and ends on the rested still](examples/character-buddy-jump.svg)
+
+The jump plays once in 2.5 s: it leaves the ground on frame 6, peaks on frame 17 and lands on frame 28, the arms drop 6 frames after the landing, and the dust marks switch on at the landing and off again, never faded. It ends on the rested still, so a page can start the idle in [examples/idle.css](examples/idle.css) at 2.6 s. With reduced motion the file is that still.
+
 ## When to use it
 
 Use it when you need a sticker or a set of them: a chat pack, mascot or reaction stickers, lettering stickers, badges for a product, or isometric stickers for a page. It owns the sticker from the brief to the files. Icons, logos and general SVG belong to `khe-svg`.

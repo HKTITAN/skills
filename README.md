@@ -185,38 +185,40 @@ All fourteen are pinned in `skills/` like the others: nine from [vercel-labs/age
 
 ### Lauren Tan (poteto)
 
-Her pstack skills, the source of the pyramid in `khe-poteto-pyramid`. They lean on each other and on her principles, so install the whole plugin:
+Her pstack skills, the source of the pyramid in `khe-poteto-pyramid`. pstack is written for Cursor; the links below go to the Claude Code build Cursor generates from it, which reads a short adapter that maps Cursor's names (subagent types, custom modes, bugbot, automations) onto Claude Code. The skills lean on each other and on her principles, so install the whole plugin. In Claude Code:
 
 ```text
 /plugin marketplace add cursor/plugins
 /plugin install pstack@cursor-plugins
 ```
 
+Then each skill is `/pstack:<name>`: `/pstack:poteto-mode`, `/pstack:correct`. In Cursor it is `/add-plugin pstack` and the names have no prefix.
+
 | Skill | What I use it for |
 |---|---|
-| [poteto-mode](https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/SKILL.md) | Her whole workflow for any non-trivial task. It routes to her playbooks and principles. |
-| [poteto-help](https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-help/SKILL.md) | Finding which of her skills or playbooks fits. |
-| [correct](https://github.com/cursor/plugins/blob/main/pstack/skills/correct/SKILL.md) | Her own sweep for the mistakes agents repeat, fixed at the highest level that works. |
-| [no-comments](https://github.com/cursor/plugins/blob/main/pstack/skills/no-comments/SKILL.md) | Stripping comments from a diff and encoding the constraints they claim. |
-| [create-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/SKILL.md) | A project skill that launches, drives and records the real app, with a feature map. |
-| [maintain-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/maintain-verification-skill/SKILL.md) | Keeping that feature map in line with the app. |
-| [create-formal-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/create-formal-verification-skill/SKILL.md) | Checking a race, retry or state machine formally and keeping it checked. |
-| [maintain-formal-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/maintain-formal-verification-skill/SKILL.md) | Updating a formal model after the code changed. |
-| [statechart](https://github.com/cursor/plugins/blob/main/pstack/skills/statechart/SKILL.md) | A behavior drawn as a statechart from a checked TLA+ model. |
-| [how](https://github.com/cursor/plugins/blob/main/pstack/skills/how/SKILL.md) | How a subsystem works at runtime. |
-| [why](https://github.com/cursor/plugins/blob/main/pstack/skills/why/SKILL.md) | Why something was built this way, from the record. |
-| [recall](https://github.com/cursor/plugins/blob/main/pstack/skills/recall/SKILL.md) | Rebuilding recent context from chat history. |
-| [teach](https://github.com/cursor/plugins/blob/main/pstack/skills/teach/SKILL.md) | Understanding a change, diagram by diagram. |
-| [architect](https://github.com/cursor/plugins/blob/main/pstack/skills/architect/SKILL.md) | Settling usage, types and module shape before writing code across a boundary. |
-| [arena](https://github.com/cursor/plugins/blob/main/pstack/skills/arena/SKILL.md) | Several parallel attempts, then the best parts of each. |
-| [swarm](https://github.com/cursor/plugins/blob/main/pstack/skills/swarm/SKILL.md) | Many parallel workers, one report. |
-| [interrogate](https://github.com/cursor/plugins/blob/main/pstack/skills/interrogate/SKILL.md) | Other models trying to break a diff, keeping only proven findings. |
-| [blast-radius](https://github.com/cursor/plugins/blob/main/pstack/skills/blast-radius/SKILL.md) | What else a small change could break. |
-| [tdd](https://github.com/cursor/plugins/blob/main/pstack/skills/tdd/SKILL.md) | A bug fixed test-first when the test path is cheap. |
-| [benchmark-checklist](https://github.com/cursor/plugins/blob/main/pstack/skills/benchmark-checklist/SKILL.md) | Vetting a measured number before reporting it. |
-| [technical-writing](https://github.com/cursor/plugins/blob/main/pstack/skills/technical-writing/SKILL.md) | Docs, READMEs, PR descriptions and commit messages. |
+| [poteto-mode](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/poteto-mode/SKILL.md) | Her whole workflow for any non-trivial task. It routes to her playbooks and principles. |
+| [poteto-help](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/poteto-help/SKILL.md) | Finding which of her skills or playbooks fits. |
+| [correct](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/correct/SKILL.md) | Her own sweep for the mistakes agents repeat, fixed at the highest level that works. |
+| [no-comments](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/no-comments/SKILL.md) | Stripping comments from a diff and encoding the constraints they claim. |
+| [create-verification-skill](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/create-verification-skill/SKILL.md) | A project skill that launches, drives and records the real app, with a feature map. |
+| [maintain-verification-skill](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/maintain-verification-skill/SKILL.md) | Keeping that feature map in line with the app. |
+| [create-formal-verification-skill](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/create-formal-verification-skill/SKILL.md) | Checking a race, retry or state machine formally and keeping it checked. |
+| [maintain-formal-verification-skill](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/maintain-formal-verification-skill/SKILL.md) | Updating a formal model after the code changed. |
+| [statechart](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/statechart/SKILL.md) | A behavior drawn as a statechart from a checked TLA+ model. |
+| [how](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/how/SKILL.md) | How a subsystem works at runtime. |
+| [why](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/why/SKILL.md) | Why something was built this way, from the record. |
+| [recall](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/recall/SKILL.md) | Rebuilding recent context from chat history. |
+| [teach](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/teach/SKILL.md) | Understanding a change, diagram by diagram. |
+| [architect](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/architect/SKILL.md) | Settling usage, types and module shape before writing code across a boundary. |
+| [arena](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/arena/SKILL.md) | Several parallel attempts, then the best parts of each. |
+| [swarm](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/swarm/SKILL.md) | Many parallel workers, one report. |
+| [interrogate](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/interrogate/SKILL.md) | Other models trying to break a diff, keeping only proven findings. |
+| [blast-radius](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/blast-radius/SKILL.md) | What else a small change could break. |
+| [tdd](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/tdd/SKILL.md) | A bug fixed test-first when the test path is cheap. |
+| [benchmark-checklist](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/benchmark-checklist/SKILL.md) | Vetting a measured number before reporting it. |
+| [technical-writing](https://github.com/cursor/plugins/blob/main/harness/pstack/claude-code/skills/technical-writing/SKILL.md) | Docs, READMEs, PR descriptions and commit messages. |
 
-These 21 are pinned in `skills/` from [cursor/plugins](https://github.com/cursor/plugins). Her other skills (the 24 principles, the catch-up and bot-UI skills, setup) come with the plugin and are not linked here. The plugin lives in Cursor's plugin monorepo, so the pin moves whenever that repo does.
+These 21 are pinned in `skills/` from [cursor/plugins](https://github.com/cursor/plugins), whose Claude Code build lives at [harness/pstack/claude-code](https://github.com/cursor/plugins/tree/main/harness/pstack/claude-code). Her other skills (the 24 principles, the catch-up and bot-UI skills, setup) come with the plugin and are not linked here. The plugin lives in Cursor's plugin monorepo, so the pin moves whenever that repo does.
 
 ### Matt Pocock
 

@@ -200,7 +200,7 @@ Read both before any job. They outrank the defaults here, and neither can overri
 - `khe-demo`: records the evidence a verification placement needs as a clean take for a PR or a README.
 - `khe-ui`: owns what a screen should look like; when the same UI fault comes back, place it here.
 - `learn-taste` (Emil Kowalski): turns design corrections into written rules. When a rule it writes can be a lint, place it here.
-- poteto's pstack: `correct` for her own version of the sweep, `create-verification-skill` and `maintain-verification-skill` for the runtime layer, `create-formal-verification-skill` and `statechart` for formal models, `no-comments` for a comment sweep, `poteto-mode` to run her whole workflow.
+- poteto's pstack, through its Claude Code build (`/pstack:<name>` once the plugin is installed): `correct` for her own version of the sweep, `create-verification-skill` and `maintain-verification-skill` for the runtime layer, `create-formal-verification-skill` and `statechart` for formal models, `no-comments` for a comment sweep, `poteto-mode` to run her whole workflow.
 - Matt Pocock's skills: `improve-codebase-architecture` and `codebase-design` when the codebase layer needs a deeper module, `setup-pre-commit` to run the checks before a commit, `git-guardrails-claude-code` to block destructive git commands with hooks.
 
 Harshit Khemani. MIT.

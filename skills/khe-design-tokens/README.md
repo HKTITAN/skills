@@ -13,6 +13,38 @@ npx skills add HKTITAN/skills --skill khe-design-tokens
 - Reports the token map, the edits, and every literal left in place with its reason.
 - Writes design-system docs with closed variant sets, then tests them by prompting.
 
+## How it runs
+
+![khe-design-tokens' flow: khe-auto runs it first; it finds the .design or DESIGN.md, writes the token map and the drift before any edit, threads the tokens through CSS variables, a theme or props, runs token-check on the folder and writes TOKENS.md; with no contract it says so and offers one; gaps go to khe-ui and a tokens.sound group to khe-sound](assets/flow.svg)
+
+## Used
+
+```text
+/khe-design-tokens examples/design-file
+```
+
+The gold handover in [examples/design-file/TOKENS.md](examples/design-file/TOKENS.md), for a plan card and a button threaded with `harbor.design`:
+
+```text
+Contract: `harbor.design`, version 1.4.0; no DESIGN.md beside it
+Checked: `examples/design-file`, the contract and 5 source files
+Gate: `token-check passed`
+
+| `color.surface` | `plan-card.css:4`, `button.css:19` | `var(--surface)` |
+| `color.accent` | `button.css:14`, `button.css:24` | `var(--accent)` |
+| `radius.lg` | `plan-card.css:7` | `var(--radius-lg)` |
+
+## Drift
+none. `tokens.css` mirrors all 15 values of `harbor.design`.
+
+## Literals left in place
+- `1px` at `button.css:7`, `plan-card.css:6` and `plan-card.css:15`: a hairline border. The contract has no border-width token; proposed as `tokens.border.hairline`.
+
+Not checked: a render in a browser; contrast of `surface` on `accent` and on `danger`; the `voice` rules against the button labels; dark mode, which the contract does not define.
+```
+
+Three of the token map's 13 rows and one of its two literals are shown; the file has the rest.
+
 ## When to use it
 
 Use it when a project ships a `.design` file or a DESIGN.md and generated UI should follow it, when an agent keeps hardcoding colours or inventing variants, or when a project wants a contract and has none. With no contract it says so, scans the code for the system already in use, and offers to bootstrap one.

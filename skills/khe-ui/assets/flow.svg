@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-ui-flow" viewBox="0 0 896 376" role="img" aria-labelledby="khe-ui-flow-title khe-ui-flow-desc">
+  <title id="khe-ui-flow-title">How khe-ui runs</title>
+  <desc id="khe-ui-flow-desc">The contract and ui-sdk hand in, khe-ui builds or judges, the gate and a look end in a verdict, and motion inside a file or a sound go to the skills that own them.</desc>
+  <defs>
+    <marker id="khe-ui-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-ui-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-ui-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-ui-flow .paper { fill: var(--page); }
+    #khe-ui-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-ui-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-ui-flow .head { fill: var(--ink-3); }
+    #khe-ui-flow .mask { fill: var(--page); }
+    #khe-ui-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-ui-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-ui-flow .node.strong rect { stroke: var(--ink); }
+    #khe-ui-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-ui-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-ui-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-ui-flow .name.on { fill: var(--hl-ink); }
+    #khe-ui-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-ui-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-ui-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-ui-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-ui-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-ui-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-ui-flow .rule { stroke: var(--rule); }
+    #khe-ui-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="376"/>
+  <g class="edges">
+    <path class="edge " d="M192 100 H288 Q296 100 296 108 V136 Q296 144 304 144 H320" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge " d="M192 212 H288 Q296 212 296 204 V176 Q296 168 304 168 H320" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge " d="M480 156 H536" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge " d="M696 156 H752" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge " d="M808 184 V240" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge dashed" d="M808 128 V112 Q808 104 800 104 H408 Q400 104 400 112 V128" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge " d="M372 184 V264" marker-end="url(#khe-ui-flow-arrow)"/>
+    <path class="edge " d="M428 184 V264" marker-end="url(#khe-ui-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="200" y="78" width="87" height="14"/>
+    <text class="label" x="204" y="88">contract first</text>
+    <rect class="mask" x="200" y="190" width="87" height="14"/>
+    <text class="label" x="204" y="200">parts rendered</text>
+    <rect class="mask" x="560" y="82" width="76" height="14"/>
+    <text class="label" x="564" y="92">a no: fix it</text>
+    <rect class="mask" x="276" y="224" width="87" height="14"/>
+    <text class="label" x="280" y="234">motion in file</text>
+    <rect class="mask" x="438" y="224" width="76" height="14"/>
+    <text class="label" x="442" y="234">after motion</text>
+  </g>
+  <text class="caps" x="32" y="48">HANDS IN, THE LOOP, HANDS OUT</text>
+  <g class="nodes">
+    <g class="node ">
+      <rect x="32" y="72" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="96">khe-design-tokens</text>
+      <text class="sub" x="44" y="112">when there is a contract</text>
+    </g>
+    <g class="node quiet">
+      <rect x="32" y="184" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="208">ui-sdk</text>
+      <text class="sub" x="44" y="224">Vercel, composes parts</text>
+    </g>
+    <g class="node strong">
+      <rect x="320" y="128" width="160" height="56" rx="6"/>
+      <rect class="hl" x="328" y="140" width="51" height="16" rx="2"/>
+      <text class="name on" x="332" y="152">khe-ui</text>
+      <text class="sub" x="332" y="168">one lane, by symptom</text>
+    </g>
+    <g class="node ">
+      <rect x="536" y="128" width="160" height="56" rx="6"/>
+      <text class="name" x="548" y="152">The gate</text>
+      <text class="sub" x="548" y="168">ui-check --gate</text>
+    </g>
+    <g class="node ">
+      <rect x="752" y="128" width="112" height="56" rx="6"/>
+      <text class="name" x="764" y="152">Look at it</text>
+      <text class="sub" x="764" y="168">390 px, Tab, 25%</text>
+    </g>
+    <g class="node strong">
+      <rect x="752" y="240" width="112" height="56" rx="6"/>
+      <rect class="hl" x="760" y="252" width="58" height="16" rx="2"/>
+      <text class="name on" x="764" y="264">Verdict</text>
+      <text class="sub" x="764" y="280">with Not checked</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="264" width="144" height="56" rx="6"/>
+      <text class="name" x="260" y="288">khe-svg</text>
+      <text class="sub" x="260" y="304">motion inside an SVG</text>
+    </g>
+    <g class="node ">
+      <rect x="416" y="264" width="160" height="56" rx="6"/>
+      <text class="name" x="428" y="288">khe-sound</text>
+      <text class="sub" x="428" y="304">a sound, if it earns one</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 352)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">next step, or a hand-off</text>
+    <path class="edge dashed" d="M176 0 H200"/>
+    <text x="208" y="4">back, when a look finds a fault</text>
+  </g>
+</svg>

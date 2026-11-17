@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-sticker-flow" viewBox="0 0 896 424" role="img" aria-labelledby="khe-sticker-flow-title khe-sticker-flow-desc">
+  <title id="khe-sticker-flow-title">How khe-sticker runs</title>
+  <desc id="khe-sticker-flow-desc">A brief becomes a silhouette, a still and at most one motion, the whole set is gated together and packed for a chat, with icons going to khe-svg, the palette coming from khe-design-tokens and a sound going to khe-sound.</desc>
+  <defs>
+    <marker id="khe-sticker-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-sticker-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-sticker-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-sticker-flow .paper { fill: var(--page); }
+    #khe-sticker-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-sticker-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-sticker-flow .head { fill: var(--ink-3); }
+    #khe-sticker-flow .mask { fill: var(--page); }
+    #khe-sticker-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-sticker-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-sticker-flow .node.strong rect { stroke: var(--ink); }
+    #khe-sticker-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-sticker-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-sticker-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-sticker-flow .name.on { fill: var(--hl-ink); }
+    #khe-sticker-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-sticker-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-sticker-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-sticker-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-sticker-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-sticker-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-sticker-flow .rule { stroke: var(--rule); }
+    #khe-sticker-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="424"/>
+  <g class="edges">
+    <path class="edge " d="M192 100 H248" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M408 100 H464" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M624 100 H680" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M112 128 V200" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M408 228 H512 Q520 228 520 220 V128" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge dashed" d="M584 128 V220 Q584 228 592 228 H680" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M760 128 V200" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M800 256 V312" marker-end="url(#khe-sticker-flow-arrow)"/>
+    <path class="edge " d="M720 256 V276 Q720 284 712 284 H552 Q544 284 544 292 V312" marker-end="url(#khe-sticker-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="122" y="156" width="76" height="14"/>
+    <text class="label" x="126" y="166">icon or logo</text>
+    <rect class="mask" x="416" y="206" width="81" height="14"/>
+    <text class="label" x="420" y="216">palette roles</text>
+    <rect class="mask" x="594" y="206" width="48" height="14"/>
+    <text class="label" x="598" y="216">no verb</text>
+    <rect class="mask" x="810" y="272" width="42" height="14"/>
+    <text class="label" x="814" y="282">a chat</text>
+    <rect class="mask" x="554" y="292" width="81" height="14"/>
+    <text class="label" x="558" y="302">makes a sound</text>
+  </g>
+  <text class="caps" x="32" y="40">ONE SET, FROM BRIEF TO PACK</text>
+  <g class="nodes">
+    <g class="node ">
+      <rect x="32" y="72" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="96">The brief</text>
+      <text class="sub" x="44" y="112">kind, verb, palette</text>
+    </g>
+    <g class="node strong">
+      <rect x="248" y="72" width="160" height="56" rx="6"/>
+      <rect class="hl" x="256" y="84" width="79" height="16" rx="2"/>
+      <text class="name on" x="260" y="96">Silhouette</text>
+      <text class="sub" x="260" y="112">filled black, 64 px</text>
+    </g>
+    <g class="node ">
+      <rect x="464" y="72" width="160" height="56" rx="6"/>
+      <text class="name" x="476" y="96">The still</text>
+      <text class="sub" x="476" y="112">one outline, die-cut</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="72" width="160" height="56" rx="6"/>
+      <text class="name" x="692" y="96">One motion</text>
+      <text class="sub" x="692" y="112">a pop, then a hold</text>
+    </g>
+    <g class="node ">
+      <rect x="32" y="200" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="224">khe-svg</text>
+      <text class="sub" x="44" y="240">icons and logos</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="200" width="160" height="56" rx="6"/>
+      <text class="name" x="260" y="224">khe-design-tokens</text>
+      <text class="sub" x="260" y="240">the palette contract</text>
+    </g>
+    <g class="node strong">
+      <rect x="680" y="200" width="160" height="56" rx="6"/>
+      <rect class="hl" x="688" y="212" width="65" height="16" rx="2"/>
+      <text class="name on" x="692" y="224">The gate</text>
+      <text class="sub" x="692" y="240">sticker-check, the set</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="312" width="160" height="56" rx="6"/>
+      <text class="name" x="692" y="336">The pack</text>
+      <text class="sub" x="692" y="352">WhatsApp, Telegram</text>
+    </g>
+    <g class="node ">
+      <rect x="464" y="312" width="160" height="56" rx="6"/>
+      <text class="name" x="476" y="336">khe-sound</text>
+      <text class="sub" x="476" y="352">cued to the hit</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 400)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">next step, or a hand-off</text>
+    <path class="edge dashed" d="M176 0 H200"/>
+    <text x="208" y="4">skipped when the brief has no verb</text>
+  </g>
+</svg>

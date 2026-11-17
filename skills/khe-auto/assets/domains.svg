@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-auto-domains" viewBox="0 0 896 420" role="img" aria-labelledby="khe-auto-domains-title khe-auto-domains-desc">
+  <title id="khe-auto-domains-title">The five domains khe-auto routes to</title>
+  <desc id="khe-auto-domains-desc">khe-auto routes every request into one of five domains; Design and Engineering hold the most skills, and most of them are linked from other authors rather than kept here.</desc>
+  <defs>
+    <marker id="khe-auto-domains-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-auto-domains { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-auto-domains { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-auto-domains .paper { fill: var(--page); }
+    #khe-auto-domains .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-auto-domains .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-auto-domains .head { fill: var(--ink-3); }
+    #khe-auto-domains .mask { fill: var(--page); }
+    #khe-auto-domains .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-auto-domains .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-auto-domains .node.strong rect { stroke: var(--ink); }
+    #khe-auto-domains .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-auto-domains .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-auto-domains .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-auto-domains .name.on { fill: var(--hl-ink); }
+    #khe-auto-domains .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-auto-domains .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-auto-domains .skill { fill: var(--ink); font-size: 12px; }
+    #khe-auto-domains .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-auto-domains .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-auto-domains .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-auto-domains .rule { stroke: var(--rule); }
+    #khe-auto-domains .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="420"/>
+  <style>
+    #khe-auto-domains .bar.here { fill: var(--ink); }
+    #khe-auto-domains .bar.linked { fill: var(--line); }
+    #khe-auto-domains .dot { fill: var(--ink-3); }
+  </style>
+  <g class="edges">
+    <path class="edge " d="M176 200 H240" marker-end="url(#khe-auto-domains-arrow)"/>
+    <path class="edge " d="M208 200 V80 Q208 72 216 72 H240" marker-end="url(#khe-auto-domains-arrow)"/>
+    <path class="edge " d="M208 136 H240" marker-end="url(#khe-auto-domains-arrow)"/>
+    <path class="edge " d="M208 264 H240" marker-end="url(#khe-auto-domains-arrow)"/>
+    <path class="edge " d="M208 200 V320 Q208 328 216 328 H240" marker-end="url(#khe-auto-domains-arrow)"/>
+  </g>
+  <circle class="dot" cx="208" cy="136" r="3"/>
+  <circle class="dot" cx="208" cy="200" r="3"/>
+  <circle class="dot" cx="208" cy="264" r="3"/>
+  <text class="caps" x="32" y="32">ROUTER</text>
+  <text class="caps" x="240" y="32">DOMAIN</text>
+  <text class="caps" x="464" y="32">SKILLS IT ROUTES TO</text>
+  <g class="nodes">
+    <g class="node strong">
+      <rect x="32" y="172" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="196">khe-auto</text>
+      <text class="sub" x="44" y="212">finds the domain first</text>
+    </g>
+    <g class="node ">
+      <rect x="240" y="48" width="192" height="48" rx="6"/>
+      <text class="name" x="252" y="69">Design</text>
+      <text class="sub" x="252" y="85">screens, motion, sound, film</text>
+    </g>
+    <g class="node ">
+      <rect x="240" y="112" width="192" height="48" rx="6"/>
+      <text class="name" x="252" y="133">Code</text>
+      <text class="sub" x="252" y="149">Swift, React, Vercel</text>
+    </g>
+    <g class="node ">
+      <rect x="240" y="176" width="192" height="48" rx="6"/>
+      <text class="name" x="252" y="197">Brains</text>
+      <text class="sub" x="252" y="213">named people, with sources</text>
+    </g>
+    <g class="node ">
+      <rect x="240" y="240" width="192" height="48" rx="6"/>
+      <text class="name" x="252" y="261">Content</text>
+      <text class="sub" x="252" y="277">one idea, a post per platform</text>
+    </g>
+    <g class="node ">
+      <rect x="240" y="304" width="192" height="48" rx="6"/>
+      <rect class="hl" x="248" y="313" width="87" height="16" rx="2"/>
+      <text class="name on" x="252" y="325">Engineering</text>
+      <text class="sub" x="252" y="341">agents working in a repo</text>
+    </g>
+  </g>
+  <g class="counts">
+    <rect class="bar here" x="464" y="64" width="72" height="16" rx="2"/>
+    <rect class="bar linked" x="536" y="64" width="176" height="16" rx="2"/>
+    <text class="sub" x="724" y="76">9 here, 22 linked</text>
+    <rect class="bar linked" x="464" y="128" width="96" height="16" rx="2"/>
+    <text class="sub" x="572" y="140">0 here, 12 linked</text>
+    <rect class="bar here" x="464" y="192" width="56" height="16" rx="2"/>
+    <text class="sub" x="532" y="204">7 here, 0 linked</text>
+    <rect class="bar here" x="464" y="256" width="8" height="16" rx="2"/>
+    <text class="sub" x="484" y="268">1 here, 0 linked</text>
+    <rect class="bar here" x="464" y="320" width="8" height="16" rx="2"/>
+    <rect class="bar linked" x="472" y="320" width="272" height="16" rx="2"/>
+    <text class="sub" x="756" y="332">1 here, 34 linked</text>
+  </g>
+  <g class="legend" transform="translate(32 396)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <rect class="bar here" x="0" y="-6" width="24" height="12" rx="2"/>
+    <text x="32" y="4">here, a khe- skill in this repo</text>
+    <rect class="bar linked" x="208" y="-6" width="24" height="12" rx="2"/>
+    <text x="240" y="4">linked, kept in its author's own repo</text>
+    <text x="464" y="4">18 here and 68 linked, one row each in SKILL.md.</text>
+  </g>
+</svg>

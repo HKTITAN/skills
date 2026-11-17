@@ -185,7 +185,7 @@ A brain answers from one person's public writing or public talks and names the s
 
 ## Engineering
 
-Start with `khe-poteto-pyramid` when the request is about agents repeating a mistake or how far to trust them. Lauren Tan's skills come from her pstack plugin and work best under her `poteto-mode`; Matt Pocock's are small and composable.
+Start with `khe-poteto-pyramid` when the request is about agents repeating a mistake or how far to trust them. Lauren Tan's skills come from her pstack plugin and work best under her `poteto-mode`; in Claude Code they are called with the plugin prefix (`/pstack:poteto-mode`). Matt Pocock's are small and composable.
 
 | The job | Skill | Whose |
 |---|---|---|
@@ -235,7 +235,7 @@ If the folder is not there, the skill is not installed. Name it and give the lin
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
 - Vercel's agent skills: `npx skills add vercel-labs/agent-skills --skill <name>`
-- Lauren Tan's pstack: `npx skills add cursor/plugins --skill <name>` for one skill. Her skills lean on each other, so the whole plugin is better: in Claude Code, `/plugin marketplace add cursor/plugins` then `/plugin install pstack@cursor-plugins`, and each command is `/pstack:<name>`.
+- Lauren Tan's pstack: the plugin, built for Claude Code from her Cursor original. In Claude Code, `/plugin marketplace add cursor/plugins` then `/plugin install pstack@cursor-plugins`; call each skill as `/pstack:<name>` (`/pstack:correct`), and it reads pstack's Claude Code adapter first. In Cursor, `/add-plugin pstack`. For one skill in another agent, `npx skills add cursor/plugins --skill <name>`.
 - Matt Pocock's: `npx skills add mattpocock/skills --skill <name>`, or the whole set with `claude plugin install mattpocock-skills@claude-plugins-official`. `pocock-code-review` and `pocock-tdd` are named `code-review` and `tdd` in his repo.
 - The four `ui-sdk-*` skills are the UI SDK repository's own contributor skills, in its `.agents/skills` folder. They are for work inside that repository and are read from a clone of it.
 - Vercel's `ui-sdk`: `npx skills add vercel-labs/ui --skill ui-sdk`. The copy that matches the project's version also ships at `node_modules/@ui-sdk/core/skills/ui-sdk/SKILL.md`; when that file is there, read it in place of installing.

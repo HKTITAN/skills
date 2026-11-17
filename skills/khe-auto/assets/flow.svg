@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-auto-flow" viewBox="0 0 896 420" role="img" aria-labelledby="khe-auto-flow-title khe-auto-flow-desc">
+  <title id="khe-auto-flow-title">How khe-auto runs</title>
+  <desc id="khe-auto-flow-desc">A request becomes a goal line and a route, each routed skill runs its own loop and gate, every correction is placed with khe-poteto-pyramid, and the reply passes route-check before it is handed over.</desc>
+  <defs>
+    <marker id="khe-auto-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-auto-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-auto-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-auto-flow .paper { fill: var(--page); }
+    #khe-auto-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-auto-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-auto-flow .head { fill: var(--ink-3); }
+    #khe-auto-flow .mask { fill: var(--page); }
+    #khe-auto-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-auto-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-auto-flow .node.strong rect { stroke: var(--ink); }
+    #khe-auto-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-auto-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-auto-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-auto-flow .name.on { fill: var(--hl-ink); }
+    #khe-auto-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-auto-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-auto-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-auto-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-auto-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-auto-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-auto-flow .rule { stroke: var(--rule); }
+    #khe-auto-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="420"/>
+  <g class="edges">
+    <path class="edge " d="M192 76 H248" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M408 76 H464" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M552 104 V160" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M624 76 H760 Q768 76 768 84 V160" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M552 216 V236 Q552 244 560 244 H744 Q752 244 752 252 V272" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M784 216 V272" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M680 300 H624" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M464 300 H408" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge " d="M248 300 H192" marker-end="url(#khe-auto-flow-arrow)"/>
+    <path class="edge dashed" d="M328 328 V348 Q328 356 336 356 H760 Q768 356 768 348 V328" marker-end="url(#khe-auto-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="560" y="120" width="70" height="14"/>
+    <text class="label" x="564" y="130">a whole job</text>
+    <rect class="mask" x="648" y="54" width="59" height="14"/>
+    <text class="label" x="652" y="64">by domain</text>
+    <rect class="mask" x="480" y="334" width="87" height="14"/>
+    <text class="label" x="484" y="344">earliest fault</text>
+  </g>
+  <text class="caps" x="32" y="32">ONE REQUEST, ONE ROUTE, EVERY CORRECTION PLACED</text>
+  <g class="nodes">
+    <g class="node ">
+      <rect x="32" y="48" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="72">A request</text>
+      <text class="sub" x="44" y="88">one sentence, no skill named</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="48" width="160" height="56" rx="6"/>
+      <text class="name" x="260" y="72">Goal line</text>
+      <text class="sub" x="260" y="88">checkable by a stranger</text>
+    </g>
+    <g class="node strong">
+      <rect x="464" y="48" width="160" height="56" rx="6"/>
+      <rect class="hl" x="472" y="60" width="44" height="16" rx="2"/>
+      <text class="name on" x="476" y="72">Route</text>
+      <text class="sub" x="476" y="88">a playbook, or 1 or 2 skills</text>
+    </g>
+    <g class="node ">
+      <rect x="464" y="160" width="160" height="56" rx="6"/>
+      <text class="name" x="476" y="184">A playbook</text>
+      <text class="sub" x="476" y="200">one of nine whole jobs</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="160" width="176" height="56" rx="6"/>
+      <text class="name" x="692" y="184">One or two skills</text>
+      <text class="sub" x="692" y="200">from the five domain tables</text>
+    </g>
+    <g class="node ">
+      <rect x="680" y="272" width="176" height="56" rx="6"/>
+      <text class="name" x="692" y="296">Each skill’s loop</text>
+      <text class="sub" x="692" y="312">its gold, the work, its gate</text>
+    </g>
+    <g class="node strong">
+      <rect x="464" y="272" width="160" height="56" rx="6"/>
+      <rect class="hl" x="472" y="284" width="129" height="16" rx="2"/>
+      <text class="name on" x="476" y="296">Place corrections</text>
+      <text class="sub" x="476" y="312">khe-poteto-pyramid</text>
+    </g>
+    <g class="node ">
+      <rect x="248" y="272" width="160" height="56" rx="6"/>
+      <text class="name" x="260" y="296">Route-check</text>
+      <text class="sub" x="260" y="312">the reply passes its gate</text>
+    </g>
+    <g class="node ">
+      <rect x="32" y="272" width="160" height="56" rx="6"/>
+      <text class="name" x="44" y="296">Hand over</text>
+      <text class="sub" x="44" y="312">ROUTE.md, Not verified</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 396)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">next step</text>
+    <path class="edge dashed" d="M96 0 H120"/>
+    <text x="128" y="4">back to the earliest broken step, then forward again</text>
+    <text x="440" y="4">Each correction leaves a record in PYRAMID.md.</text>
+  </g>
+</svg>

@@ -124,6 +124,7 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 | A recording of the real app doing one thing: a walkthrough, a README GIF, a shot for a film | `khe-demo` | here |
 | Package something built for people who have never heard of it: three ideas as stills, a frame-by-frame render at 60 fps with the system cursor, the post's first line | `khe-package` | here |
 | A picture of the product for a page: a product shot, a cursor demo, a bento grid | `stageshow` | Benji Taylor |
+| A blueprint line illustration for a page: a hero, a spot or empty-state drawing, a technical line drawing that explains one idea | `plotter` | Pasquale Vitiello |
 | Emil's own bar for UI polish and component design, by name | `emil-design-eng` | Emil Kowalski |
 | Build one animation with the right curve, duration and properties | `animate` | Emil Kowalski |
 | A strict review of animation code before it merges | `review-animations` | Emil Kowalski |
@@ -234,6 +235,7 @@ If the folder is not there, the skill is not installed. Name it and give the lin
 - A `khe-` skill: `npx skills add HKTITAN/skills --skill <name>`, or in Claude Code all of them as one plugin from the marketplace, added with the `--sparse` path list in the README's install block (the brains are the second plugin in the same marketplace)
 - Emil Kowalski's: `npx skills add emilkowalski/skills --skill <name>`
 - Benji Taylor's: `npx skills add benjitaylor/skills --skill stageshow`
+- Pasquale Vitiello's: `npx skills add pasqualevitiello/plotter --skill plotter`
 - Vercel's agent skills: `npx skills add vercel-labs/agent-skills --skill <name>`
 - Lauren Tan's pstack: the plugin, built for Claude Code from her Cursor original. In Claude Code, `/plugin marketplace add cursor/plugins` then `/plugin install pstack@cursor-plugins`; call each skill as `/pstack:<name>` (`/pstack:correct`), and it reads pstack's Claude Code adapter first. In Cursor, `/add-plugin pstack`. For one skill in another agent, `npx skills add cursor/plugins --skill <name>`.
 - Matt Pocock's: `npx skills add mattpocock/skills --skill <name>`, or the whole set with `claude plugin install mattpocock-skills@claude-plugins-official`. `pocock-code-review` and `pocock-tdd` are named `code-review` and `tdd` in his repo.
@@ -267,6 +269,7 @@ Each pair is one question, not two skills to read.
 | `khe-package` / `stageshow` | Is there a scene to render, or does the faux UI still need building? | Build it: stageshow. Render and post it: khe-package, through its `stageshow` format. |
 | `khe-demo` / `khe-launch-film` | One take of the product, or a film with cuts, type and sound? | One take: demo. A film: launch film, which can use a demo take as a shot. |
 | `khe-diagram` / `stageshow` | Does it explain a system, or show the product? | System: diagram. Product: stageshow. |
+| `khe-diagram` / `plotter` | Boxes and arrows a reader follows, or one drawing of how something is built? | Nodes and connectors: diagram. One construction relationship as a blueprint illustration: plotter, after diagram's step 1 says a picture earns its place. |
 | `khe-brain-emil` / `emil-design-eng` | His writing reported with sources, or his rules applied to code? | Reported: khe-brain-emil. Applied: emil-design-eng. |
 | `khe-brain-benji` / `stageshow` | His published thinking reported with sources, or a product picture built? | Reported: khe-brain-benji. Built: stageshow. |
 | `khe-brain-enrico` / `khe-brain-emil` / `khe-brain-benji` | Whose answer on a product or interface question: Enrico Tartarotti's videos, Emil Kowalski's articles, or Benji Taylor's writing? | Named: that brain. Not named, why a product works, attention, AI products or where interfaces are going: khe-brain-enrico. How to build or polish the interface itself: khe-brain-emil or khe-brain-benji. Never blend two brains into one answer. |

@@ -1,6 +1,6 @@
 ---
 name: khe-diagram
-description: "Decides whether a diagram earns its place over a sentence or a table, picks the surface by who touches the picture next, then draws a finished editorial figure or edits a live tldraw canvas, with connector, accent and budget rules that also serve as the review. Use when someone says \"can you diagram this\", \"draw the architecture\", \"make a flowchart\", \"sketch this on a board\", \"my diagram looks like Mermaid\", or names tldraw, a .tldraw file or diagram-design. For SVG markup and animation use `khe-svg`; for a live chart inside a product use `khe-ui`; for a leader line on a product shot use `stageshow`."
+description: "Decides whether a diagram earns its place over a sentence or a table, picks the surface by who touches the picture next, then draws a finished editorial figure or edits a live tldraw canvas, with connector, accent and budget rules that also serve as the review. Use when someone says \"can you diagram this\", \"draw the architecture\", \"make a flowchart\", \"sketch this on a board\", \"my diagram looks like Mermaid\", or names tldraw, a .tldraw file or diagram-design. For SVG markup and animation use `khe-svg`; for a live chart inside a product use `khe-ui`; for a leader line on a product shot use `stageshow`; for a blueprint line illustration use `plotter`."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -11,7 +11,7 @@ metadata:
 
 You own the picture from "can you diagram this?" to a figure someone can read, or a clear no. A diagram is the costliest way to say something.
 
-A construction skill. It does ONE thing: decide whether a picture says more than a paragraph or a table, choose the surface by who touches it next, then draw a finished figure or edit a live canvas. It does not build a live chart inside a product (that's `khe-ui`, a component with loading, empty and error states), write general SVG markup or animate it (that's `khe-svg`), decide whether the figure moves (that's `khe-ui`), read the project's contract (that's `khe-design-tokens`), or annotate a product shot (that's `stageshow`).
+A construction skill. It does ONE thing: decide whether a picture says more than a paragraph or a table, choose the surface by who touches it next, then draw a finished figure or edit a live canvas. It does not build a live chart inside a product (that's `khe-ui`, a component with loading, empty and error states), write general SVG markup or animate it (that's `khe-svg`), decide whether the figure moves (that's `khe-ui`), read the project's contract (that's `khe-design-tokens`), annotate a product shot (that's `stageshow`), or draw a blueprint line illustration for a page (that's `plotter`).
 
 ## The one idea
 
@@ -161,7 +161,8 @@ Read both before producing anything. They outrank the defaults in this skill, an
 - `khe-design-tokens`: it reads the `.design` contract whose color roles and families become the figure's skin.
 - `khe-ui`: whether a figure animates at all is its decision; this skill keeps the figure's own clock only once it does.
 - `khe-ui`: its one-accent rule is the one this skill applies to nodes and to named canvas colors.
+- `plotter`: when step 1 says yes but the picture shows how one thing is built (what aligns, fits or is missing) rather than how parts connect, it is a blueprint illustration, not a node-and-connector figure. Hand it to Plotter ([catalogue](https://plotter.pasqualevitiello.com/)): it keeps its own grammar, its 560 × 440 canvas and its own `check.py`, so this skill's budgets and gate do not apply to its drawings.
 
-Names without the `khe-` prefix are other people's skills, not part of this one: `stageshow` is Benji Taylor's ([benjitaylor/skills](https://github.com/benjitaylor/skills)); `animate`, `emil-design-eng` and the rest are Emil Kowalski's ([emilkowalski/skills](https://github.com/emilkowalski/skills)). Install them from their own repos.
+Names without the `khe-` prefix are other people's skills, not part of this one: `stageshow` is Benji Taylor's ([benjitaylor/skills](https://github.com/benjitaylor/skills)); `plotter` is Pasquale Vitiello's ([pasqualevitiello/plotter](https://github.com/pasqualevitiello/plotter)); `animate`, `emil-design-eng` and the rest are Emil Kowalski's ([emilkowalski/skills](https://github.com/emilkowalski/skills)). Install them from their own repos.
 
 Harshit Khemani. MIT.

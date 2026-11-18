@@ -37,6 +37,7 @@ const check = process.argv.includes('--check')
 const REPOS = {
   'emilkowalski/skills': { name: 'emil-kowalski', author: 'Emil Kowalski', about: "Emil Kowalski's skills: UI craft, motion, gestures, mobile feel, taste" },
   'benjitaylor/skills': { name: 'benji-taylor', author: 'Benji Taylor', about: "Benji Taylor's Stageshow: faux product UI, still or animated" },
+  'pasqualevitiello/plotter': { name: 'pasquale-vitiello', author: 'Pasquale Vitiello', about: "Pasquale Vitiello's Plotter: blueprint line illustrations as editable SVG" },
   'vercel-labs/agent-skills': { name: 'vercel', author: 'Vercel', about: "Vercel's agent skills: React and Next.js performance, composition, deploying, the web interface and writing guidelines" },
   'vercel-labs/ui': { name: 'vercel-ui-sdk', author: 'Vercel', about: "Vercel's UI SDK skill, and the UI SDK repository's own contributor skills" },
   'mattpocock/skills': { name: 'matt-pocock', author: 'Matt Pocock', about: "Matt Pocock's engineering skills: deep modules, diagnosis, domain models, specs, guardrails", whole: true },

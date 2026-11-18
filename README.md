@@ -98,6 +98,7 @@ The same marketplace serves the skills I use from other people, each straight fr
 /plugin install benji-taylor@kheskills
 /plugin install emil-kowalski@kheskills
 /plugin install matt-pocock@kheskills
+/plugin install pasquale-vitiello@kheskills
 /plugin install pstack@kheskills
 /plugin install vercel@kheskills
 /plugin install vercel-ui-sdk@kheskills
@@ -162,7 +163,7 @@ One table each: the problem as you would say it, and the value that fixes it.
 
 ## From others
 
-Skills by other people that I use next to mine. They are not copied here. Emil's, Benji's, Vercel's, Lauren Tan's and Matt Pocock's are linked in [`skills/`](skills) as git submodules that follow their repos automatically. Each link below goes to the original file, and `khe-auto` routes to all of them by name.
+Skills by other people that I use next to mine. They are not copied here. Emil's, Benji's, Pasquale Vitiello's, Vercel's, Lauren Tan's and Matt Pocock's are linked in [`skills/`](skills) as git submodules that follow their repos automatically. Each link below goes to the original file, and `khe-auto` routes to all of them by name.
 
 ### Benji Taylor
 
@@ -173,6 +174,16 @@ npx skills add benjitaylor/skills --skill stageshow
 | Skill | What I use it for |
 |---|---|
 | [stageshow](https://github.com/benjitaylor/skills/blob/main/stageshow/SKILL.md) | Faux product UI: product shots, cursor demos and bento grids. The image above is made with it. |
+
+### Pasquale Vitiello
+
+```sh
+npx skills add pasqualevitiello/plotter --skill plotter
+```
+
+| Skill | What I use it for |
+|---|---|
+| [plotter](https://github.com/pasqualevitiello/plotter/blob/main/skills/plotter/SKILL.md) | Blueprint line illustrations as editable SVG, each built on one construction relationship: heroes, spot and empty-state drawings, docs. The [catalogue](https://plotter.pasqualevitiello.com/) shows the grammar. |
 
 ### Emil Kowalski
 

@@ -270,3 +270,7 @@
 	path = skills/pocock-tdd
 	url = https://github.com/mattpocock/skills.git
 	update = none
+[submodule "skills/plotter"]
+	path = skills/plotter
+	url = https://github.com/pasqualevitiello/plotter.git
+	update = none

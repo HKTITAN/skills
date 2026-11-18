@@ -2,6 +2,12 @@
 
 What changed in kheSkills, newest first. One entry per day that something a user can see changed: a skill added, a command renamed, a rule tightened. Fixes to wording inside a skill are in the commit history.
 
+## 2026-11-18
+
+### Added
+
+- Pasquale Vitiello's [Plotter](https://github.com/pasqualevitiello/plotter) is linked in `skills/plotter` beside the other authors' skills and served as the `pasquale-vitiello` plugin. `khe-diagram` (in `kheskills` 1.2.2) hands it a picture that shows how one thing is built rather than how parts connect, and `khe-auto` routes blueprint line illustrations to it.
+
 ## 2026-11-17
 
 ### Added

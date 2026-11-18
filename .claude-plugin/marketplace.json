@@ -12,7 +12,7 @@
       "name": "kheskills",
       "source": "./",
       "description": "Every khe skill except the brains, as one Claude Code plugin: /kheskills:khe-auto, /kheskills:khe-content-engine, /kheskills:khe-demo, /kheskills:khe-design-tokens, /kheskills:khe-diagram, /kheskills:khe-launch-film, /kheskills:khe-package, /kheskills:khe-poteto-pyramid, /kheskills:khe-sound, /kheskills:khe-sticker, /kheskills:khe-svg, /kheskills:khe-ui. Also 4 kheAgents for orchestrated work: kheskills:khe-executor, kheskills:khe-pyramid, kheskills:khe-reviewer, kheskills:khe-router. The brains are the khe-brain plugin.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "Harshit Khemani",
         "url": "https://www.khe.money"
@@ -143,6 +143,22 @@
       "author": {
         "name": "Matt Pocock"
       }
+    },
+    {
+      "name": "pasquale-vitiello",
+      "source": {
+        "source": "github",
+        "repo": "pasqualevitiello/plotter"
+      },
+      "description": "Pasquale Vitiello's Plotter: blueprint line illustrations as editable SVG. Served from pasqualevitiello/plotter, not copied.",
+      "homepage": "https://github.com/pasqualevitiello/plotter",
+      "author": {
+        "name": "Pasquale Vitiello"
+      },
+      "strict": false,
+      "skills": [
+        "./skills/plotter"
+      ]
     },
     {
       "name": "pstack",

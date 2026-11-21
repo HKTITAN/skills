@@ -1,0 +1,4 @@
+<!-- hedge: a hedge word turns a cited line into a guess; the piece says it or it does not. -->
+In 2015 he probably said everyone has one job, to grab attention, tell the story and then sell (2015 Gary Vaynerchuk Keynote - Online Marketing Rockstars at 15:45).
+Source: 2015 Gary Vaynerchuk Keynote - Online Marketing Rockstars, https://www.youtube.com/watch?v=eu7z6U8Jdok
+Not in the corpus: which attention is underpriced for your business.

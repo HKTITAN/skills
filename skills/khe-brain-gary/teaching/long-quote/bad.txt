@@ -1,0 +1,5 @@
+<!-- long-quote: a pasted sentence of 20 words is echoed whole in quotation marks, which are kept for short quotes of his. -->
+"Every business that skips daily content has already lost the game and will never win its customers back from anyone" is in none of the pieces read (His site). The closest stated position, from 2015, is that everyone has one job: grab attention, tell the story, then sell (2015 Gary Vaynerchuk Keynote - Online Marketing Rockstars at 15:45).
+Source: His site, https://garyvaynerchuk.com/
+Source: 2015 Gary Vaynerchuk Keynote - Online Marketing Rockstars, https://www.youtube.com/watch?v=eu7z6U8Jdok
+Not in the corpus: the pasted sentence, or any claim that a business which skips content loses its customers.

@@ -58,6 +58,7 @@ If you already know the skill, call it directly.
 | [khe-brain-benji](skills/khe-brain-benji/README.md) | "would Benji ship this" | An answer from Benji Taylor's public writing and skills with the source named, and a design pressure-tested against it. |
 | [khe-brain-varun](skills/khe-brain-varun/README.md) | "what would Varun say" | An answer from 19 of Varun Mayya's public videos with the video and the minute named, and a plan pressure-tested against it. |
 | [khe-brain-enrico](skills/khe-brain-enrico/README.md) | "what would Enrico say" | An answer from all 88 long videos on Enrico Tartarotti's YouTube channel with the video and the minute named, and a design or a product plan pressure-tested against it. |
+| [khe-brain-gary](skills/khe-brain-gary/README.md) | "what would Gary Vee say" | An answer from 729 pieces by Gary Vaynerchuk read in full (145 long videos and 584 articles; 575 are cited by a line) with the piece, the minute and the year named, every platform call dated, and a content plan or a pitch pressure-tested against it. |
 | [khe-brain-isb](skills/khe-brain-isb/README.md) | "what do the ISB notes say" | An answer from the public isb-skills notes with the file named, benchmarks marked as unsourced, and a plan pressure-tested against it. |
 | [khe-brain-harshit](skills/khe-brain-harshit/README.md) | "write a khe.money post in Harshit's voice" | A brain of Harshit Khemani: an answer from every post he made on X and LinkedIn with the post named, and a draft in his current voice that rests only on views he has posted. |
 | [khe-brain-yc](skills/khe-brain-yc/README.md) | "what does YC say about" | An answer from 88 Y Combinator essays, posts and talks with the partner who said it named and the piece linked, and a plan pressure-tested against them. |
@@ -78,7 +79,7 @@ If you are an agent choosing a skill, read [`llms.txt`](llms.txt): every skill, 
 In Claude Code they install as plugins from one marketplace. Add it with `--sparse`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.
 
 ```text
-/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-decision skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
+/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-gary skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-decision skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
 /plugin install kheskills@kheskills
 /plugin install khe-brain@kheskills
 ```
@@ -91,7 +92,7 @@ For a team, put the same in the project's `.claude/settings.json`, so everyone w
 {
   "extraKnownMarketplaces": {
     "kheskills": {
-      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-decision","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
+      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-gary","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-decision","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
     }
   }
 }
@@ -114,7 +115,7 @@ The same marketplace serves the skills I use from other people, each straight fr
 If an add or update still times out on a slow connection, raise Claude Code's clone timeout (milliseconds) and run it again: `CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS=300000`.
 <!-- install:end -->
 
-Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya`, `/khe-brain:isb`, `/khe-brain:yc`, `/khe-brain:harshitkhemani` and `/khe-brain:enrico-tartarotti` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
+Then `/khe-brain:emil-kowalski`, `/khe-brain:benji-taylor`, `/khe-brain:varun-mayya`, `/khe-brain:isb`, `/khe-brain:yc`, `/khe-brain:harshitkhemani`, `/khe-brain:enrico-tartarotti` and `/khe-brain:gary-vaynerchuk` each take a question. The plugin reads the same skill folders, so the answers are the same either way.
 
 Agents that load the [Agent Plugins](https://agent-plugins.org) standard read [`plugin.json`](plugin.json) at the root: the repo is one plugin, `kheskills`, holding every khe skill, brains included. That standard has no agents or commands yet, so the kheAgents and the `/khe-brain:` commands are Claude Code only.
 

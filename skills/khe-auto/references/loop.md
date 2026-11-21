@@ -56,6 +56,7 @@ The gate belongs to the skill that did the step. Run it from the folder that hol
 | `khe-brain-isb` | `khe-brain-isb/scripts/brain-check.mjs` | its passed line |
 | `khe-brain-yc` | `khe-brain-yc/scripts/brain-check.mjs` | its passed line |
 | `khe-brain-enrico` | `khe-brain-enrico/scripts/brain-check.mjs` | its passed line |
+| `khe-brain-gary` | `khe-brain-gary/scripts/brain-check.mjs` | its passed line |
 | `khe-decision` | `khe-decision/scripts/decision-check.mjs` | `decision-check passed` |
 | `khe-content-engine` | `khe-content-engine/scripts/content-check.mjs` | `content-check passed` |
 | `khe-poteto-pyramid` | `khe-poteto-pyramid/scripts/pyramid-check.mjs` | `pyramid-check passed` |

@@ -1,0 +1,4 @@
+<!-- article-time: the article is cited with a time, but an article has none, so the time points nowhere and the citation looks more exact than it is. -->
+In 2019 he gave the 79/21 rule as about 79 percent of time on the platform bringing the most value and about 21 percent tasting others (The 79 / 21 Rule to Build a Long Term Business at 4:10).
+Source: The 79 / 21 Rule to Build a Long Term Business, https://garyvaynerchuk.com/the-79-21-rule-to-build-a-long-term-business/
+Not in the corpus: how the rule applies to a platform that launched after 2019.

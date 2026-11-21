@@ -22,12 +22,18 @@
       "license": "MIT",
       "keywords": [
         "skills",
+        "agent-skills",
         "design-engineering",
         "ui",
         "motion",
+        "design-tokens",
         "svg",
+        "diagrams",
+        "stickers",
         "sound",
         "launch-video",
+        "demo",
+        "content",
         "agents",
         "orchestration"
       ],
@@ -67,9 +73,12 @@
       "license": "MIT",
       "keywords": [
         "skills",
+        "agent-skills",
         "brain",
         "citations",
-        "research"
+        "research",
+        "design",
+        "startups"
       ],
       "strict": false,
       "commands": [

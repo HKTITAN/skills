@@ -20,6 +20,7 @@ skills.sh.json    groups the repo page on skills.sh
 CHANGELOG.md      what changed that a user can see, newest first
 .claude-plugin/   marketplace.json: the Claude Code plugins this repo offers
 plugin.json       the Agent Plugins manifest (agent-plugins.org): the repo as one plugin of every khe skill
+llms.txt          the index for agents: every khe skill, its description and a link to its SKILL.md; written by scripts/marketplace.mjs
 agents/           the kheAgents, Claude Code subagents the kheskills plugin ships
 orchestration/    CLAUDE.md, the policy that uses the kheAgents, for people to paste into their own
 cheatsheets/      one Problem | Solution table per skill
@@ -55,7 +56,7 @@ A skill built from one person's published work (a "brain" skill, `khe-brain-<nam
 
 ## Where people install from
 
-Three install paths read this repo, each through its own manifest. `scripts/marketplace.mjs` writes all of them from the folders, so after adding, renaming or removing a skill, an agent or a command, run `node scripts/marketplace.mjs` and commit what it changed. `scripts/check.mjs` fails while any of them is out of date or breaks its spec.
+Three install paths read this repo, each through its own manifest. `scripts/marketplace.mjs` writes all of them, and `llms.txt` (the index agents read first), from the folders, so after adding, renaming or removing a skill, an agent or a command, run `node scripts/marketplace.mjs` and commit what it changed. `scripts/check.mjs` fails while any of them is out of date or breaks its spec.
 
 | Path | Reads | What it gets |
 |---|---|---|

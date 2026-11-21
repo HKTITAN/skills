@@ -7,6 +7,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { routerDomains } from "../.github/showcase/router-counts.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS = join(ROOT, "skills");
@@ -95,6 +96,17 @@ for (const n of linked) {
   if (n.startsWith("khe-")) bad(".gitmodules", `${n} is linked from another repo and must not use the khe- prefix`);
   if (!router.includes(`\`${n}\``)) bad("khe-auto", `the router never names ${n}`);
   if (!new RegExp(`\\[${n}\\]\\(https://github\\.com/`).test(readme)) bad("README.md", `${n} is not linked to its original`);
+}
+
+// The router's domain tables and the domains figure count the same skills. The figure's counts are read
+// from the tables (router-counts.mjs); the tables must hold every khe skill but khe-auto as a "here" row
+// (the figure's footer says so), and the committed SVG must be what the script draws from them.
+{
+  const here = routerDomains(router).flatMap((d) => d.here);
+  for (const n of names.filter((n) => n !== "khe-auto")) if (!here.includes(n)) bad("khe-auto", `${n} has no "here" row in a domain table of skills/khe-auto/SKILL.md, so the domains figure leaves it out: add its row to its domain's table`);
+  for (const n of here) if (!names.includes(n)) bad("khe-auto", `a domain table marks ${n} as "here", but skills/${n} is not a khe skill in this repo: fix its Whose column, or add the skill`);
+  const r = spawnSync(process.execPath, [join(ROOT, ".github", "showcase", "readme-auto.mjs"), "--check"], { encoding: "utf8" });
+  if (r.status !== 0) bad("skills/khe-auto/assets", (r.stderr || r.stdout).trim().split("\n")[0]);
 }
 
 // The khe-brain plugin: one command per brain, in that brain's own folder
@@ -257,6 +269,24 @@ if (market) {
       if (changed && prev.version === p.version) bad("marketplace.json", `${p.name} serves changed files (${changed.split("\n").slice(0, 3).join(", ")}${changed.split("\n").length > 3 ? ", ..." : ""}) but is still ${p.version}: bump its version and say why in CHANGELOG.md (or delete the file, if it is an untracked scratch file)`);
     }
   }
+}
+
+// A brain's silent.md must not tell a reader a topic is not covered when a theme file holds a cited claim
+// on it. silent-check.mjs runs khe-brain-gary's two comparisons (a watch word in a claim; a row's topic as a
+// phrase in a claim) over every skills/khe-brain-*; the older brains' watch-word hits are listed there with a
+// reason each, and a new brain has none. The part in meaning, not in words, is the reviewer's step in CONTRIBUTING.md.
+for (const args of [["--self-test"], []]) {
+  const r = spawnSync(process.execPath, [join(ROOT, "scripts", "silent-check.mjs"), ...args], { encoding: "utf8" });
+  if (r.status !== 0) for (const l of (r.stderr + r.stdout).split(/\r?\n/).filter((l) => /silent\.md|silent-check|^FAIL/.test(l))) bad("silent lists", l);
+}
+
+// In a brain's reference files only a cited line may speak for its person. uncited-check.mjs fails a
+// paragraph, a numbered idea, an intro or a reporting line that says he, his or the name and holds no link,
+// unless it is an instruction or the file's own description; the older brains are held at a listed hit or a
+// ceiling, so a new uncited sentence fails. A claim that never names him is the reviewer's step in CONTRIBUTING.md.
+for (const args of [["--self-test"], []]) {
+  const r = spawnSync(process.execPath, [join(ROOT, "scripts", "uncited-check.mjs"), ...args], { encoding: "utf8" });
+  if (r.status !== 0) for (const l of (r.stderr + r.stdout).split(/\r?\n/).filter((l) => /references|uncited-check|^FAIL/.test(l))) bad("uncited claims", l);
 }
 
 // No model is hardcoded: agents inherit the session's model, and the policy picks a tier by the task.

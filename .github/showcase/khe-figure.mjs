@@ -2,7 +2,7 @@
 // Import these, build one svg() per figure, write() it, then check it with khe-diagram's gate:
 //   node <khe-diagram>/scripts/diagram-check.mjs <figure.svg> --gate
 // node({ on: true }) puts the yellow highlighter behind a name: one or two per figure, never more.
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -69,8 +69,18 @@ export function node({ x, y, w, h = 56, name, sub, cls = '', on = false }) {
 export const edge = (d, id, cls = '') => `    <path class="edge ${cls}" d="${d}" marker-end="url(#${id}-arrow)"/>`
 export const label = (x, y, text) => `    <rect class="mask" x="${x}" y="${y}" width="${Math.ceil(text.length * 5.6 + 8)}" height="14"/>\n    <text class="label" x="${x + 4}" y="${y + 10}">${text}</text>`
 
+// With --check a script writes nothing: it fails when a committed figure differs from what the script draws.
 export function write(rel, text) {
   const file = join(ROOT, rel)
+  if (process.argv.includes('--check')) {
+    const same = existsSync(file) && readFileSync(file, 'utf8').replace(/\r\n/g, '\n') === text.replace(/\r\n/g, '\n')
+    if (!same) {
+      const script = process.argv[1].split(/[\\/]/).pop()
+      console.error(`${rel} is not what ${script} draws now (a count or a label changed): run \`node .github/showcase/${script}\` from the repo root and commit ${rel}`)
+      process.exitCode = 1
+    }
+    return
+  }
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, text)
   console.log(`wrote ${rel}`)

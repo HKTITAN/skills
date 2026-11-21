@@ -1,5 +1,8 @@
 // khe-auto README figures, in khe's skin via the shared helpers.
-import { svg, node, edge, label, write } from './khe-figure.mjs'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { svg, node, edge, label, write, ROOT } from './khe-figure.mjs'
+import { routerDomains } from './router-counts.mjs'
 
 // 1. How khe-auto runs: the route and the pyramid step are the two calls highlighted.
 {
@@ -43,16 +46,21 @@ ${node({ x: 32, y: 272, w: 160, name: 'Hand over', sub: 'ROUTE.md, Not verified'
   </g>`))
 }
 
-// 2. The five domains and how many skills each routes to, here and linked (counted from SKILL.md's tables).
+// 2. The five domains and how many skills each routes to, here and linked (counted from the router's tables by router-counts.mjs).
 {
   const id = 'khe-auto-domains'
-  const rows = [
-    ['Design', 'screens, motion, sound, film', 9, 22],
-    ['Code', 'Swift, React, Vercel', 0, 12],
-    ['Brains', 'named people, and their council', 9, 0],
-    ['Content', 'one idea, a post per platform', 1, 0],
-    ['Engineering', 'agents working in a repo', 1, 34],
-  ]
+  const subs = {
+    Design: 'screens, motion, sound, film',
+    Code: 'Swift, React, Vercel',
+    Brains: 'named people, and their council',
+    Content: 'one idea, a post per platform',
+    Engineering: 'agents working in a repo',
+  }
+  const counted = routerDomains(readFileSync(join(ROOT, 'skills/khe-auto/SKILL.md'), 'utf8'))
+  if (counted.map((d) => d.name).join() !== Object.keys(subs).join()) throw new Error(`the router's domains are ${counted.map((d) => d.name).join(', ')}; make the subs in readme-auto.mjs name the same ones`)
+  const rows = counted.map((d) => [d.name, subs[d.name], d.here.length, d.linked.length])
+  const totalHere = rows.reduce((n, r) => n + r[2], 0)
+  const totalLinked = rows.reduce((n, r) => n + r[3], 0)
   const U = 8
   const ys = rows.map((_, i) => 48 + i * 64)
   const nodes = rows.map(([name, sub], i) => node({ x: 240, y: ys[i], w: 192, h: 48, name, sub, on: name === 'Engineering' })
@@ -96,6 +104,6 @@ ${bars.join('\n')}
     <text x="32" y="4">here, a khe- skill in this repo</text>
     <rect class="bar linked" x="208" y="-6" width="24" height="12" rx="2"/>
     <text x="240" y="4">linked, kept in its author's own repo</text>
-    <text x="464" y="4">20 here and 68 linked, one row each in SKILL.md.</text>
+    <text x="464" y="4">${totalHere} here and ${totalLinked} linked, one row each in SKILL.md.</text>
   </g>`))
 }

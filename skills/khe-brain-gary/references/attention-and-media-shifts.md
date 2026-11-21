@@ -5,7 +5,7 @@ summary: Where he says consumer attention sits and how it moves, what underprice
 
 # Attention and media shifts
 
-This file collects what he said about where attention sits and how it moves. The material comes from articles of 2013 to 2021 and keynotes and interviews of 2011 to 2026, and it covers Snapchat and Instagram in 2015 and 2016, audio in 2017, TikTok in 2019 and what he calls interest media in 2025 and after. Platform lines carry their year and were his reading then; some articles on his site are partly team-written guides, and the 2018 Auckland lines in one article are reported by staff.
+This file collects what he said about where attention sits and how it moves. The material comes from articles of 2013 to 2021 and keynotes and interviews of 2011 to 2026, with platform lines on Snapchat and Instagram in 2015 and 2016, audio in 2017, TikTok in 2019 and interest media in 2025 and after. Platform lines carry their year and were his reading then; some articles on his site are partly team-written guides, and the 2018 Auckland lines in one article are reported by staff.
 
 ## Why attention is the asset
 
@@ -23,7 +23,7 @@ This file collects what he said about where attention sits and how it moves. The
 
 ## What day trading attention and underpriced attention mean
 
-- In 2016 he said he day trades attention, that it is the one thing he does for a living, that he bought into e-commerce when the market did not believe in it, and that he bought into email marketing when nobody else was doing it. (Gary Vaynerchuk Keynote Icon 2016 at 16:30, https://www.youtube.com/watch?v=wbdYg6X1e-g&t=990s)
+- In 2016 he said he day trades attention, that it is the one thing he does for a living, that he bought into e-commerce when the market did not believe in it, and that he bought into email marketing when nobody else was doing it. (Gary Vaynerchuk Keynote Icon 2016 at 16:30, https://www.youtube.com/watch?v=wbdYg6X1e-g&t=990s; Gary Vaynerchuk Keynote Icon 2016 at 18:00, https://www.youtube.com/watch?v=wbdYg6X1e-g&t=1080s)
 - In 2016 he said that when something is grossly underpriced by the market because people are not practitioners, it changes his behavior, and that many people in the room with strong public opinions on Facebook ads had never run any. (Gary Vaynerchuk Keynote Icon 2016 at 19:30, https://www.youtube.com/watch?v=wbdYg6X1e-g&t=1170s)
 - In 2017 he said he moved from "marketing in the year that we live in" to day trading attention because even inside a year, influencer marketing, Facebook, YouTube and Twitter shift, and small feature updates are often the marginal opportunity. (Marketing In 2018 Brand Minds Keynote Singapore 2017 DailyVee 337 at 9:00, https://www.youtube.com/watch?v=WdTscOvoBnY&t=540s)
 - In 2017 he said to understand the day trading of attention, asking what attention is underpriced and overpriced. If you have $10,000 to sell jet engines, shipping supplies or a SaaS business, you need to know where the cheap attention is. (Amazon was Google's Biggest Advertiser Oslo Business Forum Keynote DailyVee 352 at 13:30, https://www.youtube.com/watch?v=UU1y4DKaoXw&t=810s)
@@ -32,7 +32,7 @@ This file collects what he said about where attention sits and how it moves. The
 - In 2020 an article on his site defined underpriced attention as platforms and areas that most people who make advertising decisions do not yet fully understand. (What Is Underpriced Attention, https://garyvaynerchuk.com/what-is-underpriced-attention/)
 - In 2023 he said the framework covers a Super Bowl ad, a carousel ad, an emerging TikTok influencer for a car wash or a LinkedIn post for a SaaS firm, and that you can waste money on digital as easily as on a billboard. (GaryVee wants your attention w/ VaynerX's Gary Vaynerchuk Masters of Scale Complete at 4:30, https://www.youtube.com/watch?v=gbBO9tjw9bc&t=270s; GaryVee wants your attention w/ VaynerX's Gary Vaynerchuk Masters of Scale Complete at 3:45, https://www.youtube.com/watch?v=gbBO9tjw9bc&t=225s)
 - In 2024 he said every action a business takes to get customers is underpriced, properly priced or overpriced, so be great at underpriced and stay away from overpriced. (How To Build a Successful Brand In The Social Media World GaryVee Q&A Fireside Chat at 22:30, https://www.youtube.com/watch?v=EWk3_D1y-KA&t=1350s)
-- In 2024 he said the strategy changes day to day and week to week, so a good strategy today will not work for the next year. (How To Build a Successful Brand In The Social Media World GaryVee Q&A Fireside Chat at 17:15, https://www.youtube.com/watch?v=EWk3_D1y-KA&t=1035s)
+- In 2024 he said the strategy changes day to day and week to week, so a good strategy today will not work for the next year. (How To Build a Successful Brand In The Social Media World GaryVee Q&A Fireside Chat at 18:45, https://www.youtube.com/watch?v=EWk3_D1y-KA&t=1125s)
 - In 2026 he said attention can be very overpriced and very underpriced, that there is no general rule, and that what matters is attention per behavior in the world we live in today. (If You're Not Posting You're Falling Behind at 9:45, https://www.youtube.com/watch?v=TDWFU_uEexc&t=585s)
 
 ## The cycle of first movers, land grabs and saturation

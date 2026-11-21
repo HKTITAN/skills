@@ -18,6 +18,7 @@ node scripts/brain-check.mjs --self-test
 ```
 
 - The first command ends `brain-check passed`? That means every never-intentional line is at 0 for that reply. It does not mean the cited piece says what the sentence claims.
+- A quote in single quotes that holds a plural possessive (`the players' families`) is read as ending there, so a long one is missed; the gate cannot tell that apostrophe from a closing quote, and reading to the last one would join two short quotes in a sentence into one long one. Use double quotes for his words, and check a single-quoted span by eye.
 - After editing a gold reply, the second command ends `brain-check passed`?
 - After editing a theme file, [sources](sources.md), [silent](silent.md) or the gate, the third command ends `self-test passed`? It checks every citation in the corpus against the sources table, every time against its link and its video's length, and that no word the silent table watches appears in a cited claim of a theme file.
 

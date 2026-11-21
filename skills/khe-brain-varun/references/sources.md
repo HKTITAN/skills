@@ -11,7 +11,7 @@ Every claim in the theme files ends with `(Title at m:ss, URL)`, and the title a
 
 ## The corpus
 
-All rows were read on 2026-11-11. The Published column is the upload date YouTube shows. The 18 videos run 17 hours 40 minutes and about 224,000 words of captions.
+All rows were read on 2026-11-11, except `Why Every Great Idea Started as a Copy`, which was published on 2026-11-20 and read on 2026-11-21. The Published column is the upload date YouTube shows. The 19 videos run 18 hours 10 minutes and about 230,000 words of captions.
 
 | Title | URL | Published | Read | What it argues |
 |---|---|---|---|---|
@@ -33,7 +33,8 @@ All rows were read on 2026-11-11. The Published column is the upload date YouTub
 | KK Create | https://www.youtube.com/watch?v=A37ca5F9oG8 | 2026-10-18 | 2026-11-11 | A podcast as a guest with Achina Mayya: How to build a successful content company. Aeos works as a bootstrapped group of small, separately profitable companies, each run by co-founders with equity and profit share |
 | Masters Union | https://www.youtube.com/watch?v=NIQwPD6a-d4 | 2026-10-29 | 2026-11-11 | A podcast as a guest: How Varun Mayya Is Quietly Taking Over India's Content Economy. Businesses win by sealing supply and demand gaps, and Aeos works because it consumes its own resources, runs on family-level permanence and owns its media |
 | Why Belief Matters | https://www.youtube.com/watch?v=jreQIik5jlE | 2026-11-03 | 2026-11-11 | Why Belief Matters More Than Power and Money. Self-belief decides who succeeds, but only when it is turned into repeated action over years, tested fast against reality and protected from optionality |
-| Kata playlist | https://www.youtube.com/playlist?list=PLSAVyiM48sqvzLBEbPqD8TZpfu5UyzO9t | 15 videos on 2026-11-11 | 2026-11-11 | The list of the 15 videos from his own channel that were read; the evidence for what is and is not in the corpus |
+| Why Every Great Idea Started as a Copy | https://www.youtube.com/watch?v=E0GKOAWMqzE | 2026-11-20 | 2026-11-21 | Innovation starts as copying: people and companies learn by remaking what works and rearranging it, so most founders should start as an early copy that is 90% the same and 10% new, capture value, and spend the free cash flow on R&D |
+| Kata playlist | https://www.youtube.com/playlist?list=PLSAVyiM48sqvzLBEbPqD8TZpfu5UyzO9t | 15 videos on 2026-11-21 | 2026-11-21 | The list of 15 of the 16 videos from his own channel that were read; `Why Every Great Idea Started as a Copy` was not in it on 2026-11-21. The evidence for what is and is not in the corpus |
 | varunmayya.org | https://www.varunmayya.org | not shown | 2026-11-11 | A one-page profile of his career built by Brokai Labs, not by him: dates, companies and figures, and four lines it attributes to him with no source |
 | Varun Mayya Premium | https://varunmayya.substack.com | not shown | 2026-11-11 | His Substack. Its archive held one post, a placeholder, so there was no essay to read |
 
@@ -41,8 +42,8 @@ All rows were read on 2026-11-11. The Published column is the upload date YouTub
 
 - **Captions, not ears.** Each video was read as YouTube's automatic English captions, in full. The captions have no speaker labels and no punctuation that can be trusted, and they mishear names: his company appears as several spellings, and people and brands are often garbled. A name or number the captions left unclear is described in general words in the theme files or left out.
 - **Every claim carries a time.** The time is the start of a 45-second caption block. A point he makes over several minutes is cited to the block where it starts or where its key detail is said, so expect the line within about two minutes of where the link opens, and listen on from there before repeating it.
-- **How it was checked.** After the theme files were written, a reviewer who had not written them checked 250 sampled lines against the caption text: none stated the opposite of what he said, one was a team member's line and has been corrected, and about a third cited a block that was one or two off or carried a detail said a minute earlier. Every line whose numbers or names were not heard near its cited time, 274 in all, was then re-read against a four-minute window: 138 were rewritten to what the window carries, 16 were kept with the block that carries them added, and 120 stood. Lines outside that pass were not individually re-read, so treat any single line as a pointer to the video and not as a transcript.
-- **Who is speaking.** Thirteen videos are him talking to a room, mostly his own employees, with short audience answers. Three are podcasts where he is the guest: `PGX Ideas 2`, `Masters Union` and `KK Create`, the last with Achina Mayya beside him. A line was recorded as his only when the context showed it was his. Lines by hosts, by Achina Mayya, by audience members, and lines whose speaker could not be told, are not in the theme files.
+- **How it was checked.** After the theme files were written, a reviewer who had not written them checked 250 sampled lines against the caption text: none stated the opposite of what he said, one was a team member's line and has been corrected, and about a third cited a block that was one or two off or carried a detail said a minute earlier. Every line whose numbers or names were not heard near its cited time, 274 in all, was then re-read against a four-minute window: 138 were rewritten to what the window carries, 16 were kept with the block that carries them added, and 120 stood. Lines outside that pass were not individually re-read, so treat any single line as a pointer to the video and not as a transcript. The lines from `Why Every Great Idea Started as a Copy` were added on 2026-11-21 by one reader, from its captions cut into 45-second blocks from 0:00, with names the captions garbled checked against a second machine transcript; they have not been through the reviewer pass.
+- **Who is speaking.** Fourteen videos are him talking to a room, mostly his own employees, with short audience answers. Three are podcasts where he is the guest: `PGX Ideas 2`, `Masters Union` and `KK Create`, the last with Achina Mayya beside him. A line was recorded as his only when the context showed it was his. Lines by hosts, by Achina Mayya, by audience members, and lines whose speaker could not be told, are not in the theme files.
 - **Quotes.** Every claim is a paraphrase. The few direct quotes are under 15 words each and are the captions' words with spacing and plain mishearings fixed. A quote is his words as a machine heard them. Open the link before repeating one outside this skill.
 - **Hinglish.** Stretches of Hindi inside the talks came through the captions badly. Nothing was quoted from them.
 - **Slides and screens.** Several talks use slides, charts and demos. Only what he says aloud is in the corpus.
@@ -57,16 +58,16 @@ A reply that needs one of these says so on its `Not in his videos:` line.
 | His books, Pyjama Profit and The Content Creator Handbook | Sold, not public. He mentions both in the videos; only those mentions are in the corpus. |
 | His posts on X, LinkedIn and Instagram | Not read. A timeline is not scraped, and a post is not in the corpus however well known it is. |
 | His short videos and reels | Not read. |
-| Every other long video on his channel, older or newer | Not read. The corpus is the 15 videos of the Kata playlist as it stood on 2026-11-11. |
+| Every other long video on his channel, older or newer | Not read. The corpus is the 15 videos of the Kata playlist as it stood on 2026-11-21, and `Why Every Great Idea Started as a Copy`, which was on his channel and not in the playlist that day. |
 | Every other podcast he has been a guest on, including the first PGX Ideas episode | Not read. Three guest appearances are in the corpus. |
 | Aeos company pages, the school's course material, the game's pages | Other pages, not his talks. |
 | Press interviews and articles about him | Other people's words about him. |
 
 ## Refresh
 
-The corpus is a dated reading. Before answering a question about a video newer than 2026-11-03, or when the user links a video that is not in the table:
+The corpus is a dated reading. Before answering a question about a video newer than 2026-11-20, or when the user links a video that is not in the table:
 
-1. Open the Kata playlist and compare its list with the table.
+1. Open the Kata playlist and compare its list with the table. A new talk can be on his channel before it is in the playlist, as the one of 2026-11-20 was, so check the channel's videos too.
 2. For each new video: read its captions in full, add its row here with today's date, then add its claims to the theme files, one line each, in your own words, each with its time and its link.
 3. Check [disagreements](disagreements.md) and [silent](silent.md): a new video can end a silence or start a disagreement. He says in the videos that he changes his mind often, so check the date of every line you cite.
 4. Run `node scripts/brain-check.mjs --self-test`. It fails when a claim cites a title that is not in the table, or a time that does not match its link.

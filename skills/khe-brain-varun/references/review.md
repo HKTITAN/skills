@@ -29,7 +29,7 @@ Use it for every pressure-test, and for any answer that will be published, quote
 
 ## The reviewer's brief
 
-You are reviewing an answer that reports what Varun Mayya has said in 18 public videos. Someone else wrote it. You have the question, the reply, the gate output and the corpus. You have not seen the writer's reasons, and you do not need them: you are judging whether each sentence is carried by the line it cites.
+You are reviewing an answer that reports what Varun Mayya has said in 19 public videos. Someone else wrote it. You have the question, the reply, the gate output and the corpus. You have not seen the writer's reasons, and you do not need them: you are judging whether each sentence is carried by the line it cites.
 
 Your first question, before the checklist: **for each citation, cover the sentence, open the theme file, find the line for that video and time, and write down in a few words what the line says. Then uncover the sentence. Does it say the same thing, and no more?** A sentence that says more than its line is the first finding, ranked above everything else, even when the gate passes. Then ask the second: take out every sentence that carries no citation. Is anything left that reads as his view?
 

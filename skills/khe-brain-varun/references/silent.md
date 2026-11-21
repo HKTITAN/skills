@@ -1,11 +1,11 @@
 ---
 title: silent
-summary: Topics the 18 videos do not cover, the words the gate watches for each, and the nearest line that may be offered as nearest and never as his position.
+summary: Topics the 19 videos do not cover, the words the gate watches for each, and the nearest line that may be offered as nearest and never as his position.
 ---
 
 # Silent
 
-The corpus is 18 videos: 15 talks from his own channel and 3 podcasts. He has said far more than that elsewhere, in posts, short videos, two books and other podcasts, and none of it was read. This file is the list of what the 18 videos do not hold, so a reply says "he does not cover this in the videos read" in place of inventing a view.
+The corpus is 19 videos: 16 talks from his own channel and 3 podcasts. He has said far more than that elsewhere, in posts, short videos, two books and other podcasts, and none of it was read. This file is the list of what the 19 videos do not hold, so a reply says "he does not cover this in the videos read" in place of inventing a view.
 
 ## The rule
 
@@ -15,7 +15,7 @@ The corpus is 18 videos: 15 talks from his own channel and 3 podcasts. He has sa
 4. A nearest line may be offered, labelled as nearest, with what it does say and the context it says it in. Never continue from it to what he "must" think.
 5. A topic missing from this table and from every theme file is also silent. Add a row after you have checked the theme files.
 6. Fame is not evidence. He is widely quoted, and most of what people attribute to him comes from posts and clips that were not read. A view that is not in [sources](sources.md) is not in the corpus. Say it is not in the videos read, and that his posts, short videos and books were not read.
-7. Silence here is silence in 18 videos, never proof that he has no view. Write "the videos read do not cover it", never "he has no opinion".
+7. Silence here is silence in 19 videos, never proof that he has no view. Write "the videos read do not cover it", never "he has no opinion".
 
 ## Not covered
 
@@ -47,10 +47,10 @@ The gate reads the first two columns. When a sentence marked as his contains a w
 | Caste, gender and diversity at work | caste, diversity hiring, gender pay, reservation | None. |
 | Climate and energy | climate change, renewable energy, carbon, sustainability | None. |
 | Remote work as policy | remote work, hybrid work, work from home policy, return to office | He describes a shorter work week earned with tenure at Aeos, and says leaders should live close together. No general view on remote work. |
-| Patents, open source and licences | patent, open source, licence, intellectual property | None. |
+| Patents, open source and licences | patent, open source, licence, intellectual property | He reads out Chrome's launch note crediting open source projects, as one of his cases of building on other people's work. No video gives a view on patents, licences or intellectual property law. |
 | Game design craft | level design, game mechanics, combat design, game balance, Unreal blueprint | He describes how the studio is run and why the game is set in the 1950s. The videos read do not teach game design. |
 | The contents of his two books | Pyjama Profit chapter, Content Creator Handbook chapter | The books were not read. He mentions them in passing. |
-| Jobspire, Avalon and Scenes as case studies | Jobspire strategy, Avalon Labs strategy, Scenes product | He refers to these companies in stories. No video in the corpus tells their history in full. |
+| Jobspire, Avalon and Scenes as case studies | Jobspire strategy, Avalon Labs strategy, Scenes product | He refers to these companies in stories, and says Avalon created value that other companies captured. No video in the corpus tells their history in full. |
 
 ## Thin, not silent
 
@@ -64,4 +64,6 @@ These have a line or two. Report the line, its video and that it is all there is
 | Betting apps and crypto | He names young people's long-shot bets on betting apps and crypto as hyper gambling, driven by stuck salaries and high property prices, and says he has empathy for them. (Kata 13 at 50:52, https://www.youtube.com/watch?v=8WgipmPSPKk&t=3052s) |
 | Thumbnails | Click-through on YouTube sits at 4 to 6% in the middle of the platform and 8 to 10% or more for top channels, and a new channel should be at 10% or more. (Kata 10 at 30:50, https://www.youtube.com/watch?v=TGKgCLVxRCk&t=1850s) |
 | Work week | At Aeos a shorter week is earned with tenure and milestones. (Kata 2 at 24:08, https://www.youtube.com/watch?v=uojkYJz7d-k&t=1448s) |
+| Electric vehicles | He says he researched getting into electric vehicles because Aeos had a little free cash flow, and that everyone who builds one starts from a mule, an existing car or bike modified to test the new part. No decision to enter is reported. (Why Every Great Idea Started as a Copy at 6:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=405s) |
+| Investing in deep tech | He calls deep tech in India a bad investment, because innovators create value and rarely capture it. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s) |
 | Money and happiness | He always thought making money would make him happy and found he was not that happy when it came. (Masters Union at 14:16, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=856s) |

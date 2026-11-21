@@ -1,6 +1,6 @@
 # khe-brain-varun
 
-Answers startup, content, career and AI questions from what Varun Mayya has said in 18 public videos, with the video and the minute named.
+Answers startup, content, career and AI questions from what Varun Mayya has said in 19 public videos, with the video and the minute named.
 
 ```bash
 npx skills add HKTITAN/skills --skill khe-brain-varun
@@ -21,7 +21,7 @@ This is Harshit Khemani's reading of Varun Mayya's public videos. Varun Mayya di
 
 ## How it runs
 
-![khe-brain-varun's flow: khe-auto sends a question that names Varun here and an unnamed startup question to khe-brain-yc or khe-brain-isb; the question is answered from 12 theme files holding 1,378 claims from 18 videos, checked for silence and disagreement, cited with the video and the minute, closed with what is not in his videos, and gated by brain-check; writing the post goes to khe-content-engine](assets/flow.svg)
+![khe-brain-varun's flow: khe-auto sends a question that names Varun here and an unnamed startup question to khe-brain-yc or khe-brain-isb; the question is answered from 12 theme files holding 1,461 claims from 19 videos, checked for silence and disagreement, cited with the video and the minute, closed with what is not in his videos, and gated by brain-check; writing the post goes to khe-content-engine](assets/flow.svg)
 
 ## Used
 
@@ -43,12 +43,13 @@ Not in his videos: which of the three to pick, and anything about MBA programmes
 
 ## The corpus
 
-18 videos, 17 hours 40 minutes, read in full from YouTube's automatic captions on 2026-11-11:
+19 videos, 18 hours 10 minutes, read in full from YouTube's automatic captions, 18 on 2026-11-11 and one on 2026-11-21:
 
 - The 15 videos of his Kata playlist, from Kata 1 (21 December 2025) to Why Belief Matters More Than Power and Money (3 November 2026).
+- One more talk from his channel, Why Every Great Idea Started as a Copy (20 November 2026), which was not in the playlist on 2026-11-21.
 - Three podcasts where he is the guest: PGX Ideas (18 March 2026), KK Create with Achina Mayya (18 October 2026) and Masters' Union (29 October 2026).
 
-That is 1,378 cited claims across 12 theme files (2,274 timed citations in all), a glossary of 274 of his terms and frameworks, 21 disagreements, 18 changes of mind he states himself and 27 figures that differ by video.
+That is 1,461 cited claims across 12 theme files (2,436 timed citations in all), a glossary of 282 of his terms and frameworks, 24 disagreements, 19 changes of mind he states himself and 28 figures that differ by video.
 
 Not read: his books, his posts, his short videos and every other podcast. His Substack held one placeholder post. varunmayya.org is a profile built by a third party and is cited only for what that page states.
 

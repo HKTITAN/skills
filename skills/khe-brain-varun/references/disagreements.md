@@ -99,6 +99,29 @@ Open this file before you answer. When a question touches a row, give both sides
 - His reason: almost all tech deal flow in India comes to him as a creator. He treats it as a temporary arbitrage and caps the agency at four or five people. (Masters Union at 29:18, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1758s; Masters Union at 30:05, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1805s)
 - How to report it: give the rule and the exception, both from 2026-10-29, with his reason for the exception.
 
+### Start as a copy, or be different?
+
+- The world cares about different, not better or worse. (Masters Union at 18:58, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1138s)
+- Being unique is not that hard, and Indian systems teach that it is safe to copy someone two years ahead. (PGX Ideas 2 at 1:10:10, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=4210s)
+- Enter markets with little competition, and the businesses nobody believes in. (Kata 9 at 1:03:39, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=3819s; Kata 9 at 40:41, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=2441s)
+- On 2026-11-20 he says most people starting a company are better off starting a copy, 90% the same as what already works and 10% new, as player two to four. (Why Every Great Idea Started as a Copy at 26:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1575s; Why Every Great Idea Started as a Copy at 23:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1395s)
+- In the same video the 10% has to be your own, at least in the branding, and he says originality comes from constraints and from moving a principle into a new context. (Why Every Great Idea Started as a Copy at 30:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1800s; Why Every Great Idea Started as a Copy at 10:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=630s; Why Every Great Idea Started as a Copy at 12:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=720s)
+- How to report it: give both sides, each with its date. He does not say in the 2026-11-20 video that he changed his mind, so do not report a reversal. Say that the later video keeps a part that is different and wants the copy early, not as player 50.
+
+### Is jugaad worth anything?
+
+- India's real edge is drive and comradeship, not jugaad. (Masters Union at 1:03:26, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3806s)
+- On 2026-11-20 he calls jugaad necessary: innovation under a constraint, which drives down price or increases availability for the end user. (Why Every Great Idea Started as a Copy at 15:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=945s; Why Every Great Idea Started as a Copy at 16:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=990s)
+- How to report it: the first line is about what India's edge is and the second about whether jugaad is useful. Give both with their dates and do not merge them.
+
+### Hard technology in India: fund it, or stay out?
+
+- The better route to deep tech is to build something first, earn trust, then take harder shots. (Kata 4 at 12:52, https://www.youtube.com/watch?v=mPjj7-eHw1s&t=772s)
+- Once free cash flow rotates inside Indian companies they will start taking R&D risk, and Aeos puts content cash flow into games. (Masters Union at 1:01:51, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3711s; Masters Union at 1:02:38, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3758s)
+- On 2026-11-20, speaking as an angel investor, he calls deep tech in India a bad investment, because innovators create value and rarely capture it. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s)
+- In the same video he says value capturers become the long-term innovators, and that spending on R&D as free cash flow grows is a moral responsibility. (Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s; Why Every Great Idea Started as a Copy at 30:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1800s)
+- How to report it: he says the bad investment line about investing in deep tech companies, and the R&D lines about a company spending its own free cash flow. Give both and keep each in that context.
+
 ### Are AI presenters and AI content the win, or is that over?
 
 - Audiences watch AI-generated presenters and views are the same. He was recognised at Davos as the world's largest AI avatar. (Kata 1 at 35:37, https://www.youtube.com/watch?v=9NjA41wShTI&t=2137s; Kata 1 at 34:47, https://www.youtube.com/watch?v=9NjA41wShTI&t=2087s)
@@ -226,6 +249,12 @@ Open this file before you answer. When a question touches a row, give both sides
 - Now: in his 30s he keeps good relations even with people who wronged him, because the person may mature and build a big company. (Kata 9 at 34:20, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=2060s)
 - How to report it: state it as a lesson he says he learned with age.
 
+### Creating value versus capturing it
+
+- Before: for 7 or 8 years, he says, he was capped at a certain revenue or profit. He liked trying new things and creating value, and at Avalon the value created was captured by other companies. (Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s; Why Every Great Idea Started as a Copy at 27:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1665s)
+- Now: he says capturing value is what generates free cash flow, calls his old approach the wrong mentality if the goal is to make money, and says Aeos is good at both creating and capturing. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s; Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s; Why Every Great Idea Started as a Copy at 27:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1665s)
+- How to report it: give it as a lesson he states about himself on 2026-11-20.
+
 ### Angel investing
 
 - Before: two years earlier he put 5 to 10 lakhs into seed companies out of fear of missing out because big funds were in, and they shut down a year later. (Kata 9 at 20:51, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=1251s)
@@ -314,6 +343,7 @@ Open this file before you answer. When a question touches a row, give both sides
 - Channels at the services company: close to 40 channels now on 2025-12-21 (Kata 1 at 29:06, https://www.youtube.com/watch?v=9NjA41wShTI&t=1746s); "We've done like 70 80 channels there" on 2026-08-05, a count of channels done so far (Kata 12 at 40:14, https://www.youtube.com/watch?v=mwQhnZ32CeE&t=2414s)
 - Channels Aeos owns: about 11 owned internally on 2026-10-29 (Masters Union at 22:57, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1377s); on 2026-11-03 he uses 10 only inside an example, "If we've already built 10 channels, and I need to build the 11th one", not as a stated count (Why Belief Matters at 16:48, https://www.youtube.com/watch?v=jreQIik5jlE&t=1008s)
 - Creator economy growth he expects: 10 times bigger, then 100 times bigger a few minutes later, both on 2026-10-18 (KK Create at 46:04, https://www.youtube.com/watch?v=A37ca5F9oG8&t=2764s; KK Create at 54:04, https://www.youtube.com/watch?v=A37ca5F9oG8&t=3244s).
+- Which company came last before Aeos: this corpus calls Scenes his company before Aeos, from a passage on 2026-07-26 where he calls it one of the startups he started in the past (Kata 11 at 14:27, https://www.youtube.com/watch?v=0tbeJZYvsg4&t=867s); on 2026-11-20 he calls Avalon "my last company" (Why Every Great Idea Started as a Copy at 27:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1665s).
 - Years running companies: his 13th year on 2025-12-24 (Kata 2 at 54:49, https://www.youtube.com/watch?v=uojkYJz7d-k&t=3289s); 14 to 15 years on 2026-07-16 (Kata 10 at 0:56, https://www.youtube.com/watch?v=TGKgCLVxRCk&t=56s); 14 years on 2026-11-03 (Why Belief Matters at 0:47, https://www.youtube.com/watch?v=jreQIik5jlE&t=47s).
 - Years as a creator: a creator for 9 years on 2026-10-18 (KK Create at 41:17, https://www.youtube.com/watch?v=A37ca5F9oG8&t=2477s); content only a few years old for him on 2026-10-29 (Masters Union at 20:33, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1233s).
 - Time without investor money: profitable and bootstrapped for about 3 years on 2025-12-21 (Kata 1 at 4:07, https://www.youtube.com/watch?v=9NjA41wShTI&t=247s); no investor money for four years on 2026-08-14 (Kata 13 at 0:53, https://www.youtube.com/watch?v=8WgipmPSPKk&t=53s).

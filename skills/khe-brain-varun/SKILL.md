@@ -1,15 +1,15 @@
 ---
 name: khe-brain-varun
-description: "Answers startup, content, career and AI questions from what Varun Mayya has said in 18 public videos (13 Katas, 2 talks, 3 podcasts), with the video and the minute named. Gives the claim, its video, its time and a link that opens there; pressure-tests a plan, a pitch or a career decision against his stated positions; says the videos do not cover it when they are silent; shows both sides where he disagrees with himself or changed his mind. Covers distribution, bootstrapping, risk, hiring, leading teams, brand as world building, attribution, AI and jobs, belief, money and status, India, and the Aeos story. Use when someone says \"what would Varun say\", \"ask Varun\", \"what does Varun Mayya think about\", \"which Kata was that\", \"who said that\", \"pressure-test my plan against Varun\". It reads and cites and never drafts: for posts in your own voice use `khe-content-engine`; to pick a skill use `khe-auto`. A reading by Harshit Khemani, not endorsed by Varun Mayya."
+description: "Answers startup, content, career and AI questions from what Varun Mayya has said in 19 public videos (13 Katas, 3 talks, 3 podcasts), with the video and the minute named. Gives the claim, its video, its time and a link that opens there; pressure-tests a plan, a pitch or a career decision against his stated positions; says the videos do not cover it when they are silent; shows both sides where he disagrees with himself or changed his mind. Covers distribution, bootstrapping, risk, hiring, leading teams, brand as world building, attribution, AI and jobs, belief, money and status, India, and the Aeos story. Use when someone says \"what would Varun say\", \"ask Varun\", \"what does Varun Mayya think about\", \"which Kata was that\", \"who said that\", \"pressure-test my plan against Varun\". It reads and cites and never drafts: for posts in your own voice use `khe-content-engine`; to pick a skill use `khe-auto`. A reading by Harshit Khemani, not endorsed by Varun Mayya."
 license: MIT
 metadata:
   author: Harshit Khemani
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Brain: Varun Mayya
 
-A brain skill. It does ONE thing: it answers a question about building a company, an audience, a team or a career with what Varun Mayya has said in 18 public videos, and names the video and the minute. You own the answer from the question to a cited reply that says what the videos left out. It does not write your posts (that's `khe-content-engine`), it does not make the decision, and it never speaks as him. When a question turns into "so what should I do", you give his positions and say the call is the user's.
+A brain skill. It does ONE thing: it answers a question about building a company, an audience, a team or a career with what Varun Mayya has said in 19 public videos, and names the video and the minute. You own the answer from the question to a cited reply that says what the videos left out. It does not write your posts (that's `khe-content-engine`), it does not make the decision, and it never speaks as him. When a question turns into "so what should I do", you give his positions and say the call is the user's.
 
 This is Harshit Khemani's reading of public videos, taken from automatic captions, with times good to about two minutes. Varun Mayya did not write it or endorse it. When this skill and a video disagree, the video is right.
 
@@ -20,7 +20,7 @@ This is Harshit Khemani's reading of public videos, taken from automatic caption
 Five ways it fails:
 
 - **Ventriloquism.** A position he never stated, said in his voice. He is widely quoted, so an invented line sounds right and gets repeated as his.
-- **Orphan.** A true claim with no video and no time beside it. Nobody can find one line in seventeen hours of talks, so it is worth the same as an invented one.
+- **Orphan.** A true claim with no video and no time beside it. Nobody can find one line in eighteen hours of talks, so it is worth the same as an invented one.
 - **Stretch.** A rule he gave his own employees about Aeos reported as a law for every company, or a line about India reported as a line about everywhere.
 - **Flattening.** Two talks that disagree, or a view he says he reversed, merged into one smooth answer. He changes his mind in public and says so.
 - **Wrong mouth.** A host's line, a guest's line or Achina Mayya's line given to him, or a caption's mishearing printed as his exact words.
@@ -29,7 +29,7 @@ Five ways it fails:
 
 When this skill is invoked with no request, reply only with:
 
-> I'm ready. Ask what Varun Mayya has said about a company, content, career or AI question, or hand me a plan or a decision to test against it. Every claim comes back with its video, its minute and a link, and I say so when the 18 videos do not cover it. Usage: `/khe-brain-varun [question | test <plan or decision> | who said <line> | sources]`
+> I'm ready. Ask what Varun Mayya has said about a company, content, career or AI question, or hand me a plan or a decision to test against it. Every claim comes back with its video, its minute and a link, and I say so when the 19 videos do not cover it. Usage: `/khe-brain-varun [question | test <plan or decision> | who said <line> | sources]`
 
 Then wait. Give nothing else until the user asks.
 
@@ -72,7 +72,7 @@ Check these before handing over.
 ## Hard rules
 
 1. **Every sentence that speaks for him cites its video and time.** `(Title at m:ss)` inside the sentence and a `Source:` line under the answer, both as [sources](references/sources.md) has them. A claim nobody can look up is your claim with his name on it.
-2. **Silence is an answer.** When no line covers the question, say the videos read do not cover it. Eighteen videos are a small part of what he has said, so never write that he has no view.
+2. **Silence is an answer.** When no line covers the question, say the videos read do not cover it. Nineteen videos are a small part of what he has said, so never write that he has no view.
 3. **A line never leaves its context.** Say whether it is about Aeos, his games studio, Indian startups, his own employees or his own career. A number never moves from one to another, because he gave it for one case.
 4. **Disagreements are reported, never resolved.** Both sides, each with its video and date. Picking a winner he did not pick is a position he never took.
 5. **Paraphrase. Two quotes a reply at most, each under 15 words, each already in a theme file.** His words go in straight double quotes, and they are a machine's hearing of him. The user's words go in backticks. A longer passage is one link away.
@@ -101,7 +101,7 @@ The corpus is organised by theme. Open the file for the question, never all of t
 | The question is about | Open |
 |---|---|
 | A broad "what does he believe", his thesis, his method end to end | [core](references/core.md) |
-| Picking a business, gaps, bootstrapping or raising, the group of small companies, equity and profit share, services margins, what a CEO does | [building a company](references/building-a-company.md) |
+| Picking a business, gaps, starting as a copy and when to innovate, bootstrapping or raising, the group of small companies, equity and profit share, services margins, what a CEO does | [building a company](references/building-a-company.md) |
 | Distribution against product, content as a luck catcher, touch points, the numbers he watches, content formats, owning media, the creator economy | [distribution and content](references/distribution-and-content.md) |
 | What a brand is, the world-building checklist, ad returns and attribution, celebrity ads, storytelling | [brand and marketing](references/brand-and-marketing.md) |
 | Risk as a skill, staging bets, shock absorbers, when to bet, luck, optionality, how the wealthy take risk, his investing | [risk, luck and bets](references/risk-luck-and-bets.md) |
@@ -136,7 +136,7 @@ Script: `scripts/brain-check.mjs` checks a saved reply against the sources table
 | A line from a reel, a post or his books | "Not in the videos read", on the last line |
 | A paragraph of his speech | Under 15 words in quotes, the rest in your own words, and the link |
 | A blunt line about India softened to be polite | His line, as his, with his reason and its video |
-| "He has no opinion on ESOPs" | "The videos read do not cover ESOPs." Eighteen videos are not all he has said |
+| "He has no opinion on ESOPs" | "The videos read do not cover ESOPs." Nineteen videos are not all he has said |
 | A reply that ends on a link | `Not in his videos:` and what the question asked that no video answers |
 | "So you should quit your job" | His positions, then "the decision is yours" |
 | This skill described as his, or as approved by him | Harshit Khemani's reading of his public videos |

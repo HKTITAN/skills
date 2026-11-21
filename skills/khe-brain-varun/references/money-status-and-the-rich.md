@@ -131,6 +131,7 @@ He treats money as a side effect of status, validation and risk, and treats rich
 - He builds with family because family has no breaking point. With any co-founder there is some point where one walks away, and he says non-relatives can earn their way into that family. (Masters Union at 35:41, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=2141s; Masters Union at 38:06, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=2286s)
 - Big things are not built by a lone wolf. You must generate and share wealth with enough people or you keep losing your best talent. (Kata 1 at 44:27, https://www.youtube.com/watch?v=9NjA41wShTI&t=2667s)
 - A world needs hierarchy and visible ranks above the buyer. Self-made people buying supercars usually start with the entry-level model just to enter the game. (The Most Valuable Skill After AI at 15:17, https://www.youtube.com/watch?v=4N8WadMsdmI&t=917s)
+- Jewellery sells status and validation, he says, so a convincing knockoff for people in India who cannot afford the real thing is a cost or availability innovation. (Why Every Great Idea Started as a Copy at 15:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=945s)
 
 ## What does money do and not do?
 
@@ -148,3 +149,5 @@ He treats money as a side effect of status, validation and risk, and treats rich
 - Do not attach your financial success to your self-worth. You can do your best work and not be rewarded, and he says the world is stacked against young people, citing land prices. (PGX Ideas 2 at 1:43:42, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=6222s)
 - AI takes the money out of a craft but not the joy. He can still make art in Photoshop for the satisfaction. He just cannot make money from it. (Masters Union at 5:33, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=333s)
 - He says the Indian audience cannot be pleased about money: a profitable business is called a scam, and a loss-making one is asked why it is not profitable. (Masters Union at 57:04, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3424s)
+- He says he was capped at a certain revenue or profit for 7 or 8 years because he did not know the difference between creating value and capturing it, and that capturing it is what generates free cash flow. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s; Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s)
+- Money is what he says lets a company innovate: give a person enough money and enough time and they start innovating, because it takes extra free cash flow. (Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s)

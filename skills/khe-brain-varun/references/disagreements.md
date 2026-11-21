@@ -5,7 +5,7 @@ summary: Where his videos pull against each other, and where a position moved ov
 
 # Disagreements and changes
 
-Open this file before you answer. When a question touches a row, give both sides with their videos and dates, and never merge them into one smooth view. The corpus spans 2025-12-21 to 2026-11-03, and several rows sit inside a single talk. Many of the changes are ones he states himself, and he says more than once that changing his mind on new data is the right thing to do.
+Open this file before you answer. When a question touches a row, give both sides with their videos and dates, and never merge them into one smooth view. The corpus spans 2025-12-21 to 2026-11-20, and several rows sit inside a single talk. Many of the changes are ones he states himself, and he says more than once that changing his mind on new data is the right thing to do.
 
 ## Disagreements
 
@@ -343,7 +343,6 @@ Open this file before you answer. When a question touches a row, give both sides
 - Channels at the services company: close to 40 channels now on 2025-12-21 (Kata 1 at 29:06, https://www.youtube.com/watch?v=9NjA41wShTI&t=1746s); "We've done like 70 80 channels there" on 2026-08-05, a count of channels done so far (Kata 12 at 40:14, https://www.youtube.com/watch?v=mwQhnZ32CeE&t=2414s)
 - Channels Aeos owns: about 11 owned internally on 2026-10-29 (Masters Union at 22:57, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1377s); on 2026-11-03 he uses 10 only inside an example, "If we've already built 10 channels, and I need to build the 11th one", not as a stated count (Why Belief Matters at 16:48, https://www.youtube.com/watch?v=jreQIik5jlE&t=1008s)
 - Creator economy growth he expects: 10 times bigger, then 100 times bigger a few minutes later, both on 2026-10-18 (KK Create at 46:04, https://www.youtube.com/watch?v=A37ca5F9oG8&t=2764s; KK Create at 54:04, https://www.youtube.com/watch?v=A37ca5F9oG8&t=3244s).
-- Which company came last before Aeos: this corpus calls Scenes his company before Aeos, from a passage on 2026-07-26 where he calls it one of the startups he started in the past (Kata 11 at 14:27, https://www.youtube.com/watch?v=0tbeJZYvsg4&t=867s); on 2026-11-20 he calls Avalon "my last company" (Why Every Great Idea Started as a Copy at 27:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1665s).
 - Years running companies: his 13th year on 2025-12-24 (Kata 2 at 54:49, https://www.youtube.com/watch?v=uojkYJz7d-k&t=3289s); 14 to 15 years on 2026-07-16 (Kata 10 at 0:56, https://www.youtube.com/watch?v=TGKgCLVxRCk&t=56s); 14 years on 2026-11-03 (Why Belief Matters at 0:47, https://www.youtube.com/watch?v=jreQIik5jlE&t=47s).
 - Years as a creator: a creator for 9 years on 2026-10-18 (KK Create at 41:17, https://www.youtube.com/watch?v=A37ca5F9oG8&t=2477s); content only a few years old for him on 2026-10-29 (Masters Union at 20:33, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1233s).
 - Time without investor money: profitable and bootstrapped for about 3 years on 2025-12-21 (Kata 1 at 4:07, https://www.youtube.com/watch?v=9NjA41wShTI&t=247s); no investor money for four years on 2026-08-14 (Kata 13 at 0:53, https://www.youtube.com/watch?v=8WgipmPSPKk&t=53s).

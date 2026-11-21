@@ -49,7 +49,7 @@ Not in his videos: which of the three to pick, and anything about MBA programmes
 - One more talk from his channel, Why Every Great Idea Started as a Copy (20 November 2026), which was not in the playlist on 2026-11-21.
 - Three podcasts where he is the guest: PGX Ideas (18 March 2026), KK Create with Achina Mayya (18 October 2026) and Masters' Union (29 October 2026).
 
-That is 1,461 cited claims across 12 theme files (2,436 timed citations in all), a glossary of 282 of his terms and frameworks, 24 disagreements, 19 changes of mind he states himself and 28 figures that differ by video.
+That is 1,461 cited claims across 12 theme files (2,437 timed citations in all), a glossary of 282 of his terms and frameworks, 24 disagreements, 19 changes of mind he states himself and 27 figures that differ by video.
 
 Not read: his books, his posts, his short videos and every other podcast. His Substack held one placeholder post. varunmayya.org is a profile built by a third party and is cited only for what that page states.
 

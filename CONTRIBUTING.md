@@ -118,7 +118,7 @@ Turning a person's or a company's published thinking into a skill is worth doing
 - **No private references.** No links only you can open (Notion, a local server), no session ids, no paths from your machine, in the text or the branch name.
 - **Picking up a stalled PR is welcome.** Keep their commits where you can and name them.
 
-The shape of this section and of the template borrows from [paperclip](https://github.com/paperclipai/paperclip)'s contributing guide (MIT).
+The idea behind this section, the template and the PR body check comes from [paperclip](https://github.com/paperclipai/paperclip)'s contributing guide (MIT); the text is written for this repo.
 
 ## Checklist
 

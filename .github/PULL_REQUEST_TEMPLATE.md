@@ -25,6 +25,3 @@
 
 - [ ] One job in this PR; unrelated skills sit in their own commits
 - [ ] For a new skill: I searched skills.sh and the open PRs, and nobody already publishes it
-- [ ] Renders, screenshots and recordings are in this PR, never committed
-- [ ] No private links, session ids or paths from my machine in the text or the branch name
-- [ ] The review verdict above names the head commit

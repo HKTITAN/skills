@@ -64,7 +64,7 @@
       "name": "khe-brain",
       "source": "./skills",
       "description": "Brains: answers from one source's public writing, talks or notes, with the source named. /khe-brain:benji-taylor, /khe-brain:emil-kowalski, /khe-brain:enrico-tartarotti, /khe-brain:gary-vaynerchuk, /khe-brain:harshitkhemani, /khe-brain:isb, /khe-brain:varun-mayya, /khe-brain:yc.",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "author": {
         "name": "Harshit Khemani",
         "url": "https://www.khe.money"

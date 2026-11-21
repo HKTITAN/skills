@@ -199,9 +199,11 @@ const quotesIn = (s) => [...s.matchAll(/"([^"\n]+)"/g)].map((m) => m[1])
 // opens only on an apostrophe that follows the start, whitespace or an opening
 // bracket and comes before a letter, so a contraction or a possessive (Gary's,
 // players') never opens one and neither does a decade ('90s). It closes only on
-// an apostrophe that comes before the end, whitespace or punctuation. A span
-// nested in double quotes is already counted there.
-const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<=^|[\s([{])'(?=[A-Za-z])([^'\n]*?[^\s'])'(?=$|[\s.,;:!?)\]}])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
+// an apostrophe that comes before the end, whitespace or punctuation. An
+// apostrophe between two letters inside a span (don't, anyone's) belongs to the
+// span and does not end it. A span nested in double quotes is already counted
+// there.
+const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<=^|[\s([{])'(?=[A-Za-z])((?:[^'\n]|(?<=[A-Za-z])'(?=[A-Za-z]))*?[^\s'])'(?=$|[\s.,;:!?)\]}])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
 const allQuotesIn = (s) => [...quotesIn(s), ...singleQuotesIn(s)]
 // Quoted spans and backticked spans are someone's exact words. They are not
 // judged as the reply's own wording.
@@ -560,7 +562,7 @@ function selfTest() {
     const text = norm(readFileSync(p, 'utf8'))
     const rel = relative(SKILL_DIR, p).replace(/\\/g, '/')
     for (const w of HOUSE) if (text.toLowerCase().includes(w.toLowerCase())) house.push(`${rel}: "${w === EM_DASH ? 'em dash' : w}"`)
-    if (/\.(md|txt)$/.test(p) && rel !== 'teaching/long-quote/bad.txt') {
+    if (/\.(md|txt)$/.test(p) && !/^teaching\/long-quote(-[a-z0-9-]+)?\/bad\.txt$/.test(rel)) {
       // Frontmatter is YAML: its outer quotes wrap a whole description, not a quotation.
       for (const q of allQuotesIn(text.replace(/^---\n[\s\S]*?\n---\n/, ''))) if (wordCount(q) >= QUOTE_LIMIT) longQuotes.push(`${rel}: "${q.split(/\s+/).slice(0, 4).join(' ')} ..."`)
     }
@@ -582,17 +584,21 @@ function selfTest() {
   const pairs = list(tdir, (f) => statSync(join(tdir, f)).isDirectory())
   if (!pairs.length) say(false, 'no teaching pairs yet: teaching/ holds no folder with a bad and a good file, and the gate is not proven until it does')
   else say(pairs.length >= 10, `teaching/ holds ${pairs.length} pairs (ten at least)`)
+  // A folder is named for the line its bad half raises. A second pair for the same line takes the line's name and a
+  // suffix (long-quote-single): the longest line name followed by a hyphen is its line.
+  const lineOf = (name) => (LINES[name] ? name : Object.keys(LINES).filter((l) => name.startsWith(l + '-')).sort((a, b) => b.length - a.length)[0])
   for (const name of pairs) {
     const dir = join(tdir, name)
     const bad = list(dir, (f) => f.startsWith('bad.'))[0]
     const good = list(dir, (f) => f.startsWith('good.'))[0]
-    if (!LINES[name]) { say(false, `teaching/${name} is named for a line the gate prints`); continue }
+    const line = lineOf(name)
+    if (!line) { say(false, `teaching/${name} is named for a line the gate prints`); continue }
     if (!bad || !good) { say(false, `teaching/${name} has a bad and a good file`); continue }
     const first = norm(readFileSync(join(dir, bad), 'utf8')).split('\n')[0]
-    say(isComment(first) && first.includes(name), `teaching/${name}/${bad} starts with a comment naming ${name}`)
+    say(isComment(first) && first.includes(line), `teaching/${name}/${bad} starts with a comment naming ${line}`)
     const b = never(checkFile(join(dir, bad), corpus)).map((f) => f.line)
-    say(b.includes(name), `teaching/${name}/${bad} raises ${name}:`)
-    say(new Set(b).size === 1 && b[0] === name, `teaching/${name}/${bad} has one thing wrong${b.length ? ` (raises ${[...new Set(b)].join(', ')})` : ''}`)
+    say(b.includes(line), `teaching/${name}/${bad} raises ${line}:`)
+    say(new Set(b).size === 1 && b[0] === line, `teaching/${name}/${bad} has one thing wrong${b.length ? ` (raises ${[...new Set(b)].join(', ')})` : ''}`)
     const g = never(checkFile(join(dir, good), corpus))
     say(!g.length, `teaching/${name}/${good} raises no never-intentional line${g.length ? ` (got ${tally(g)})` : ''}`)
   }
@@ -638,6 +644,15 @@ function selfTest() {
   say(!possessive.includes('long-quote'), `plural possessives raise no long-quote${possessive.length ? ` (got ${possessive.join(', ')})` : ''}`)
   const single = reply(`He wrote 'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty' (${c0}).`, src, end)
   say(single.includes('long-quote'), 'a 20-word span in single quotes raises long-quote')
+  // An apostrophe between two letters inside a span (don't, anyone's) belongs to the span and does not end it.
+  const contraction = reply(`He wrote 'you don't need a bigger budget or a longer plan or a better pitch or more time or anyone's permission to start ever' (${c0}).`, src, end)
+  say(contraction.includes('long-quote'), 'a 23-word span in single quotes that holds two contractions raises long-quote')
+  const shortContraction = reply(`He wrote 'you don't need a plan' (${c0}).`, src, end)
+  say(!shortContraction.includes('long-quote'), `a short span in single quotes that holds a contraction raises no long-quote${shortContraction.length ? ` (got ${shortContraction.join(', ')})` : ''}`)
+  const mixed = reply(`In the '90s he wrote 'you don't need a bigger budget or a longer plan or a better pitch or more time or anyone's permission to start ever' and the early adopters' parents read it (${c0}).`, src, end)
+  say(mixed.includes('long-quote'), 'a decade, a long span with contractions and a plural possessive in one sentence raise long-quote for the span')
+  const honest = reply(`In the '90s the early adopters' parents didn't wait, the players' families came to every game, and it's still true that nobody's keeping score (${c0}).`, src, end)
+  say(!honest.includes('long-quote'), `a decade, a plural possessive and contractions outside any span raise no long-quote${honest.length ? ` (got ${honest.join(', ')})` : ''}`)
 
   // Titles are matched against the list: a title with "at", digits and symbols
   // is found whole, and a page that is not a video needs no time.
@@ -659,7 +674,7 @@ function selfTest() {
     say(!ok.length, `an article cited as (Title), with no time, raises nothing${ok.length ? ` (got ${ok.join(', ')})` : ''}`)
   } else say(false, 'sources.md holds an article on garyvaynerchuk.com to test an untimed citation on')
 
-  const covered = new Set([...pairs, ...inline.map(([l]) => l)])
+  const covered = new Set([...pairs.map(lineOf), ...inline.map(([l]) => l)])
   for (const l of Object.keys(LINES)) say(covered.has(l), `${l}: is proven by a pair or an inline case`)
 
   console.log(failed ? `\nself-test failed: ${failed}` : '\nself-test passed')

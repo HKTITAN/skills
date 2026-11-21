@@ -50,13 +50,13 @@ const brains = [
   {
     skill: 'khe-brain-gary', who: 'Gary Vaynerchuk',
     mode: 'question, test, who said',
-    themes: '16 theme files', corpus: '1,901 claims, 575 pieces',
+    themes: '16 theme files', corpus: '1,901 claims',
     gap: 'silent, disagreements',
     cite: '(Title at m:ss), year',
     last: 'Not in the corpus:', lastSub: 'what no piece answers',
     inLabel: 'attention', sib: 'khe-brain-varun', sibSub: 'or khe-brain-yc', sibLabel: 'startups',
     out: 'khe-content-engine', outSub: 'writes the post', outLabel: 'to write it',
-    callout: 'Corpus: 729 pieces read in full by 2026-11-21; 575 cited. Lines read against the text; sources.md says what was re-read.',
+    callout: 'Corpus: 729 pieces read in full by 2026-11-21; 575 cited by a line. Lines read against the text; sources.md says what was re-read.',
   },
   {
     skill: 'khe-brain-isb', who: 'the isb-skills notes',

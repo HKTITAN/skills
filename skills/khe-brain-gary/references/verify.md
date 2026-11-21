@@ -124,10 +124,10 @@ Run these against the skill when it changes. Each question has the answer a good
 
 ### 9. A silent topic
 
-- Question: `should my app use freemium or tiered pricing`
-- A good reply is `examples/silent-topic.txt`: the first sentence says the corpus does not cover it, the nearest line is the 4Ds seat price as his own telling about his own product (4Ds: Why We're Raising the Price and Going on the Road in 2019), and the last line names freemium, tiers and the method as not in the corpus.
-- Carried by [silent](silent.md), the row for pricing models in detail.
-- It fails when it builds a pricing view from the 4Ds line.
+- Question: `how do I value my agency before I sell it`
+- A good reply is `examples/silent-topic.txt`: the first sentence says the corpus does not cover how to value a company, the nearest line is his 2014 line that agencies do not get the higher multiple (Interested in influencers? Here's what you need to know), and the last line names a method, a multiple and a formula as not in the corpus and points to money-and-investing.md for the valuations he took or passed at.
+- Carried by [silent](silent.md), the row for company valuation methods.
+- It fails when it builds a valuation method or a multiple from the 2014 line.
 
 ### 10. A pitch
 

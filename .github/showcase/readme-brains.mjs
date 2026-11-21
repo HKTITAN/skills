@@ -56,7 +56,7 @@ const brains = [
     last: 'Not in the corpus:', lastSub: 'what no piece answers',
     inLabel: 'attention', sib: 'khe-brain-varun', sibSub: 'or khe-brain-yc', sibLabel: 'startups',
     out: 'khe-content-engine', outSub: 'writes the post', outLabel: 'to write it',
-    callout: 'Corpus: 729 pieces read in full by 2026-11-21; 575 are cited, each cited line checked against its text.',
+    callout: 'Corpus: 729 pieces read in full by 2026-11-21; 575 cited. Lines read against the text; sources.md says what was re-read.',
   },
   {
     skill: 'khe-brain-isb', who: 'the isb-skills notes',

@@ -195,10 +195,13 @@ const isComment = (l) => /^<!--.*-->$/.test(l.trim())
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 const wordCount = (s) => s.split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w)).length
 const quotesIn = (s) => [...s.matchAll(/"([^"\n]+)"/g)].map((m) => m[1])
-// A span in single quotes of QUOTE_MIN words or more is a quote too. An
-// apostrophe inside a word (Gary's, players') never opens one, and a span
+// A span in single quotes of QUOTE_MIN words or more is a quote too. A span
+// opens only on an apostrophe that follows the start, whitespace or an opening
+// bracket and comes before a letter, so a contraction or a possessive (Gary's,
+// players') never opens one and neither does a decade ('90s). It closes only on
+// an apostrophe that comes before the end, whitespace or punctuation. A span
 // nested in double quotes is already counted there.
-const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<![A-Za-z0-9])'([^'\n]+)'(?![A-Za-z0-9])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
+const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<=^|[\s([{])'(?=[A-Za-z])([^'\n]*?[^\s'])'(?=$|[\s.,;:!?)\]}])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
 const allQuotesIn = (s) => [...quotesIn(s), ...singleQuotesIn(s)]
 // Quoted spans and backticked spans are someone's exact words. They are not
 // judged as the reply's own wording.
@@ -485,6 +488,27 @@ export function silentClashes(silent, claimLines) {
   return out
 }
 
+// A silent row's Topic cell, lower-cased and without its stop words, must not
+// appear as a phrase in a cited claim either: a claim on "taxes" or "climate
+// and energy" means the topic as the row words it is covered. Stop words may
+// stand between the topic's words in the claim, so "climate and energy" and
+// "climate energy" are the same phrase. The citation inside a claim is left out.
+const TOPIC_STOP = ['a', 'an', 'the', 'and', 'or', 'of', 'to', 'in', 'on', 'for', 'by', 'with', 'as', 'at', 'from', 'its', 'their', 'is', 'are', 'into', 'per']
+export function topicClashes(silent, claimLines) {
+  const out = []
+  const stop = new Set(TOPIC_STOP)
+  const gap = `(?:\\s+(?:${TOPIC_STOP.join('|')}))*\\s+`
+  const stripped = claimLines.map(([f, n, l]) => [f, n, l.replace(/\([^()]*https?:\/\/[^()]*\)/g, ' ').replace(/[^A-Za-z0-9'&+-]+/g, ' ')])
+  for (const t of silent) {
+    const words = t.topic.toLowerCase().replace(/[^a-z0-9'&+-]+/g, ' ').split(' ').filter((w) => w && !stop.has(w))
+    if (!words.length) continue
+    const re = new RegExp(`(?<![A-Za-z0-9])${words.map(esc).join(gap)}(?![A-Za-z0-9])`, 'i')
+    const hit = stripped.find(([, , l]) => re.test(l))
+    if (hit) out.push(`"${t.topic}" is in a claim at ${hit[0]}:${hit[1]}`)
+  }
+  return out
+}
+
 function selfTest() {
   let failed = 0
   const say = (ok, what) => { console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) failed++ }
@@ -523,6 +547,10 @@ function selfTest() {
   const cite = '(Some Title, https://example.com/a)'
   const probe = silentClashes([{ topic: 'Probe', words: ['gross margin', 'net worth'] }], [['x.md', 1, `- In 2014 he said the Gross Margin was 4 percent ${cite}.`], ['x.md', 2, `- In 2015 he said his networth and netted worth rose ${cite}.`], ['x.md', 3, '- He said it (Net Worth Of A Title, https://example.com/a).']])
   say(probe.length === 1 && /gross margin/.test(probe[0]), 'the silent-word check fails a watch word in a claim in any case, and ignores part of a word and a word only a cited title holds')
+  const topics = topicClashes(corpus.silent, claimLines)
+  say(!topics.length, `no silent.md topic, without its stop words, appears as a phrase in a cited claim (${corpus.silent.length} topics)${topics.length ? ` (${topics.slice(0, 3).join('; ')}${topics.length > 3 ? `; and ${topics.length - 3} more` : ''})` : ''}`)
+  const tprobe = topicClashes([{ topic: 'Climate and energy', words: [] }, { topic: 'Taxes', words: [] }, { topic: 'His religion', words: [] }], [['x.md', 1, `- In 2026 he said climate, energy and food matter ${cite}.`], ['x.md', 2, `- In 2017 he ranked time with money and religion ${cite}.`], ['x.md', 3, '- He said it (Taxes Explained, https://example.com/a).']])
+  say(tprobe.length === 1 && /Climate and energy/.test(tprobe[0]), 'the silent-topic check fails a topic phrase in a claim across stop words and punctuation, and ignores a topic word the claim does not hold in order and a topic only a cited title holds')
 
   // House rules, on every text file in the skill.
   const all = walkAll(SKILL_DIR).filter((p) => /\.(md|txt|mjs)$/.test(p))
@@ -601,6 +629,15 @@ function selfTest() {
   say(!quiet.length, `a plain statement of silence raises nothing${quiet.length ? ` (got ${quiet.join(', ')})` : ''}`)
   const dated = reply(`He started Wine Library TV on YouTube in 2006 (${c0}).`, src, end)
   say(!dated.length, `a platform named with its year raises nothing${dated.length ? ` (got ${dated.join(', ')})` : ''}`)
+
+  // Single quotes: a decade and a plural possessive are not a quoted span; a
+  // real single-quoted span of QUOTE_LIMIT words or more is.
+  const decade = reply(`In the '90s he sold wine online and built a big list long before the early adopters' competitors arrived (${c0}).`, src, end)
+  say(!decade.includes('long-quote'), `a decade apostrophe and a plural possessive in one sentence raise no long-quote${decade.length ? ` (got ${decade.join(', ')})` : ''}`)
+  const possessive = reply(`He said the players' parents and the coaches' families came to every game of the season that year (${c0}).`, src, end)
+  say(!possessive.includes('long-quote'), `plural possessives raise no long-quote${possessive.length ? ` (got ${possessive.join(', ')})` : ''}`)
+  const single = reply(`He wrote 'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty' (${c0}).`, src, end)
+  say(single.includes('long-quote'), 'a 20-word span in single quotes raises long-quote')
 
   // Titles are matched against the list: a title with "at", digits and symbols
   // is found whole, and a page that is not a video needs no time.

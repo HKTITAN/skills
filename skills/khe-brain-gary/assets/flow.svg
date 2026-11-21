@@ -103,7 +103,7 @@
       <text class="sub" x="692" y="368">writes the post</text>
     </g>
   </g>
-  <text class="callout" x="32" y="360">Corpus: 729 pieces read in full by 2026-11-21; 575 are cited, each cited line checked against its text.</text>
+  <text class="callout" x="32" y="360">Corpus: 729 pieces read in full by 2026-11-21; 575 cited. Lines read against the text; sources.md says what was re-read.</text>
   <g class="legend" transform="translate(32 412)">
     <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
     <path class="edge" d="M0 0 H24"/>

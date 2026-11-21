@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   skills:
     name: Skills
@@ -28,6 +32,8 @@ jobs:
           for f in scripts/*.mjs skills/*/scripts/*.mjs; do node --check "$f"; done
       - name: Every gate passes its own self-test
         run: node skills/khe-auto/scripts/gate-all.mjs
+      - name: The PR check passes its own self-test
+        run: node scripts/pr-check.mjs --self-test
       - name: Markdown lint
         run: npx -y markdownlint-cli@0.41.0 '**/*.md' --ignore '**/node_modules/**' --config .github/markdownlint.jsonc
       - name: The skills CLI finds every skill

@@ -1,0 +1,33 @@
+name: A new skill, or a link to yours
+description: Ask for a skill, or point me at one you already publish.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most requests are not a skill. [Should this be a skill?](https://github.com/HKTITAN/skills/blob/main/CONTRIBUTING.md#should-this-be-a-skill) in CONTRIBUTING.md is the table I walk.
+        If you already publish a skill for the job, I link it under "From others" and never copy it.
+  - type: textarea
+    id: job
+    attributes:
+      label: The job, in a sentence or two
+    validations:
+      required: true
+  - type: checkboxes
+    id: earns
+    attributes:
+      label: A skill earns its place when all three are true
+      options:
+        - label: The job recurs
+        - label: An agent gets it wrong without help
+        - label: I can state the right process and why
+  - type: input
+    id: existing
+    attributes:
+      label: A skill that already does this, if you found one
+      description: Search skills.sh first. A link here is the fastest path.
+  - type: textarea
+    id: material
+    attributes:
+      label: What you can bring
+      description: Notes, corrections you keep making, examples you admire.

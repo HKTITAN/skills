@@ -1,0 +1,30 @@
+name: PR body
+
+# This is its own workflow so that editing a PR's text re-runs only this check,
+# never the skills checks in ci.yml, and never cancels them.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-body-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-body:
+    name: PR body
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: The body fills every section of the template
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: node scripts/pr-check.mjs

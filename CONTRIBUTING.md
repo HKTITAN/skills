@@ -108,6 +108,18 @@ Turning a person's or a company's published thinking into a skill is worth doing
 
 **Be selective about sources.** Anyone can sound expert now. A skill is only as good as what went into it, so take from people whose work you have looked at closely and can point to.
 
+## Opening a pull request
+
+- **Small fixes go straight to a PR.** A gotcha line, a value, a typo, a broken link. A new skill, or a change to what a gate fails on, starts as an issue (the "new skill" form) or a Discussion first. I keep the list of khe skills short, so a new-skill PR nobody discussed may be closed however good it is. If you publish your own skill, the way in is a link under "From others", not a `khe-` copy.
+- **Search first.** Look at skills.sh and the open PRs. If someone is already on it, help that PR.
+- **Fill the template** (`.github/PULL_REQUEST_TEMPLATE.md`): Why here, What changed, Checks, Not verified. A PR opened through the API or `gh` skips the template, so paste it in. CI's `PR body` job runs `scripts/pr-check.mjs` and fails on a missing or empty section.
+- **Evidence, not claims.** Paste the last line each check printed and the review verdict with the commit it named. A verdict counts only for that commit.
+- **Renders, screenshots and recordings go in the PR body** (drag them in), never into the repo.
+- **No private references.** No links only you can open (Notion, a local server), no session ids, no paths from your machine, in the text or the branch name.
+- **Picking up a stalled PR is welcome.** Keep their commits where you can and name them.
+
+The idea behind this section, the template and the PR body check comes from [paperclip](https://github.com/paperclipai/paperclip)'s contributing guide (MIT); the text is written for this repo.
+
 ## Checklist
 
 - [ ] It passed "Should this be a skill?"
@@ -128,5 +140,6 @@ node skills/khe-<name>/scripts/<name>-check.mjs --self-test
 node skills/khe-auto/scripts/gate-all.mjs
 node scripts/marketplace.mjs
 node scripts/check.mjs
+node scripts/pr-check.mjs --self-test
 npx -y markdownlint-cli@0.41.0 '**/*.md' --config .github/markdownlint.jsonc
 ```

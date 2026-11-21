@@ -23,7 +23,8 @@ plugin.json       the Agent Plugins manifest (agent-plugins.org): the repo as on
 agents/           the kheAgents, Claude Code subagents the kheskills plugin ships
 orchestration/    CLAUDE.md, the policy that uses the kheAgents, for people to paste into their own
 cheatsheets/      one Problem | Solution table per skill
-scripts/          check.mjs, the checks CI runs; marketplace.mjs, which writes every install manifest
+scripts/          check.mjs, the checks CI runs; marketplace.mjs, which writes every install manifest; pr-check.mjs, which reads a PR body
+.github/PULL_REQUEST_TEMPLATE.md   the four sections every PR body fills
 ```
 
 ## Before adding a skill
@@ -166,14 +167,19 @@ The scene rests in its finished state. Its first beat presses Review, which clea
 
 Every skill README has a `How it runs` figure in `skills/<name>/assets/`, drawn in the khe design system. `.github/showcase/khe-figure.mjs` holds the skin and the node, edge and label helpers; `figures.mjs` builds the repo map, the pyramid and khe-package's flow, and `readme-design.mjs`, `readme-craft.mjs`, `readme-brains.mjs` and `readme-auto.mjs` build the rest. Change a figure in its script, run it with node from the repo root, and check the SVG with khe-diagram's gate (`diagram-check.mjs <file> --gate`). Yellow marks one or two names per figure, never more.
 
+## Pull requests
+
+Every PR body follows `.github/PULL_REQUEST_TEMPLATE.md`: Why here, What changed, Checks, Not verified. That holds also when you open it with `gh pr create` or the API: pass the filled body, because those skip the template. Paste the last line of each check and the reviewer's verdict with the commit it named. Say what was not verified; "Nothing" is an answer, an empty section is not. CI's `PR body` job runs `scripts/pr-check.mjs` and fails on a missing or empty section. The fuller guide is "Opening a pull request" in [CONTRIBUTING.md](CONTRIBUTING.md). Issues come in through two forms in `.github/ISSUE_TEMPLATE/` (a skill got it wrong; a new skill or a link), and security reports go through [SECURITY.md](SECURITY.md).
+
 ## Checks
 
 ```bash
 node scripts/check.mjs
+node scripts/pr-check.mjs --self-test
 node skills/khe-auto/scripts/gate-all.mjs
 npx -y markdownlint-cli@0.41.0 '**/*.md' --config .github/markdownlint.jsonc
 npx -y skills add ./ --list
 claude plugin validate . --strict
 ```
 
-Run all five before a commit; CI runs the same. When the change is one a user can see (a skill added, renamed or removed, a command, a rule in a gate), add a line to `CHANGELOG.md` under today's date in the same commit. Use a branch for changes; keep unrelated skills in separate commits. Never commit credentials, generated recordings or machine-specific paths.
+Run all six before a commit; CI runs the same. When the change is one a user can see (a skill added, renamed or removed, a command, a rule in a gate), add a line to `CHANGELOG.md` under today's date in the same commit. Use a branch for changes; keep unrelated skills in separate commits. Never commit credentials, generated recordings or machine-specific paths.

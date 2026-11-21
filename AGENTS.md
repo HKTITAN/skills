@@ -60,13 +60,13 @@ Three install paths read this repo, each through its own manifest. `scripts/mark
 
 | Path | Reads | What it gets |
 |---|---|---|
-| skills.sh, `npx skills add HKTITAN/skills` | `skills/<name>/SKILL.md`, and `skills.sh.json` for the repo page's groups | the 19 khe skills; the linked ones are empty submodule folders and are skipped |
+| skills.sh, `npx skills add HKTITAN/skills` | `skills/<name>/SKILL.md`, and `skills.sh.json` for the repo page's groups | the 20 khe skills; the linked ones are empty submodule folders and are skipped |
 | Claude Code, `/plugin marketplace add HKTITAN/skills --sparse ...` | `.claude-plugin/marketplace.json` | `kheskills` (rooted at `./`), `khe-brain` (rooted at `./skills`) and one plugin per author |
 | Agent Plugins (agent-plugins.org 1.0.0) | `plugin.json` at the root, then `skills/<name>/SKILL.md` | every khe skill, brains included, as one plugin; that spec has no agents or commands yet |
 
 `skills.sh.json` is written by hand: every khe skill sits in exactly one group, and the Brains group names every `/khe-brain:` command.
 
-**Versions.** The `kheskills` and `khe-brain` entries carry a `version`, the only field in them written by hand. Claude Code keeps an installed copy until that string changes, so when a change touches what a plugin serves (its skill folders and `agents/` for `kheskills`, a brain's folder for `khe-brain`), bump its version in `marketplace.json` and name the new version on a `CHANGELOG.md` line with the plugin's name. `scripts/check.mjs` compares against `origin/main` and fails when the files moved and the version did not. `plugin.json` has no version. Agent Plugins makes it optional and says clients use it for update checks; one version over all 19 skills would be a third hand-kept number that nothing here could check, so it is left out until a client of that standard needs it (then `scripts/marketplace.mjs` writes it).
+**Versions.** The `kheskills` and `khe-brain` entries carry a `version`, the only field in them written by hand. Claude Code keeps an installed copy until that string changes, so when a change touches what a plugin serves (its skill folders and `agents/` for `kheskills`, a brain's folder for `khe-brain`), bump its version in `marketplace.json` and name the new version on a `CHANGELOG.md` line with the plugin's name. `scripts/check.mjs` compares against `origin/main` and fails when the files moved and the version did not. `plugin.json` has no version. Agent Plugins makes it optional and says clients use it for update checks; one version over all 20 skills would be a third hand-kept number that nothing here could check, so it is left out until a client of that standard needs it (then `scripts/marketplace.mjs` writes it).
 
 ## The kheskills plugin
 

@@ -37,6 +37,7 @@ export const GATES = {
   'khe-brain-isb': 'khe-brain-isb/scripts/brain-check.mjs',
   'khe-brain-yc': 'khe-brain-yc/scripts/brain-check.mjs',
   'khe-brain-enrico': 'khe-brain-enrico/scripts/brain-check.mjs',
+  'khe-decision': 'khe-decision/scripts/decision-check.mjs',
   'khe-content-engine': 'khe-content-engine/scripts/content-check.mjs',
   'khe-poteto-pyramid': 'khe-poteto-pyramid/scripts/pyramid-check.mjs',
   'khe-package': 'khe-package/scripts/package-check.mjs',

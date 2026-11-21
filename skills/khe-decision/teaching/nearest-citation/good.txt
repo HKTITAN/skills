@@ -1,0 +1,63 @@
+<!-- good: the same reply with the one fault fixed. -->
+Decision: Should the command menu in a web tool that people open from the keyboard hundreds of times a day animate when it opens, or appear instantly?
+Council: 4 of 7 installed brains seated. Seated: khe-brain-emil, khe-brain-benji, khe-brain-enrico, khe-brain-harshit. Left out: khe-brain-varun (its silent list names interface design craft), khe-brain-yc (its silent list names product and visual design), khe-brain-isb (business notes, nothing on interface motion).
+
+== Seat: khe-brain-emil (Emil Kowalski) ==
+The command menu should appear instantly: keyboard-initiated actions are never animated, because they repeat hundreds of times a day and motion makes them feel slow and disconnected from the keypress [1][2].
+- Matches: he gives Raycast as the example, opened hundreds of times a day with no open animation, and calls that the best experience for it [1].
+- Matches: a 500ms enter animation on every open would be frustrating [2].
+- Matches: animations and hover effects seen tens or hundreds of times a day are removed, because they become annoying and make the interface feel slower [3].
+- Open: if the menu animated anyway, outside marketing pages interface motion must be fast so it stays tied to the user's action [1].
+- Open: continuity and spatial logic are among his named purposes for motion, shown by Sonner's toast entering and leaving along the same direction so the swipe to dismiss makes sense [1].
+Conflict: Great Animations says an instant change on the web feels artificial because nothing in the physical world changes instantly [2], while You Don't Need Animations and Good vs Great Animations say sometimes the best animation is none and instant change is sometimes better [1][4].
+My reading: the frequency test comes first in the articles that state it, so the "feels natural" argument applies only to what survives that test, and this menu does not.
+Source: [1] You Don't Need Animations, https://emilkowal.ski/ui/you-dont-need-animations
+Source: [2] Great Animations, https://emilkowal.ski/ui/great-animations
+Source: [3] 7 Practical Animation Tips, https://emilkowal.ski/ui/7-practical-animation-tips
+Source: [4] Good vs Great Animations, https://emilkowal.ski/ui/good-vs-great-animations
+Not in his writing: a duration or curve for a command menu that does animate, and a rule for a menu opened only occasionally; spatial consistency as the first principle of animation or motion kept where many people dislike it, a right-click menu that just appears with motion only on the way out to confirm the action, and friction added on purpose in a messenger built for play, none of which his articles state; the menu itself was not run, so this tests the description.
+
+== Seat: khe-brain-benji (Benji Taylor) ==
+He has not written about whether a command menu opened from the keyboard hundreds of times a day should animate; the index of his writing lists no piece on it (benji.org). He lists cmdk among the tools he maintains and has no article about it, and its package page could not be read (benji.org).
+Nearest: the Delight-Impact Curve, stated for the Family wallet, says the less often a feature is used the more delight it can carry, because delight wears off with repetition (Family Values).
+Nearest: in the same wallet, features used every day got restrained touches, and the example given is the commas shifting as digits are typed in the send flow (Family Values).
+Nearest: in Stageshow, a rule for faux product UI shown in a demo, real UI feedback stays as quick as the real product and starts on the input (Stageshow, references/motion.md; Stageshow, references/choreography.md).
+Disagrees: Family Values, 8 July 2024, about a wallet: the stated frame is respect for the user's time, and its motion is fast and directional (Family Values).
+Disagrees: Honkish, 23 May 2025, about a messenger built for play: friction was added on purpose outside the chat, and "Not everything needed a purpose" (Honkish).
+Source: benji.org, https://benji.org/
+Source: Family Values, https://benji.org/family-values
+Source: Honkish, https://benji.org/honkish
+Source: Stageshow, references/motion.md, https://github.com/benjitaylor/skills
+Source: Stageshow, references/choreography.md, https://github.com/benjitaylor/skills
+Not in his writing: command menus and cmdk, how often an animation can run before it should go, whether keyboard-initiated actions should skip motion, and durations or curves for real product UI. He has not written a rule for when a pause is worth the time it costs. His social posts and the cmdk package page were not read.
+
+== Seat: khe-brain-enrico (Enrico Tartarotti) ==
+His positions in the Animations video from October 2026 count against animating something opened hundreds of times a day, and the one he states for what should animate is for things users must learn exist or are waiting on anyway (The Ridiculous Engineering Of Animations at 9:45). He gives the reason that an animation teaches by showing where things live, and says that by the hundredth time it teaches nothing and only makes you wait (The Ridiculous Engineering Of Animations at 8:15).
+Breaks: animating the menu on every open. In October 2026 he says an animation is there to teach, and by the hundredth time it teaches nothing and only makes you wait (The Ridiculous Engineering Of Animations at 8:15).
+Breaks: motion on the way in. In October 2026 he says that in products built for real work a right-click menu just appears, the chosen item blinks, and the menu fades out, with motion only on the way out to confirm the action (The Ridiculous Engineering Of Animations at 9:00).
+Breaks: slow, nature-like motion on a launcher. In October 2026 he says nature is slow and that Spotlight's liquid glass animation makes the search feature completely unusable because the point of a launcher is to open things fast (The Ridiculous Engineering Of Animations at 7:30).
+Holds: his own practice in Flask, his own product, is instant for anything used hundreds of times a day, animated for things users must learn exist, and animated where the user is waiting anyway (The Ridiculous Engineering Of Animations at 9:45).
+Holds: animation as a map of where things live. In October 2026 he calls spatial consistency the first principle of animation, and says some motion is right for that reason even when many people hate it, as with the Mac's desktop-switch slide (The Ridiculous Engineering Of Animations at 0:00; The Ridiculous Engineering Of Animations at 11:15).
+Also: in March 2024 he says the mouse is intuitive but slow, which is why Arc, Linear and Superhuman make the keyboard and a command bar the main input (The Secrets That Make Your Phone Actually Work at 9:45).
+Source: The Ridiculous Engineering Of Animations, https://www.youtube.com/watch?v=z3Lo5QT7nME
+Source: The Secrets That Make Your Phone Actually Work, https://www.youtube.com/watch?v=-YVtZV4DjCE
+Not in his videos: a command menu opened from the keyboard in particular, a rule that keyboard-initiated actions are never animated or that motion disconnects an action from its keypress, any duration or curve for one, and any test of instant against animated for it. The Flask line is about his product and is not a rule for yours. The decision is yours.
+
+== Seat: khe-brain-harshit (Harshit Khemani) ==
+His posts do not take a position on whether a command menu opened from the keyboard hundreds of times a day should animate or appear instantly (post archive).
+Nearest: he says most people underestimate how much motion and feedback shape emotional attachment to a product (2026-05-12-most-people-underestimate-how).
+Nearest: he says every extra click is a tax on momentum (2026-05-11-every-extra-click-tax).
+Source: post archive, https://x.com/HarshitKhemani
+Source: 2026-05-12-most-people-underestimate-how, https://x.com/HarshitKhemani/status/2054135387707367624
+Source: 2026-05-11-every-extra-click-tax, https://x.com/HarshitKhemani/status/2053906326988931477
+Not in his posts: animating or skipping the open of a command menu, how often a control is used as a reason to drop motion, keyboard-triggered surfaces.
+
+== Chair ==
+Agree: A surface opened hundreds of times a day gets no open animation, because repeated motion only makes people wait and makes the interface feel slower. [emil: You Don't Need Animations] [emil: 7 Practical Animation Tips] [enrico: The Ridiculous Engineering Of Animations at 8:15] [enrico: The Ridiculous Engineering Of Animations at 9:45]
+Disagree: Whether any motion stays on the menu. One seat's material says keyboard-initiated actions are never animated [emil: You Don't Need Animations]; another seat's says a menu in products built for real work just appears, then the chosen item blinks and the menu fades out, with motion on the way out to confirm the action [enrico: The Ridiculous Engineering Of Animations at 9:00]. Why: the pieces do not say.
+Not covered: A duration or curve for a command menu that does animate, a rule for a menu opened only occasionally, and any test of instant against animated on this menu.
+Recommendation (khe-decision's synthesis, not the view of anyone cited): Open the command menu instantly, with no enter animation. Treat motion on close as a separate question and settle it by running both versions in the tool, since the seats split on it.
+Rests on: [emil: You Don't Need Animations] [emil: 7 Practical Animation Tips] [enrico: The Ridiculous Engineering Of Animations at 8:15]
+Would change it: Usage data showing that most people open the menu only occasionally, not hundreds of times a day.
+Not verified: This is a teaching fixture, so the seat blocks are copied from the gold reply in examples/most-seats-silent.txt and were not run again as live seats; the live pages were not opened, and corpus dates were not checked.
+A reading by Harshit Khemani of public work. Nobody cited here wrote or endorsed it.

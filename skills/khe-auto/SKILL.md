@@ -102,7 +102,7 @@ A playbook is a whole job, start to finish. Open the file when the request match
 |---|---|---|
 | Design | A screen, a component, motion, sound, a vector, a diagram, a product picture, a launch video | The Design table below |
 | Code | Writing, reviewing or migrating code in a language a skill here covers | The Code table below |
-| Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "what would Varun say", "what would Enrico say", "who said that", "write a khe.money post in Harshit's voice" | The Brains table below |
+| Brains | What a named person has published on a question: "what would Emil say", "would Benji ship this", "what would Varun say", "what would Enrico say", "who said that", "write a khe.money post in Harshit's voice", "put this to the council" (one decision weighed by several brains) | The Brains table below |
 | Content | Posts for social platforms and a newsletter, written in one person's voice from one idea | The Content table below |
 | Engineering | How agents write code in a repo: a mistake they keep making, an AGENTS.md that grows, verification, architecture, bugs, specs, review, handing work between agents | The Engineering table below |
 
@@ -166,7 +166,7 @@ Skills that start with `khe-` are in this repo. The others are by the people nam
 
 ## Brains
 
-A brain answers from one person's public writing or public talks and names the source. It is my reading of their work, never their skill: to apply their rules, run their own skill from the Design table.
+A brain answers from one person's public writing or public talks and names the source. It is my reading of their work, never their skill: to apply their rules, run their own skill from the Design table. A decision that several brains speak to goes to `khe-decision`, which seats the installed brains and cites every seat.
 
 | The job | Skill | Whose |
 |---|---|---|
@@ -177,6 +177,7 @@ A brain answers from one person's public writing or public talks and names the s
 | What the public isb-skills notes say on a business question, with the file; a plan or a model pressure-tested against it | `khe-brain-isb` | here |
 | What Paul Graham and the Y Combinator partners have published on a startup question, with the person and the piece; a plan or a deck pressure-tested against it | `khe-brain-yc` | here |
 | What Harshit Khemani has posted on X and LinkedIn about a product, game, AI or startup question, with the post; a khe.money post drafted in his voice that rests only on views he has posted | `khe-brain-harshit` | here |
+| A decision put to several brains: each seat cited in its own brain's format, where the published material agrees, where it disagrees, what none of it covers, and a recommendation labelled as a synthesis | `khe-decision` | here |
 
 ## Content
 
@@ -277,6 +278,13 @@ Each pair is one question, not two skills to read.
 | `khe-brain-yc` / `khe-brain-varun` / `khe-brain-isb` | Whose answer is wanted: the Y Combinator partners, Varun Mayya, or the isb-skills notes? | Named: that brain. Not named, a startup question: khe-brain-yc first, then khe-brain-varun for an Indian or bootstrapped case. A textbook framework or a model: khe-brain-isb. Never blend two brains into one answer. |
 | `khe-brain-harshit` / `khe-content-engine` | One khe.money post in Harshit's voice resting on his posted views, or one idea turned into a draft per platform from a voice node? | khe.money post or "what do I think about": khe-brain-harshit. Several platforms or a content system: khe-content-engine, which may take its views from khe-brain-harshit. |
 | `khe-brain-varun` / `khe-content-engine` | His stated view reported with its video, or a post drafted in your own voice? | Reported: khe-brain-varun. Drafted: khe-content-engine. |
+| `khe-decision` / `khe-brain-emil` | One person's published view on how an interface should be built, or a decision put to several brains? | Emil Kowalski on one interface question: khe-brain-emil. A decision that his articles and other brains' work both speak to: khe-decision, which seats khe-brain-emil as one voice and never speaks for him. |
+| `khe-decision` / `khe-brain-benji` | One person's published view on a design or product call, or a decision put to several brains? | Benji Taylor on one design question: khe-brain-benji. A decision that his writing and other brains' work both speak to: khe-decision, which cites his seat and never speaks for him. |
+| `khe-decision` / `khe-brain-varun` | One person's stated view on a startup, content or career question, or a decision put to several brains? | What Varun Mayya said on it, with the video and the minute: khe-brain-varun. Raise or bootstrap, hire now or later, weighed against more than one body of work: khe-decision, which seats khe-brain-varun beside the others. |
+| `khe-decision` / `khe-brain-enrico` | One person's stated view on how a product is built, or a decision put to several brains? | What Enrico Tartarotti said in his videos: khe-brain-enrico. A product decision that his videos and other brains' work both speak to: khe-decision, which cites his seat and never speaks for him. |
+| `khe-decision` / `khe-brain-yc` | One institution's published advice on a startup question, or a decision put to several brains? | What Paul Graham and the Y Combinator partners have published, with the piece: khe-brain-yc. A decision where YC and at least one other brain both speak: khe-decision, which seats khe-brain-yc and reports where they disagree. |
+| `khe-decision` / `khe-brain-isb` | The isb-skills notes on a business question, or a decision put to several brains? | What the notes say on a framework or a model, with the file: khe-brain-isb. A business decision that the notes and at least one other brain both speak to: khe-decision, which seats khe-brain-isb and labels its own call. |
+| `khe-decision` / `khe-brain-harshit` | What Harshit has posted on a question, or a decision put to several brains? | His posted view on a product, game, AI or startup question: khe-brain-harshit. A decision that his posts and other brains' work both speak to: khe-decision, which cites his seat like any other and decides nothing for him. |
 | `khe-poteto-pyramid` / `correct` | Her own procedure by name, or a correction placed and proved with a record and a gate? | Named: correct. Otherwise khe-poteto-pyramid, which links her skills for the deep parts. |
 | `khe-poteto-pyramid` / `learn-taste` | A design taste to write down, or a mistake a tool could stop? | Taste, from a design session: learn-taste. A repeat mistake in code: khe-poteto-pyramid. |
 | `tdd` / `pocock-tdd` | Fixing a bug with a cheap local test, or building a feature test-first? | A bug, or inside poteto-mode: tdd. A feature, red-green-refactor, integration tests: pocock-tdd. |

@@ -26,7 +26,7 @@
     },
     {
       "title": "Brains",
-      "description": "Answers from one source's public writing, talks or notes, with the source named; khe-decision puts one decision to several of them. In Claude Code the brains also install as one plugin: /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani, /khe-brain:enrico-tartarotti.",
+      "description": "Answers from one source's public writing, talks or notes, with the source named; khe-decision puts one decision to several of them. In Claude Code the brains also install as one plugin: /khe-brain:emil-kowalski, /khe-brain:benji-taylor, /khe-brain:varun-mayya, /khe-brain:isb, /khe-brain:yc, /khe-brain:harshitkhemani, /khe-brain:enrico-tartarotti, /khe-brain:gary-vaynerchuk.",
       "skills": [
         "khe-brain-emil",
         "khe-brain-benji",
@@ -35,6 +35,7 @@
         "khe-brain-yc",
         "khe-brain-harshit",
         "khe-brain-enrico",
+        "khe-brain-gary",
         "khe-decision"
       ]
     },

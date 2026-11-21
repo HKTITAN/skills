@@ -1,4 +1,4 @@
-// "How it runs" figures for the seven brain READMEs, in khe's skin (khe-figure.mjs).
+// "How it runs" figures for the brain READMEs, in khe's skin (khe-figure.mjs).
 // One shared layout; every figure carries its own brain's corpus, citation, gap check and neighbours.
 import { svg, node, edge, label, write } from './khe-figure.mjs'
 
@@ -46,6 +46,17 @@ const brains = [
     inLabel: 'products', sib: 'khe-brain-emil', sibSub: 'or khe-brain-benji', sibLabel: 'how to build',
     out: 'khe-ui', outSub: 'builds and reviews', outLabel: 'with numbers',
     callout: 'Corpus: 88 long videos, 17 h 57 min, read in full on 2026-11-15, each claim checked against its caption.',
+  },
+  {
+    skill: 'khe-brain-gary', who: 'Gary Vaynerchuk',
+    mode: 'question, test, who said',
+    themes: '16 theme files', corpus: '1,902 claims, 729 pieces',
+    gap: 'silent, disagreements',
+    cite: '(Title at m:ss), year',
+    last: 'Not in the corpus:', lastSub: 'what no piece answers',
+    inLabel: 'attention', sib: 'khe-brain-varun', sibSub: 'or khe-brain-yc', sibLabel: 'startups',
+    out: 'khe-content-engine', outSub: 'writes the post', outLabel: 'to write it',
+    callout: 'Corpus: 145 videos, 124.2 h, and 584 articles, read by 2026-11-21, each claim checked against its text.',
   },
   {
     skill: 'khe-brain-isb', who: 'the isb-skills notes',

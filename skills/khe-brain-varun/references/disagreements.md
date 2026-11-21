@@ -5,7 +5,7 @@ summary: Where his videos pull against each other, and where a position moved ov
 
 # Disagreements and changes
 
-Open this file before you answer. When a question touches a row, give both sides with their videos and dates, and never merge them into one smooth view. The corpus spans 2025-12-21 to 2026-11-03, and several rows sit inside a single talk. Many of the changes are ones he states himself, and he says more than once that changing his mind on new data is the right thing to do.
+Open this file before you answer. When a question touches a row, give both sides with their videos and dates, and never merge them into one smooth view. The corpus spans 2025-12-21 to 2026-11-20, and several rows sit inside a single talk. Many of the changes are ones he states himself, and he says more than once that changing his mind on new data is the right thing to do.
 
 ## Disagreements
 
@@ -98,6 +98,29 @@ Open this file before you answer. When a question touches a row, give both sides
 - He entered influencer marketing while calling it a commoditized space with a weak moat, and says he never wanted to get into it. (Masters Union at 29:18, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1758s; Masters Union at 28:30, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1710s)
 - His reason: almost all tech deal flow in India comes to him as a creator. He treats it as a temporary arbitrage and caps the agency at four or five people. (Masters Union at 29:18, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1758s; Masters Union at 30:05, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1805s)
 - How to report it: give the rule and the exception, both from 2026-10-29, with his reason for the exception.
+
+### Start as a copy, or be different?
+
+- The world cares about different, not better or worse. (Masters Union at 18:58, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1138s)
+- Being unique is not that hard, and Indian systems teach that it is safe to copy someone two years ahead. (PGX Ideas 2 at 1:10:10, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=4210s)
+- Enter markets with little competition, and the businesses nobody believes in. (Kata 9 at 1:03:39, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=3819s; Kata 9 at 40:41, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=2441s)
+- On 2026-11-20 he says most people starting a company are better off starting a copy, 90% the same as what already works and 10% new, as player two to four. (Why Every Great Idea Started as a Copy at 26:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1575s; Why Every Great Idea Started as a Copy at 23:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1395s)
+- In the same video the 10% has to be your own, at least in the branding, and he says originality comes from constraints and from moving a principle into a new context. (Why Every Great Idea Started as a Copy at 30:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1800s; Why Every Great Idea Started as a Copy at 10:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=630s; Why Every Great Idea Started as a Copy at 12:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=720s)
+- How to report it: give both sides, each with its date. He does not say in the 2026-11-20 video that he changed his mind, so do not report a reversal. Say that the later video keeps a part that is different and wants the copy early, not as player 50.
+
+### Is jugaad worth anything?
+
+- India's real edge is drive and comradeship, not jugaad. (Masters Union at 1:03:26, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3806s)
+- On 2026-11-20 he calls jugaad necessary: innovation under a constraint, which drives down price or increases availability for the end user. (Why Every Great Idea Started as a Copy at 15:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=945s; Why Every Great Idea Started as a Copy at 16:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=990s)
+- How to report it: the first line is about what India's edge is and the second about whether jugaad is useful. Give both with their dates and do not merge them.
+
+### Hard technology in India: fund it, or stay out?
+
+- The better route to deep tech is to build something first, earn trust, then take harder shots. (Kata 4 at 12:52, https://www.youtube.com/watch?v=mPjj7-eHw1s&t=772s)
+- Once free cash flow rotates inside Indian companies they will start taking R&D risk, and Aeos puts content cash flow into games. (Masters Union at 1:01:51, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3711s; Masters Union at 1:02:38, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3758s)
+- On 2026-11-20, speaking as an angel investor, he calls deep tech in India a bad investment, because innovators create value and rarely capture it. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s)
+- In the same video he says value capturers become the long-term innovators, and that spending on R&D as free cash flow grows is a moral responsibility. (Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s; Why Every Great Idea Started as a Copy at 30:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1800s)
+- How to report it: he says the bad investment line about investing in deep tech companies, and the R&D lines about a company spending its own free cash flow. Give both and keep each in that context.
 
 ### Are AI presenters and AI content the win, or is that over?
 
@@ -225,6 +248,12 @@ Open this file before you answer. When a question touches a row, give both sides
 - Before: at 20 he burned some bridges on the view that it did not matter. (Kata 9 at 34:20, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=2060s)
 - Now: in his 30s he keeps good relations even with people who wronged him, because the person may mature and build a big company. (Kata 9 at 34:20, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=2060s)
 - How to report it: state it as a lesson he says he learned with age.
+
+### Creating value versus capturing it
+
+- Before: for 7 or 8 years, he says, he was capped at a certain revenue or profit. He liked trying new things and creating value, and at Avalon the value created was captured by other companies. (Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s; Why Every Great Idea Started as a Copy at 27:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1665s)
+- Now: he says capturing value is what generates free cash flow, calls his old approach the wrong mentality if the goal is to make money, and says Aeos is good at both creating and capturing. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s; Why Every Great Idea Started as a Copy at 28:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1710s; Why Every Great Idea Started as a Copy at 27:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1665s)
+- How to report it: give it as a lesson he states about himself on 2026-11-20.
 
 ### Angel investing
 

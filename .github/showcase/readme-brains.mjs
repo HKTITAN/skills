@@ -28,13 +28,13 @@ const brains = [
   {
     skill: 'khe-brain-varun', who: 'Varun Mayya',
     mode: 'question, test, who said',
-    themes: '12 theme files', corpus: '1,378 claims, 18 videos',
+    themes: '12 theme files', corpus: '1,461 claims, 19 videos',
     gap: 'silent, disagreements',
     cite: '(Title at m:ss)',
     last: 'Not in his videos:', lastSub: 'what no video answers',
     inLabel: 'named', sib: 'khe-brain-yc', sibSub: 'or khe-brain-isb', sibLabel: 'not named',
     out: 'khe-content-engine', outSub: 'writes the post', outLabel: 'to write it',
-    callout: 'Corpus: 15 Kata talks and 3 podcasts, 17 h 40 min, read from automatic captions on 2026-11-11.',
+    callout: 'Corpus: 16 talks and 3 podcasts, 18 h 10 min, read from automatic captions by 2026-11-21.',
   },
   {
     skill: 'khe-brain-enrico', who: 'Enrico Tartarotti',

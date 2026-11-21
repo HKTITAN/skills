@@ -1,6 +1,6 @@
 ---
 title: glossary
-summary: Every coined term and named framework from the 18 videos, alphabetical, one line each in his sense, with the video and timestamp where he uses it.
+summary: Every coined term and named framework from the 19 videos, alphabetical, one line each in his sense, with the video and timestamp where he uses it.
 ---
 
 # Glossary
@@ -8,6 +8,7 @@ summary: Every coined term and named framework from the 18 videos, alphabetical,
 These are his own terms and named methods, defined the way he uses them in the videos. Where a term is borrowed, the line names the person he credits, and where two videos use the same term both are cited.
 
 - **80 to 90 / 10 portfolio**: Keep 80 to 90% of what you have ultra safe and use about 10% for crazy bets, tested small and in stages. (Kata 9 at 53:19, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=3199s)
+- **90% the same, 10% new**: How he says to start a company or a format: do 90% of what already works for someone else and add 10% of your own, usually a workaround for a constraint, then move to 50% new as money and confidence grow. (Why Every Great Idea Started as a Copy at 23:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1395s; Why Every Great Idea Started as a Copy at 24:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1440s)
 - **A, B, C players test**: Imagine the person says they quit today: panic means an A player, three months to replace means B, relief means C. He takes it from Brad Jacobs's book. (Kata 8 at 36:55, https://www.youtube.com/watch?v=oQd7Dw47VdU&t=2215s)
 - **Aeos**: The group's name, which he says was picked at random with no full form; someone inside later read it as Attention Economy Operating System. In another telling it came from a Dragon Ball character. (Masters Union at 7:10, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=430s; KK Create at 1:39:53, https://www.youtube.com/watch?v=A37ca5F9oG8&t=5993s)
 - **Aeos chain**: The video editing school produces editors, the services company consumes them to do YouTube end-to-end for customers, and Labs, a separate engineering-focused company, automates parts of the business to lift its margins. (Masters Union at 9:31, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=571s)
@@ -50,7 +51,8 @@ These are his own terms and named methods, defined the way he uses them in the v
 - **Context repair technicians**: His name for senior engineers, who fix what an underbaked brief left out. (Kata 3 at 14:33, https://www.youtube.com/watch?v=yJFsZLgUa40&t=873s)
 - **Coordination cost**: The friction each person adds to a team's output, and the people and time a company spends only on coordinating; his main lens on a company. (Kata 2 at 12:06, https://www.youtube.com/watch?v=uojkYJz7d-k&t=726s; Masters Union at 46:01, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=2761s)
 - **Costly signaling**: A theory he cites: spending all of a small amount on a risky bet is more credible than spending a little of a large amount. (Masters Union at 21:21, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1281s)
-- **Creativity recipe**: From his 2017 book Pajama Profit: learn how something was made, break it into components and rearrange them. (PGX Ideas 2 at 24:46, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=1486s)
+- **Creating value and capturing value**: Creating value is helping or educating a market; capturing it is being the one who gets paid. He says only capturing generates free cash flow, and that innovators rarely capture what they create. (Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s)
+- **Creativity recipe**: From his 2017 book Pyjama Profit: learn how something was made, break it into components and rearrange them. (PGX Ideas 2 at 24:46, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=1486s)
 - **Credential collection**: Gathering degrees and big-name resume lines so you are ready if luck arrives. (Kata 7 at 4:53, https://www.youtube.com/watch?v=Ia_bqazMeIw&t=293s)
 - **Cringe then clean**: Launch anything new with something different and a little cringe so it travels, take the feedback, then sober it up. (Masters Union at 18:11, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1091s)
 - **Curiosity sprint**: Give a new field 60 days, then commit or reject it, because every field is exciting for two weeks. (Kata 7 at 28:50, https://www.youtube.com/watch?v=Ia_bqazMeIw&t=1730s)
@@ -126,6 +128,7 @@ These are his own terms and named methods, defined the way he uses them in the v
 - **Internal and external story fit**: Incentives and stories matched to what each team member personally aspires to. (Kata 2 at 25:44, https://www.youtube.com/watch?v=uojkYJz7d-k&t=1544s)
 - **Irreversible consequences**: A check before acting: does this lock you out of something for good, as burning a bridge does. (Kata 9 at 33:32, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=2012s)
 - **Is it expensive test**: Judge a spend by whether it removes an annoyance or buys an experience you want, not by the price. (Kata 13 at 42:07, https://www.youtube.com/watch?v=8WgipmPSPKk&t=2527s)
+- **Jugaad**: The Indian word he glosses as creative, cheap solutions. In November 2026 he calls it innovation under a constraint, which lowers price or raises availability for the end user. (Why Every Great Idea Started as a Copy at 11:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=675s; Why Every Great Idea Started as a Copy at 16:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=990s)
 - **Kata**: A karate-style series of practised steps, and his name for each of the 16 teaching videos. (Kata 1 at 3:20, https://www.youtube.com/watch?v=9NjA41wShTI&t=200s)
 - **Keep or move out test**: Keep people with potential, the right attitude and learning ability; help the rest seek treatment or leave. (Secret Kata 1 at 28:57, https://www.youtube.com/watch?v=wM7jyLJBi_g&t=1737s)
 - **Know the scoring of each game**: For a creator the score is who you are seen next to, for an entrepreneur money, for a game developer new mechanics. (PGX Ideas 2 at 40:39, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=2439s)
@@ -161,6 +164,7 @@ These are his own terms and named methods, defined the way he uses them in the v
 - **Minimum viable team**: One person per department, breadth with no depth, used to make the first alpha. (Kata 12 at 8:08, https://www.youtube.com/watch?v=mwQhnZ32CeE&t=488s)
 - **Modifiers on competence**: A correct prediction with no action, deep belief with no attempt, and low personal risk all earn less; a clean failure still earns some. (Kata 4 at 14:28, https://www.youtube.com/watch?v=mPjj7-eHw1s&t=868s)
 - **Momentary grace period**: The one or two years in which seeded positive perception pauses skepticism so you can prove yourself; also called the shield. (PGX Ideas 2 at 1:06:10, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=3970s)
+- **Mule**: An existing petrol car or bike modified to test new technology before the finished product is built, which he says is where every electric vehicle company starts. (Why Every Great Idea Started as a Copy at 6:45, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=405s)
 - **Multi-way variance**: From poker: more players means more chance someone holds better cards, so fewer competitors means you need not be best on day one. (Kata 9 at 1:02:03, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=3723s)
 - **Mythmaking**: His word for stating a prediction of how the next few years will go; also future myth-making. (Kata 1 at 45:15, https://www.youtube.com/watch?v=9NjA41wShTI&t=2715s; Masters Union at 53:07, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=3187s)
 - **Niche domain problems**: Prefer a narrow problem inside a field you know over a broad one, because you get about two years ahead of copies. (Kata 9 at 1:06:03, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=3963s)
@@ -196,6 +200,7 @@ These are his own terms and named methods, defined the way he uses them in the v
 - **Red aura**: The name used in his services company for a non-coordinator, who is disconnected from the company quickly. (Kata 2 at 58:55, https://www.youtube.com/watch?v=uojkYJz7d-k&t=3535s)
 - **Red flag syndromes**: Victim, Messiah, Ostrich, Peter Pan, I-know-best and burnout; his warning signs in talent that has joined. (Kata 8 at 41:45, https://www.youtube.com/watch?v=oQd7Dw47VdU&t=2505s; Kata 8 at 45:44, https://www.youtube.com/watch?v=oQd7Dw47VdU&t=2744s; Kata 8 at 46:32, https://www.youtube.com/watch?v=oQd7Dw47VdU&t=2792s; Kata 8 at 47:21, https://www.youtube.com/watch?v=oQd7Dw47VdU&t=2841s)
 - **Reference hunting with AI**: Ask a model for film references for a scene, watch them, share with the team, ask for twists, then shoot in your own style. (Kata 3 at 32:47, https://www.youtube.com/watch?v=yJFsZLgUa40&t=1967s)
+- **Remix machines**: His description of humans: they do nothing truly new and only recombine what they have been exposed to. He says he wrote it in Pyjama Profit in 2017. (Why Every Great Idea Started as a Copy at 3:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=180s)
 - **Resolution**: How clearly you know the market, the product and above all the org chart needed; low at the start and raised by action. (Kata 12 at 2:31, https://www.youtube.com/watch?v=mwQhnZ32CeE&t=151s)
 - **Resolution reuse**: Starting the next project at full resolution because the team shape is already known; what others call a playbook. (Kata 12 at 40:14, https://www.youtube.com/watch?v=mwQhnZ32CeE&t=2414s)
 - **Retcon**: Rewriting a piece of the old story so the narrative reads as a straight line; he says every success story is one. (The Most Valuable Skill After AI at 1:04:58, https://www.youtube.com/watch?v=4N8WadMsdmI&t=3898s)
@@ -207,6 +212,7 @@ These are his own terms and named methods, defined the way he uses them in the v
 - **Scouter penalty**: The sharp drop in how you are read when you repeat the same failure without updating your model. (Kata 4 at 43:26, https://www.youtube.com/watch?v=mPjj7-eHw1s&t=2606s)
 - **Seal the key**: For compounding assets, remove the option to sell: invest, lock it and do not look for 10 years. (Why Belief Matters at 36:36, https://www.youtube.com/watch?v=jreQIik5jlE&t=2196s)
 - **Second bank account**: Reputation and brand, which he says the rich value above cash. (Kata 13 at 1:03:34, https://www.youtube.com/watch?v=8WgipmPSPKk&t=3814s)
+- **Second mover**: Player two, three or four in a market, who he says has a better chance than the first mover; player 50 is too late. (Why Every Great Idea Started as a Copy at 26:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1575s; Why Every Great Idea Started as a Copy at 27:00, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1620s)
 - **Secret evaluation**: Promoting or judging people on criteria they were never told. (Secret Kata 1 at 21:48, https://www.youtube.com/watch?v=wM7jyLJBi_g&t=1308s)
 - **Secret kata**: An internal talk on truths he thinks would get him attacked in public; later ones are public briefly, then members only. (Secret Kata 1 at 0:52, https://www.youtube.com/watch?v=wM7jyLJBi_g&t=52s; The Most Valuable Skill After AI at 8:00, https://www.youtube.com/watch?v=4N8WadMsdmI&t=480s)
 - **Serotonin balancer**: The manager's role in a pod: keep everyone in a good enough mood to collaborate. (Secret Kata 1 at 27:22, https://www.youtube.com/watch?v=wM7jyLJBi_g&t=1642s)
@@ -233,6 +239,8 @@ These are his own terms and named methods, defined the way he uses them in the v
 - **Synthesis business**: His word for a business that does several things and puts them together. (Kata 2 at 37:00, https://www.youtube.com/watch?v=uojkYJz7d-k&t=2220s)
 - **Synthetic news and organic farm grown**: His names for his AI avatar shorts and for his real lecture videos. (Masters Union at 27:42, https://www.youtube.com/watch?v=NIQwPD6a-d4&t=1662s)
 - **Take back the original corpus**: When an investment multiplies, sell enough to recover what you put in and let the rest ride. (Kata 9 at 54:55, https://www.youtube.com/watch?v=EWFn-RgxZ5M&t=3295s)
+- **Take inspiration**: The phrase he prefers to copying, which he calls a harsh word: keep the core process and do not clone the interface and the copy wholesale. (Why Every Great Idea Started as a Copy at 29:15, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=1755s)
+- **Tanmay Bhat model**: An approach he names after Tanmay Bhat: take something from one context and plug it into another where it should not exist. He says it sometimes works and sometimes does not. (Why Every Great Idea Started as a Copy at 13:30, https://www.youtube.com/watch?v=E0GKOAWMqzE&t=810s)
 - **Task drop rate**: Give a founder's office hire 10 tasks and count how many they silently let go; under 10% is good. (KK Create at 1:14:53, https://www.youtube.com/watch?v=A37ca5F9oG8&t=4493s; KK Create at 1:15:40, https://www.youtube.com/watch?v=A37ca5F9oG8&t=4540s)
 - **Technology purchase math**: Time one unit of work by hand, convert the total to headcount, and compare that cost with the equipment. (Kata 12 at 23:17, https://www.youtube.com/watch?v=mwQhnZ32CeE&t=1397s)
 - **Tell me five ways you are wrong**: A habit from his 30s: before a sensitive claim, play out five scenarios where it does not happen. (PGX Ideas 2 at 1:38:09, https://www.youtube.com/watch?v=ObXOm9YqnBk&t=5889s)

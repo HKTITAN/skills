@@ -271,6 +271,15 @@ if (market) {
   }
 }
 
+// A brain's silent.md must not tell a reader a topic is not covered when a theme file holds a cited claim
+// on it. silent-check.mjs runs khe-brain-gary's two comparisons (a watch word in a claim; a row's topic as a
+// phrase in a claim) over every skills/khe-brain-*; the older brains' watch-word hits are listed there with a
+// reason each, and a new brain has none. The part in meaning, not in words, is the reviewer's step in CONTRIBUTING.md.
+for (const args of [["--self-test"], []]) {
+  const r = spawnSync(process.execPath, [join(ROOT, "scripts", "silent-check.mjs"), ...args], { encoding: "utf8" });
+  if (r.status !== 0) for (const l of (r.stderr + r.stdout).split(/\r?\n/).filter((l) => /silent\.md|silent-check|^FAIL/.test(l))) bad("silent lists", l);
+}
+
 // No model is hardcoded: agents inherit the session's model, and the policy picks a tier by the task.
 // Scoped to config and policy; a launch film called "Claude Opus 4.6" in a reference is a film title.
 {

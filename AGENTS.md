@@ -53,7 +53,7 @@ If the answer is a new skill, build it in this order, and tell the user which ro
 6. Run it on real work beside a run without it. When a result is wrong, change the skill, never the one result.
 7. Wire it in (see The router) and run the checks.
 
-A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login.
+A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login. Its silent list is written last, after the theme files are final, by CONTRIBUTING.md.
 
 ## Where people install from
 
@@ -87,7 +87,7 @@ Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/mark
 
 - The skill folder keeps its own name (`khe-brain-varun`) for `npx skills add`, so installs and links do not break. The command carries the full name.
 - The layout keeps the two plugins apart, because Claude Code loads a plugin root's `commands/` and `agents/` whatever its entry lists (an empty list falls back to the default folder). `kheskills` is rooted at `./`, so there is no `commands/` at the repo root. `khe-brain` is rooted at `./skills`, which has no `agents/`, `commands/` or `skills/` of its own, so it loads the brain commands and nothing else. It lists each brain's `commands/` folder, since `claude plugin details` (2.1.325) loads nothing from file entries in `commands`, so that folder holds the command and nothing else. It lists no skills: with the brain folders listed, each brain would show twice.
-- A new brain adds `skills/khe-brain-<x>/commands/<full-name>.md` and its name in the Brains group of `skills.sh.json`; `node scripts/marketplace.mjs` adds it to the plugin's `commands` list and description. `scripts/check.mjs` fails when a brain has no command or more than one, when a command reads another folder's skill, and when a root `commands/` folder exists.
+- A new brain adds `skills/khe-brain-<x>/commands/<full-name>.md` and its name in the Brains group of `skills.sh.json`; `node scripts/marketplace.mjs` adds it to the plugin's `commands` list and description. `scripts/check.mjs` fails when a brain has no command or more than one, when a command reads another folder's skill, and when a root `commands/` folder exists. It also runs `scripts/silent-check.mjs`, which fails when a silent row's watch word, or its topic as a phrase, appears in a cited claim of the same brain; the older brains' watch-word hits are listed in that script with a reason each, and a new brain has none.
 - Check a change with `claude plugin validate . --strict` (CI runs it too).
 
 ## Rules for every skill

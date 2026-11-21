@@ -98,6 +98,7 @@ Turning a person's or a company's published thinking into a skill is worth doing
 - Pull out claims one piece at a time, each with where it came from. Group them by theme. Write the skill last.
 - Write every sentence yourself. Name the source in the reference that draws on it.
 - Use only what is published openly. Never material from behind a paywall or a login.
+- Write the silent list (`references/silent.md`, the topics the corpus does not cover) last, after the theme files are final, and judge every row against a full reading of the core, the theme files and the disagreements. A row that survives says no cited claim covers its topic and names the theme file that holds the nearest material. Searching the raw corpus for each candidate topic misses what the theme files say in other words, and a wrong row tells a reader "not in the corpus" beside the line that covers it; `khe-brain-gary`'s list did that in two review rounds. `scripts/silent-check.mjs` fails a watch word or a topic phrase that a cited claim holds, and cannot see a claim in other words, so the reviewer of a brain asks of each row: would a reader be wrongly told "not in the corpus"?
 - If they already publish their own skill for the job, link it. That is their skill, and it will be kept up to date.
 
 ## Three habits behind all of this

@@ -1,4 +1,4 @@
-<!-- named-without-citation: borrowed-verdict. The recommendation hangs the call on a seated person with no citation; the call is the synthesis, and a name belongs only beside the line that was published. -->
+<!-- named-without-citation: leaking-chair. The Not covered: line adds a sentence about a seated person with no citation; a name belongs only beside the line that was published, on every line of the chair block. -->
 Decision: Should we build in private for a year before showing the product to anyone outside the team?
 Council: 5 of 7 installed brains seated. Seated: khe-brain-varun, khe-brain-enrico, khe-brain-harshit, khe-brain-yc, khe-brain-isb. Left out: khe-brain-emil (interface motion and craft only), khe-brain-benji (design writing, no rule on when to ship).
 
@@ -37,8 +37,8 @@ Not in the notes: how long a build may run before the first customer test, and w
 == Chair ==
 Agree: Five seats publish material that puts real users or customers ahead of a long build [varun: Kata 12 at 5:44] [enrico: Do You Have a Genius Startup Idea at 0:00] [harshit: 2026-05-14-best-startups-often-built] [yc: How to build an MVP] [isb: Entrepreneurship: Build Phase: Creating the MVP]
 Disagree: whether a long private build can be right. One seat's material praises 3 years of private work at one company [enrico: Why Everyone Is Obsessed With Figma at 9:00]; another seat's says the best startups enter the market early [harshit: 2026-05-14-best-startups-often-built]. Why: the Figma piece presents that case as an exception that worked, and the pieces do not say how to tell this product from it.
-Not covered: how long a build may run before the first test for this product, and whether this product is the exception case; no seat gives a rule for telling the two apart.
-Recommendation (khe-decision's synthesis, not the view of anyone cited): Put a first version in front of real customers before committing a year to a private build, and keep the private year only if there is a reason this product is the exception case. The seats set neither the length of the test nor how to tell the two cases apart, so those are yours to decide, as Varun Mayya urges.
+Not covered: how long a build may run before the first test for this product, and whether this product is the exception case; no seat gives a rule for telling the two apart. Varun Mayya's videos lean toward the early test.
+Recommendation (khe-decision's synthesis, not the view of anyone cited): Put a first version in front of real customers before committing a year to a private build, and keep the private year only if there is a reason this product is the exception case. The seats set neither the length of the test nor how to tell the two cases apart, so those are yours to decide.
 Rests on: [varun: Kata 12 at 5:44] [enrico: Why Everyone Is Obsessed With Figma at 9:00] [yc: How to build an MVP] [isb: Entrepreneurship: Build Phase: Creating the MVP]
 Would change it: Evidence that this product is the exception case, such as a need that cannot be tested until it is built, would flip the call to a private build.
 Not verified: This is a teaching fixture, so the seat blocks are lines lifted from each brain's gold replies and theme files and were not run as live seats; the live pages were not opened, and corpus dates were not checked.

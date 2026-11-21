@@ -11,7 +11,7 @@ metadata:
 
 You own a decision from the moment someone asks "should I" to a council reply they can check line by line: which installed brains were seated and why, what each seat's published material says with its citations, where that material agrees, where it disagrees and for what reason, what none of it covers, and one recommendation that carries your own label. This is a decision skill. It does ONE thing: it puts a single decision to the brain skills whose corpora cover it and reports what comes back.
 
-It does not answer for one person or one institution: a question about one body of work goes to that brain alone (`khe-brain-varun`, `khe-brain-yc`, `khe-brain-isb`, `khe-brain-emil`, `khe-brain-benji`, `khe-brain-enrico`, `khe-brain-harshit`). It does not pick a skill (that's `khe-auto`) or write the post about the decision (that's `khe-content-engine`). It searches no web page, forecasts no outcome and puts no probability on anything: the only material it has is what the brains have already read. It never makes the decision.
+It does not answer for one person or one institution: a question about one body of work goes to that brain alone (the brain skills, such as `khe-brain-varun`). It does not pick a skill (that's `khe-auto`) or write the post about the decision (that's `khe-content-engine`). It searches no web page, forecasts no outcome and puts no probability on anything: the only material it has is what the brains have already read. It never makes the decision.
 
 The council idea is borrowed from Harshil Mathur's autodecision; what was taken and what is different are in [sources](references/sources.md). This is Harshit Khemani's reading of public work. Nobody whose material a seat cites wrote it or endorsed it.
 
@@ -63,7 +63,7 @@ Steps 1 to 4 settle who sits before any seat is opened. One request is one decis
 7. **Cross-check, once.** Give a fresh chair the first brief in [chair](references/chair.md): the decision and the seat replies. It returns the points where two seats pull apart. Group the points by seat and start one cross-check subagent per seat, never one per point, because one block has one writer per round and two answers never overwrite each other. Its brief lists every other-seat line put to it as a numbered list, each with its citation, and asks whether its corpus speaks to each. The answer for each is a cited line or silence, added inside that seat's block as that brain's own labelled line, within every limit of that brain's Output format, and the brain's gate runs again. Exit: every disagreement with a cross-check answer from both sides, each seat checked once, or "no disagreement found". No further round.
 8. **Chair.** Give the chair its second brief in [chair](references/chair.md) with the final seat blocks. It writes `Agree:`, `Disagree:`, `Not covered:`, the labelled recommendation, `Rests on:` and `Would change it:`. Exit: the chair block, every citation copied from a seat block.
 9. **Assemble.** Put the reply together in the Output format, starting from the closest gold in `examples/`: the `Decision:` line, the `Council:` line, each seat block whole and unedited, the chair block, `Not verified:`, the reading line. Exit: the reply saved as a `.txt` file.
-10. **Rehearse.** Run `node scripts/decision-check.mjs {reply.txt} --gate` until it ends `decision-check passed`. Fix the largest fault first: words in a person's mouth, then a seat speaking past its corpus, then a leaking or uncited chair line, then a missing label. A seat block is fixed by its seat, never by you. Exit: the gate's last line, pasted.
+10. **Rehearse.** Run `node scripts/decision-check.mjs {reply.txt} --gate --strict` on the machine that ran the seats, until it ends `decision-check passed`. The brains are installed there, so every candidate line (`brain-unaccounted`, `seat-unchecked`) can be checked and `--strict` makes an open one fail; plain `--gate` is for a machine without the brains. Fix the largest fault first: words in a person's mouth, then a seat speaking past its corpus, then a leaking or uncited chair line, then a missing label. A seat block is fixed by its seat, never by you. Exit: the gate's last line, pasted.
 11. **Walk [verify](references/verify.md)** with each chair citation found again inside its seat block. Exit: every answer is yes and names the line you looked at.
 12. **Fresh-eye review** by [review](references/review.md). The reviewer gets the decision, the reply and the installed brains, never your reasons. Exit: "nothing", or every finding fixed and steps 10 and 11 run again.
 13. **Hand over.** Send the reply and stop. For a decision the person will act on or show to someone else, write `COUNCIL.md` from the template in [verify](references/verify.md). Exit: the reply sent; nothing decided for the person.
@@ -72,13 +72,15 @@ Steps 1 to 4 settle who sits before any seat is opened. One request is one decis
 
 Check these before handing over.
 
-- **A name at the start of a chair sentence and its citation three sentences later.** `named-without-citation`; Hard rule 1. The citation sits in the sentence that names the person.
+- **A name at the start of a chair sentence and its citation three sentences later.** `named-without-citation`; Hard rule 1. The citation sits in the sentence that names the person. The gate runs this on every chair and closing line except `Rests on:` and the reading line.
 - **"Would", "might" or "thinks you should" beside a seat's name.** `ventriloquist`; [chair](references/chair.md), The wording.
-- **A chair citation retyped from memory.** `chair-citation`; copy the text from inside the seat block, character for character.
-- **A `Nearest:`, `My reading:` or `Yours:` line treated as a seat's position.** The brain itself labels the first as not answering the question and the other two as someone else's words; [chair](references/chair.md), Lines that are never a seat's position.
+- **A chair citation retyped from memory.** `chair-citation`; copy the whole citation from inside the seat block, character for character. The gate matches it against the items that seat cites, not against any substring of the block.
+- **A `Nearest:`, `My reading:` or `Yours:` line treated as a seat's position.** `nearest-citation` when a chair citation exists in the seat block only on one of those lines. The brain itself labels the first as not answering the question and the other two as someone else's words; [chair](references/chair.md), Lines that are never a seat's position.
 - **A `Why:` that explains a disagreement by temperament.** The reason is one the cited lines show (stage, audience, date, country), or it is "the pieces do not say"; [chair](references/chair.md), Disagree.
-- **Two seats that agree, reported as "so do it".** `borrowed-verdict`; agreement goes on an `Agree:` line and the call stays on the labelled line.
-- **A brain missing from the `Council:` line because it was left out.** `no-council-line`; Hard rule 3.
+- **Two seats that agree, reported as "so do it".** The gate raises `unlabelled-synthesis`, or `ventriloquist` for "the council recommends"; agreement goes on an `Agree:` line and the call stays on the labelled line. The failure is a borrowed verdict.
+- **A person or institution named on the `Recommendation` line.** `recommendation-names`; its citations live on `Rests on:`.
+- **A chair line that starts with no label of the format, one brain seated twice, or a seat header that differs from the brain's own heading.** `unknown-chair-label`, `duplicate-seat`, `seat-name`.
+- **A brain missing from the `Council:` line because it was left out.** `brain-unaccounted`, a candidate that `--strict` fails; Hard rule 3. `no-council-line` also fails when N is greater than M or differs from the number of seat blocks.
 - **A seat block tidied by the chair.** A seat block is that brain's reply, whole; an edit to it is a line no brain wrote.
 - **Seats written in one context with no word about it.** [seats](references/seats.md), Without subagents; the `Not verified:` line says so.
 - **A third round to settle a disagreement.** Hard rule 6; the disagreement goes in the reply as it stands.
@@ -102,7 +104,7 @@ Check these before handing over.
 | Faults this skill has made before | [gotchas](references/gotchas.md) |
 | Your own calls | [pov](references/pov.md) |
 
-Script: `scripts/decision-check.mjs` lists the installed brains (`--seats`, with `--json` for a machine) and checks a saved reply (`--gate`; `--help` lists its lines; `--self-test` proves it on the teaching pairs and the gold). It judges each seat block with that brain's own `scripts/brain-check.mjs`, so a new brain brings its own format. Node 20 or newer, no dependencies.
+Script: `scripts/decision-check.mjs` lists the installed brains (`--seats`, with `--json` for a machine) and checks a saved reply (`--gate`, and `--strict` to fail on candidate lines; `--help` lists its lines; `--self-test` proves it on the teaching pairs and the gold). It judges each seat block with that brain's own `scripts/brain-check.mjs`, so a new brain brings its own format, and its summary says how many seats were judged by their own brain's gate. Node 20 or newer, no dependencies.
 
 ## Never ship
 
@@ -157,7 +159,7 @@ A reading by Harshit Khemani of public work. Nobody cited here wrote or endorsed
 - The recommendation line names no person and no institution. Its citations live on `Rests on:`.
 - When fewer than two seats spoke, the line is `Recommendation (khe-decision's synthesis, not the view of anyone cited): withheld. {the reason}`, and `Rests on:` is left out.
 
-Not convened, when zero or one installed brain covers the decision. These lines and no others:
+Not convened, when zero or one installed brain covers the decision. These five labelled lines, once each, and nothing else:
 
 ```text
 Decision: {the decision as one question}
@@ -180,7 +182,7 @@ Read both before any decision. They outrank the defaults here, and neither can o
 
 ## Pairs with
 
-- The brain skills (`khe-brain-varun`, `khe-brain-yc`, `khe-brain-isb`, `khe-brain-emil`, `khe-brain-benji`, `khe-brain-enrico`, `khe-brain-harshit`): each is a seat here and a whole skill on its own. Hand over when the question is about one body of work, or when only one brain covers the decision.
+- The brain skills, such as `khe-brain-varun`: each is a seat here and a whole skill on its own. Hand over when the question is about one body of work, or when only one brain covers the decision.
 - `khe-auto`: picks the skill when the request names none, and runs this skill's gate in its loop when it routes here.
 - `khe-content-engine`: drafts posts in your own voice. Hand over when a council reply has to become something you publish, and keep the seat blocks' `Source:` lines with it.
 

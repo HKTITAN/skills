@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="khe-decision-flow" viewBox="0 0 896 344" role="img" aria-labelledby="khe-decision-flow-title khe-decision-flow-desc">
   <title id="khe-decision-flow-title">How khe-decision runs</title>
-  <desc id="khe-decision-flow-desc">A decision is put to every seated brain in parallel, each seat cites or is silent, one cross-check follows, a fresh chair synthesises citing only what seats cited, and the reply is gated; fewer than two relevant brains sends the question to one brain.</desc>
+  <desc id="khe-decision-flow-desc">A decision is put to every seated brain in parallel, each seat cites or is silent, one cross-check follows, a fresh chair synthesises citing only what seats cited, and the reply is gated; fewer than two relevant brains convenes no council: one brain answers alone, or none does.</desc>
   <defs>
     <marker id="khe-decision-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
       <path class="head" d="M0 1 L8 4 L0 7 Z"/>
@@ -88,9 +88,10 @@
       <text class="sub" x="668" y="268">decision-check passed</text>
     </g>
     <g class="node quiet">
-      <rect x="32" y="228" width="144" height="56" rx="6"/>
-      <text class="name" x="44" y="252">One brain</text>
-      <text class="sub" x="44" y="268">goes to that brain</text>
+      <rect x="32" y="228" width="176" height="56" rx="6"/>
+      <text class="name" x="44" y="248">No council</text>
+      <text class="sub" x="44" y="264">one brain answers alone,</text>
+      <text class="sub" x="44" y="276">or none does</text>
     </g>
   </g>
   <g class="legend" transform="translate(32 320)">

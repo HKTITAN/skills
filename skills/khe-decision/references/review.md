@@ -13,7 +13,7 @@ Every council reply gets one, because a council reply exists to settle a decisio
 
 - The decision, in the person's words.
 - The reply, exactly as it will be sent.
-- The output of `decision-check.mjs --gate` on the reply, whole, and of `decision-check.mjs --seats`.
+- The output of `decision-check.mjs --gate --strict` on the reply, whole, and of `decision-check.mjs --seats`.
 - The installed brains: their folders, so a cited line can be opened in its reference file and each brain's `silent.md` can be read.
 - This file, [verify](verify.md), [chair](chair.md) and the `examples/` folder, with one line naming the closest gold.
 - The findings of any earlier round, so this round builds on them.
@@ -33,20 +33,20 @@ Your first question, before anything else: **take every sentence outside the sea
 
 Then hunt, in this order. The order is the order of harm: the faults at the top put words under a real person's name, and the reader will repeat them.
 
-1. **Words in a person's mouth.** A conditional or a guess beside a name ("would say", "thinks you should"), in any wording the gate did not catch. A chair sentence stronger than the seat line it cites. A view built from a `Nearest:`, `My reading:` or `Yours:` line, none of which is a seat's position.
+1. **Words in a person's mouth.** A conditional or a guess beside a name ("would say", "thinks you should"), in any wording the gate did not catch. A chair sentence stronger than the seat line it cites. A view built from a `Nearest:`, `My reading:` or `Yours:` line, none of which is a seat's position (the gate's `nearest-citation` catches a citation that lives only there, not a title shared with a cited line). An `Agree:` line that says "each seat" or "every seat" over a seat that pulls both ways or was silent. A `Disagree:` side built on a seat's `Holds:` or `Breaks:` label and not on its cited sentence.
 2. **A seat speaking past its corpus.** For each seat block, open two of its cited lines in that brain's reference files: does each line say what the sentence says? Open the brain's `silent.md`: did the seat answer a subject listed there? Is any sentence in the block general knowledge with a citation hung on it?
 3. **A smoothed disagreement.** Read the seat blocks side by side for the decision's main fork. Do two seats pull apart on a point that the chair reports as agreement, or leaves out? Does a `Disagree:` line end by ruling for one side? Is a `Why:` about a person's character and not about stage, audience, date or country?
 4. **A verdict in a person's name.** Is the recommendation's label whole? Does any other line carry the call ("so the material says do it")? After reading the reply once, could the person believe a cited person told them what to do?
 5. **A padded council.** For each seated brain, which sentence of its description covers the decision? For each left-out brain, is the reason true of its description? Was a council convened when fewer than two seats spoke, without withholding the recommendation?
 6. **A leaking chair.** Any fact, figure, piece or person in the chair block that appears in no seat block. Any fact in the recommendation that is on no `Agree:` or `Disagree:` line.
 
-Then put the reply beside the closest gold and say the one difference. Then run the gate yourself and paste its last line.
+Then put the reply beside the closest gold and say the one difference. Then run the gate yourself, with `--strict` where the brains are installed, and paste its last line.
 
 ## The reply
 
 ```text
 Reviewed: {the reply file, and the commit or the time it was read}
-Gate: {the last line of decision-check.mjs --gate, run by the reviewer}
+Gate: {the last line of decision-check.mjs --gate --strict, run by the reviewer}
 Verdict: holds | holds with nits | does not hold
 Findings:
 - [important | nit | pre-existing] {the sentence in the reply, quoted} | {the seat line or reference line beside it, quoted, or its absence} | {the fix, in one line}

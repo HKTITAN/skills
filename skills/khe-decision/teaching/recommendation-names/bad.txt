@@ -1,0 +1,45 @@
+<!-- recommendation-names: borrowed-verdict. The recommendation names a seated person and carries his citation, so the call reads as his. The call is the synthesis, it names nobody, and its citations live on Rests on:. -->
+Decision: Should we build in private for a year before showing the product to anyone outside the team?
+Council: 5 of 7 installed brains seated. Seated: khe-brain-varun, khe-brain-enrico, khe-brain-harshit, khe-brain-yc, khe-brain-isb. Left out: khe-brain-emil (interface motion and craft only), khe-brain-benji (design writing, no rule on when to ship).
+
+== Seat: khe-brain-varun (Varun Mayya) ==
+His advice runs against a long build before any test: he calls building for two years before testing a very big risk (Kata 12 at 5:44), and says to stop building once one feature works and put all energy into marketing and sales (Kata 11 at 21:38).
+Breaks: a year of building before any test. He calls building for two years before testing a very big risk, because the direction can be completely off (Kata 12 at 5:44).
+Source: Kata 12, https://www.youtube.com/watch?v=mwQhnZ32CeE
+Source: Kata 11, https://www.youtube.com/watch?v=0tbeJZYvsg4
+Not in his videos: whether a year is too long for this product, and any view of the product itself. The decision is yours.
+
+== Seat: khe-brain-enrico (Enrico Tartarotti) ==
+A year of building in private breaks a position he states and meets one exception he praises himself (Do You Have a Genius Startup Idea at 0:00; Why Everyone Is Obsessed With Figma at 9:00).
+Breaks: a year of building before any check. In January 2023 he says most startups die after spending years and a lot of cash on something people do not want, and he offers a fake door test and a Wizard of Oz test to check demand without building (Do You Have a Genius Startup Idea at 0:00; Do You Have a Genius Startup Idea at 6:00).
+Holds: building in private. In March 2025 he says Figma did the opposite of the launch fast playbook by working in private for 3 years, and that this became a secret of its success (Why Everyone Is Obsessed With Figma at 9:00).
+Source: Do You Have a Genius Startup Idea, https://www.youtube.com/watch?v=HABFEs90MZ8
+Source: Why Everyone Is Obsessed With Figma, https://www.youtube.com/watch?v=0jze5RbyoW4
+Not in his videos: whether this plan is the Figma case or the usual one. He presents Figma as an exception that worked and gives no rule for telling the two apart. The decision is yours.
+
+== Seat: khe-brain-harshit (Harshit Khemani) ==
+A year of private polish runs against his rule that clarity comes after action (2026-05-14-best-startups-often-built).
+Breaks: the plan waits a year; he says the best startups enter the market early and let reality teach them (2026-05-14-best-startups-often-built).
+Source: 2026-05-14-best-startups-often-built, https://x.com/HarshitKhemani/status/2054933799977595056
+Not in his posts: how long a private build can run before it counts as waiting; the call on the plan is yours.
+
+== Seat: khe-brain-yc (Y Combinator) ==
+Michael Seibel, in a talk the library dates to 2023, calls the founder who wants a year and 10 million dollars to build the perfect product a "fake Steve Jobs" (How to build an MVP). Paul Graham's 2013 essay says it usually works best in software to show users something once it has a quantum of utility, and he excepts domains with big penalties for mistakes (Do Things that Don't Scale).
+Source: How to build an MVP, https://www.ycombinator.com/library/Io-how-to-build-an-mvp
+Source: Do Things that Don't Scale, https://paulgraham.com/ds.html
+Not in the corpus: whether this product is in a domain with big penalties for mistakes, and how long a build may run before the first user sees it. The decision is yours.
+
+== Seat: khe-brain-isb (the ISB notes) ==
+The notes define an MVP as the simplest product that lets a team test one critical assumption with real customers, and say it is not an early release to the general public or something embarrassing to ship (Entrepreneurship: Build Phase: Creating the MVP).
+Source: Entrepreneurship: Build Phase: Creating the MVP, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/lean-build-phase-creating-the-mvp.md
+Not in the notes: how long a build may run before the first customer test, and whether this product needs more than one assumption tested. No file names a professor or a course, so this is the repository author's summary.
+
+== Chair ==
+Agree: Five seats publish material that puts real users or customers ahead of a long build [varun: Kata 12 at 5:44] [enrico: Do You Have a Genius Startup Idea at 0:00] [harshit: 2026-05-14-best-startups-often-built] [yc: How to build an MVP] [isb: Entrepreneurship: Build Phase: Creating the MVP]
+Disagree: whether a long private build can be right. One seat's material praises 3 years of private work at one company [enrico: Why Everyone Is Obsessed With Figma at 9:00]; another seat's says the best startups enter the market early [harshit: 2026-05-14-best-startups-often-built]. Why: the Figma piece presents that case as an exception that worked, and the pieces do not say how to tell this product from it.
+Not covered: how long a build may run before the first test for this product, and whether this product is the exception case; no seat gives a rule for telling the two apart.
+Recommendation (khe-decision's synthesis, not the view of anyone cited): Put a first version in front of real customers before committing a year to a private build, and keep the private year only if there is a reason this product is the exception case. The seats set neither the length of the test nor how to tell the two cases apart, so those are yours to decide, which is the line Varun Mayya's videos take [varun: Kata 12 at 5:44].
+Rests on: [varun: Kata 12 at 5:44] [enrico: Why Everyone Is Obsessed With Figma at 9:00] [yc: How to build an MVP] [isb: Entrepreneurship: Build Phase: Creating the MVP]
+Would change it: Evidence that this product is the exception case, such as a need that cannot be tested until it is built, would flip the call to a private build.
+Not verified: This is a teaching fixture, so the seat blocks are lines lifted from each brain's gold replies and theme files and were not run as live seats; the live pages were not opened, and corpus dates were not checked.
+A reading by Harshit Khemani of public work. Nobody cited here wrote or endorsed it.

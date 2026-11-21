@@ -12,12 +12,12 @@ The last pass. Every answer comes from the reply as it will be sent, the decisio
 Save the reply as a `.txt` file and run, from this skill's folder:
 
 ```sh
-node scripts/decision-check.mjs {reply.txt} --gate
+node scripts/decision-check.mjs {reply.txt} --gate --strict
 node scripts/decision-check.mjs examples --gate
 node scripts/decision-check.mjs --self-test
 ```
 
-- The first command ends `decision-check passed`? That means every never-intentional line is at 0 for that reply. It does not mean a cited piece says what the sentence claims.
+- The first command ends `decision-check passed`? That means every never-intentional line is at 0 for that reply and no candidate line is open. It does not mean a cited piece says what the sentence claims. Run it with `--strict` on the machine that ran the seats: the brains are installed there, so every candidate line is checkable. Plain `--gate` is for a machine without the brains. The summary says how many seats were judged by their own brain's gate; if that is fewer than the seat blocks, say which on `Not verified:`.
 - After editing a gold reply, the second ends `decision-check passed`?
 - After editing a teaching pair or the gate, the third ends `decision-check self-test passed`? With no brain installed it reports the `seat-format` pair as skipped and still passes, with the count of skipped.
 
@@ -36,13 +36,14 @@ Exit 0 is a pass. Exit 1 is `decision-check failed: {n} fault(s)`. Exit 2 is `in
 
 ## The chair
 
-1. For each chair citation: find its text inside that seat's block. Which line holds it, and is that line a cited line of the seat, not one labelled `Nearest:`, `My reading:` or `Yours:`? The gate cannot tell, because a title on a `Source:` line satisfies it.
-2. For each `Agree:` line: cover the line, read the two cited seat sentences, and write in a few words what each supports. Does the line say that, and no more?
-3. For each `Disagree:` line: are both sides there with a citation from two different seats, is the `Why:` a reason the two cited lines show, and is no winner picked?
+1. For each chair citation: find its text inside that seat's block. Which line holds it, and is that line a cited line of the seat, not one labelled `Nearest:`, `My reading:` or `Yours:`? The gate fails a citation that lives only on such a line (`nearest-citation`), but a title shared with a real cited line gets through, so you ask.
+2. For each `Agree:` line: cover the line, read the two cited seat sentences, and write in a few words what each supports. Does the line say that, and no more? Does it avoid "each seat" and "every seat" where a seat's own block pulls both ways or a seat was silent?
+3. For each `Disagree:` line: are both sides there with a citation from two different seats, is the `Why:` a reason the two cited lines show, and is no winner picked? Does each side restate the cited sentence, and not the seat's `Holds:` or `Breaks:` label as though it were the published position? If the cross-check found one corpus silent on the point, does the `Why:` say which seat's corpus is silent, and is "the pieces do not say" kept for two corpora that both speak?
 4. Was each seat cross-checked once, for all its points together, and is each answer inside that seat's block as that brain's own line?
 5. Take out every sentence with a chair citation. Is anything left, outside the recommendation, that reads as a person's view?
 6. Does any sentence outside the seat blocks say what someone "would", "might" or "will" say, think or do, or that someone "thinks you should"?
 7. Does `Not covered:` name the part of the decision no cited line answers, in the person's terms?
+8. In the not-convened form: are there five labelled lines, once each (`Decision:`, `Council:`, `Not covered:`, `Next:`, `Not verified:`), and no seat block, chair block or recommendation? Does `Next:` name the one brain that covers the decision, or say nothing in the collection answers it, and does the `Council:` line give the number of installed brains?
 
 ## The recommendation
 
@@ -62,21 +63,26 @@ Fix the cause and run the gate again. `--gate` ends `decision-check passed` only
 | Line | Means | Do |
 |---|---|---|
 | `no-decision` | The first line that is not a comment is not `Decision:` | Put the decision first, as one question |
-| `no-council-line` | No `Council:` line, a seat block's brain is not named on it as seated, or its count is not the number of seat blocks | Name every installed brain, seated or left out, and make N the number of seat blocks |
+| `no-council-line` | No `Council:` line, a seat block's brain is not named on it as seated, N is greater than M, or N is not the number of seat blocks | Name every installed brain, seated or left out, and make N the number of seat blocks |
+| `duplicate-seat` | One brain seated twice | Keep one block per brain |
+| `seat-name` | The name in a seat header differs from the installed brain's own heading | Copy the name as `--seats` prints it |
 | `too-few-seats` | Fewer than two seat blocks, and the reply is not in the not-convened form | Use the not-convened form, or seat a second relevant brain if one exists |
 | `seat-format` | A seat block fails its own brain's gate; that gate's lines are printed under it, indented | Send the block back to its seat with those lines |
 | `seat-uncited` | A seat block with no `Source:` line, or a sentence with no citation marker that is not a `Source:`, `Not in`, `Nearest:`, `Yours:` or `My reading:` line | Send it back to its seat; an uncited seat sentence is an invented one |
 | `no-chair` | No `== Chair ==` block | Run the chair |
 | `unlabelled-synthesis` | The recommendation lacks the full label, or a line starts `Recommendation:` or `Verdict:` | Use the label, character for character |
 | `no-rests-on` | No `Rests on:` line with a chair citation, and the recommendation is not withheld | Cite what the call leans on, or withhold it |
-| `chair-citation` | A chair citation names a seat that is not in this reply, or text that is not in that seat's block | Copy the text from the block; if it is not there, the claim goes |
+| `chair-citation` | A chair citation names a seat that is not in this reply, or its whole text matches none of the items that seat cites (a substring of the block does not count) | Copy the whole citation from the block; if it is not there, the claim goes |
+| `nearest-citation` | A chair citation that exists in the seat block only on a `Nearest:`, `My reading:` or `Yours:` line | Cite a cited line of that seat, or take the claim out |
+| `unknown-chair-label` | A line in the chair block starts with none of the format's labels | Start the line with a label of the format, or cut it |
 | `uncited-chair-claim` | An `Agree:` or `Disagree:` line with no chair citation, with citations from fewer than two seats, or a `Disagree:` with no `Why:` | Add the second seat's citation, or move the point out of the line |
 | `ventriloquist` | Outside the seat blocks: a name or pronoun with "would", "might" or "will" and a verb of saying, thinking or choosing; "{name} thinks you should"; "the council recommends" | Write what the published material suggests, with its chair citation |
-| `named-without-citation` | A chair sentence names a seated person or institution and carries no chair citation | Put the citation in that sentence, or take the name out |
+| `named-without-citation` | A chair or closing line names a seated person or institution and carries no chair citation; every such line is checked except `Rests on:` and the reading line | Put the citation in that sentence, or take the name out |
+| `recommendation-names` | The `Recommendation` line names a seated person or institution, or carries a chair citation | Take the name out; the citations live on `Rests on:` |
 | `no-would-change` | No `Would change it:` line | Name the fact that flips the call |
 | `no-not-verified` | No `Not verified:` line | Say what nobody checked |
 | `no-reading-line` | The last line does not say nobody cited wrote or endorsed the reply | End with the reading line from the Output format |
-| `not-convened-form` | A `Council: not convened` reply that has a seat or chair block or a recommendation, or lacks `Not covered:`, `Next:` or `Not verified:` | Keep the five lines of the not-convened form and no others |
+| `not-convened-form` | A `Council: not convened` reply that is not exactly its five labelled lines, once each: a seat or chair block, a recommendation, any other line, a repeated label, or a missing `Not covered:`, `Next:` or `Not verified:` | Keep the five lines of the not-convened form, once each, and no others |
 
 ## Candidate lines
 
@@ -86,7 +92,7 @@ Reported for judgment. `--strict` fails on these too.
 |---|---|---|
 | `seat-unchecked` | The brain or its gate is not installed here, so the block got only the generic check | When the seat ran on another machine with its gate; say so on `Not verified:` |
 | `hedge` | "maybe", "perhaps", "probably" or "arguably" in the chair block | Never in a chair line. Write what the cited line says, or move the point to `Not covered:` |
-| `brain-unaccounted` | An installed brain that the `Council:` line names neither as seated nor as left out | Only when the reply was written on a machine with fewer brains installed; say so on `Not verified:` |
+| `brain-unaccounted` | An installed brain that the `Council:` line names neither as seated nor as left out; a left-out brain missing from the line raises this one | Only when the reply was written on a machine with fewer brains installed; say so on `Not verified:` |
 
 ## What the gate cannot see
 
@@ -131,7 +137,7 @@ How the seats ran: {parallel subagents | one context, in listing order}
 Seat gates: {brain}: {its gate's last line, pasted} (one per seat)
 Spoke: {the seats that spoke} Silent: {the seats that were silent}
 Cross-check: {each point} -> {what each seat returned: the cited line, or silence}
-Gate: {the last line of decision-check.mjs --gate on the reply, pasted}
+Gate: {the last line of decision-check.mjs --gate --strict on the reply, pasted}
 Candidates: {each candidate line} -> {why it stands, or the fix}
 Review: {the reviewer's findings} -> {your response}
 Corpus dates: {brain}: {the date in its sources.md} (one per seat)

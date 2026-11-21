@@ -95,4 +95,4 @@ The order of the seats is the order of the listing, so the person can run it aga
 
 ## Later brains
 
-A brain published after this file was written (the Gary Vaynerchuk brain, or any other) takes a seat the day it is installed: it appears on the listing, it is walked through Seating like the rest, and its own gate judges its block. Nothing here changes.
+A brain added after this file was written takes a seat the day it is installed: it appears on the listing, it is walked through Seating like the rest, and its own gate judges its block. Nothing here changes.

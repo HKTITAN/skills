@@ -10,12 +10,14 @@
 //      points at its author's own repo; nothing is copied here.
 //   3. plugin.json at the repo root, the Agent Plugins 1.0.0 manifest (agent-plugins.org): the whole
 //      repo as one plugin whose skills are skills/<name>/SKILL.md. That spec has no agents or commands.
-//   4. The README's install block, between <!-- install:start --> and <!-- install:end -->. The
+//   4. llms.txt at the repo root, the index for agents: every khe skill with its description and a link
+//      to its SKILL.md, grouped as skills.sh.json groups them.
+//   5. The README's install block, between <!-- install:start --> and <!-- install:end -->. The
 //      marketplace must be added with --sparse: the kheskills plugin sits at the repo root, and Claude
 //      Code fetches every git submodule inside a plugin's folder, so a plain add downloads all the linked
 //      repos under skills/ and times out. The sparse list is every folder the khe plugins read.
 //
-//   node scripts/marketplace.mjs          rewrite all four, and check each author repo's own manifest
+//   node scripts/marketplace.mjs          rewrite all five, and check each author repo's own manifest
 //   node scripts/marketplace.mjs --check  exit 1 if any is out of date (offline; CI runs this)
 //
 // pstack is a Cursor plugin, so its entry serves the Claude Code build Cursor generates at
@@ -27,6 +29,7 @@ import { fileURLToPath } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const MP = join(ROOT, '.claude-plugin', 'marketplace.json')
 const AP = join(ROOT, 'plugin.json')
+const LLMS = join(ROOT, 'llms.txt')
 const README = join(ROOT, 'README.md')
 const readme = readFileSync(README, 'utf8')
 const check = process.argv.includes('--check')
@@ -108,7 +111,7 @@ const own = [
     homepage: REPO,
     repository: REPO,
     license: 'MIT',
-    keywords: ['skills', 'design-engineering', 'ui', 'motion', 'svg', 'sound', 'launch-video', 'agents', 'orchestration'],
+    keywords: ['skills', 'agent-skills', 'design-engineering', 'ui', 'motion', 'design-tokens', 'svg', 'diagrams', 'stickers', 'sound', 'launch-video', 'demo', 'content', 'agents', 'orchestration'],
     strict: false,
     skills: kheSkills.map((d) => `./skills/${d}`),
     agents: agentFiles.map((f) => `./agents/${f}`),
@@ -122,7 +125,7 @@ const own = [
     homepage: REPO,
     repository: REPO,
     license: 'MIT',
-    keywords: ['skills', 'brain', 'citations', 'research'],
+    keywords: ['skills', 'agent-skills', 'brain', 'citations', 'research', 'design', 'startups'],
     strict: false,
     commands: brainDirs.map((d) => `./${d}/commands/`),
   },
@@ -142,9 +145,49 @@ const ap = {
   homepage: REPO,
   repository: REPO,
   license: 'MIT',
-  keywords: ['skills', 'agent-skills', 'design-engineering', 'ui', 'motion', 'agents'],
+  keywords: ['skills', 'agent-skills', 'claude-code', 'codex', 'cursor', 'design-engineering', 'ui', 'motion', 'design-tokens', 'svg', 'diagrams', 'sound-design', 'launch-video', 'stickers', 'content', 'agents'],
 }
 const apText = JSON.stringify(ap, null, 2) + '\n'
+
+// llms.txt, the index for agents (the llms.txt convention): every khe skill with its full description and
+// a link to its SKILL.md, grouped as skills.sh.json groups them. Descriptions are read the way check.mjs
+// reads them (the value may be a JSON-quoted string). No dates, so it only changes when a skill does.
+const RAW = 'https://raw.githubusercontent.com/HKTITAN/skills/main'
+const describe = (d) => {
+  const fm = readFileSync(join(ROOT, 'skills', d, 'SKILL.md'), 'utf8').replace(/\r\n/g, '\n').match(/^---\n([\s\S]*?)\n---\n/)?.[1] || ''
+  const raw = fm.match(/^description:\s*(.+)$/m)?.[1]?.trim() || ''
+  let text = raw
+  try { text = JSON.parse(raw) } catch { /* unquoted */ }
+  return text.replace(/\s+/g, ' ').trim()
+}
+const entry = (d) => `- [${d}](${RAW}/skills/${d}/SKILL.md): ${describe(d)}`
+for (const d of kheAll) if (!describe(d) || /^[>|][+-]?$/.test(describe(d))) problems.push(`skills/${d}/SKILL.md: llms.txt needs a one-line description; a YAML block scalar is not read`)
+const groups = JSON.parse(readFileSync(join(ROOT, 'skills.sh.json'), 'utf8')).groupings
+const grouped = new Set(groups.flatMap((g) => g.skills))
+const llmsGroups = groups.map((g) => ({ ...g, skills: g.skills.filter((d) => kheAll.includes(d)) })).filter((g) => g.skills.length)
+const more = kheAll.filter((d) => !grouped.has(d))
+if (more.length) llmsGroups.push({ title: 'More', skills: more })
+const llmsText = [
+  '# kheSkills',
+  '',
+  `> The ${kheAll.length} agent skills I (Harshit Khemani) use with coding agents: Claude Code, Codex, Cursor and anything else that reads a SKILL.md. Each is a folder with a SKILL.md. \`khe-auto\` is the router that picks the one a job needs.`,
+  '',
+  '## Install',
+  '',
+  'All of them: `npx skills add HKTITAN/skills`. One: `npx skills add HKTITAN/skills --skill <name>`. In Claude Code, add the marketplace with the `--sparse` line in the README (https://github.com/HKTITAN/skills#skills). Or read any SKILL.md linked below directly.',
+  '',
+  ...llmsGroups.flatMap((g) => [`## ${g.title}`, '', ...(g.description ? [g.description, ''] : []), ...g.skills.map(entry), '']),
+  '## Optional',
+  '',
+  `- [README.md](${RAW}/README.md): the page for people, with the skills by other authors I use`,
+  `- [CONTRIBUTING.md](${RAW}/CONTRIBUTING.md): how these skills are written`,
+  `- [orchestration/CLAUDE.md](${RAW}/orchestration/CLAUDE.md): the policy that runs them with the kheAgents`,
+  `- [.claude-plugin/marketplace.json](${RAW}/.claude-plugin/marketplace.json): the Claude Code marketplace`,
+  `- [plugin.json](${RAW}/plugin.json): the Agent Plugins manifest`,
+  '- [cheatsheets](https://github.com/HKTITAN/skills/tree/main/cheatsheets): one Problem and Solution table per skill',
+  '- [skills.sh](https://skills.sh/HKTITAN/skills): the repo page on skills.sh',
+  '',
+].join('\n')
 
 // The sparse list: the marketplace file, the folders the khe plugins read, and every khe skill folder.
 // The linked skills are git submodules under skills/ and are never in it.
@@ -191,12 +234,14 @@ if (check) {
   const stale = []
   if (readFileSync(MP, 'utf8') !== mpText) stale.push('.claude-plugin/marketplace.json')
   if (!existsSync(AP) || readFileSync(AP, 'utf8') !== apText) stale.push('plugin.json')
+  if (!existsSync(LLMS) || readFileSync(LLMS, 'utf8') !== llmsText) stale.push('llms.txt')
   if (readme !== readmeNext) stale.push('the README install block')
   if (stale.length) { console.error(`${stale.join(' and ')} out of date: run node scripts/marketplace.mjs`); process.exit(1) }
-  console.log('marketplace.json, plugin.json and the README install block are up to date')
+  console.log('marketplace.json, plugin.json, llms.txt and the README install block are up to date')
 } else {
   writeFileSync(MP, mpText)
   writeFileSync(AP, apText)
+  writeFileSync(LLMS, llmsText)
   writeFileSync(README, readmeNext)
   console.log(plugins.map((p) => `${p.name}: ${p.skills ? p.skills.length + ' skills' : 'whole plugin'}`).join('\n'))
   console.log(`install block: ${sparse.length} sparse paths`)

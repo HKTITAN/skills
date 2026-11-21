@@ -4,6 +4,10 @@ What changed in kheSkills, newest first. One entry per day that something a user
 
 ## 2026-11-21
 
+### Added
+
+- An `llms.txt` at the root lists every khe skill with its description and a link to its `SKILL.md`, so an agent can pick one without cloning the repo. `scripts/marketplace.mjs` writes it and `scripts/check.mjs` fails while it is out of date. The install manifests carry wider keywords too; `kheskills` and `khe-brain` serve the same files, so their versions stay.
+
 ### Changed
 
 - `khe-brain-varun` (in `khe-brain` 1.7.0) reads a 19th video, Why Every Great Idea Started as a Copy (20 November 2026): 83 new cited claims on starting as a copy, the 90% the same and 10% new rule, creating value against capturing it and his view of deep tech investing in India, eight glossary terms, three new disagreements and one change of mind he states himself. The corpus is now 1,461 claims from 18 hours 10 minutes of video, and its refresh date is 2026-11-20.

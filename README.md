@@ -4,6 +4,8 @@
 [![CI](https://github.com/HKTITAN/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/HKTITAN/skills/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+Agent skills for Claude Code, Codex, Cursor and anything else that reads a `SKILL.md`: interface craft, design tokens, SVG, stickers, diagrams, sound, launch films, real-app demos, a content engine, and brains that answer from one person's public work with the source named. `npx skills add HKTITAN/skills` installs them, and `khe-auto` picks the one a job needs.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/assets/kheskills-dark.gif">
   <img src=".github/assets/kheskills.gif" alt="A cursor works through what the skills produce: it takes two fixes and ships a UI review, scrubs a launch film to the frame the name lands on, marks a sound on its contact frame, picks a token, pulls a bezier handle, links a diagram, and sends three stickers and clicks a lock shut">
@@ -68,6 +70,8 @@ Install one at a time with `--skill`:
 ```sh
 npx skills add HKTITAN/skills --skill khe-ui
 ```
+
+If you are an agent choosing a skill, read [`llms.txt`](llms.txt): every skill, what it is for and the words that should trigger it, each linked to its `SKILL.md`.
 
 <!-- install:start -->
 In Claude Code they install as plugins from one marketplace. Add it with `--sparse`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.

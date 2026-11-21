@@ -92,7 +92,7 @@ const WORD_ALLOW = {
   },
 };
 
-const NOT_CORPUS = new Set(["sources.md", "verify.md", "review.md", "teaching.md", "gotchas.md", "pov.md", "silent.md"]);
+export const NOT_CORPUS = new Set(["sources.md", "verify.md", "review.md", "teaching.md", "gotchas.md", "pov.md", "silent.md"]);
 const norm = (s) => s.replace(/^﻿/, "").replace(/\r\n?/g, "\n").replace(/[“”]/g, '"').replace(/[‘’]/g, "'");
 const cells = (row) => row.split("|").slice(1, -1).map((c) => c.trim());
 

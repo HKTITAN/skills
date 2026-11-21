@@ -280,6 +280,15 @@ for (const args of [["--self-test"], []]) {
   if (r.status !== 0) for (const l of (r.stderr + r.stdout).split(/\r?\n/).filter((l) => /silent\.md|silent-check|^FAIL/.test(l))) bad("silent lists", l);
 }
 
+// In a brain's reference files only a cited line may speak for its person. uncited-check.mjs fails a
+// paragraph, a numbered idea, an intro or a reporting line that says he, his or the name and holds no link,
+// unless it is an instruction or the file's own description; the older brains are held at a listed hit or a
+// ceiling, so a new uncited sentence fails. A claim that never names him is the reviewer's step in CONTRIBUTING.md.
+for (const args of [["--self-test"], []]) {
+  const r = spawnSync(process.execPath, [join(ROOT, "scripts", "uncited-check.mjs"), ...args], { encoding: "utf8" });
+  if (r.status !== 0) for (const l of (r.stderr + r.stdout).split(/\r?\n/).filter((l) => /references|uncited-check|^FAIL/.test(l))) bad("uncited claims", l);
+}
+
 // No model is hardcoded: agents inherit the session's model, and the policy picks a tier by the task.
 // Scoped to config and policy; a launch film called "Claude Opus 4.6" in a reference is a film title.
 {

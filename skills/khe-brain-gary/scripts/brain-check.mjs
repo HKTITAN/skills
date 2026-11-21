@@ -21,6 +21,8 @@ const QUOTE_LIMIT = 15 // a quote has fewer words than this
 const QUOTE_MIN = 4 // a quoted span this long is treated as a quote of the source
 const ANSWER_SENTENCES = 3
 const LAST = 'Not in the corpus:' // the corpus is his videos and his articles
+const TIME_SLACK = 45 // seconds a cited time may run past a video's Length: the last caption block starts before the end
+const URL_TIME_SLACK = 60 // seconds a Source: link's &t= may sit from a time the reply cites for that video
 const MIN_TITLES = 700 // 145 videos and 584 articles, plus the lists they came from
 
 // Platforms and products whose advice and predictions change by year. A line
@@ -44,6 +46,8 @@ export const LINES = {
   'hedge': ['never', 'A hedge word: the corpus says it or it does not'],
   'speculation': ['never', '"he would", "Gary would" or "he\'d": a guess at a position in place of a cited one'],
   'no-timestamp': ['never', 'A video cited as (Title) with no time; write (Title at 4:10) so the line can be found in the video. An article is cited as (Title)'],
+  'article-time': ['never', 'An article cited with a time, (Title at 4:10); an article has no time, so the time points nowhere and makes the citation look more exact than it is'],
+  'time-past-length': ['never', `A video cited at a time more than ${TIME_SLACK} seconds past its Length in references/sources.md; no such moment exists`],
   'undated-call': ['never', 'A sentence marked as his that names a platform or product (TikTok, NFTs, AI and the like) and carries no year from 2006 to 2029; his platform advice and predictions change by year, so a line without its year reads as a standing rule'],
   'no-silent-line': ['never', `The last line is not a ${LAST} line`],
   // candidates
@@ -52,6 +56,7 @@ export const LINES = {
   'too-many-quotes': ['candidate', 'More than two direct quotes in one reply'],
   'nothing-left-out': ['candidate', `A ${LAST} line that claims nothing was left out`],
   'silent-topic': ['candidate', 'A sentence marked as his, with a citation, about a topic references/silent.md lists as not covered'],
+  'url-time-mismatch': ['candidate', `A Source: link whose &t= seconds are within ${URL_TIME_SLACK} seconds of no time the reply cites for that video, so the link opens somewhere the answer does not point`],
 }
 
 const HEDGES = ['probably', 'perhaps', 'maybe', 'presumably', 'arguably', 'likely', 'might', 'supposedly', 'apparently', 'seemingly', 'seems', 'seem', 'I think', 'I believe', 'I suspect', 'I imagine', 'I guess', 'in my opinion']
@@ -154,10 +159,16 @@ export function readCorpus(skillDir = SKILL_DIR) {
   const path = join(skillDir, 'references', 'sources.md')
   if (!existsSync(path)) return null
   const titles = new Map()
+  const lengths = new Map() // title -> seconds, from the Length column of a video table, found by its header
+  let lengthAt = -1
   for (const row of norm(readFileSync(path, 'utf8')).split('\n')) {
     if (!row.startsWith('|')) continue
     const c = cells(row)
-    if (c.length >= 2 && /^https?:\/\/\S+$/.test(c[1])) titles.set(c[0], cleanUrl(c[1]))
+    if (c[0] === 'Title') { lengthAt = c.indexOf('Length'); continue }
+    if (c.length >= 2 && /^https?:\/\/\S+$/.test(c[1])) {
+      titles.set(c[0], cleanUrl(c[1]))
+      if (lengthAt > 1 && TIME_RE.test(c[lengthAt] || '')) lengths.set(c[0], seconds(c[lengthAt]))
+    }
   }
   if (!titles.size) return null
   const silent = []
@@ -175,7 +186,7 @@ export function readCorpus(skillDir = SKILL_DIR) {
       if (words.length) silent.push({ topic: c[0], words })
     }
   }
-  return { titles, order: byLength(titles.keys()), silent }
+  return { titles, lengths, order: byLength(titles.keys()), silent }
 }
 
 // ---- Shared helpers ---------------------------------------------------------
@@ -184,6 +195,11 @@ const isComment = (l) => /^<!--.*-->$/.test(l.trim())
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 const wordCount = (s) => s.split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w)).length
 const quotesIn = (s) => [...s.matchAll(/"([^"\n]+)"/g)].map((m) => m[1])
+// A span in single quotes of QUOTE_MIN words or more is a quote too. An
+// apostrophe inside a word (Gary's, players') never opens one, and a span
+// nested in double quotes is already counted there.
+const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<![A-Za-z0-9])'([^'\n]+)'(?![A-Za-z0-9])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
+const allQuotesIn = (s) => [...quotesIn(s), ...singleQuotesIn(s)]
 // Quoted spans and backticked spans are someone's exact words. They are not
 // judged as the reply's own wording.
 const bare = (s) => s.replace(/"[^"\n]*"/g, ' ').replace(/`[^`\n]*`/g, ' ')
@@ -229,7 +245,7 @@ function content(text) {
 }
 
 // The pieces a stretch of text cites: (Title) or (Title at 4:10; Title).
-function citesIn(s, order, untimed) {
+function citesIn(s, order, untimed, timed) {
   const out = []
   for (const m of s.matchAll(/\(([^()]+)\)/g)) {
     for (const part of m[1].split(';').map((p) => p.trim())) {
@@ -237,6 +253,7 @@ function citesIn(s, order, untimed) {
       if (!hit) continue
       out.push(hit[0])
       if (!hit[1] && untimed) untimed.push(hit[0])
+      if (hit[1] && timed) timed.push([hit[0], hit[1]])
     }
   }
   return out
@@ -260,8 +277,8 @@ export function checkReply(text, file, corpus) {
   for (const [n, l] of rows) {
     if (!/^Source:/.test(l)) continue
     const m = l.match(/^Source:\s*(.+?),\s*(https?:\/\/\S+)(?:\s+.*)?$/)
-    if (m) sources.push({ n, title: m[1].trim(), url: cleanUrl(m[2]) })
-    else sources.push({ n, title: l.replace(/^Source:\s*/, '').replace(/,\s*$/, '').trim(), url: null })
+    if (m) { const at = m[2].replace(/[).,;]+$/, '').match(/[?&]t=(\d+)s?$/); sources.push({ n, title: m[1].trim(), url: cleanUrl(m[2]), at: at ? Number(at[1]) : null }) }
+    else sources.push({ n, title: l.replace(/^Source:\s*/, '').replace(/,\s*$/, '').trim(), url: null, at: null })
   }
   const order = byLength(new Set([...corpus.titles.keys(), ...sources.map((s) => s.title)]))
 
@@ -280,17 +297,27 @@ export function checkReply(text, file, corpus) {
   else if (/^(nothing|none|n\/a|nothing was left out)\.?$/i.test(last[1].trim())) add('nothing-left-out', ln, 'nothing left out is a claim; name what the question asked for that no piece covers, or what was not read')
 
   const cited = new Map()
+  const citedTimes = new Map() // video title -> the seconds the reply cites for it
   let quoteCount = 0
   const unit = (n, s, labelled, absenceLine) => {
-    const qs = quotesIn(s)
+    const qs = allQuotesIn(s)
     for (const q of qs) {
       const w = wordCount(q)
       if (w >= QUOTE_LIMIT) add('long-quote', n, `a quote of ${w} words ("${q.split(/\s+/).slice(0, 5).join(' ')} ..."); quote fewer than ${QUOTE_LIMIT} and paraphrase the rest`)
       if (w >= QUOTE_MIN) quoteCount++
     }
     const untimed = []
-    const cs = citesIn(s, order, untimed)
+    const timed = []
+    const cs = citesIn(s, order, untimed, timed)
     for (const t of cs) if (!cited.has(t)) cited.set(t, n)
+    for (const [t, tm] of timed) {
+      const u = corpus.titles.get(t)
+      if (u === undefined) continue
+      if (!isVideo(u)) { add('article-time', n, `(${t} at ${tm}) cites an article with a time; an article has none, so write (${t})`); continue }
+      citedTimes.set(t, [...(citedTimes.get(t) || []), seconds(tm)])
+      const len = corpus.lengths.get(t)
+      if (len !== undefined && seconds(tm) > len + TIME_SLACK) add('time-past-length', n, `(${t} at ${tm}) is past the video's length of ${Math.floor(len / 60)}:${String(len % 60).padStart(2, '0')} in sources.md; copy the time from the theme file's line`)
+    }
     for (const t of new Set(untimed)) if (isVideo(corpus.titles.get(t))) add('no-timestamp', n, `(${t}) is a video and the citation gives no time; write (${t} at <m:ss>) from the theme file's line`)
     const outside = stripCites(s, order)
     const plain = bare(outside)
@@ -340,6 +367,8 @@ export function checkReply(text, file, corpus) {
       else if (!s.url) add('wrong-url', s.n, `the Source line for "${s.title}" has no URL; write "Source: ${s.title}, <URL>"`)
       else if (s.url !== corpus.titles.get(s.title)) add('wrong-url', s.n, `"${s.title}" is at ${corpus.titles.get(s.title)} in sources.md, not ${s.url}`)
       if (!cited.has(s.title)) add('unused-source', s.n, `"${s.title}" has a Source line and no sentence cites it as (${s.title})`)
+      const times = citedTimes.get(s.title)
+      if (s.at !== null && times && !times.some((x) => Math.abs(x - s.at) <= URL_TIME_SLACK)) add('url-time-mismatch', s.n, `the link for "${s.title}" opens at second ${s.at}, and the reply cites it at ${times.map((x) => `${Math.floor(x / 60)}:${String(x % 60).padStart(2, '0')}`).join(', ')}; set &t= to the cited time in seconds`)
     }
     const listed = new Set(sources.map((s) => s.title))
     for (const [t, n] of cited) if (!listed.has(t)) add('unlisted-source', n, `(${t}) is cited here and has no "Source: ${t}, <URL>" line`)
@@ -424,6 +453,10 @@ function corpusFaults(text, corpus, everyBullet) {
           const tm = pm[2].match(/[?&]t=(\d+)s?$/)
           if (!time || !tm) faults.push(`line ${i + 1}: "${title}" is a video cited with no time`)
           else if (seconds(time) !== Number(tm[1])) faults.push(`line ${i + 1}: "${title} at ${time}" links to second ${tm[1]}`)
+          const len = corpus.lengths.get(title)
+          if (time && len !== undefined && seconds(time) > len + TIME_SLACK) faults.push(`line ${i + 1}: "${title} at ${time}" is past the video's length`)
+        } else if (time) {
+          faults.push(`line ${i + 1}: "${title}" is an article cited with a time`)
         }
       }
     }
@@ -434,6 +467,23 @@ function corpusFaults(text, corpus, everyBullet) {
 }
 
 const u0Check = (corpus) => [...corpus.titles.values()][0]
+
+// The watch words of a silent row that a cited claim line already uses. A claim
+// line is [file, line number, text]; the part inside a citation (its title and
+// URL) is not the claim, so it is left out. A word matches as a whole phrase,
+// in any case, never inside a longer word.
+export function silentClashes(silent, claimLines) {
+  const out = []
+  const stripped = claimLines.map(([f, n, l]) => [f, n, l.replace(/\([^()]*https?:\/\/[^()]*\)/g, ' ')])
+  for (const t of silent) {
+    for (const w of t.words) {
+      const re = new RegExp(`(?<![A-Za-z0-9])${esc(w)}(?![A-Za-z0-9])`, 'i')
+      const hit = stripped.find(([, , l]) => re.test(l))
+      if (hit) out.push(`"${w}" (${t.topic}) is in a claim at ${hit[0]}:${hit[1]}`)
+    }
+  }
+  return out
+}
 
 function selfTest() {
   let failed = 0
@@ -459,6 +509,21 @@ function selfTest() {
   }
   say(claims >= 600, `the theme files hold ${claims} citations`)
 
+  // A topic listed as silent must not be one the theme files already carry a
+  // cited claim about. A watch word that a cited claim in a theme file, the
+  // core, the glossary or disagreements uses, as a whole phrase in any case,
+  // means the silent row and the claim contradict each other: narrow the row.
+  const claimLines = []
+  for (const f of refs.filter((f) => !NOT_CORPUS.has(f) && f !== 'silent.md')) {
+    norm(readFileSync(join(SKILL_DIR, 'references', f), 'utf8')).split('\n').forEach((l, i) => { if (/^- /.test(l) && /https?:\/\//.test(l)) claimLines.push([f, i + 1, l]) })
+  }
+  const clash = silentClashes(corpus.silent, claimLines)
+  const nWords = corpus.silent.reduce((n, t) => n + t.words.length, 0)
+  say(!clash.length, `no watch word in silent.md appears in a cited claim of a theme file, the core, the glossary or disagreements (${claimLines.length} claim lines, ${nWords} watch words)${clash.length ? ` (${clash.slice(0, 3).join('; ')}${clash.length > 3 ? `; and ${clash.length - 3} more` : ''})` : ''}`)
+  const cite = '(Some Title, https://example.com/a)'
+  const probe = silentClashes([{ topic: 'Probe', words: ['gross margin', 'net worth'] }], [['x.md', 1, `- In 2014 he said the Gross Margin was 4 percent ${cite}.`], ['x.md', 2, `- In 2015 he said his networth and netted worth rose ${cite}.`], ['x.md', 3, '- He said it (Net Worth Of A Title, https://example.com/a).']])
+  say(probe.length === 1 && /gross margin/.test(probe[0]), 'the silent-word check fails a watch word in a claim in any case, and ignores part of a word and a word only a cited title holds')
+
   // House rules, on every text file in the skill.
   const all = walkAll(SKILL_DIR).filter((p) => /\.(md|txt|mjs)$/.test(p))
   const house = []
@@ -469,7 +534,7 @@ function selfTest() {
     for (const w of HOUSE) if (text.toLowerCase().includes(w.toLowerCase())) house.push(`${rel}: "${w === EM_DASH ? 'em dash' : w}"`)
     if (/\.(md|txt)$/.test(p) && rel !== 'teaching/long-quote/bad.txt') {
       // Frontmatter is YAML: its outer quotes wrap a whole description, not a quotation.
-      for (const q of quotesIn(text.replace(/^---\n[\s\S]*?\n---\n/, ''))) if (wordCount(q) >= QUOTE_LIMIT) longQuotes.push(`${rel}: "${q.split(/\s+/).slice(0, 4).join(' ')} ..."`)
+      for (const q of allQuotesIn(text.replace(/^---\n[\s\S]*?\n---\n/, ''))) if (wordCount(q) >= QUOTE_LIMIT) longQuotes.push(`${rel}: "${q.split(/\s+/).slice(0, 4).join(' ')} ..."`)
     }
   }
   say(!house.length, `no file in the skill prints a word the collection bans${house.length ? ` (${house.slice(0, 4).join('; ')})` : ''}`)
@@ -511,6 +576,9 @@ function selfTest() {
   const src = `Source: ${t0}, ${u0}`
   const end = `${LAST} a number for this.`
   const topic = corpus.silent[0]?.words[0] || 'pricing'
+  const article = [...corpus.titles.entries()].find(([, u]) => !isVideo(u) && /^https?:\/\/(?:www\.)?garyvaynerchuk\.com\/./.test(u))
+  const pastEnd = [...corpus.lengths.entries()][0]
+  const fmt = (n) => `${Math.floor(n / 3600)}:${String(Math.floor((n % 3600) / 60)).padStart(2, '0')}:${String(n % 60).padStart(2, '0')}`
   const inline = [
     ['long-answer', reply(`One thing is stated (${c0}). Two things are stated (${c0}). Three (${c0}). Four (${c0}).`, src, end)],
     ['unused-source', reply('The corpus has one line on this.', src, end)],
@@ -522,6 +590,9 @@ function selfTest() {
     ['no-silent-line', reply(`One thing is stated (${c0}).`, `${LAST} a number.`, src)],
     ['no-timestamp', reply(`One thing is stated (${t0}).`, src, end)],
     ['undated-call', reply(`He tells people to post on TikTok every day (${c0}).`, src, end)],
+    ['article-time', article ? reply(`One thing is stated (${article[0]} at 4:10).`, `Source: ${article[0]}, ${article[1]}`, end) : []],
+    ['time-past-length', pastEnd ? reply(`One thing is stated (${pastEnd[0]} at ${fmt(pastEnd[1] + 3600)}).`, `Source: ${pastEnd[0]}, ${corpus.titles.get(pastEnd[0])}`, end) : []],
+    ['url-time-mismatch', reply(`One thing is stated (${c0}).`, `${src}&t=3000s`, end)],
   ]
   for (const [line, got] of inline) say(got.includes(line), `an inline case raises ${line}:`)
   const clean = reply(`One thing is stated (${c0}).`, src, end)
@@ -546,7 +617,6 @@ function selfTest() {
     const ok = reply(`One thing is stated (${symbols[0]} at 3:07).`, `Source: ${symbols[0]}, ${symbols[1]}`, end)
     say(!ok.length, `a video title with a symbol in it is matched whole${ok.length ? ` (got ${ok.join(', ')})` : ''}`)
   }
-  const article = [...corpus.titles.entries()].find(([, u]) => !isVideo(u) && /^https?:\/\/(?:www\.)?garyvaynerchuk\.com\/./.test(u))
   if (article) {
     const ok = reply(`One thing is stated (${article[0]}).`, `Source: ${article[0]}, ${article[1]}`, end)
     say(!ok.length, `an article cited as (Title), with no time, raises nothing${ok.length ? ` (got ${ok.join(', ')})` : ''}`)

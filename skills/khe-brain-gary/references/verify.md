@@ -19,7 +19,7 @@ node scripts/brain-check.mjs --self-test
 
 - The first command ends `brain-check passed`? That means every never-intentional line is at 0 for that reply. It does not mean the cited piece says what the sentence claims.
 - After editing a gold reply, the second command ends `brain-check passed`?
-- After editing a theme file, [sources](sources.md), [silent](silent.md) or the gate, the third command ends `self-test passed`? It checks every citation in the corpus against the sources table, and every time against its link.
+- After editing a theme file, [sources](sources.md), [silent](silent.md) or the gate, the third command ends `self-test passed`? It checks every citation in the corpus against the sources table, every time against its link and its video's length, and that no word the silent table watches appears in a cited claim of a theme file.
 
 Exit 0 is a pass. Exit 1 is a never-intentional line above zero. Exit 2 is `inconclusive`: the gate could not look, and nothing is verified.
 
@@ -161,11 +161,13 @@ Not candidates for judgment. Fix the cause and run the gate again. `--gate` ends
 | `wrong-url:` | A `Source:` line with no URL, or a URL that is not the one in the sources table. A trailing `&t=` time is allowed. |
 | `unlisted-source:` | A sentence cites `(Title)` or `(Title at m:ss)` and no `Source:` line lists that piece. |
 | `unsourced-claim:` | A sentence with "he", "his", "him", "Gary", "Vaynerchuk" or "GaryVee", or a `Holds:`, `Breaks:`, `Disagrees:`, `Changed:`, `Nearest:` or `Also:` line, that cites no piece. |
-| `unsourced-quote:` | A quoted span of four words or more in a sentence that cites no piece. |
-| `long-quote:` | A quoted span of 15 words or more. |
+| `unsourced-quote:` | A quoted span of four words or more, in double quotes or in single quotes, in a sentence that cites no piece. |
+| `long-quote:` | A quoted span of 15 words or more, in double quotes or in single quotes. |
 | `hedge:` | One of the hedge words `--help` lists. The piece says it or it does not. |
 | `speculation:` | "he would", "Gary would" or "he'd". |
 | `no-timestamp:` | A video cited as `(Title)` with no time. Nobody can find one line in a video without one. |
+| `article-time:` | An article cited with a time, `(Title at 4:10)`. An article has no time, so the time points nowhere. |
+| `time-past-length:` | A video cited at a time more than 45 seconds past its Length in the sources table. No such moment exists. |
 | `undated-call:` | A sentence marked as his that names a platform or product the gate lists and carries no year from 2006 to 2029. |
 | `no-silent-line:` | The last line is not `Not in the corpus:`. |
 
@@ -180,6 +182,7 @@ Reported for judgment. Look at each one. If it stands, write why in `ANSWER.md`.
 | `too-many-quotes:` | More than two quotes of four words or more. | Only for a "who said that" about several lines at once. |
 | `nothing-left-out:` | `Not in the corpus:` claims nothing was left out. | Almost never. Name what was not read. |
 | `silent-topic:` | A sentence marked as his, with a citation, uses a word from the silent table. | When the cited line really is about that word. Open the line and check. |
+| `url-time-mismatch:` | A `Source:` link whose `&t=` seconds are within 60 seconds of no time the reply cites for that video, so the link opens somewhere the answer does not point. | Never. Set `&t=` to the cited time in seconds. |
 
 ## What you see, what you do
 
@@ -190,6 +193,9 @@ Reported for judgment. Look at each one. If it stands, write why in `ANSWER.md`.
 | A title the gate does not know (`unknown-source:`) | Check the spelling and the capitals against the sources table. If the piece is not there, it was not read: say so and remove the claim |
 | A link that is nearly right (`wrong-url:`) | Copy the URL from the sources table. Never type one from memory |
 | A video cited with no time (`no-timestamp:`) | Copy the time from the theme file's line. If the line has none, it is not a line in the corpus |
+| An article cited with a time (`article-time:`) | Cite it as `(Title)`. An article has no time |
+| A video time past its length (`time-past-length:`) | Copy the time from the theme file's line, and check it against the Length in the sources table |
+| A `Source:` link that opens away from the cited time (`url-time-mismatch:`) | Set `&t=` to the cited time in seconds |
 | "probably", "likely", "might" (`hedge:`) | Open the line. Write what it says, or write that the corpus does not cover it |
 | "He would post daily" (`speculation:`) | Write what he said or did, in the past tense, with its year and its piece |
 | A platform or product with no year (`undated-call:`) | Add the year of the piece, from the theme line. His platform calls change by year |
@@ -217,6 +223,7 @@ The gate reads text. It never opens a piece and never sees the question.
 - Whether a cited piece says what the sentence claims.
 - A position stated as plain fact, with no "he", "his", "Gary", "Vaynerchuk" or "GaryVee" in the sentence.
 - Whether a quote is word for word what he said. The captions are mostly automatic and mishear.
+- A `Yours:` line. It is skipped on purpose: it is the installer's own position from [pov](pov.md) and is never his, so a guess at his view written there, such as `Gary would say ...`, is not caught. Read it by eye.
 - Whether a line was his, or a host's, a guest's, a caller's or part of a sponsor read.
 - Whether an article was written by him or by his team under his byline.
 - Whether a line about one platform, or a prediction from one year, was stretched into a rule for every platform or a view he holds today. The gate only asks that a year be present, and only for the words it lists.

@@ -5,7 +5,7 @@ summary: A one-sentence summary of his positions, sixteen ideas, his method in t
 
 # Core
 
-Read this first for a broad question about Gary Vaynerchuk, then open one theme file for the detail. Every line paraphrases what he said in the source cited: 584 articles from garyvaynerchuk.com, 2013 to 2026, and 145 long videos, 2008 to 2026, most from his own channel and the rest guest appearances, episodes of his podcast and talks.
+Read this first for a broad question about Gary Vaynerchuk, then open one theme file for the detail. Every line paraphrases what he said in the source it cites. The sources are among 729 pieces read in full, 584 articles from garyvaynerchuk.com, 2013 to 2026, and 145 long videos, 2008 to 2026, most from his own channel and the rest guest appearances, episodes of his podcast and talks; the reference files together cite 575 of them.
 
 Platform calls, figures about his companies and his views on NFTs, cards, AI and hours of work belong to the year he said them, so check the section on what moves with the year before giving any of them as his view. Some articles under his byline read as team-written guides, and his pitches for his own companies, events, books and VeeFriends are his claims, not facts.
 

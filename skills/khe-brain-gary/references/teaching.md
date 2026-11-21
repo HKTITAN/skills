@@ -5,7 +5,7 @@ summary: The bad/good pairs in teaching/, one row per folder. Each bad half has 
 
 # Teaching pairs
 
-`teaching/` holds thirteen pairs. Each folder is named for the gate line its `bad.txt` raises, and holds a reply twice with one thing wrong in `bad.txt`. The first line of every bad file is a comment that names the fault.
+`teaching/` holds fifteen pairs. Each folder is named for the gate line its `bad.txt` raises, and holds a reply twice with one thing wrong in `bad.txt`. The first line of every bad file is a comment that names the fault.
 
 Use a pair to diagnose a fault in your own reply: find the folder whose name matches the gate line you got, or whose bad half reads like your reply, then read why the good half works. The bad halves are never starting points, and a claim inside a bad half is never evidence of what he said. Start from the gold in `examples/`.
 
@@ -36,6 +36,8 @@ The pairs are also the gate's tests. `node scripts/brain-check.mjs --self-test` 
 | `teaching/unlisted-source` | Two pieces cited, one listed | Every piece a sentence cites gets its own `Source:` line. |
 | `teaching/wrong-url` | A link one character short | Copy the URL from the sources table. A near miss is a missing video. |
 | `teaching/no-timestamp` | A video title in brackets with no time | Add the time from the theme file's line. The videos run to hours, and a citation without a time cannot be checked. An article is cited by its title alone. |
+| `teaching/article-time` | An article title in brackets with a time after it | Cite an article by its title alone. A time on an article points nowhere and makes the citation look more exact than it is. |
+| `teaching/time-past-length` | A video cited at 1:05:00 when it runs 36 minutes | Copy the time from the theme file's line, and check it against the Length in the sources table. A time past the end is not a place in the video. |
 
 ## The shape
 
@@ -46,7 +48,7 @@ The pairs are also the gate's tests. `node scripts/brain-check.mjs --self-test` 
 
 ## Lines with no pair
 
-`long-answer:`, `unused-source:`, `too-many-quotes:`, `nothing-left-out:` and `silent-topic:` are candidate lines and have no folder. The self-test proves each of them on the smallest text that raises them. Their meanings are in [verify](verify.md).
+`long-answer:`, `unused-source:`, `too-many-quotes:`, `nothing-left-out:`, `silent-topic:` and `url-time-mismatch:` are candidate lines and have no folder. The self-test proves each of them on the smallest text that raises them. Their meanings are in [verify](verify.md).
 
 ## What a pair cannot show
 

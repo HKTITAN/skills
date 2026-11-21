@@ -69,7 +69,7 @@
       <rect x="464" y="72" width="160" height="56" rx="6"/>
       <rect class="hl" x="472" y="84" width="108" height="16" rx="2"/>
       <text class="name on" x="476" y="96">16 theme files</text>
-      <text class="sub" x="476" y="112">1,902 claims, 729 pieces</text>
+      <text class="sub" x="476" y="112">1,901 claims, 575 pieces</text>
     </g>
     <g class="node ">
       <rect x="680" y="72" width="160" height="56" rx="6"/>
@@ -103,7 +103,7 @@
       <text class="sub" x="692" y="368">writes the post</text>
     </g>
   </g>
-  <text class="callout" x="32" y="360">Corpus: 145 videos, 124.2 h, and 584 articles, read by 2026-11-21, each claim checked against its text.</text>
+  <text class="callout" x="32" y="360">Corpus: 729 pieces read in full by 2026-11-21; 575 are cited, each cited line checked against its text.</text>
   <g class="legend" transform="translate(32 412)">
     <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
     <path class="edge" d="M0 0 H24"/>

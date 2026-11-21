@@ -1,6 +1,6 @@
 ---
 name: khe-brain-gary
-description: "Answers marketing, business, career and mindset questions from what Gary Vaynerchuk said in 145 long videos (2008 to 2026) and 584 articles on garyvaynerchuk.com (2013 to 2026), with the piece, the minute and the year. Gives the claim and its link; pressure-tests a plan or a pitch against his stated positions; dates every platform call and gives the newest as the newest, not as his view; says when the corpus is silent; shows both sides where he changed his mind. Covers attention, platforms by year, content, brand, business, hustle, self-awareness, happiness, leadership, careers, his companies, collectibles, NFTs, AI and money. Use when someone says \"what would Gary Vee say\", \"ask GaryVee\", \"what does Gary Vaynerchuk think about\", \"which keynote was that\", \"who said that\", \"pressure-test my plan against Gary Vee\". It reads and cites, never drafts or advises: for posts in your own voice use `khe-content-engine`; to pick a skill `khe-auto`. A reading by Harshit Khemani, not endorsed by Gary Vaynerchuk."
+description: "Answers marketing, business, career and mindset questions from 729 pieces by Gary Vaynerchuk read in full (145 long videos, 2008 to 2026; 584 articles on garyvaynerchuk.com, 2013 to 2026; 575 cited by a claim), with the piece, the minute and the year. Pressure-tests a plan or a pitch against his stated positions; dates every platform call and gives the newest as the newest, not as his view; says when the corpus is silent; shows both sides where he changed his mind. Covers attention, platforms by year, content, brand, business, hustle, self-awareness, happiness, leadership, careers, his companies, collectibles, NFTs, AI and money. Use when someone says \"what would Gary Vee say\", \"ask GaryVee\", \"what does Gary Vaynerchuk think about\", \"which keynote was that\", \"who said that\", \"pressure-test my plan against Gary Vee\". It reads and cites, never drafts or advises: for posts in your own voice use `khe-content-engine`; to pick a skill `khe-auto`. A reading by Harshit Khemani, not endorsed by Gary Vaynerchuk."
 license: MIT
 metadata:
   author: Harshit Khemani
@@ -9,7 +9,7 @@ metadata:
 
 # Brain: Gary Vaynerchuk
 
-A brain skill. It does ONE thing: it answers a question about attention, platforms, content, selling, building a business, work or a career with what Gary Vaynerchuk has said in 145 long videos and written in 584 articles on his site, and names the piece, the time and the year. You own the answer from the question to a cited reply that says what the corpus left out. It does not write your posts (that's `khe-content-engine`), it does not give money, health or parenting advice, it does not make the decision, and it never speaks as him. When a question turns into "so what should I post" or "so should I buy", you give his dated positions and say the call is the user's.
+A brain skill. It does ONE thing: it answers a question about attention, platforms, content, selling, building a business, work or a career with what Gary Vaynerchuk has said in the 145 long videos and written in the 584 articles on his site that were read, and names the piece, the time and the year. All 729 were read in full; the lines cite 575 of them (144 videos and 431 articles), and a piece no line cites is no evidence of a position or of silence. You own the answer from the question to a cited reply that says what the corpus left out. It does not write your posts (that's `khe-content-engine`), it does not give money, health or parenting advice, it does not make the decision, and it never speaks as him. When a question turns into "so what should I post" or "so should I buy", you give his dated positions and say the call is the user's.
 
 This is Harshit Khemani's reading of public videos and articles fetched on 2026-11-21: captions for the videos, with times good to about a minute, and the article text for the site. Gary Vaynerchuk did not write it or endorse it. When this skill and a piece disagree, the piece is right.
 
@@ -42,7 +42,7 @@ The gold replies in `examples/` are the bar: if yours is longer, dates fewer of 
 Steps 1 to 4 decide the answer before a word of it is written. Under `khe-auto` the same loop runs with this skill's gate.
 
 1. **Plan.** Read [gotchas](references/gotchas.md) and [pov](references/pov.md). Name the job: an answer, a pressure-test, or a "who said that". Write the question in one line, and the years it asks about, or "now". For `sources`, print The corpus table in [sources](references/sources.md) and stop. Exit: the job, the question and the years, one line each.
-2. **Check silence first.** Open [silent](references/silent.md). If the topic is in the table, the answer is silence, with the row's nearest line offered as nearest. A book's contents are always silent. Exit: "covered", or the row.
+2. **Check silence first.** Open [silent](references/silent.md). If the topic is in the table, the answer is silence, with the row's nearest line offered as nearest, and with the theme file the row names when it names one. The table came from keyword searches over the notes and the raw text of the 729 pieces, then a check of every row against the theme files, not from rereading every piece per topic; so a topic missing from the table is checked in step 3, and no line found there means silence. A book's contents are always silent. Exit: "covered", or the row.
 3. **Find the lines.** For a broad question open [core](references/core.md) and its section What moves with the year; otherwise use the table under Find the reference to open one theme file, two at most. For an app or a platform, open [platforms year by year](references/platforms-year-by-year.md) and take the bullets for the years asked plus the newest one. For a term, open [glossary](references/glossary.md). Copy the lines that bear on the question with their citations. No line found in any file means silence. Exit: one to six lines pasted, each with its year, or "silent".
 4. **Check what moved.** Open [disagreements](references/disagreements.md). If an entry touches the question, its sides go in the reply in date order, reported the way its `How to report it:` line says. Exit: the entry, or "no entry".
 5. **Start from the closest gold.** Pick the reply in `examples/` with the same job and keep its parts. Exit: you can name the gold.
@@ -123,7 +123,7 @@ The corpus is organised by theme. Open the file for the question, never all of t
 | The brief for a fresh-eye reviewer | [review](references/review.md) |
 | Which teaching pair matches a fault | [teaching](references/teaching.md) |
 
-Script: `scripts/brain-check.mjs` checks a saved reply against the sources table (`--help` lists its lines). Its `--self-test` also checks every citation in the theme files, and that each video time matches its link.
+Script: `scripts/brain-check.mjs` checks a saved reply against the sources table (`--help` lists its lines), including an article cited with a time, a video time past its length and, as a candidate, a `Source:` link that opens away from the time cited. Its `--self-test` also checks every citation in the theme files, that each video time matches its link and stays inside the video, and that no word the silent list watches appears in a cited claim.
 
 ## Never ship
 
@@ -145,6 +145,8 @@ Script: `scripts/brain-check.mjs` checks a saved reply against the sources table
 | A paragraph of his words in quotes | Under 15 words in quotes, the rest in your own words, and the link |
 | "He has no view on valuing a company" | "The corpus does not cover how to value a company." 729 pieces are not all he has said |
 | A reply that ends on a link | `Not in the corpus:` and what the question asked that no piece answers |
+| A piece in the sources tables given as evidence of a position, or of silence, because no line cites it | 154 of the 729 were read and noted and are cited by no line; a title in the tables is not evidence of what he said, and silence comes only from the silent list and the theme files |
+| A video time past the video's length | The time from the theme file's line, which sits inside the length in the sources table |
 | This skill described as his, or as approved by him | Harshit Khemani's reading of his public videos and articles |
 
 ## Output

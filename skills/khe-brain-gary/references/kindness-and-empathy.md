@@ -118,7 +118,7 @@ This file collects what he said about kindness, empathy and gratitude in his bus
 - In 2022 he said gratitude is why he gives back, and that his selfishness is his selflessness. (Why You Need to Make Even More Content in 2022 at 18:45, https://www.youtube.com/watch?v=yemqSyqKqpY&t=1125s)
 - In 2023 he said his hero is the unnamed person who endures without complaining, such as a woman leaving the subway at 4:55 am with two bags, and that he imagines her story to train gratitude. (Living Without Regrets The Path to True Happiness l Picatinny Keynote at 50:15, https://www.youtube.com/watch?v=tx_WkqalWVw&t=3015s)
 - In 2025 he said gratitude is his biggest source of energy, and that his morning routine is seeing no missed calls from siblings or parents. (Stop Fearing AI Start Using It Like This GaryVee w/ The Liz Moody Podcast at 33:45, https://www.youtube.com/watch?v=JCdX4pebCb4&t=2025s)
-- In 2026 he said to replace envy and jealousy with gratitude and humility, and that people wrongly think humility and kindness are weak. (This One Episode Will Motivate You to Change Your Entire Life Gary Vee - Mel Robbins at 21:00, https://www.youtube.com/watch?v=g_wMpEGgc1Q&t=1260s)
+- In 2026 he said to put gratitude in place of envy and jealousy, asked to get humility back into the game, and said that people think kindness is weak and that he does not get that. (This One Episode Will Motivate You to Change Your Entire Life Gary Vee - Mel Robbins at 21:45, https://www.youtube.com/watch?v=g_wMpEGgc1Q&t=1305s; This One Episode Will Motivate You to Change Your Entire Life Gary Vee - Mel Robbins at 22:30, https://www.youtube.com/watch?v=g_wMpEGgc1Q&t=1350s)
 
 ## Which emotional traits does he name as his set, and where do they come from?
 

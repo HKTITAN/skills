@@ -1,0 +1,42 @@
+name: A skill got it wrong
+description: A khe skill gave a wrong result, or its gate passed on bad work.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A skill without the `khe-` prefix is someone else's, linked here. Report it in the author's repo. The README links each one.
+  - type: input
+    id: skill
+    attributes:
+      label: Which skill
+      placeholder: khe-ui
+    validations:
+      required: true
+  - type: textarea
+    id: asked
+    attributes:
+      label: What you asked for
+    validations:
+      required: true
+  - type: textarea
+    id: got
+    attributes:
+      label: What it did, and what you expected
+      description: Paste the output or attach the file. One fault per issue.
+    validations:
+      required: true
+  - type: input
+    id: gate
+    attributes:
+      label: The gate's last line, if you ran it
+      placeholder: khe-ui gate passed
+  - type: dropdown
+    id: install
+    attributes:
+      label: How you installed it
+      options:
+        - npx skills add
+        - Claude Code plugin
+        - Agent Plugins
+        - Copied the folder

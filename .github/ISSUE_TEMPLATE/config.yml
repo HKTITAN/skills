@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask or propose something
+    url: https://github.com/HKTITAN/skills/discussions
+    about: Questions and ideas that are not yet a bug or a request go here.

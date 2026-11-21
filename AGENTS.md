@@ -169,7 +169,7 @@ Every skill README has a `How it runs` figure in `skills/<name>/assets/`, drawn 
 
 ## Pull requests
 
-Every PR body follows `.github/PULL_REQUEST_TEMPLATE.md`: Why here, What changed, Checks, Not verified. That holds also when you open it with `gh pr create` or the API: pass the filled body, because those skip the template. Paste the last line of each check and the reviewer's verdict with the commit it named. Say what was not verified; "Nothing" is an answer, an empty section is not. CI's `PR body` job runs `scripts/pr-check.mjs` and fails on a missing or empty section. The fuller guide is "Opening a pull request" in [CONTRIBUTING.md](CONTRIBUTING.md).
+Every PR body follows `.github/PULL_REQUEST_TEMPLATE.md`: Why here, What changed, Checks, Not verified. That holds also when you open it with `gh pr create` or the API: pass the filled body, because those skip the template. Paste the last line of each check and the reviewer's verdict with the commit it named. Say what was not verified; "Nothing" is an answer, an empty section is not. CI's `PR body` job runs `scripts/pr-check.mjs` and fails on a missing or empty section. The fuller guide is "Opening a pull request" in [CONTRIBUTING.md](CONTRIBUTING.md). Issues come in through two forms in `.github/ISSUE_TEMPLATE/` (a skill got it wrong; a new skill or a link), and security reports go through [SECURITY.md](SECURITY.md).
 
 ## Checks
 

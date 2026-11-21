@@ -151,7 +151,7 @@ The label is fixed, character for character: `Recommendation (khe-decision's syn
 - It adds no fact. Anything it leans on is already on an `Agree:` or `Disagree:` line with its citation.
 - It is withheld when fewer than two seats spoke: `Recommendation (khe-decision's synthesis, not the view of anyone cited): withheld. Only one seat's corpus spoke to the decision, and one corpus is that brain's answer.` Then `Rests on:` is left out and `Would change it:` names what would let a council sit: a second installed brain whose corpus covers the decision.
 
-`Rests on:` lists the chair citations the call leans on, at least one. `Would change it:` names one fact about the person's own case, checkable by them, that flips the call.
+`Rests on:` lists the chair citations the call leans on, at least one, and nothing else: after the citations are removed only commas, semicolons, "and" and a final full stop may remain, so `[a], [b] and [c].` passes and a sentence on the line raises `rests-on-prose`. A claim goes on `Agree:`, `Disagree:` or the recommendation. `Would change it:` names one fact about the person's own case, checkable by them, that flips the call.
 
 ## The wording
 

@@ -79,6 +79,7 @@ Check these before handing over.
 - **A `Nearest:`, `My reading:` or `Yours:` line treated as a seat's position.** `nearest-citation` when a chair citation exists in the seat block only on one of those lines. The brain itself labels the first as not answering the question and the other two as someone else's words; [chair](references/chair.md), Lines that are never a seat's position.
 - **A `Why:` that explains a disagreement by temperament.** The reason is one the cited lines show (stage, audience, date, country), or it is "the pieces do not say"; [chair](references/chair.md), Disagree.
 - **Two seats that agree, reported as "so do it".** The gate raises `unlabelled-synthesis`, or `ventriloquist` for "the council recommends"; agreement goes on an `Agree:` line and the call stays on the labelled line. The failure is a borrowed verdict.
+- **A sentence, a name or a claim on the `Rests on:` line.** `rests-on-prose`; the line lists chair citations and nothing else, and a claim belongs on `Agree:`, `Disagree:` or the `Recommendation` line.
 - **A seated or left-out person or institution named on the `Recommendation` line, or a citation on it.** `recommendation-names`; a citation never excuses a name there, and its citations live on `Rests on:`.
 - **A chair line that starts with no label of the format, one brain seated twice, or a seat header that differs from the brain's own heading.** `unknown-chair-label`, `duplicate-seat`, `seat-name`.
 - **A brain missing from the `Council:` line because it was left out.** `brain-unaccounted`, a candidate that `--strict` fails; Hard rule 3. `no-council-line` also fails when N is greater than M or differs from the number of seat blocks.
@@ -158,7 +159,7 @@ A reading by Harshit Khemani of public work. Nobody cited here wrote or endorsed
 - A seat header is `== Seat: {brain folder} ({person or institution}) ==`, the name as the `--seats` listing prints it. The seat's short name in a chair citation is the last part of its folder name: `khe-brain-varun` is `varun`.
 - A chair citation is `[{seat}: {citation text}]`, with the text copied from inside that seat's block. The forms are in [chair](references/chair.md).
 - `Agree:` and `Disagree:` repeat, one point per line. Leave out `Agree:` when no two seats meet on a point and `Disagree:` when none pull apart; never write one to fill the block.
-- The recommendation line names no person and no institution. Its citations live on `Rests on:`.
+- The recommendation line names no person and no institution. Its citations live on `Rests on:`, which holds chair citations and nothing else.
 - When fewer than two seats spoke, the line is `Recommendation (khe-decision's synthesis, not the view of anyone cited): withheld. {the reason}`, and `Rests on:` is left out.
 
 Not convened, when zero or one installed brain covers the decision. These five labelled lines, once each, and nothing else:

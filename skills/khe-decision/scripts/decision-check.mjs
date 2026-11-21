@@ -44,13 +44,14 @@ export const LINES = {
   'no-chair': ['never', 'No == Chair == block'],
   'unlabelled-synthesis': ['never', `No line starting exactly "${LABEL}", or a Recommendation:/Verdict: line without it`],
   'no-rests-on': ['never', 'No Rests on: line with a chair citation, and the recommendation is not withheld'],
+  'rests-on-prose': ['never', 'A Rests on: line that holds anything but chair citations: after every [seat: text] is removed, only whitespace, commas, semicolons, the word "and" and a final full stop may remain. The line lists chair citations and nothing else; a claim belongs on Agree:, Disagree: or the Recommendation line'],
   'chair-citation': ['never', 'A chair citation [seat: text] naming a seat that is not in the reply, or whose whole text is not one of the citations that seat carries: an item inside its parentheses, a [n] marker\'s title, or a Source: title'],
   'nearest-citation': ['never', 'A chair citation that the seat carries only on Nearest:, My reading: or Yours: lines, which are never a seat\'s position'],
-  'recommendation-names': ['never', 'A Recommendation line that names a seated or left-out person or institution or a person a seat block quotes, or that carries a [seat: citation]; a citation never excuses a name there, and its citations live on Rests on:'],
+  'recommendation-names': ['never', 'A Recommendation line that names a seated or left-out person or institution, a left-out brain as "the {short} brain" or "the {short} seat", its folder name, or a person a seat block quotes, or that carries a [seat: citation]; a citation never excuses a name there, and its citations live on Rests on:'],
   'unknown-chair-label': ['never', 'A line in the chair block that starts with none of Agree:, Disagree:, Not covered:, the Recommendation label, Rests on:, Would change it:, Not verified: or the reading line'],
   'uncited-chair-claim': ['never', 'An Agree: or Disagree: line without citations from two different seats, or a Disagree: line with no Why:'],
   'ventriloquist': ['never', 'A position in a real person\'s mouth outside the seat blocks. In a sentence that names a seated person or institution, a brain on the Council: line, a person a seat block quotes or "the council": would, wouldn\'t, might, could, couldn\'t, will, won\'t or \'d (allowed only in the reporting form with its chair citation, and not judged on Not verified:); "you should" or "we should" (never allowed, cited or not); "wants you", "tell you", "\'s answer", "both back", "signs off", "has no patience". In a later sentence of the same line: he or she directly before one of those modals. After any capitalised name: "would say", "would tell", "would pick" and the like, "wants you", "\'s answer". And "the council recommends"'],
-  'named-without-citation': ['never', 'A sentence on any chair line but Rests on: and Not verified: that names a seated person or institution, or a person a seat block quotes, and carries no chair citation; a Why: clause may name a seat or person that its own Disagree: line cites before the Why:. A sentence on Agree:, Disagree: or Would change it: that names a left-out person or institution fails, cited or not, because a brain left out on the Council: line has no seat block to cite'],
+  'named-without-citation': ['never', 'A sentence on any chair line but Rests on: and Not verified: that names a seated person or institution, or a person a seat block quotes, and carries no chair citation; a Why: clause may name a seat or person that its own Disagree: line cites before the Why:. A sentence on Agree:, Disagree: or Would change it: that names a left-out person or institution, or "the {short} brain" or "the {short} seat", fails even with a citation, because a brain left out on the Council: line has no seat block to cite. A left-out folder name fails on Agree:, Disagree: and the Recommendation line and is allowed on Would change it:, where an honest line can say that seating that brain would change the call'],
   'no-would-change': ['never', 'No Would change it: line'],
   'no-not-verified': ['never', 'No Not verified: line'],
   'no-reading-line': ['never', `The last line does not say "${READING}"`],
@@ -136,6 +137,10 @@ const show = (p) => (relative(process.cwd(), p) || p).replace(/\\/g, '/')
 const CITE = '\\[([a-z0-9][a-z0-9-]*):\\s*([^\\[\\]\\n]+?)\\s*\\]'
 const citesOf = (s) => [...s.matchAll(new RegExp(CITE, 'gi'))].map((m) => ({ seat: m[1].toLowerCase(), text: m[2] }))
 const NAME_STOP = new Set(['the', 'and', 'for', 'notes', 'note'])
+// The words of a heading that can stand alone as a name: three letters or more and capitalised in the heading, so a heading made of ordinary words ("the ISB notes") offers only "ISB".
+const nameParts = (person) => person.split(/[^A-Za-z0-9']+/).filter((w) => w.length >= 3 && /^[A-Z]/.test(w) && !NAME_STOP.has(w.toLowerCase()))
+// A word that matches with its first letter as written and the rest in either case, so a left-out name counts only when capitalised.
+const capWord = (w) => esc(w[0]) + [...w.slice(1)].map((c) => (c.toLowerCase() === c.toUpperCase() ? esc(c) : `[${c.toLowerCase()}${c.toUpperCase()}]`)).join('')
 const FOLDER = new RegExp('\\b' + PREFIX + '[a-z0-9-]+', 'gi')
 const stripLabel = (t) => (t.startsWith(LABEL) ? t.slice(LABEL.length) : t.replace(/^[A-Za-z ]+:\s*/, ''))
 
@@ -363,7 +368,7 @@ function nameWords(list, people = []) {
     if (s.short) alt.add(esc(s.short))
     if (s.person && s.person !== s.folder) {
       alt.add(esc(s.person))
-      for (const w of s.person.split(/[^A-Za-z0-9']+/)) if (w.length >= 3 && !NAME_STOP.has(w.toLowerCase())) alt.add(esc(w))
+      for (const w of nameParts(s.person)) alt.add(esc(w))
     }
   }
   for (const name of people) alt.add(esc(name))
@@ -403,6 +408,7 @@ function roster(rows, seats, brains) {
 function leftOutAlt(councilRow, seatedFolders, brains) {
   const lo = councilRow ? councilRow.text.match(/Left out:\s*(.*)$/i) : null
   const alt = new Set()
+  const words = new Set()
   for (const f of new Set(((lo ? lo[1] : '').match(/khe-brain-[a-z0-9-]+/g) || []).map((x) => x.toLowerCase()))) {
     if (seatedFolders.has(f)) continue
     const short = f.slice(PREFIX.length)
@@ -412,10 +418,10 @@ function leftOutAlt(councilRow, seatedFolders, brains) {
     const b = brains.get(f)
     if (b && b.person && b.person !== f) {
       alt.add(esc(b.person))
-      for (const w of b.person.split(/[^A-Za-z0-9']+/)) if (w.length >= 3 && !NAME_STOP.has(w.toLowerCase())) alt.add(esc(w))
+      for (const w of nameParts(b.person)) words.add(capWord(w))
     }
   }
-  return [...alt].sort((a, b) => b.length - a.length)
+  return { ci: [...alt].sort((a, b) => b.length - a.length), cs: [...words].sort((a, b) => b.length - a.length) }
 }
 
 export function checkReply(text, file, ctx = {}) {
@@ -539,6 +545,13 @@ export function checkReply(text, file, ctx = {}) {
     const withheld = !!good && /^withheld\b/i.test(good.text.slice(LABEL.length).trim())
     if (!withheld && !lines.some((r) => /^Rests on:/.test(r.text) && citesOf(r.text).length)) add('no-rests-on', p.chair.headerLine, 'no "Rests on:" line with a chair citation; a recommendation names the cited lines it stands on')
 
+    // Rests on: lists chair citations and nothing else.
+    for (const r of lines) {
+      if (!/^Rests on:/.test(r.text)) continue
+      const rest = r.text.replace(/^Rests on:/, '').replace(new RegExp(CITE, 'gi'), ' ').replace(/\band\b/gi, ' ').replace(/[\s,;]+/g, ' ').replace(/\.\s*$/, '').trim()
+      if (rest) add('rests-on-prose', r.n, `the Rests on: line holds "${rest.slice(0, 60)}${rest.length > 60 ? ' ...' : ''}" besides its chair citations; it lists citations and nothing else, and a claim belongs on Agree:, Disagree: or the Recommendation line`)
+    }
+
     if (!lines.some((r) => /^Would change it:\s*\S/.test(r.text))) add('no-would-change', p.chair.headerLine, 'no "Would change it:" line; name the fact that would flip the call')
     if (!lines.some((r) => /^Not verified:\s*\S/.test(r.text))) add('no-not-verified', p.chair.headerLine, 'no "Not verified:" line; say what was not checked')
 
@@ -547,14 +560,16 @@ export function checkReply(text, file, ctx = {}) {
     const cite = new RegExp(CITE, 'gi')
 
     // The recommendation names nobody and carries no citation.
-    const leftAlt = leftOutAlt(councilRow, new Set(distinct.map((s) => s.folder)), brains)
-    const leftRe = leftAlt.length ? new RegExp(`\\b(?:${leftAlt.join('|')})\\b`, 'i') : null
-    const recName = new RegExp(`\\b(?:${[...seatAlt.filter((x) => x !== 'the council'), ...leftAlt].join('|') || '(?!)'})\\b`, 'i')
+    const left = leftOutAlt(councilRow, new Set(distinct.map((s) => s.folder)), brains)
+    const leftCi = left.ci.length ? new RegExp(`\\b(?:${left.ci.join('|')})\\b`, 'i') : null
+    const leftCs = left.cs.length ? new RegExp(`\\b(?:${left.cs.join('|')})\\b`) : null
+    const leftHit = (str) => (leftCi && str.match(leftCi)) || (leftCs && str.match(leftCs)) || null
+    const recName = new RegExp(`\\b(?:${[...seatAlt.filter((x) => x !== 'the council'), ...left.ci].join('|') || '(?!)'})\\b`, 'i')
     for (const r of recs) {
       const text = stripLabel(r.text)
       const bare = text.replace(cite, ' ')
       const why = []
-      const n = bare.match(recName) || (peopleRe && bare.match(peopleRe))
+      const n = bare.match(recName) || (leftCs && bare.match(leftCs)) || (peopleRe && bare.match(peopleRe))
       if (n) why.push(`names "${n[0]}"`)
       if (citesOf(text).length) why.push(`carries ${citesOf(text).length === 1 ? 'a chair citation' : 'chair citations'}`)
       if (why.length) add('recommendation-names', r.n, `the Recommendation line ${why.join(' and ')}; it is this skill's own call, so it names no person and no institution, and its citations live on Rests on:`)
@@ -584,7 +599,7 @@ export function checkReply(text, file, ctx = {}) {
         if (whyAt >= 0 && /\bWhy:/.test(s)) inWhy = true
         const bare = s.replace(cite, ' ')
         const probe = wasCovered ? bare : bare.replace(FOLDER, ' ') // a folder name on a closing line is the run's roster, never a person
-        const gone = noLeftOut && leftRe && probe.match(leftRe)
+        const gone = noLeftOut && leftHit(probe)
         if (gone) { add('named-without-citation', r.n, `"${s.slice(0, 70)}${s.length > 70 ? ' ...' : ''}" names "${gone[0]}", a brain the Council: line leaves out; a brain left out on the Council: line has no seat block, so nothing can be cited for it; seat it or drop the sentence`); continue }
         if (!(nameRe.test(probe) || (peopleRe && peopleRe.test(probe))) || citesOf(s).length) continue
         if (inWhy && [...probe.matchAll(anyName)].every((m) => [...(seatOf.get(m[0].toLowerCase()) || [])].some((short) => sides.has(short)))) continue
@@ -934,6 +949,21 @@ function selfTest(opts) {
       raises('chair-citation', swap(notIn), `a chair citation lifted from a "Not in" line ("${notIn}")`)
       quiet('chair-citation', swap(title), `a chair citation that is a whole Source: title ("${title}")`)
 
+      // Rests on: lists chair citations and nothing else.
+      const restCites = citesOf(rests).map((c) => `[${c.seat}: ${c.text}]`)
+      const onRests = (line) => setLine(base, /^Rests on:/, () => line)
+      for (const sentence of [
+        'Varun Mayya is clear that a year in private is too long, and Y Combinator holds the same line.',
+        'Paul Graham and Michael Seibel both hold that a year is too long.',
+        'All five agree, so ship now.',
+        "and Emil Kowalski's articles",
+      ]) raises('rests-on-prose', onRests(`${rests} ${sentence}`), `a Rests on: line with "${sentence.slice(0, 40)}" after its citations`)
+      if (restCites.length >= 3) {
+        quiet('rests-on-prose', onRests(`Rests on: ${restCites[0]}, ${restCites[1]} and ${restCites[2]}.`), 'a Rests on: line of "[a], [b] and [c]."')
+        quiet('rests-on-prose', onRests(`Rests on: ${restCites[0]}; ${restCites[1]}.`), 'a Rests on: line of "[a]; [b]."')
+      }
+      quiet('rests-on-prose', base, 'a Rests on: line of citations only')
+
       // Words in a person's mouth, in every form a reviewer got past the first gate.
       const wc = (sentence) => setLine(base, /^Would change it:/, () => `Would change it: ${sentence}`)
       for (const sentence of [
@@ -988,20 +1018,29 @@ function selfTest(opts) {
       // A brain the Council: line leaves out has no seat block, so no chair line may give it a view.
       const addTo = (re, text) => setLine(base, re, (l) => `${l} ${text}`)
       const outCases = [
-        [/^Recommendation \(/, "This is also where Emil Kowalski's articles and Benji Taylor's writing point.", 'a left-out person on the Recommendation line', 'recommendation-names'],
+        [/^Recommendation \(/, "This is also where Emil Kowalski's articles and Benji Taylor's writing point.", 'a left-out person on the Recommendation line', 'recommendation-names', ['khe-brain-emil', 'khe-brain-benji']],
         [/^Recommendation \(/, 'The emil brain leans toward shipping early.', 'a left-out brain as "the emil brain" on the Recommendation line', 'recommendation-names'],
         [/^Recommendation \(/, 'The benji seat would agree.', 'a left-out brain as "the benji seat" on the Recommendation line', 'recommendation-names'],
         [/^Recommendation \(/, 'See khe-brain-emil for motion.', 'a left-out folder name on the Recommendation line', 'recommendation-names'],
-        [/^Agree:/, "Emil Kowalski's articles point the same way.", 'a left-out person on the Agree: line', 'named-without-citation'],
-        [/^Would change it:/, "Benji Taylor's writing favours the long private build.", 'a left-out person on the Would change it: line', 'named-without-citation'],
+        [/^Agree:/, "Emil Kowalski's articles point the same way.", 'a left-out person on the Agree: line', 'named-without-citation', ['khe-brain-emil']],
+        [/^Would change it:/, "Benji Taylor's writing favours the long private build.", 'a left-out person on the Would change it: line', 'named-without-citation', ['khe-brain-benji']],
         [/^Would change it:/, 'The emil brain leans toward shipping early.', 'a left-out brain as "the emil brain" on the Would change it: line', 'named-without-citation'],
-        [/^Disagree:/, "Why: Emil Kowalski's articles say otherwise.", 'a left-out person in a Why: clause', 'named-without-citation'],
+        [/^Disagree:/, "Why: Emil Kowalski's articles say otherwise.", 'a left-out person in a Why: clause', 'named-without-citation', ['khe-brain-emil']],
       ]
-      for (const [re, text, what, line] of outCases) {
+      for (const [re, text, what, line, needs = []] of outCases) {
+        // A person's name is known only from an installed brain's heading; without that brain the case cannot be raised.
+        const absent = needs.filter((f) => !brains.has(f))
+        if (absent.length) { skip(`${what}: ${absent.join(', ')} is not installed here, so the name is not known`); continue }
         raises(line, addTo(re, text), what)
         if (/brain|seat/.test(text)) raises(line, addTo(re, text), `${what}, with no brain installed,`, none)
       }
       for (const text of ['The emil brain leans toward shipping early.', 'See khe-brain-emil for motion.']) raises('recommendation-names', addTo(/^Recommendation \(/, text), `"${text}" on the Recommendation line, with no brain installed,`, none)
+      // A left-out person's surname counts only capitalised, as the heading writes it.
+      if (!brains.has('khe-brain-emil')) skip('a left-out surname, capitalised and lower case: khe-brain-emil is not installed here, so the name is not known')
+      else {
+        raises('named-without-citation', addTo(/^Would change it:/, 'Kowalski wrote about it.'), 'a left-out surname, capitalised ("Kowalski"), on the Would change it: line')
+        quiet('named-without-citation', addTo(/^Would change it:/, 'The kowalski approach is unrelated.'), 'a left-out surname in lower case ("kowalski") on the Would change it: line')
+      }
       quiet('recommendation-names', base, 'the same reply without the left-out names')
       quiet('named-without-citation', base, 'the same reply without the left-out names')
       quiet('named-without-citation', addTo(/^Not covered:/, 'Nothing here covers motion; khe-brain-emil was left out for that reason.'), 'an honest Not covered: line that names a left-out brain by folder')

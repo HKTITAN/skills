@@ -41,7 +41,7 @@ Exit 0 is a pass. Exit 1 is `decision-check failed: {n} fault(s)`. Exit 2 is `in
 3. For each `Disagree:` line: are both sides there with a citation from two different seats, is the `Why:` a reason the two cited lines show, and is no winner picked? Does each side restate the cited sentence, and not the seat's `Holds:` or `Breaks:` label as though it were the published position? If the cross-check found one corpus silent on the point, does the `Why:` say which seat's corpus is silent, and is "the pieces do not say" kept for two corpora that both speak?
 4. Was each seat cross-checked once, for all its points together, and is each answer inside that seat's block as that brain's own line?
 5. Take out every sentence with a chair citation. Is anything left, outside the recommendation, that reads as a person's view?
-6. Does any sentence outside the seat blocks say what someone "would", "might" or "will" say, think or do, or that someone "thinks you should"?
+6. Does any sentence outside the seat blocks say what someone "would", "might" or "will" say, think or do, or that someone "thinks you should"? Does any sentence that names a person tell the reader "you should", even in the reporting form with its citation? Does the `Not verified:` line, which may name a seat or a brain, state a position for one?
 7. Does `Not covered:` name the part of the decision no cited line answers, in the person's terms?
 8. In the not-convened form: are there five labelled lines, once each (`Decision:`, `Council:`, `Not covered:`, `Next:`, `Not verified:`), and no seat block, chair block or recommendation? Does `Next:` name the one brain that covers the decision, or say nothing in the collection answers it, and does the `Council:` line give the number of installed brains?
 
@@ -68,7 +68,7 @@ Fix the cause and run the gate again. `--gate` ends `decision-check passed` only
 | `seat-name` | The name in a seat header differs from the installed brain's own heading | Copy the name as `--seats` prints it |
 | `too-few-seats` | Fewer than two seat blocks, and the reply is not in the not-convened form | Use the not-convened form, or seat a second relevant brain if one exists |
 | `seat-format` | A seat block fails its own brain's gate; that gate's lines are printed under it, indented | Send the block back to its seat with those lines |
-| `seat-uncited` | A seat block with no `Source:` line, or a sentence with no citation marker that is not a `Source:`, `Not in`, `Nearest:`, `Yours:` or `My reading:` line | Send it back to its seat; an uncited seat sentence is an invented one |
+| `seat-uncited` | A seat block with no `Source:` line, or with a line that carries no citation matching one of its `Source:` lines (`Source:`, `Not in`, `Nearest:`, `Yours:` and `My reading:` lines excepted) | Send it back to its seat; an uncited seat sentence is an invented one, and a parenthesis that matches no `Source:` line is not a citation |
 | `no-chair` | No `== Chair ==` block | Run the chair |
 | `unlabelled-synthesis` | The recommendation lacks the full label, or a line starts `Recommendation:` or `Verdict:` | Use the label, character for character |
 | `no-rests-on` | No `Rests on:` line with a chair citation, and the recommendation is not withheld | Cite what the call leans on, or withhold it |
@@ -76,13 +76,15 @@ Fix the cause and run the gate again. `--gate` ends `decision-check passed` only
 | `nearest-citation` | A chair citation that exists in the seat block only on a `Nearest:`, `My reading:` or `Yours:` line | Cite a cited line of that seat, or take the claim out |
 | `unknown-chair-label` | A line in the chair block starts with none of the format's labels | Start the line with a label of the format, or cut it |
 | `uncited-chair-claim` | An `Agree:` or `Disagree:` line with no chair citation, with citations from fewer than two seats, or a `Disagree:` with no `Why:` | Add the second seat's citation, or move the point out of the line |
-| `ventriloquist` | Outside the seat blocks: a name or pronoun with "would", "might" or "will" and a verb of saying, thinking or choosing; "{name} thinks you should"; "the council recommends" | Write what the published material suggests, with its chair citation |
-| `named-without-citation` | A chair or closing line names a seated person or institution and carries no chair citation; every such line is checked except `Rests on:` and the reading line | Put the citation in that sentence, or take the name out |
-| `recommendation-names` | The `Recommendation` line names a seated person or institution, or carries a chair citation | Take the name out; the citations live on `Rests on:` |
+| `ventriloquist` | A position in a real person's mouth outside the seat blocks. In a sentence that names a seated person or institution, a brain on the `Council:` line, a person a seat block quotes or "the council": would, wouldn't, might, could, couldn't, will, won't or 'd (allowed only in the reporting form with its chair citation, and not judged on `Not verified:`); "you should" or "we should" (never allowed, cited or not); "wants you", "tell you", "'s answer", "both back", "signs off", "has no patience". In a later sentence of the same line: he or she directly before one of those modals. After any capitalised name: "would say", "would tell", "would pick" and the like, "wants you", "'s answer". And "the council recommends" | Write what the published material suggests, with its chair citation. For "you should", say what the material says and move the "should" to the `Recommendation` line, which names no one |
+| `named-without-citation` | A sentence on any chair line but `Rests on:` and `Not verified:` that names a seated person or institution, or a person a seat block quotes, and carries no chair citation; a `Why:` clause may name a seat or person that its own `Disagree:` line cites before the `Why:` | Put the citation in that sentence, or take the name out |
+| `recommendation-names` | A `Recommendation` line that names a seated person or institution or a person a seat block quotes, or that carries a `[seat: citation]`; a citation never excuses a name there | Take the name and the citation out; the citations live on `Rests on:` |
 | `no-would-change` | No `Would change it:` line | Name the fact that flips the call |
 | `no-not-verified` | No `Not verified:` line | Say what nobody checked |
 | `no-reading-line` | The last line does not say nobody cited wrote or endorsed the reply | End with the reading line from the Output format |
 | `not-convened-form` | A `Council: not convened` reply that is not exactly its five labelled lines, once each: a seat or chair block, a recommendation, any other line, a repeated label, or a missing `Not covered:`, `Next:` or `Not verified:` | Keep the five lines of the not-convened form, once each, and no others |
+
+"A person a seat block quotes" is a capitalised name of two or more words that a seat sentence follows with a saying verb ("Kat Manalac said", "Michael Seibel, in a talk the library dates to 2019, gave") or with 's and a piece ("Paul Graham's 2013 essay"). A seat header's name always counts. A capitalised run with no saying verb after it ("United States", "Startup School") is a place or a thing and is not a name, and `Source:` and `Not in ...:` lines are never read for names. In the not-convened form no seat exists, so the names are the brains its `Council:` and `Next:` lines list. `node scripts/decision-check.mjs --help` prints every line in the same words as this table.
 
 ## Candidate lines
 
@@ -104,6 +106,8 @@ It reads text. It opens no source and never sees the conversation.
 - Whether a `Why:` is the real reason for a disagreement, or a `Disagree:` line hides an agreement.
 - Whether an `Agree:` line says more than its two cited sentences support.
 - A position stated as plain fact with every name removed.
+- What a `Not verified:` line says about a name, beyond the saying patterns. It is the run's log and may name a seat or a brain, so a position slipped in there with no "would say" or "wants you" gets through.
+- A name a seat block mentions and never quotes. A person counts when a seat header names them, or when a seat sentence follows the name with a saying verb or a piece.
 - Whether the recommendation follows from the lines it rests on, or is useful to the person.
 - Whether each corpus is current. Every brain's `sources.md` carries the date it was read.
 

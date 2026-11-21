@@ -40,17 +40,17 @@ export const LINES = {
   'seat-name': ['never', "A seat header whose name in parentheses is not the installed brain's heading name (checked only when that brain is installed)"],
   'too-few-seats': ['never', 'Fewer than two seat blocks, and the reply does not use the not-convened form'],
   'seat-format': ['never', "A seat block that fails its own brain's scripts/brain-check.mjs --gate"],
-  'seat-uncited': ['never', 'A seat block with no Source: line, or with a line whose citation matches none of its Source: lines (Source:, Not in, Nearest:, Yours: and My reading: lines excepted)'],
+  'seat-uncited': ['never', 'A seat block with no Source: line, or with a line that carries no citation matching one of its Source: lines (Source:, Not in, Nearest:, Yours: and My reading: lines excepted)'],
   'no-chair': ['never', 'No == Chair == block'],
   'unlabelled-synthesis': ['never', `No line starting exactly "${LABEL}", or a Recommendation:/Verdict: line without it`],
   'no-rests-on': ['never', 'No Rests on: line with a chair citation, and the recommendation is not withheld'],
   'chair-citation': ['never', 'A chair citation [seat: text] naming a seat that is not in the reply, or whose whole text is not one of the citations that seat carries: an item inside its parentheses, a [n] marker\'s title, or a Source: title'],
   'nearest-citation': ['never', 'A chair citation that the seat carries only on Nearest:, My reading: or Yours: lines, which are never a seat\'s position'],
-  'recommendation-names': ['never', 'A Recommendation line that names a seated person or institution, a person a seat block names, or carries a [seat: citation]; its citations live on Rests on:'],
+  'recommendation-names': ['never', 'A Recommendation line that names a seated person or institution or a person a seat block quotes, or that carries a [seat: citation]; a citation never excuses a name there, and its citations live on Rests on:'],
   'unknown-chair-label': ['never', 'A line in the chair block that starts with none of Agree:, Disagree:, Not covered:, the Recommendation label, Rests on:, Would change it:, Not verified: or the reading line'],
   'uncited-chair-claim': ['never', 'An Agree: or Disagree: line without citations from two different seats, or a Disagree: line with no Why:'],
-  'ventriloquist': ['never', 'A position in a real person\'s mouth outside the seat blocks: a name with would, wouldn\'t, might, could, will, won\'t or \'d, or with "wants you", "tell you", "\'s answer", "both back", "signs off" and the like ("Varun would never sign off", "the council recommends")'],
-  'named-without-citation': ['never', 'A sentence on any chair line but Rests on: that names a seated person or institution, or a person a seat block names, and carries no chair citation'],
+  'ventriloquist': ['never', 'A position in a real person\'s mouth outside the seat blocks. In a sentence that names a seated person or institution, a brain on the Council: line, a person a seat block quotes or "the council": would, wouldn\'t, might, could, couldn\'t, will, won\'t or \'d (allowed only in the reporting form with its chair citation, and not judged on Not verified:); "you should" or "we should" (never allowed, cited or not); "wants you", "tell you", "\'s answer", "both back", "signs off", "has no patience". In a later sentence of the same line: he or she directly before one of those modals. After any capitalised name: "would say", "would tell", "would pick" and the like, "wants you", "\'s answer". And "the council recommends"'],
+  'named-without-citation': ['never', 'A sentence on any chair line but Rests on: and Not verified: that names a seated person or institution, or a person a seat block quotes, and carries no chair citation; a Why: clause may name a seat or person that its own Disagree: line cites before the Why:'],
   'no-would-change': ['never', 'No Would change it: line'],
   'no-not-verified': ['never', 'No Not verified: line'],
   'no-reading-line': ['never', `The last line does not say "${READING}"`],
@@ -116,6 +116,9 @@ Not checked by this gate:
   - whether two seats that disagree were each cited truthfully
   - whether the recommendation follows from what the seats said
   - whether seats ran apart from each other; that is stated on the Not verified: line
+  - what a Not verified: line says about a name, beyond the saying patterns; it is the run's log and may name a seat or a brain
+  - a name a seat block mentions and never quotes; a person counts when a seat header names them, or when a seat sentence
+    follows the name with a saying verb or a piece ("Kat Manalac said", "Paul Graham's 2013 essay")
 
 passing is necessary, not sufficient`
 
@@ -315,35 +318,46 @@ function citeModel(seat) {
   return { titles, items, uses, titleOf, cited }
 }
 
-// People a seat block names in its prose: two or more capitalised words in a
-// row, outside its citations and its Source: titles. "Paul Graham" inside the
-// YC seat is a person the chair can put words in the mouth of, though no seat
-// header carries the name.
+// People a seat block quotes: two or more capitalised words in a row, outside
+// its citations and its Source: titles, directly followed by a saying verb
+// ("Kat Manalac said") or by 's and a piece ("Paul Graham's 2013 essay"). "Paul
+// Graham" inside the YC seat is a person the chair can put words in the mouth
+// of, though no seat header carries the name. A capitalised run with no saying
+// verb after it ("United States", "Startup School") is a place or a thing, and
+// Source: and "Not in ...:" lines are never read for names.
 const LEAD_WORDS = new Set(['The', 'A', 'An', 'In', 'On', 'At', 'By', 'For', 'From', 'With', 'And', 'But', 'If', 'When', 'While', 'Since', 'After', 'Before', 'He', 'She', 'They', 'It', 'His', 'Her', 'Their', 'This', 'That', 'These', 'Those', 'Not', 'No', 'Source', 'Nearest', 'Yours', 'My', 'Also', 'Breaks', 'Holds', 'Matches', 'Open', 'Conflict', 'Disagrees', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
 const CAP_RUN = /(?<![\w'-])[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+(?!\w|'(?!s\b))/g
+const SAYS_AFTER = /^(?:,[^.;:]{0,80}?,)?\s+(?:(?:also|once|then|later|often|still|again|first)\s+)?(?:says?|said|saying|wrote|writes?|written|writing|calls?|called|calling|answers?|answered|answering|describes?|described|describing|rates?|rated|rating|gives?|gave|given|giving|lists?|listed|listing|argues?|argued|arguing|reports?|reported|reporting|states?|stated|stating|tells?|told|telling|explains?|explained|explaining|recommends?|recommended|advises?|advised|warns?|warned|thinks?|believes?|defines?|defined|suggests?|suggested)\b/
+const PIECE_AFTER = /^'s(?:\s+[\w-]+){0,3}?\s+(?:essays?|talks?|posts?|videos?|material|lines?|pieces?|articles?|writing|books?|interviews?|podcasts?|lectures?|sessions?|class(?:es)?|threads?|newsletters?)\b/
 
+// name -> the short names of the seats whose blocks quote that person.
 function blockPeople(seats) {
-  const found = new Set()
+  const found = new Map()
   const titles = seats.flatMap((s) => s.cites.titles)
   for (const s of seats) {
     for (const r of body(s.lines)) {
-      if (SOURCE_LINE.test(r.text.trim())) continue
-      for (const m of r.text.replace(/\([^()]*\)/g, ' ').matchAll(CAP_RUN)) {
+      const line = r.text.trim()
+      if (SOURCE_LINE.test(line) || NOT_IN_LINE.test(line)) continue
+      const text = r.text.replace(/\([^()]*\)/g, ' ')
+      for (const m of text.matchAll(CAP_RUN)) {
         const words = m[0].split(/\s+/)
         while (words.length && LEAD_WORDS.has(words[0])) words.shift()
         if (words.length < 2 || words.some((w) => LEAD_WORDS.has(w))) continue
         const name = words.join(' ')
         if (titles.some((t) => t.includes(flat(name)))) continue
-        found.add(name)
+        const after = text.slice(m.index + m[0].length)
+        if (!SAYS_AFTER.test(after) && !PIECE_AFTER.test(after)) continue
+        found.set(name, (found.get(name) || new Set()).add(s.short))
       }
     }
   }
-  return [...found]
+  return found
 }
 
-// The names a reply can put words under: for each seat or installed brain, its
-// short name, its full name, and every word of the name of three letters or more.
-function nameWords(list) {
+// The names a reply can put words under: for each entry its short name, its
+// full name, and every word of the name of three letters or more; then the
+// people the seat blocks quote, and "the council".
+function nameWords(list, people = []) {
   const alt = new Set()
   for (const s of list) {
     if (s.short) alt.add(esc(s.short))
@@ -352,10 +366,33 @@ function nameWords(list) {
       for (const w of s.person.split(/[^A-Za-z0-9']+/)) if (w.length >= 3 && !NAME_STOP.has(w.toLowerCase())) alt.add(esc(w))
     }
   }
+  for (const name of people) alt.add(esc(name))
   alt.add('the council')
   return [...alt].filter(Boolean).sort((a, b) => b.length - a.length)
 }
-const brainNames = (brains) => [...brains.values()].map((b) => ({ short: b.name.slice(PREFIX.length), person: b.person, folder: b.name }))
+
+// Who a reply can speak for: its seats, and every brain its Council: and Next:
+// lines name. A name comes from the seat header, and from the brain's own
+// heading when that brain is installed. A brain that is installed and that the
+// reply never names is not on the list, so a reply is judged by the names it
+// carries and never by what else happens to be installed.
+function roster(rows, seats, brains) {
+  const list = []
+  for (const s of seats) {
+    list.push(s)
+    const b = brains.get(s.folder)
+    if (b && flat(b.person) !== flat(s.person)) list.push({ short: s.short, person: b.person, folder: s.folder })
+  }
+  for (const r of rows) {
+    for (const f of r.text.match(FOLDER) || []) {
+      const folder = f.toLowerCase()
+      if (list.some((x) => x.folder === folder)) continue
+      const b = brains.get(folder)
+      list.push({ short: folder.slice(PREFIX.length), person: b ? b.person : folder, folder })
+    }
+  }
+  return list
+}
 
 export function checkReply(text, file, ctx = {}) {
   const brains = ctx.brains || new Map()
@@ -434,7 +471,8 @@ export function checkReply(text, file, ctx = {}) {
   if (!p.chair) { add('no-chair', p.rows[p.rows.length - 1].n, 'no "== Chair ==" block; the agreement, the disagreement, what is not covered and the labelled recommendation live there') }
   const bySeat = new Map(distinct.map((s) => [s.short, s]))
   const seatAlt = nameWords(distinct)
-  const people = blockPeople(distinct)
+  const quoted = blockPeople(distinct)
+  const people = [...quoted.keys()]
   if (p.chair) {
     const lines = p.chair.lines
     const isRec = (r) => /^(?:Recommendation|Verdict)\b/.test(r.text)
@@ -496,15 +534,32 @@ export function checkReply(text, file, ctx = {}) {
       if (why.length) add('recommendation-names', r.n, `the Recommendation line ${why.join(' and ')}; it is this skill's own call, so it names no person and no institution, and its citations live on Rests on:`)
     }
 
-    // Names the chair uses without a citation, on every line but Rests on:.
+    // Names the chair uses without a citation, on every line but Rests on: and
+    // Not verified:. Not verified: is the run's log, and it may say which seat's
+    // gate was not run or which brain's pieces were not opened again.
+    const seatOf = new Map() // a name, lower case -> the short names of the seats it belongs to
+    const own = (k, short) => seatOf.set(k.toLowerCase(), (seatOf.get(k.toLowerCase()) || new Set()).add(short))
+    for (const s of distinct) {
+      own(s.short, s.short)
+      if (s.person !== s.folder) { own(s.person, s.short); for (const w of s.person.split(/[^A-Za-z0-9']+/)) own(w, s.short) }
+    }
+    for (const [name, shorts] of quoted) for (const short of shorts) own(name, short)
+    const anyName = new RegExp(`\\b(?:${seatAlt.join('|')})\\b${people.length ? `|(?<![\\w-])(?:${people.map(esc).join('|')})(?!\\w)` : ''}`, 'gi')
     for (const r of lines) {
-      if (/^Rests on:/.test(r.text)) continue
+      if (/^(?:Rests on|Not verified):/.test(r.text)) continue
       const wasCovered = /^(?:Agree|Disagree|Recommendation)\b/.test(r.text)
       const text = isReading(r) ? r.text.replace(/A reading by [^.]*\./, ' ').replace(READING, ' ') : stripLabel(r.text)
+      // A Why: clause stands on the citations its own Disagree: line carries before it.
+      const whyAt = /^Disagree:/.test(r.text) ? r.text.search(/\bWhy:/) : -1
+      const sides = new Set(whyAt < 0 ? [] : citesOf(r.text.slice(0, whyAt)).map((c) => c.seat))
+      let inWhy = false
       for (const s of sentences(text.trim())) {
+        if (whyAt >= 0 && /\bWhy:/.test(s)) inWhy = true
         const bare = s.replace(cite, ' ')
         const probe = wasCovered ? bare : bare.replace(FOLDER, ' ') // a folder name on a closing line is the run's roster, never a person
-        if ((nameRe.test(probe) || (peopleRe && peopleRe.test(probe))) && !citesOf(s).length) add('named-without-citation', r.n, `"${s.slice(0, 70)}${s.length > 70 ? ' ...' : ''}" names a seated person or institution, or a person a seat names, and carries no [seat: citation]`)
+        if (!(nameRe.test(probe) || (peopleRe && peopleRe.test(probe))) || citesOf(s).length) continue
+        if (inWhy && [...probe.matchAll(anyName)].every((m) => [...(seatOf.get(m[0].toLowerCase()) || [])].some((short) => sides.has(short)))) continue
+        add('named-without-citation', r.n, `"${s.slice(0, 70)}${s.length > 70 ? ' ...' : ''}" names a seated person or institution, or a person a seat block quotes, and carries no [seat: citation]${inWhy ? '; a Why: clause may name only a seat or person its own Disagree: line cites before it' : ''}`)
       }
     }
 
@@ -519,46 +574,68 @@ export function checkReply(text, file, ctx = {}) {
   const lastRow = [...p.rows].reverse().find((r) => r.text.trim() && !isComment(r.text))
   if (!lastRow || !lastRow.text.includes(READING)) add('no-reading-line', lastRow ? lastRow.n : first.n, `the last line does not say "${READING}"; end with "A reading by Harshit Khemani of public work. ${READING}."`)
 
-  ventriloquist(p.outside, nameWords([...distinct, ...brainNames(brains)]), add)
+  ventriloquist(p.outside, nameWords(roster(councilRow ? [councilRow] : [], distinct, brains), people), add)
   return out
 }
 
 // ---- Words in a person's mouth ---------------------------------------------
 
 const MODAL = "(?:would|wouldn't|might|could|couldn't|will|won't)"
-const YOU = "(?:wants? you|tell(?:s|ing)? you|advises? you|expects? you|(?:you|we) should)"
-const STANCE = "(?:has no patience|answer would be|backs? (?:shipping|launching|this)|both back|signs? off)"
+const SHOULD = '(?:you|we) should'
+const YOU = '(?:wants? you|tell(?:s|ing)? you|advises? you|expects? you)'
+const STANCE = '(?:has no patience|answer would be|backs? (?:shipping|launching|this)|both back|signs? off)'
 const ANY_NAME = "(?<![\\w'-])[A-Z][A-Za-z]*(?:\\s+[A-Z][A-Za-z]+)+"
+// The saying patterns: what may never follow a capitalised name, seated or not.
+// They are narrow on purpose. "A Figma case would flip the call" and "the Mac
+// Spotlight launcher would be a fair comparison" hold a capitalised run and a
+// modal and put words in nobody's mouth, so a bare modal is judged only beside
+// a name the reply can speak for.
+const SAID = '(?:say|said|tell|told|argue|argued|advise|advised|recommend|recommended|suggest|suggested|think|thought|agree|agreed|disagree|disagreed|pick|picked|choose|chosen|prefer|preferred|urge|urged|insist|insisted|answer|answered|back|backed)'
+const SAYING = new RegExp(`${ANY_NAME}(?:(?:\\s+${MODAL}|'d)(?:\\s+(?:never|not|also|well|probably|still|then|have))?\\s+${SAID}\\b|\\s+(?:wants? you|(?:to\\s+|is\\s+|are\\s+)?tell(?:s|ing)? you|advises? you|expects? you|has no patience)\\b|'s\\s+(?:answer|advice|take|verdict)\\b|\\s+(?:says|thinks|believes|recommends|advises)\\s+(?:that\\s+)?(?:you|we)\\s+should\\b)`)
 
-// The first thing in a line that puts a position in someone's mouth, or null.
-// alt is the name list as a regex alternation. A sentence that names someone
-// may hold would, might, could or will only in the reporting form, "what {name}
-// has published suggests ..." or "{name}'s material says ...", with a chair
-// citation in the same sentence.
-function puppet(text, alt) {
+// The first thing in a line that puts a position in someone's mouth, as
+// { hit, kind }, or null. alt is the name list as a regex alternation: the
+// seats, the brains the Council: line names, the people the seat blocks quote
+// and "the council". A sentence that names one of them may hold would, might,
+// could or will only in the reporting form, "what {name} has published
+// suggests ..." or "{name}'s material says ...", with a chair citation in the
+// same sentence. It may never hold "you should": the reporting form says what
+// the material says, and what the reader should do is the recommendation's.
+// log is true on a Not verified: line, the run's log, where a name beside
+// "could not be run" is a fact about the run: the bare modal is not judged
+// there, and the saying patterns still are.
+function puppet(text, alt, log = false) {
   const masked = stripLabel(text).replace(new RegExp(CITE, 'gi'), ' [#] ')
   const name = new RegExp(`\\b(?:${alt})\\b`, 'i')
   const reporting = new RegExp(`\\b(?:${alt})\\s+(?:has|have)\\s+published\\b|\\b(?:${alt})(?:'s)?\\s+(?:published\\s+)?(?:material|writing|videos|posts|notes|essays|pieces|work)\\b`, 'i')
   const modal = new RegExp(`\\b${MODAL}\\s+[a-z']+|\\b(?:${alt}|he|she|they)'d\\b`, 'i')
+  const carried = new RegExp(`\\b(?:he|she)(?:\\s+${MODAL}\\s+[a-z']+|'d\\b)`, 'i')
+  const should = new RegExp(`\\b${SHOULD}\\b`, 'i')
   const stance = new RegExp(`\\b${YOU}\\b|\\b${STANCE}\\b|\\b(?:${alt})'s\\s+(?:answer|advice|take|verdict)\\b|\\b(?:his|her|their)\\s+(?:answer|advice|verdict)\\b`, 'i')
-  const anyModal = new RegExp(`${ANY_NAME}(?:'s)?(?:\\s+[a-z]+){0,2}\\s+${MODAL}\\s+[a-z']+`)
-  const anyStance = new RegExp(`${ANY_NAME}[^.!?]*?\\b(?:${YOU}|${STANCE})\\b|\\b(?:${YOU}|${STANCE})\\b[^.!?]*?${ANY_NAME}|${ANY_NAME}'s\\s+(?:answer|advice|take|verdict)\\b`)
-  const youRe = new RegExp(`\\b${YOU}\\b`, 'i')
+  const youRe = new RegExp(`\\b(?:${YOU}|${SHOULD})\\b`, 'i')
   let named = false
   for (const s of sentences(masked.trim())) {
     const hasCite = s.includes('[#]')
     const t = s.replace(/\[#\]/g, ' ')
     const plain = t.replace(FOLDER, ' ')
     const n = plain.match(name)
-    const pronoun = (named || n) && /\b(?:he|she|they)\b/i.test(plain)
     let m
-    if ((n || pronoun) && (m = plain.match(modal)) && !(hasCite && reporting.test(plain))) return `${n ? n[0] : 'he, she or they'} ... ${m[0]}`
-    if (n && (m = plain.match(stance))) return `${n[0]} ... ${m[0]}`
-    if (t.search(FOLDER) >= 0 && (m = t.match(youRe))) return `a brain ... ${m[0]}`
-    if ((m = plain.match(anyModal)) || (m = plain.match(anyStance))) return m[0].slice(0, 60)
+    if (!log && n && (m = plain.match(modal)) && !(hasCite && reporting.test(plain))) return { hit: `${n[0]} ... ${m[0]}`, kind: 'guess' }
+    // A pronoun carries a name forward only when it sits directly before the modal: "He would wait".
+    // "Founders who wait find out late what they could have learned" holds a pronoun and a modal, and it is about founders.
+    if (!log && !n && named && (m = plain.match(carried))) return { hit: m[0], kind: 'guess' }
+    if (n && (m = plain.match(should))) return { hit: `${n[0]} ... ${m[0]}`, kind: 'advice' }
+    if (n && (m = plain.match(stance))) return { hit: `${n[0]} ... ${m[0]}`, kind: 'guess' }
+    if (t.search(FOLDER) >= 0 && (m = t.match(youRe))) return { hit: `a brain ... ${m[0]}`, kind: 'guess' }
+    if ((m = plain.match(SAYING))) return { hit: m[0].slice(0, 60), kind: 'guess' }
     if (n) named = true
   }
   return null
+}
+
+const VENT_FIX = {
+  guess: 'report what the seat\'s brain published ("what {name} has published suggests ...", with its [seat: citation] in the same sentence), and put the call under the khe-decision label',
+  advice: 'a sentence that names someone and tells the reader "you should" puts advice in that person\'s mouth, with a citation or without one. The reporting form says what the material says, never what the reader should do; the "should" lives on the Recommendation line, which names no one',
 }
 
 function ventriloquist(rows, alt, add) {
@@ -571,10 +648,10 @@ function ventriloquist(rows, alt, add) {
   ]
   for (const r of rows) {
     if (/^Decision:/.test(r.text)) continue // the question is the person's own
-    let hit = null
-    for (const x of re) { const m = r.text.match(x); if (m) { hit = m[0]; break } }
-    if (!hit) hit = puppet(r.text, alt.join('|'))
-    if (hit) add('ventriloquist', r.n, `"${hit}"; report what the seat's brain published ("what {name} has published suggests ...", with its [seat: citation] in the same sentence), and put the call under the khe-decision label`)
+    let found = null
+    for (const x of re) { const m = r.text.match(x); if (m) { found = { hit: m[0], kind: 'guess' }; break } }
+    if (!found) found = puppet(r.text, alt.join('|'), /^Not verified:/.test(r.text))
+    if (found) add('ventriloquist', r.n, `"${found.hit}"; ${VENT_FIX[found.kind]}`)
   }
 }
 
@@ -597,7 +674,8 @@ function checkNotConvened(p, add, councilRow, brains) {
     if (call) add('not-convened-form', r.n, `"${call}"; a reply that does not convene gives no recommendation under any name, because a synthesis over fewer than two corpora is one brain's answer with extra steps`)
   }
   for (const [label] of NC_LINES.slice(2)) if (!seen.has(label)) add('not-convened-form', councilRow.n, `no "${label}" line${NC_HINT[label] || ''}`)
-  ventriloquist(p.outside, nameWords(brainNames(brains)), add)
+  // No seat exists here, so the names are the brains this reply's Council: and Next: lines list.
+  ventriloquist(p.outside, nameWords(roster(p.outside.filter((r) => /^(?:Council|Next):/.test(r.text)), [], brains)), add)
 }
 
 // ---- Files ------------------------------------------------------------------
@@ -847,14 +925,71 @@ function selfTest(opts) {
       quiet('ventriloquist', reported, 'the reporting form, "What {name} has published suggests ... would ..." with its chair citation,')
       quiet('named-without-citation', reported, 'the reporting form with its chair citation')
 
-      // A name needs its citation on every chair line but Rests on:.
-      for (const label of ['Not covered', 'Would change it', 'Not verified']) raises('named-without-citation', setLine(base, new RegExp(`^${label}:`), (l) => `${l} ${person} has built companies.`), `a name with no citation on the ${label}: line`)
+      // A name needs its citation on every chair line but Rests on: and Not verified:.
+      for (const label of ['Not covered', 'Would change it']) raises('named-without-citation', setLine(base, new RegExp(`^${label}:`), (l) => `${l} ${person} has built companies.`), `a name with no citation on the ${label}: line`)
       raises('named-without-citation', setLine(base, /^Not covered:/, (l) => `${l} Paul Graham is right about this.`), 'a person a seat block names, with no citation, on the Not covered: line')
       raises('recommendation-names', setLine(base, /^Recommendation \(/, (l) => `${l} This is the first cited line ${whole}.`), 'a chair citation on the Recommendation line')
       raises('recommendation-names', setLine(base, /^Recommendation \(/, (l) => `${l} Paul Graham is right about this.`), 'a person a seat block names, on the Recommendation line')
       raises('unknown-chair-label', setLine(base, /^Rests on:/, (l) => `${l}\nBottom line: ship.`), 'a "Bottom line:" line in the chair block')
       raises('unknown-chair-label', base.replace('\nNot verified:', '\n== Notes ==\nNot verified:'), 'a "== Notes ==" header after the chair')
       raises('no-council-line', setLine(base, /^Council:/, (l) => l.replace(/(\d+) of \d+/, (_, n) => `${n} of ${Number(n) - 1}`)), 'a Council: line with more seated than installed')
+
+      // Not verified: is the run's log. It may name a seat or a brain, and it may not put words in a mouth.
+      const log = (more) => setLine(base, /^Not verified:/, (l) => `${l} ${more}`)
+      quiet('named-without-citation', log(`The gate of the ${person.split(' ')[0]} brain was not run again.`), 'a seat named on the Not verified: line')
+      raises('ventriloquist', log(`${person.split(' ')[0]} would say otherwise.`), 'a name and "would say" on the Not verified: line')
+      raises('ventriloquist', log(`${person} wants you to ship.`), 'a name and "wants you" on the Not verified: line')
+
+      // A person counts when a seat header names them or a seat sentence quotes them, never for two capital letters in a row.
+      quiet('named-without-citation', setLine(base, /^Not covered:/, (l) => `${l} Nothing here is about Steve Jobs.`), 'a name a seat block mentions and never quotes ("Steve Jobs"), on the Not covered: line,')
+      raises('named-without-citation', setLine(base, /^Not covered:/, (l) => `${l} Michael Seibel is right about this.`), 'a person a seat quotes after a clause ("Michael Seibel, in a talk ..., calls"), with no citation,')
+
+      // A Why: clause stands on the citations of its own Disagree: line, and on no others.
+      const why = (clause) => base.replace('Why: the Figma piece', `Why: ${clause}, and the Figma piece`)
+      raises('named-without-citation', why('the varun seat cites one company'), 'a Why: clause that names a seat its Disagree: line does not cite')
+      raises('ventriloquist', why('Enrico Tartarotti would call Figma the exception'), 'a Why: clause with a name and "would"')
+
+      // A pronoun carries a name forward only when it sits directly before the modal.
+      const twoSides = `What ${person} has published suggests founders test early ${whole}, and what Harshit Khemani has published suggests the same [harshit: 2026-05-14-best-startups-often-built].`
+      const agree = (line) => { const rows = base.split('\n'); rows.splice(rows.findIndex((l) => /^Disagree:/.test(l)), 0, `Agree: ${line}`); return rows.join('\n') }
+      raises('ventriloquist', agree(`${twoSides} He would not wait a year.`), '"He would not wait" in the sentence after a cited name')
+
+      // The names are the reply's own: its seats and the brains its Council: line lists, whatever else is installed.
+      raises('ventriloquist', setLine(base, /^Not covered:/, (l) => `${l} Emil Kowalski has no patience for long private builds.`), 'a brain the Council: line leaves out, named with "has no patience" where no brain is installed,', none)
+      quiet('ventriloquist', wc('A test with one person could flip the call.'), 'a sentence that shares a word with a brain the reply never names ("Test Person" installed, "one person could")', extraBrain)
+
+      // Honest lines the gate once failed. Each one raises no never-intentional line.
+      const gold = (f) => (existsSync(join(exDir, f)) ? norm(readFileSync(join(exDir, f), 'utf8')) : null)
+      const launch = gold('audience-or-launch.txt')
+      const silent = gold('most-seats-silent.txt')
+      const more = (t, re, text) => setLine(t, re, (l) => `${l} ${text}`)
+      const agreeIn = (t, line) => { const rows = t.split('\n'); rows.splice(rows.findIndex((l) => /^Disagree:/.test(l)), 0, `Agree: ${line}`); return rows.join('\n') }
+      const honest = [
+        ['a capitalised thing with "would" ("A Figma case would flip the call")', base, (t) => setLine(t, /^Would change it:/, () => 'Would change it: A Figma case would flip the call to a private build.')],
+        ['the reporting form with "could" and "will", cited', base, (t) => agreeIn(t, 'What Varun Mayya has published suggests a two-year build could be completely off in direction, and what Harshit Khemani has published suggests the market will teach faster than a plan [varun: Kata 12 at 5:44] [harshit: 2026-05-14-best-startups-often-built]')],
+        ['"they will wait", about a company\'s users, in a Why: clause', base, (t) => t.replace('Why: the Figma piece', 'Why: the first is about a company whose users were designers, and they will wait for a tool they need; the Figma piece')],
+        ['"A year in private would delay" in the sentence after two cited names', base, (t) => agreeIn(t, 'What Varun Mayya has published suggests testing before a long build [varun: Kata 12 at 5:44], and what Y Combinator has published suggests the same [yc: How to build an MVP]. A year in private would delay the first test by twelve months.')],
+        ['a person the seat quotes, named with the seat\'s citation', base, (t) => agreeIn(t, 'In the talk the seat cites, Michael Seibel calls the founder who wants a year to build a fake Steve Jobs [yc: How to build an MVP], and what Varun Mayya has published suggests a long build before a test is a very big risk [varun: Kata 12 at 5:44]')],
+        ['a brain named on Not verified: ("The gate of the Varun brain could not be run again")', base, (t) => more(t, /^Not verified:/, 'The gate of the Varun brain could not be run again after the cross-check.')],
+        ['an institution named on Not verified: ("No Y Combinator essay was opened again")', base, (t) => more(t, /^Not verified:/, 'No Y Combinator essay was opened again.')],
+        ['a country from a seat\'s "Not in" line, on Not covered: ("the United States")', launch, (t) => more(t, /^Not covered:/, 'No cited line speaks to a founder outside the United States.')],
+        ['a country from a seat\'s "Not in" line, on the Recommendation line', launch, (t) => more(t, /^Recommendation \(/, 'None of this depends on being in the United States.')],
+        ['"the product will not work" on Would change it:', base, (t) => setLine(t, /^Would change it:/, () => 'Would change it: Evidence that the product will not work at all until it is finished, which would make an early test show nothing.')],
+        ['"{name}\'s material says ... would be frustrating", cited', silent, (t) => agreeIn(t, "Emil Kowalski's material says a 500ms enter animation on every open would be frustrating [emil: Great Animations], and Enrico Tartarotti's material says such motion only makes people wait [enrico: The Ridiculous Engineering Of Animations at 8:15]")],
+        ['"an open animation could teach" on Would change it:', silent, (t) => setLine(t, /^Would change it:/, () => 'Would change it: Usage data showing that most people open the menu only occasionally; then an open animation could teach where the menu lives.')],
+        ['a product name with "would be" ("the Mac Spotlight launcher would be a fair comparison")', silent, (t) => more(t, /^Not covered:/, 'Whether the Mac Spotlight launcher would be a fair comparison for a web tool is also open.')],
+        ['a Why: clause that names a seat its Disagree: line cites ("the enrico seat cites one company")', base, () => why('the enrico seat cites one company')],
+        ['"what they could have learned", about founders, after a cited name', base, (t) => agreeIn(t, `${twoSides} Founders who wait find out late what they could have learned in a week.`)],
+      ]
+      for (const [what, from, make] of honest) {
+        if (!from) { skip(`an honest line, ${what}: the gold reply it is cut from is absent`); continue }
+        const text = make(from)
+        const bad = never(checkReply(text, 'inline', names))
+        say(text !== from && !bad.length, `an honest line, ${what}, raises nothing${bad.length ? ` (got ${tally(bad)})` : ''}`)
+      }
+      // The sixteenth stays a fault, and its message says why: advice to the reader, in a named sentence, is that person's advice.
+      const advised = checkReply(agreeIn(base, "What Varun Mayya has published suggests you should stop building once one feature works [varun: Kata 11 at 21:38], and what Y Combinator has published suggests showing users something early [yc: Do Things that Don't Scale]"), 'inline', names).filter((f) => f.line === 'ventriloquist')
+      say(advised.length === 1 && advised[0].detail.includes('never what the reader should do'), 'the reporting form with "you should", cited, raises ventriloquist: with the message about advice to the reader')
     }
 
     // A made-up council of two made-up brains, for the cases that need a [n] seat and a name to compare.

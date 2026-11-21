@@ -96,6 +96,6 @@ ${bars.join('\n')}
     <text x="32" y="4">here, a khe- skill in this repo</text>
     <rect class="bar linked" x="208" y="-6" width="24" height="12" rx="2"/>
     <text x="240" y="4">linked, kept in its author's own repo</text>
-    <text x="464" y="4">18 here and 68 linked, one row each in SKILL.md.</text>
+    <text x="464" y="4">19 here and 68 linked, one row each in SKILL.md.</text>
   </g>`))
 }

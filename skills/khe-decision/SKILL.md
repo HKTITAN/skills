@@ -72,13 +72,14 @@ Steps 1 to 4 settle who sits before any seat is opened. One request is one decis
 
 Check these before handing over.
 
-- **A name at the start of a chair sentence and its citation three sentences later.** `named-without-citation`; Hard rule 1. The citation sits in the sentence that names the person. The gate runs this on every chair and closing line except `Rests on:` and the reading line.
-- **"Would", "might" or "thinks you should" beside a seat's name.** `ventriloquist`; [chair](references/chair.md), The wording.
+- **A name at the start of a chair sentence and its citation three sentences later.** `named-without-citation`; Hard rule 1. The citation sits in the sentence that names the person. The gate runs this on every chair line except `Rests on:` and `Not verified:`, for every seated person or institution and every person a seat block quotes. `Not verified:` is the run's log and may name a seat or a brain. A `Why:` clause may name a seat or person its own `Disagree:` line cites before it.
+- **"Would", "might", "could" or "will" beside a name.** `ventriloquist`; [chair](references/chair.md), The wording. The name is a seat's, a brain's on the `Council:` line, a person's a seat block quotes, or "the council". The reporting form with its chair citation is the one place a modal may sit in such a sentence.
+- **"What {name} has published suggests you should ...", with its citation.** `ventriloquist`, with its own message. The reporting form says what the material says, never what the reader should do, because advice to this reader in a named sentence reads as that person's advice. The "should" lives on the `Recommendation` line, which names no one.
 - **A chair citation retyped from memory.** `chair-citation`; copy the whole citation from inside the seat block, character for character. The gate matches it against the items that seat cites, not against any substring of the block.
 - **A `Nearest:`, `My reading:` or `Yours:` line treated as a seat's position.** `nearest-citation` when a chair citation exists in the seat block only on one of those lines. The brain itself labels the first as not answering the question and the other two as someone else's words; [chair](references/chair.md), Lines that are never a seat's position.
 - **A `Why:` that explains a disagreement by temperament.** The reason is one the cited lines show (stage, audience, date, country), or it is "the pieces do not say"; [chair](references/chair.md), Disagree.
 - **Two seats that agree, reported as "so do it".** The gate raises `unlabelled-synthesis`, or `ventriloquist` for "the council recommends"; agreement goes on an `Agree:` line and the call stays on the labelled line. The failure is a borrowed verdict.
-- **A person or institution named on the `Recommendation` line.** `recommendation-names`; its citations live on `Rests on:`.
+- **A person or institution named on the `Recommendation` line, or a citation on it.** `recommendation-names`; a citation never excuses a name there, and its citations live on `Rests on:`.
 - **A chair line that starts with no label of the format, one brain seated twice, or a seat header that differs from the brain's own heading.** `unknown-chair-label`, `duplicate-seat`, `seat-name`.
 - **A brain missing from the `Council:` line because it was left out.** `brain-unaccounted`, a candidate that `--strict` fails; Hard rule 3. `no-council-line` also fails when N is greater than M or differs from the number of seat blocks.
 - **A seat block tidied by the chair.** A seat block is that brain's reply, whole; an edit to it is a line no brain wrote.
@@ -112,6 +113,7 @@ Script: `scripts/decision-check.mjs` lists the installed brains (`--seats`, with
 |---|---|
 | "Varun would say keep one option" | "What Varun Mayya has published suggests keeping every option open gives the least impact `[varun: Kata 7 at 8:05]`", with that line inside his seat's block |
 | "YC thinks you should split equally" | The person the seat's line names, what their piece says, and `[yc: How to split equity among co-founders]` |
+| "What Varun Mayya has published suggests you should stop building `[varun: Kata 11 at 21:38]`" | What the material says, with no "you should": "... suggests stopping the build once one feature works `[varun: Kata 11 at 21:38]`". The "should" goes on the `Recommendation` line |
 | "The council recommends raising" | `Recommendation (khe-decision's synthesis, not the view of anyone cited):` and the call |
 | `Recommendation:` or `Verdict:` with no label | The full label, every time, character for character |
 | A seat that answers "from what is generally known about him" | That brain's silent answer, in that brain's own format |

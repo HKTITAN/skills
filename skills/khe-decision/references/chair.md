@@ -87,7 +87,7 @@ Recommendation (khe-decision's synthesis, not the view of anyone cited): the cal
 Rests on: the chair citations the call leans on.
 Would change it: the one fact that would flip the call.
 
-A chair citation is [{seat}: {citation text}], where {seat} is the seat's short name and {citation text} is copied character for character from inside that seat's block. Cite nothing that is not in a seat block. Every sentence that names a seated person or institution carries a chair citation in that sentence. Write "what {name} has published suggests", never "{name} would say", "{name} thinks you should" or "the council recommends". Never use a line labelled Nearest:, My reading: or Yours: as a seat's position, and never cite one. No hedge words. Do not pick a winner in a disagreement. A Disagree: side restates the cited sentence and never the seat's Holds: or Breaks: label as though it were the published position. Start every chair line with one of the labels above and no other.
+A chair citation is [{seat}: {citation text}], where {seat} is the seat's short name and {citation text} is copied character for character from inside that seat's block. Cite nothing that is not in a seat block. Every sentence that names a seated person or institution carries a chair citation in that sentence. Write "what {name} has published suggests", never "{name} would say", "{name} thinks you should" or "the council recommends". The reporting form says what the material says, never what the reader should do: write no "you should" and no "we should" in a sentence that names anyone, cited or not, because the "should" lives on the Recommendation line, which names no one. A Why: clause may name a seat or a person only when the same Disagree: line cites that seat before the Why:. Never use a line labelled Nearest:, My reading: or Yours: as a seat's position, and never cite one. No hedge words. Do not pick a winner in a disagreement. A Disagree: side restates the cited sentence and never the seat's Holds: or Breaks: label as though it were the published position. Start every chair line with one of the labels above and no other.
 ```
 
 Start the block from the chair block of the closest gold in `examples/`. Step 9 of the workflow adds `Not verified:` and the reading line after it, because only you know how the seats were run.
@@ -132,6 +132,8 @@ The `Why:` is a reason a reader can check against the two cited lines:
 
 A `Why:` about a person's temperament, taste or motives is a claim about the person that no seat cited. Use the last row.
 
+A `Why:` clause may name a seat or a person that its own `Disagree:` line cites before the `Why:`, with no second citation: "Why: the enrico seat cites one company". The reader then sees which side the reason is about without counting "the first seat" and "the second seat". The gate lets the name stand on the citations already on the line and fails a name whose seat the line does not cite (`named-without-citation`). Every wording rule below still holds inside a `Why:`: a name beside "would" fails there as it does anywhere (`ventriloquist`).
+
 A `Disagree:` side restates the sentence the seat cited. It never restates the seat's `Holds:` or `Breaks:` label as though it were the published position: the label is the brain's verdict on how the person's design fares against the position, and nobody cited published that verdict.
 
 Never close a `Disagree:` line with which side is right, and never blend the two into a middle position (`averaged-council`). The recommendation can lean on one side; it says so in its own voice, cites that side on `Rests on:`, and names on `Would change it:` the fact that would move it to the other.
@@ -145,7 +147,7 @@ One line: the part of the decision that no seat's cited line answers. Take it fr
 The label is fixed, character for character: `Recommendation (khe-decision's synthesis, not the view of anyone cited):`. The gate fails a bare `Recommendation:` or `Verdict:` (`unlabelled-synthesis`), because a call without the label reads as the seats' own.
 
 - Two to four sentences. The call first, then the reason in terms of the `Agree:` and `Disagree:` lines above it.
-- It names no person and no institution; the gate fails one that does (`recommendation-names`) unless the line carries a chair citation. The line's citations live on `Rests on:`.
+- It names no person and no institution, and it carries no chair citation. The gate fails a line that names a seated person or institution or a person a seat block quotes, and a line that carries a `[seat: citation]` (`recommendation-names`). A citation never excuses a name there, because a cited name on the call reads as that person's signature under it. The line's citations live on `Rests on:`.
 - It adds no fact. Anything it leans on is already on an `Agree:` or `Disagree:` line with its citation.
 - It is withheld when fewer than two seats spoke: `Recommendation (khe-decision's synthesis, not the view of anyone cited): withheld. Only one seat's corpus spoke to the decision, and one corpus is that brain's answer.` Then `Rests on:` is left out and `Would change it:` names what would let a council sit: a second installed brain whose corpus covers the decision.
 
@@ -163,5 +165,18 @@ The chair writes about material. It never writes about what a person thinks toda
 | "They would agree that" | An `Agree:` line with a chair citation from each seat |
 | "The council recommends", "the council agrees" | The labelled recommendation; an `Agree:` line |
 | "He believes" with no date | What the cited piece said, in the past tense where the seat's line gives a date |
+| "What Varun Mayya has published suggests you should stop building", with its citation | "What Varun Mayya has published suggests stopping the build once one feature works", with its citation; the "should" goes on the `Recommendation` line |
+
+The reporting form says what the material says, never what the reader should do. "You should" and "we should" in a sentence that names anyone put advice to this reader in that person's mouth, and the citation beside it makes the advice look published. The person wrote for other companies in other years, so the "should" lives on the `Recommendation` line, which names no one. The gate fails the sentence, cited or not, with a message that says so (`ventriloquist`).
+
+What the gate reads as a name, so you know where these rules bite:
+
+- **The seats and the brains on the `Council:` line**: each one's short name, the name in its seat header, the brain's own heading when it is installed, and "the council". A brain the reply never names is not on the list, so a reply is judged by the names it carries.
+- **A person a seat block quotes**: a capitalised name of two or more words that a seat sentence follows with a saying verb ("Kat Manalac said", "Michael Seibel, in a talk the library dates to 2019, gave") or with 's and a piece ("Paul Graham's 2013 essay"). A capitalised run with no saying verb after it, such as a country or a product, is not a person, and `Source:` and `Not in ...:` lines are never read for names.
+- **Any other capitalised name** only when a saying pattern follows it directly: "would say", "would tell", "would pick", "wants you", "'s answer". "A Figma case would flip the call" names a thing and passes.
+
+A pronoun carries a name forward only when "he" or "she" sits directly before the modal in a later sentence of the same line ("He would wait"). "They" never does, because it reads as founders, users or customers far more often than as the person cited.
+
+The `Not verified:` line is the run's log and you write it, not the chair. It may name a seat or a brain with no citation ("the gate of the Varun brain could not be run again", "no Y Combinator essay was opened again"), because the log has to say which seat was not checked. It still may not say what anyone would say, tell or want.
 
 Name people the way the seat's line names them. The seat for `khe-brain-yc` names the partner who said each line; the chair keeps that name and never promotes it to the institution's view. The seat for `khe-brain-isb` names a file, and a speaker only where the file does; the chair does the same.

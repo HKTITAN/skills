@@ -61,6 +61,7 @@ If you already know the skill, call it directly.
 | [khe-brain-isb](skills/khe-brain-isb/README.md) | "what do the ISB notes say" | An answer from the public isb-skills notes with the file named, benchmarks marked as unsourced, and a plan pressure-tested against it. |
 | [khe-brain-harshit](skills/khe-brain-harshit/README.md) | "write a khe.money post in Harshit's voice" | A brain of Harshit Khemani: an answer from every post he made on X and LinkedIn with the post named, and a draft in his current voice that rests only on views he has posted. |
 | [khe-brain-yc](skills/khe-brain-yc/README.md) | "what does YC say about" | An answer from 88 Y Combinator essays, posts and talks with the partner who said it named and the piece linked, and a plan pressure-tested against them. |
+| [khe-decision](skills/khe-decision/README.md) | "put this to the council" | One decision put to every installed brain whose corpus covers it: each seat cited in its own brain's format, where the published material agrees and disagrees, what none of it covers, and a recommendation labelled as the skill's own synthesis. |
 | [khe-poteto-pyramid](skills/khe-poteto-pyramid/README.md) | "the agent keeps doing this" | The correction moved to where the next agent cannot make the mistake: the code, a check whose error names the fix, or verification, proved on the past mistake, with the AGENTS.md line it replaces deleted. |
 | [khe-package](skills/khe-package/README.md) | "package this", "make a video of this for X" | Three ideas as stills, then a video rendered frame by frame at 60 fps, sharp on a phone, with your system's real cursor, and a first line written for a stranger. |
 | [khe-content-engine](skills/khe-content-engine/README.md) | "build me a content engine" | Your voice, audience and platforms written down once, then one idea turned into a different draft for each platform. You post them. |
@@ -77,7 +78,7 @@ If you are an agent choosing a skill, read [`llms.txt`](llms.txt): every skill, 
 In Claude Code they install as plugins from one marketplace. Add it with `--sparse`, exactly as below: the linked skills are git submodules beside mine, and without it Claude Code downloads all of them and the add times out.
 
 ```text
-/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
+/plugin marketplace add HKTITAN/skills --sparse .claude-plugin agents skills/khe-auto skills/khe-brain-benji skills/khe-brain-emil skills/khe-brain-enrico skills/khe-brain-harshit skills/khe-brain-isb skills/khe-brain-varun skills/khe-brain-yc skills/khe-content-engine skills/khe-decision skills/khe-demo skills/khe-design-tokens skills/khe-diagram skills/khe-launch-film skills/khe-package skills/khe-poteto-pyramid skills/khe-sound skills/khe-sticker skills/khe-svg skills/khe-ui
 /plugin install kheskills@kheskills
 /plugin install khe-brain@kheskills
 ```
@@ -90,7 +91,7 @@ For a team, put the same in the project's `.claude/settings.json`, so everyone w
 {
   "extraKnownMarketplaces": {
     "kheskills": {
-      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
+      "source": { "source": "github", "repo": "HKTITAN/skills", "sparsePaths": [".claude-plugin","agents","skills/khe-auto","skills/khe-brain-benji","skills/khe-brain-emil","skills/khe-brain-enrico","skills/khe-brain-harshit","skills/khe-brain-isb","skills/khe-brain-varun","skills/khe-brain-yc","skills/khe-content-engine","skills/khe-decision","skills/khe-demo","skills/khe-design-tokens","skills/khe-diagram","skills/khe-launch-film","skills/khe-package","skills/khe-poteto-pyramid","skills/khe-sound","skills/khe-sticker","skills/khe-svg","skills/khe-ui"] }
     }
   }
 }

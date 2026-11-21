@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="khe-decision-flow" viewBox="0 0 896 344" role="img" aria-labelledby="khe-decision-flow-title khe-decision-flow-desc">
+  <title id="khe-decision-flow-title">How khe-decision runs</title>
+  <desc id="khe-decision-flow-desc">A decision is put to every seated brain in parallel, each seat cites or is silent, one cross-check follows, a fresh chair synthesises citing only what seats cited, and the reply is gated; fewer than two relevant brains sends the question to one brain.</desc>
+  <defs>
+    <marker id="khe-decision-flow-arrow" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path class="head" d="M0 1 L8 4 L0 7 Z"/>
+    </marker>
+  </defs>
+  <style>
+    #khe-decision-flow { --page: #fdfdfc; --surface: #ffffff; --ink: #21201c; --ink-2: #63635e; --ink-3: #82827c; --line: #cfceca; --rule: #e9e8e6; --heading: #8d8d86; --hl: #ffe556; --hl: oklch(0.92 0.16 98); --hl-ink: #21201c; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      #khe-decision-flow { --page: #111110; --surface: #222221; --ink: #ffffff; --ink-2: #eeeeec; --ink-3: #b5b3ad; --line: #494844; --rule: #31312e; --heading: #b5b3ad; --hl: #eed04c; --hl: oklch(0.86 0.15 96); --hl-ink: #111110; }
+    }
+    #khe-decision-flow .paper { fill: var(--page); }
+    #khe-decision-flow .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.25; }
+    #khe-decision-flow .edge.dashed { stroke-dasharray: 5 4; }
+    #khe-decision-flow .head { fill: var(--ink-3); }
+    #khe-decision-flow .mask { fill: var(--page); }
+    #khe-decision-flow .label { fill: var(--ink-3); font-size: 9px; }
+    #khe-decision-flow .node rect { fill: var(--surface); stroke: var(--line); }
+    #khe-decision-flow .node.strong rect { stroke: var(--ink); }
+    #khe-decision-flow .node.quiet rect { fill: var(--page); stroke-dasharray: 5 4; }
+    #khe-decision-flow .node rect.hl { fill: var(--hl); stroke: none; }
+    #khe-decision-flow .name { fill: var(--ink); font-size: 12px; font-weight: 600; }
+    #khe-decision-flow .name.on { fill: var(--hl-ink); }
+    #khe-decision-flow .sub { fill: var(--ink-2); font-size: 10px; }
+    #khe-decision-flow .path { fill: var(--ink-3); font-size: 10px; font-family: "Geist Mono", ui-monospace, monospace; }
+    #khe-decision-flow .skill { fill: var(--ink); font-size: 12px; }
+    #khe-decision-flow .caps { fill: var(--heading); font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
+    #khe-decision-flow .callout { fill: var(--ink-2); font-size: 10px; }
+    #khe-decision-flow .zone { fill: none; stroke: var(--line); stroke-dasharray: 2 4; }
+    #khe-decision-flow .rule { stroke: var(--rule); }
+    #khe-decision-flow .legend text { fill: var(--ink-2); font-size: 10px; }
+  </style>
+  <rect class="paper" width="896" height="344"/>
+  <g class="edges">
+    <path class="edge " d="M176 112 H196 Q204 112 204 104 V60 Q204 52 212 52 H232" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M176 128 H232" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M176 144 H196 Q204 144 204 152 V196 Q204 204 212 204 H232" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M400 52 H420 Q428 52 428 60 V104 Q428 112 436 112 H456" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M400 128 H456" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M400 204 H420 Q428 204 428 196 V152 Q428 144 436 144 H456" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M600 128 H656" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge " d="M760 156 V228" marker-end="url(#khe-decision-flow-arrow)"/>
+    <path class="edge dashed" d="M104 156 V228" marker-end="url(#khe-decision-flow-arrow)"/>
+  </g>
+  <g class="labels">
+    <rect class="mask" x="112" y="182" width="59" height="14"/>
+    <text class="label" x="116" y="192">under two</text>
+    <rect class="mask" x="768" y="184" width="81" height="14"/>
+    <text class="label" x="772" y="194">cite or label</text>
+  </g>
+  <g class="nodes">
+    <g class="node ">
+      <rect x="32" y="100" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="124">Decision</text>
+      <text class="sub" x="44" y="140">one question</text>
+    </g>
+    <g class="node ">
+      <rect x="232" y="24" width="168" height="56" rx="6"/>
+      <text class="name" x="244" y="48">Seat A</text>
+      <text class="sub" x="244" y="64">one brain, cited</text>
+    </g>
+    <g class="node ">
+      <rect x="232" y="100" width="168" height="56" rx="6"/>
+      <text class="name" x="244" y="124">Seat B</text>
+      <text class="sub" x="244" y="140">one brain, cited</text>
+    </g>
+    <g class="node ">
+      <rect x="232" y="176" width="168" height="56" rx="6"/>
+      <text class="name" x="244" y="200">Seat N</text>
+      <text class="sub" x="244" y="216">or silent, in parallel</text>
+    </g>
+    <g class="node ">
+      <rect x="456" y="100" width="144" height="56" rx="6"/>
+      <text class="name" x="468" y="124">Cross-check</text>
+      <text class="sub" x="468" y="140">one round</text>
+    </g>
+    <g class="node ">
+      <rect x="656" y="100" width="208" height="56" rx="6"/>
+      <rect class="hl" x="664" y="112" width="44" height="16" rx="2"/>
+      <text class="name on" x="668" y="124">Chair</text>
+      <text class="sub" x="668" y="140">cites only what a seat cited</text>
+    </g>
+    <g class="node strong">
+      <rect x="656" y="228" width="208" height="56" rx="6"/>
+      <text class="name" x="668" y="252">Gated reply</text>
+      <text class="sub" x="668" y="268">decision-check passed</text>
+    </g>
+    <g class="node quiet">
+      <rect x="32" y="228" width="144" height="56" rx="6"/>
+      <text class="name" x="44" y="252">One brain</text>
+      <text class="sub" x="44" y="268">goes to that brain</text>
+    </g>
+  </g>
+  <g class="legend" transform="translate(32 320)">
+    <line class="rule" x1="0" y1="-16" x2="832" y2="-16"/>
+    <path class="edge" d="M0 0 H24"/>
+    <text x="32" y="4">next step</text>
+    <path class="edge dashed" d="M96 0 H120"/>
+    <text x="128" y="4">the job leaves this skill</text>
+  </g>
+</svg>

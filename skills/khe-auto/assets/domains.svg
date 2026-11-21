@@ -90,8 +90,8 @@
     <text class="sub" x="724" y="76">9 here, 22 linked</text>
     <rect class="bar linked" x="464" y="128" width="96" height="16" rx="2"/>
     <text class="sub" x="572" y="140">0 here, 12 linked</text>
-    <rect class="bar here" x="464" y="192" width="56" height="16" rx="2"/>
-    <text class="sub" x="532" y="204">7 here, 0 linked</text>
+    <rect class="bar here" x="464" y="192" width="64" height="16" rx="2"/>
+    <text class="sub" x="540" y="204">8 here, 0 linked</text>
     <rect class="bar here" x="464" y="256" width="8" height="16" rx="2"/>
     <text class="sub" x="484" y="268">1 here, 0 linked</text>
     <rect class="bar here" x="464" y="320" width="8" height="16" rx="2"/>

@@ -49,7 +49,7 @@ ${node({ x: 32, y: 272, w: 160, name: 'Hand over', sub: 'ROUTE.md, Not verified'
   const rows = [
     ['Design', 'screens, motion, sound, film', 9, 22],
     ['Code', 'Swift, React, Vercel', 0, 12],
-    ['Brains', 'named people, with sources', 7, 0],
+    ['Brains', 'named people, with sources', 8, 0],
     ['Content', 'one idea, a post per platform', 1, 0],
     ['Engineering', 'agents working in a repo', 1, 34],
   ]

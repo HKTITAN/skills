@@ -1,0 +1,96 @@
+<!-- Gold for a startup and content decision several brains cover. A real run on 2026-11-21: five of seven installed brains seated, three spoke, two came back silent, one cross-check round. Learn: each seat block is that brain's whole reply in its own format; the chair writes "what X has published suggests" with a citation in the same sentence; three disagreements are kept with a Why: each and none is settled for anyone; the recommendation names no one. -->
+Decision: Should a solo student founder in India with a working MVP and no audience spend the next three months posting daily content to build an audience before launching, or launch the product now and build distribution after?
+Council: 5 of 7 installed brains seated. Seated: khe-brain-varun, khe-brain-yc, khe-brain-harshit, khe-brain-isb, khe-brain-enrico. Left out: khe-brain-emil (interface motion and craft only), khe-brain-benji (design and product craft, nothing on launch order).
+
+== Seat: khe-brain-varun (Varun Mayya) ==
+He states positions that pull both ways: he puts audience-building first for ambitious founders in India, and puts early testing and selling ahead of long building (Masters Union at 49:09; Kata 12 at 5:44). He defines distribution as trust, the people who make decisions partly on what you say, which is what he means by an audience (Kata 10 at 14:37).
+Breaks: launching first and building distribution after. He rates distribution about 10 times more valuable than product, and says a founder who wants to do something really ambitious in India must first build media (Kata 10 at 0:56; Masters Union at 49:09).
+Breaks: posting for three months as a launch funnel. He says all benefits of content are random and unexpected, so its best use is as a luck catcher and not as a traffic funnel, and that content almost never has an immediate return (Kata 10 at 11:25; Kata 10 at 15:23).
+Breaks: posting with no way to test the product meanwhile. About his own game with a core team, he says to decide within about three months whether a project lives, and that action produces information (Kata 12 at 5:44; Kata 12 at 2:31).
+Holds: launching with one working feature. He says once one feature works, stop building and put all energy into marketing and sales (Kata 11 at 21:38).
+Holds: an audience as the way to get feedback. At Aeos he posts a story, people come, play and give feedback, and each round raises resolution (Kata 12 at 31:18).
+Holds: daily posting needs staying power. He says new creators quit within two months because views dip after the first week, and that his school forces students to put out 90 videos (Why Belief Matters at 22:22).
+Disagrees: distribution is about 10 times more valuable than product, said on 2026-07-16 (Kata 10 at 0:56).
+Disagrees: there is no substitute for building what people want, said on 2026-10-18 on a podcast as a guest (KK Create at 23:43).
+Also: he calls building for two years before testing a very big risk, because the direction can be completely off, and says many people do this after raising money (Kata 12 at 5:44).
+Also: for his game he describes one demo or trailer as having three outcomes: great feedback so continue, unclear so get more data, or a waste of time so shut it down (Kata 12 at 5:44).
+Also: for raising your own level he lists shipping in public, ignoring ridicule and collecting usable feedback (Kata 4 at 49:04).
+Source: Kata 10, https://www.youtube.com/watch?v=TGKgCLVxRCk
+Source: Kata 12, https://www.youtube.com/watch?v=mwQhnZ32CeE
+Source: Kata 11, https://www.youtube.com/watch?v=0tbeJZYvsg4
+Source: Kata 4, https://www.youtube.com/watch?v=mPjj7-eHw1s
+Source: Masters Union, https://www.youtube.com/watch?v=NIQwPD6a-d4
+Source: Why Belief Matters, https://www.youtube.com/watch?v=jreQIik5jlE
+Source: KK Create, https://www.youtube.com/watch?v=A37ca5F9oG8
+Not in his videos: either position stated for a student founder with a finished product, advice for a solo student founder, how long to post before launching, daily posting as a practice, whether a strict posting schedule lowers the quality of videos, reaching early adopters by cold email or a personal visit as against a billboard, marketing as clarity where education is acquisition, and whether this product should launch now. The decision is yours.
+
+== Seat: khe-brain-yc (Y Combinator) ==
+Against the pieces read, a three-month wait to post daily before launching breaks three stated positions on launch timing, and no piece read covers daily posting as a way to build an audience. Michael Seibel said in a talk the library dates to 2019 that the one thing to take from it is "launch something bad, quickly", and he redefined launch for pre-launch founders as the moment you get any customers (How to plan an MVP). Kat Manalac, in a talk the library dates to 2023, answered the question of when to launch with as soon as possible (The best way to launch your startup).
+Breaks: holding a working MVP back for three months; Paul Graham's April 2006 essay says he has seen many startups die from releasing too slowly and none from releasing too quickly (The Hardest Lessons for Startups to Learn).
+Breaks: three months with no one using it; Kat Manalac said in the 2023 talk that if the first version takes six months to reach anyone, the startup may be dead before another chance to launch, a line about six months and not about a built MVP held back for three (The best way to launch your startup).
+Breaks: broadcast reach as the first step; Ankit Gupta said in a talk the library dates to 2026 to use targeted personal outreach, such as a cold email or a knock on the door, and set it against a billboard as a way to reach early adopters (How To Get Your First Users), and Paul Graham's July 2013 essay says recruiting users manually is the most common unscalable thing founders must do at the start (Do Things that Don't Scale).
+Holds: Kat Manalac said in talks the library dates to 2019 and 2023 to start building your own community while still in Startup School, with an email list as her example (How to launch again and again; The best way to launch your startup).
+Holds: Michael Seibel, in a talk the library dates to 2019, gave a pre-launch startup four jobs in order: launch quickly, get some initial customers, talk to those users for feedback after the launch, and iterate (How to plan an MVP).
+Disagrees: Paul Graham's April 2006 essay reports no startup dying from releasing too quickly, while his October 2006 essay allows that launching too early is possible and can ruin a reputation (The Hardest Lessons for Startups to Learn; The 18 Mistakes That Kill Startups).
+Source: How to plan an MVP, https://www.ycombinator.com/library/6f-how-to-plan-an-mvp
+Source: The best way to launch your startup, https://www.ycombinator.com/library/Ir-the-best-way-to-launch-your-startup
+Source: The Hardest Lessons for Startups to Learn, https://paulgraham.com/startuplessons.html
+Source: The 18 Mistakes That Kill Startups, https://paulgraham.com/startupmistakes.html
+Source: How To Get Your First Users, https://www.ycombinator.com/library/ND-how-to-get-your-first-users
+Source: Do Things that Don't Scale, https://paulgraham.com/ds.html
+Source: How to launch again and again, https://www.ycombinator.com/library/6i-how-to-launch-again-and-again
+Not in the corpus: daily posting, content marketing or community building in depth as ways to build an audience, distribution weighed against product as a first priority, building media before an ambitious company in India, any guidance for a student founder in India or outside the United States, and how a solo founder should sequence the two. About 320 library entries and more than 200 Paul Graham essays were not read, so this is silence in the pieces read and not at Y Combinator.
+
+== Seat: khe-brain-harshit (Harshit Khemani) ==
+The plan breaks on its waiting step: he says the best startups enter the market early and let reality teach them, since clarity comes after action (2026-05-14-best-startups-often-built). He also says content is trust built in public one post at a time, so the posting half of the plan has a post behind it (2025-07-06-marketing-isn-t-department).
+Breaks: three months of holding a working MVP back; he says to stop making excuses and start shipping, and that an MVP tests whether anyone will use it (2026-05-20-jamboree-cooking-hard-one; 2025-07-07-most-people-misunderstand-mvps).
+Breaks: the plan lets the audience stand in for the market; he says to build something real, put it out there and let the ecosystem respond (2026-04-06-longest-time-synergy).
+Holds: daily public posting as the channel; he says marketing is trust and clarity built in public, and that if a product needs explaining, education is acquisition (2025-07-06-marketing-isn-t-department).
+Holds: X as the place to post; in a reply he said X worked well for him (2026-07-04-xoaanya-x-worked-well).
+Also: in a reply about a game, he agreed that shipping on an existing platform such as Roblox gives easy distribution (2026-09-13-jawadmakes-true-easy-distribution).
+Source: 2026-05-14-best-startups-often-built, https://x.com/HarshitKhemani/status/2054933799977595056
+Source: 2025-07-06-marketing-isn-t-department, https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7347652046616961024
+Source: 2026-05-20-jamboree-cooking-hard-one, https://x.com/HarshitKhemani/status/2057083461509509464
+Source: 2025-07-07-most-people-misunderstand-mvps, https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7347971016347873281
+Source: 2026-04-06-longest-time-synergy, https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7446912340530483201
+Source: 2026-07-04-xoaanya-x-worked-well, https://x.com/HarshitKhemani/status/2073352622103511430
+Source: 2026-09-13-jawadmakes-true-easy-distribution, https://x.com/HarshitKhemani/status/2099078609684381813
+Not in his posts: whether to build an audience before launching, a three-month window or a daily cadence, and a solo founder with no audience; also no post ranks distribution against product or says a founder in India must first build media, none says a posted story brings people who play and give feedback in rounds, and none treats content as a luck catcher or says it has no immediate return; the call is yours.
+
+== Seat: khe-brain-isb (the ISB notes) ==
+The notes do not cover whether a founder with a working MVP and no audience posts daily for three months before launching or launches first. The repository lists nine sets of notes, and no rule file is about sequencing audience-building against launch (isb-skills: README.md).
+Nearest: one file says each build, measure, learn cycle completes with real customer feedback about customer assumptions, and says nothing about audience or content (Entrepreneurship: The Build-Measure-Learn Loop).
+Nearest: Twinkle Uppal says Hoop built a customer waitlist of 1 lakh people by marketing and building its social accounts before launch, and says nothing about a founder who has an MVP and no audience (ivi: Building a consumer health brand, Twinkle Uppal, 4 Apr 2025).
+Nearest: Madhu Viswanathan says regular posting matters more than frequent posting, and says nothing about daily posting for three months (ivi: Digital marketing communication, paid owned and earned media, Madhu Viswanathan, 1 Jul 2025).
+Source: isb-skills: README.md, https://github.com/HKTITAN/isb-skills/blob/060ee06/README.md
+Source: Entrepreneurship: The Build-Measure-Learn Loop, https://github.com/HKTITAN/isb-skills/blob/060ee06/skills/entrepreneurship/rules/lean-the-build-measure-learn-loop.md
+Source: ivi: Building a consumer health brand, Twinkle Uppal, 4 Apr 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-04-04-uppal-hoop-building-a-consumer-brand.md
+Source: ivi: Digital marketing communication, paid owned and earned media, Madhu Viswanathan, 1 Jul 2025, https://github.com/HKTITAN/skills/blob/main/skills/khe-brain-isb/ivi/2025-07-01-viswanathan-digital-marketing-communication.md
+Not in the notes: which order to do the two in, a three-month period, a solo founder, a student founder or India; the session lines were heard through an automatic transcript and are one speaker's each, and the notes give no source for any figure used. The other ivi files were not read for this answer.
+
+== Seat: khe-brain-enrico (Enrico Tartarotti) ==
+The videos read do not cover whether a solo founder with a working product should spend three months posting daily to build an audience before launching, or launch first and build distribution after (His channel). The corpus is the 88 long videos on the channel, and a position on that trade-off is not in the videos read.
+Nearest: in January 2023 he says that if you can build in a weekend instead of a year, you can skip the interviews, launch and see whether people use it, and try a new startup every week (Do You Have a Genius Startup Idea at 7:30).
+Also: on his own channel in 2021, he says a strict schedule of eight videos in eight weeks gave him mediocre videos, because they had to go out (How I'm Saving My Dying YouTube Channel at 3:00).
+Also: in February 2023 he says it took almost two years of making videos to reach 4,000 subscribers, and then the channel went to 40,000 in under 20 days (What Actually Happens When You Blow Up On YouTube at 0:00).
+Also: in July 2025 he says YouTubers quit because of YouTube's own design, in the algorithm and the interface, and not because they tire of making videos (How YouTube is Designed To Make YouTubers Quit at 0:00).
+Source: His channel, https://www.youtube.com/@enricotartarotti/videos
+Source: Do You Have a Genius Startup Idea, https://www.youtube.com/watch?v=HABFEs90MZ8
+Source: How I'm Saving My Dying YouTube Channel, https://www.youtube.com/watch?v=PaGAVBBCv6s
+Source: What Actually Happens When You Blow Up On YouTube, https://www.youtube.com/watch?v=0V25aY4TM4I
+Source: How YouTube is Designed To Make YouTubers Quit, https://www.youtube.com/watch?v=lGZvhW27WX0
+Not in his videos: whether to build an audience before launching a product, how much posting an audience takes, and anything on a founder in India. The videos read do not cover new creators quitting within two months, views dipping after the first week, or a school requiring 90 videos. His short videos, posts and newsletter were not read. The decision is yours.
+
+== Chair ==
+Agree: A working MVP goes in front of real users now, and holding it back for three months breaks each seat's cited position. [varun: Kata 11 at 21:38] [yc: The Hardest Lessons for Startups to Learn] [harshit: 2026-05-20-jamboree-cooking-hard-one]
+Agree: What real users do after release, not time spent preparing, decides the next step. [varun: Kata 12 at 5:44] [yc: How to plan an MVP] [harshit: 2026-04-06-longest-time-synergy]
+Agree: Building your own audience in public is worth starting early, as trust and a feedback channel. [varun: Kata 12 at 31:18] [yc: How to launch again and again] [harshit: 2025-07-06-marketing-isn-t-department]
+Disagree: Which comes first, media or launch. What Varun Mayya has published suggests distribution is worth about 10 times the product and that a founder with a really ambitious aim in India must first build media [varun: Kata 10 at 0:56] [varun: Masters Union at 49:09]; what Y Combinator has published suggests a pre-launch startup launches quickly and gets initial customers first [yc: How to plan an MVP]. Why: a different audience and country, since the first line is about really ambitious founders in India and the second is about pre-launch startups with no country named.
+Disagree: How the first users are reached. What Varun Mayya has published suggests a posted story brings people who play and give feedback in rounds [varun: Kata 12 at 31:18]; what Y Combinator has published suggests targeted personal outreach, a cold email or a knock on the door, set against a billboard [yc: How To Get Your First Users]. Why: a different stage, since the first line describes his own company posting to people who already come and the second is about reaching early adopters at the start.
+Disagree: What daily posting is for. What Varun Mayya has published suggests content is a luck catcher with almost never an immediate return, not a traffic funnel [varun: Kata 10 at 11:25] [varun: Kata 10 at 15:23]; what Harshit Khemani has published suggests public posting is the channel, where education is acquisition [harshit: 2025-07-06-marketing-isn-t-department]. Why: the pieces do not say.
+Not covered: No cited line answers for a solo student founder, sets a three-month window or a daily cadence, says how one person splits time between posting and selling, or says whether this product is ready to launch.
+Recommendation (khe-decision's synthesis, not the view of anyone cited): Launch now to a small number of users reached one by one through direct personal outreach, and start posting in public the same week. Treat the posts as trust and a feedback channel that pays back late, not as the launch funnel. At three months, decide from real usage whether the product continues, changes or stops.
+Rests on: [varun: Kata 11 at 21:38] [varun: Kata 12 at 5:44] [varun: Kata 10 at 11:25] [yc: The Hardest Lessons for Startups to Learn] [yc: How to plan an MVP] [yc: How To Get Your First Users] [harshit: 2026-05-14-best-startups-often-built] [harshit: 2025-07-06-marketing-isn-t-department]
+Would change it: A first release rough enough to ruin the product's reputation with the few buyers it can reach, the one case a cited line allows for launching too early. [yc: The 18 Mistakes That Kill Startups]
+Not verified: no cited video, essay or post was opened again for this reply, so each line is as good as its brain's reference files; video times come from automatic captions and are good to about two minutes; khe-brain-isb and khe-brain-enrico were seated on doubt and came back silent; nothing here was tested against the founder's product, market or numbers.
+A reading by Harshit Khemani of public work. Nobody cited here wrote or endorsed it.

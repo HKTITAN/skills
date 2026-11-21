@@ -1,0 +1,6 @@
+<!-- good: the same reply with the one fault fixed. -->
+Decision: Should our app use Postgres or MySQL?
+Council: not convened. 7 installed brains; none covers it.
+Not covered: which database engine suits the app, and any database or backend practice. A search of the brains' reference files for the engine names found no piece on either, and two of the brains list backend and database work as outside their corpus.
+Next: nothing in this collection answers it.
+Not verified: Only the reference files of the installed brains were searched, and only for the engine names; the brains' source lists were not read piece by piece.

@@ -24,7 +24,7 @@ npx skills add HKTITAN/skills --skill khe-auto
 
 Every request lands in one of five domains. Most of the skills are linked from their authors' repos rather than kept here; the counts are the rows in SKILL.md's domain tables.
 
-![The five domains and how many skills each routes to: Design 9 here and 22 linked, Code 12 linked, Brains 7 here, Content 1 here, Engineering 1 here and 34 linked](assets/domains.svg)
+![The five domains and how many skills each routes to: Design 9 here and 22 linked, Code 12 linked, Brains 8 here, Content 1 here, Engineering 1 here and 34 linked](assets/domains.svg)
 
 ## Used
 

@@ -6,6 +6,7 @@ What changed in kheSkills, newest first. One entry per day that something a user
 
 ### Added
 
+- `khe-decision` (in `kheskills` 1.3.0) puts one decision to a council whose seats are the installed brain skills, found by folder. Each seat answers only from its own brain, in that brain's own citation format, and is judged by that brain's own gate; a fresh chair cites only what a seat cited, after one cross-check round, and writes a recommendation labelled as the skill's own synthesis. There is no council on fewer than two relevant brains. Its gate is `decision-check.mjs`. The council idea comes from [autodecision](https://github.com/harshilmathur/autodecision) by Harshil Mathur (MIT); none of its text or code is copied.
 - An `llms.txt` at the root lists every khe skill with its description and a link to its `SKILL.md`, so an agent can pick one without cloning the repo. `scripts/marketplace.mjs` writes it and `scripts/check.mjs` fails while it is out of date. The install manifests carry wider keywords too; `kheskills` and `khe-brain` serve the same files, so their versions stay.
 
 ### Changed

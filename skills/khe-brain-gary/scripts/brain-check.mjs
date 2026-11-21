@@ -198,12 +198,14 @@ const quotesIn = (s) => [...s.matchAll(/"([^"\n]+)"/g)].map((m) => m[1])
 // A span in single quotes of QUOTE_MIN words or more is a quote too. A span
 // opens only on an apostrophe that follows the start, whitespace or an opening
 // bracket and comes before a letter, so a contraction or a possessive (Gary's,
-// players') never opens one and neither does a decade ('90s). It closes only on
+// players') never opens one and neither does a decade ('90s) or a known
+// elision ('em, 'til, 'cause, 'n', 'bout, 'round), which also stays inside a
+// span without ending it. It closes only on
 // an apostrophe that comes before the end, whitespace or punctuation. An
 // apostrophe between two letters inside a span (don't, anyone's) belongs to the
 // span and does not end it. A span nested in double quotes is already counted
 // there.
-const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<=^|[\s([{])'(?=[A-Za-z])((?:[^'\n]|(?<=[A-Za-z])'(?=[A-Za-z]))*?[^\s'])'(?=$|[\s.,;:!?)\]}])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
+const singleQuotesIn = (s) => [...s.replace(/"[^"\n]*"/g, ' ').matchAll(/(?<=^|[\s([{])'(?=[A-Za-z])(?!(?:[Ee]m|[Tt]il|[Cc]ause|[Bb]out|[Rr]ound|n)(?![A-Za-z]))((?:[^'\n]|(?<=[A-Za-z])'(?=[A-Za-z])|(?<=\s)'(?=(?:[Ee]m|[Tt]il|[Cc]ause|[Bb]out|[Rr]ound|n)(?![A-Za-z])))*?[^\s'])'(?=$|[\s.,;:!?)\]}])/g)].map((m) => m[1]).filter((q) => wordCount(q) >= QUOTE_MIN)
 const allQuotesIn = (s) => [...quotesIn(s), ...singleQuotesIn(s)]
 // Quoted spans and backticked spans are someone's exact words. They are not
 // judged as the reply's own wording.
@@ -651,6 +653,13 @@ function selfTest() {
   say(!shortContraction.includes('long-quote'), `a short span in single quotes that holds a contraction raises no long-quote${shortContraction.length ? ` (got ${shortContraction.join(', ')})` : ''}`)
   const mixed = reply(`In the '90s he wrote 'you don't need a bigger budget or a longer plan or a better pitch or more time or anyone's permission to start ever' and the early adopters' parents read it (${c0}).`, src, end)
   say(mixed.includes('long-quote'), 'a decade, a long span with contractions and a plural possessive in one sentence raise long-quote for the span')
+  // An elision ('em, 'til, 'cause, 'n', 'bout, 'round) never opens a span, so it cannot run to a later plural possessive.
+  const elision = reply(`He told 'em to wait until the season was over and then to ask the coaches why the players' families left early (${c0}).`, src, end)
+  say(!elision.includes('long-quote'), `an opening elision before a later plural possessive raises no long-quote${elision.length ? ` (got ${elision.join(', ')})` : ''}`)
+  const elisions = reply(`He said 'til the last day, 'cause the rock 'n' roll crowd came 'round and the coaches' kids heard 'bout it from the early adopters' parents (${c0}).`, src, end)
+  say(!elisions.includes('long-quote'), `'til, 'cause, 'n', 'round and 'bout with plural possessives raise no long-quote${elisions.length ? ` (got ${elisions.join(', ')})` : ''}`)
+  const insideElision = reply(`He wrote 'you tell 'em what you need and you don't need a bigger budget or a longer plan or a better pitch or more time to start ever' (${c0}).`, src, end)
+  say(insideElision.includes('long-quote'), 'an elision inside a real long span in single quotes does not hide it')
   const honest = reply(`In the '90s the early adopters' parents didn't wait, the players' families came to every game, and it's still true that nobody's keeping score (${c0}).`, src, end)
   say(!honest.includes('long-quote'), `a decade, a plural possessive and contractions outside any span raise no long-quote${honest.length ? ` (got ${honest.join(', ')})` : ''}`)
 

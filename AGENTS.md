@@ -25,7 +25,7 @@ agents/           the kheAgents, Claude Code subagents the kheskills plugin ship
 orchestration/    CLAUDE.md, the policy that uses the kheAgents, for people to paste into their own
 cheatsheets/      one Problem | Solution table per skill
 scripts/          check.mjs, the checks CI runs; marketplace.mjs, which writes every install manifest; pr-check.mjs, which reads a PR body
-PYRAMID.md       every correction placed with khe-poteto-pyramid: the mistake, where it lives now, the check and its proof
+PYRAMID.md        every correction placed with khe-poteto-pyramid: the mistake, where it lives now, the check and its proof
 .github/PULL_REQUEST_TEMPLATE.md   the four sections every PR body fills
 ```
 
@@ -53,7 +53,7 @@ If the answer is a new skill, build it in this order, and tell the user which ro
 6. Run it on real work beside a run without it. When a result is wrong, change the skill, never the one result.
 7. Wire it in (see The router) and run the checks.
 
-A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login. Its silent list is written last, after the theme files are final, by CONTRIBUTING.md.
+A skill built from one person's published work (a "brain" skill, `khe-brain-<name>`) cites every claim to its public source, writes every sentence fresh, keeps a list of what the person has not covered, and never uses material from behind a paywall or a login. Its silent list is written last, after the theme files are final, as CONTRIBUTING.md says.
 
 ## Where people install from
 
@@ -87,7 +87,7 @@ Claude Code shows a plugin's commands as `/plugin:command`. `.claude-plugin/mark
 
 - The skill folder keeps its own name (`khe-brain-varun`) for `npx skills add`, so installs and links do not break. The command carries the full name.
 - The layout keeps the two plugins apart, because Claude Code loads a plugin root's `commands/` and `agents/` whatever its entry lists (an empty list falls back to the default folder). `kheskills` is rooted at `./`, so there is no `commands/` at the repo root. `khe-brain` is rooted at `./skills`, which has no `agents/`, `commands/` or `skills/` of its own, so it loads the brain commands and nothing else. It lists each brain's `commands/` folder, since `claude plugin details` (2.1.325) loads nothing from file entries in `commands`, so that folder holds the command and nothing else. It lists no skills: with the brain folders listed, each brain would show twice.
-- A new brain adds `skills/khe-brain-<x>/commands/<full-name>.md` and its name in the Brains group of `skills.sh.json`; `node scripts/marketplace.mjs` adds it to the plugin's `commands` list and description. `scripts/check.mjs` fails when a brain has no command or more than one, when a command reads another folder's skill, and when a root `commands/` folder exists. It also runs `scripts/silent-check.mjs`, which fails when a silent row's watch word, or its topic as a phrase, appears in a cited claim of the same brain; the older brains' watch-word hits are listed in that script with a reason each, and a new brain has none. It also runs `scripts/uncited-check.mjs`, which fails a reference-file paragraph, numbered idea, intro or reporting line that speaks for the person and cites nothing; `khe-brain-gary`'s eight sentences are listed there, each older brain with a hit is held at a ceiling, and a new brain has none.
+- A new brain adds `skills/khe-brain-<x>/commands/<full-name>.md` and its name in the Brains group of `skills.sh.json`; `node scripts/marketplace.mjs` adds it to the plugin's `commands` list and description. `scripts/check.mjs` fails when a brain has no command or more than one, when a command reads another folder's skill, and when a root `commands/` folder exists. It also runs `scripts/silent-check.mjs`, which fails when a silent row's watch word, or its topic as a phrase, appears in a cited claim of the same brain; the older brains' watch-word hits are listed in that script with a reason each, and a new brain has none. It also runs `scripts/uncited-check.mjs`, which fails a reference-file paragraph, numbered idea, intro or reporting line that speaks for the person and cites nothing; it is enforced outright for `khe-brain-gary`, `khe-brain-isb` and `khe-brain-yc`, five older brains are held at a ceiling on their hit count, and a new brain has none.
 - Check a change with `claude plugin validate . --strict` (CI runs it too).
 
 ## Rules for every skill

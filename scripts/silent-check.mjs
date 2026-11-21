@@ -134,7 +134,7 @@ export function checkBrain(name, dir) {
   const hits = silentClashes(silent, claims);
   const keys = hits.map(wordKey);
   const how = () => "narrow or delete the row to what no cited claim covers, and point it at the theme file in `references/` that holds the wider topic";
-  hits.forEach((h, i) => { if (!allowed.has(keys[i])) problems.push(`skills/${name}/references/silent.md: ${h}; the row says the corpus does not cover a topic a theme file does: ${how()}`); });
+  hits.forEach((h, i) => { if (!allowed.has(keys[i])) problems.push(`skills/${name}/references/silent.md: ${h}; the row says the corpus does not cover a topic a theme file does: ${how()}; or, when the claim uses the word in another sense (a cited claim added later does), add it to WORD_ALLOW in scripts/silent-check.mjs with its reason (older brains only, a new brain narrows the row)`); });
   for (const a of allowed) if (!keys.includes(a)) problems.push(`scripts/silent-check.mjs: WORD_ALLOW["${name}"] lists "${a}", which no cited claim matches now; delete the entry`);
   for (const h of topicClashes(silent, claims)) problems.push(`skills/${name}/references/silent.md: ${h}; the row says the corpus does not cover a topic a theme file does: ${how()}`);
   return { problems, notes: allowed.size ? [`${name}: ${allowed.size} watch-word hits allowed (${allow.why})`] : [], silent, claims, hits: keys };
@@ -175,7 +175,7 @@ function selfTest() {
     const r = checkAll(tmp);
     const by = (n) => checkBrain(n, join(tmp, n)).problems;
     say(by("khe-brain-clean").length === 0, "a brain whose theme files hold none of its silent topics passes");
-    say(by("khe-brain-word").length === 1 && /cost-plus/.test(by("khe-brain-word")[0]) && /narrow or delete the row/.test(by("khe-brain-word")[0]), "a watch word in a cited claim fails, and the error says to narrow the row and point at the theme file");
+    say(by("khe-brain-word").length === 1 && /cost-plus/.test(by("khe-brain-word")[0]) && /narrow or delete the row/.test(by("khe-brain-word")[0]) && /WORD_ALLOW/.test(by("khe-brain-word")[0]), "a watch word in a cited claim fails, and the error says to narrow the row and point at the theme file, or to add the other sense to WORD_ALLOW");
     say(by("khe-brain-topic").length === 1 && /"Taxes" is in a claim at theme\.md:3/.test(by("khe-brain-topic")[0]), "a row's topic as a phrase in a cited claim fails, and a topic only a cited title holds does not");
     say(by("khe-brain-plain").length === 1 && /"Interface sound"/.test(by("khe-brain-plain")[0]), "a table without a watch-word column (topic only) is read, and its topic is checked");
     say(r.problems.length === 3, `checkAll reads every khe-brain-* folder and gathers the three faults (${r.problems.length})`);

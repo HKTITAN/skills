@@ -96,3 +96,5 @@ The order of the seats is the order of the listing, so the person can run it aga
 ## Later brains
 
 A brain added after this file was written takes a seat the day it is installed: it appears on the listing, it is walked through Seating like the rest, and its own gate judges its block. Nothing here changes.
+
+A recorded reply does change. Its `Council:` line counts the brains installed on the day it ran, so every gold reply in `examples/` goes stale the day a brain is added or removed. Inside this repo the self-test holds each gold reply to `--gate --strict` and fails on the unaccounted brain. The fix is to convene that council again with the new brain walked through Seating, never to add the brain's name to the `Council:` line by hand: a brain that covers the decision owes the reply a seat block, and the chair has to read it.

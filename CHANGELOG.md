@@ -6,7 +6,7 @@ What changed in kheSkills, newest first. One entry per day that something a user
 
 ### Added
 
-- An `llms.txt` at the root lists every khe skill with its description and a link to its `SKILL.md`, so an agent can pick one without cloning the repo. `scripts/marketplace.mjs` writes it and `scripts/check.mjs` fails while it is out of date. The install manifests carry wider keywords too.
+- An `llms.txt` at the root lists every khe skill with its description and a link to its `SKILL.md`, so an agent can pick one without cloning the repo. `scripts/marketplace.mjs` writes it and `scripts/check.mjs` fails while it is out of date. The install manifests carry wider keywords too; `kheskills` and `khe-brain` serve the same files, so their versions stay.
 
 ### Changed
 

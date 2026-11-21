@@ -161,6 +161,7 @@ const describe = (d) => {
   return text.replace(/\s+/g, ' ').trim()
 }
 const entry = (d) => `- [${d}](${RAW}/skills/${d}/SKILL.md): ${describe(d)}`
+for (const d of kheAll) if (!describe(d) || /^[>|][+-]?$/.test(describe(d))) problems.push(`skills/${d}/SKILL.md: llms.txt needs a one-line description; a YAML block scalar is not read`)
 const groups = JSON.parse(readFileSync(join(ROOT, 'skills.sh.json'), 'utf8')).groupings
 const grouped = new Set(groups.flatMap((g) => g.skills))
 const llmsGroups = groups.map((g) => ({ ...g, skills: g.skills.filter((d) => kheAll.includes(d)) })).filter((g) => g.skills.length)
@@ -169,7 +170,7 @@ if (more.length) llmsGroups.push({ title: 'More', skills: more })
 const llmsText = [
   '# kheSkills',
   '',
-  `> The ${kheAll.length} agent skills Harshit Khemani uses with coding agents: Claude Code, Codex, Cursor and anything else that reads a SKILL.md. Each is a folder with a SKILL.md. \`khe-auto\` is the router that picks the one a job needs.`,
+  `> The ${kheAll.length} agent skills I (Harshit Khemani) use with coding agents: Claude Code, Codex, Cursor and anything else that reads a SKILL.md. Each is a folder with a SKILL.md. \`khe-auto\` is the router that picks the one a job needs.`,
   '',
   '## Install',
   '',

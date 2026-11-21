@@ -1,6 +1,6 @@
 # kheSkills
 
-> The 19 agent skills Harshit Khemani uses with coding agents: Claude Code, Codex, Cursor and anything else that reads a SKILL.md. Each is a folder with a SKILL.md. `khe-auto` is the router that picks the one a job needs.
+> The 19 agent skills I (Harshit Khemani) use with coding agents: Claude Code, Codex, Cursor and anything else that reads a SKILL.md. Each is a folder with a SKILL.md. `khe-auto` is the router that picks the one a job needs.
 
 ## Install
 

@@ -56,7 +56,7 @@ A skill built from one person's published work (a "brain" skill, `khe-brain-<nam
 
 ## Where people install from
 
-Three install paths read this repo, each through its own manifest. `scripts/marketplace.mjs` writes all of them, and `llms.txt` (the index agents read first), from the folders, so after adding, renaming or removing a skill, an agent or a command, run `node scripts/marketplace.mjs` and commit what it changed. `scripts/check.mjs` fails while any of them is out of date or breaks its spec.
+Three install paths read this repo, each through its own manifest. `scripts/marketplace.mjs` writes all of them, and `llms.txt`, from the folders, so after adding, renaming or removing a skill, an agent or a command, run `node scripts/marketplace.mjs` and commit what it changed. `scripts/check.mjs` fails while any of them is out of date or breaks its spec.
 
 | Path | Reads | What it gets |
 |---|---|---|

@@ -1,6 +1,6 @@
 <!-- too-few-seats: padded-council. One seat convened as a council: with fewer than two voices there is nothing to agree or disagree on, and the reply is that brain's answer with extra steps. Hand the question to the one brain, or use the not-convened form. -->
 Decision: Should we build in private for a year before showing the product to anyone outside the team?
-Council: 1 of 7 installed brains seated. Seated: khe-brain-varun. Left out: khe-brain-emil (interface motion and craft only), khe-brain-benji (design writing, no rule on when to ship).
+Council: 1 of 7 installed brains seated. Seated: khe-brain-varun. Left out: khe-brain-emil (interface motion and craft only), khe-brain-benji (design writing, no rule on when to ship), khe-brain-enrico (not asked), khe-brain-harshit (not asked), khe-brain-yc (not asked), khe-brain-isb (not asked).
 
 == Seat: khe-brain-varun (Varun Mayya) ==
 His advice runs against a long build before any test: he calls building for two years before testing a very big risk (Kata 12 at 5:44), and says to stop building once one feature works and put all energy into marketing and sales (Kata 11 at 21:38).

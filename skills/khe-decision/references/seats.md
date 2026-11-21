@@ -56,7 +56,7 @@ Brain: {brain folder name}
 Path: {path to that brain's folder, from the seats listing}
 
 1. Read {path}/SKILL.md in full and work as that skill. Follow every step of its workflow, including its check for silence, its check for disagreements and its own gate.
-2. Name the job the way that skill's first step does. A decision is tested against the published material where the skill has a pressure-test job, and answered as a direct question where it does not. Never use a drafting job.
+2. Name the job the way that skill's first step does. A decision is tested against the published material where the skill has a pressure-test job, and answered as a direct question where it does not. Never use a drafting job. A decision with two branches is tested on each branch: silence is the reply only when the references cover neither, because a seat that tests one branch and reports silence hides what its corpus says about the other.
 3. Answer only from the reference files of that skill. Open no other skill, no other brain and no web page, and add nothing you remember about the person or the institution.
 4. Where the references do not cover the decision, give that skill's silent answer in that skill's form. Silence is a complete and correct reply. Never build a position from the nearest line.
 5. Write the reply in that skill's Output format and nothing else: no greeting, no summary, no advice of your own, no recommendation. Stay inside every limit of that Output format (line caps, quote caps).
@@ -96,3 +96,7 @@ The order of the seats is the order of the listing, so the person can run it aga
 ## Later brains
 
 A brain added after this file was written takes a seat the day it is installed: it appears on the listing, it is walked through Seating like the rest, and its own gate judges its block. Nothing here changes.
+
+A recorded reply does change. Its `Council:` line counts the brains installed on the day it ran, so every gold reply in `examples/` goes stale the day a brain is added or removed. Inside this repo the self-test holds each gold reply to `--gate --strict` and fails on the unaccounted brain. The fix is to convene that council again with the new brain walked through Seating, never to add the brain's name to the `Council:` line by hand: a brain that covers the decision owes the reply a seat block, and the chair has to read it.
+
+What a re-convening is depends on what Seating does with the new brain. When Seating leaves it out, the `Council:` line with that brain's reason, and the count, are the whole change: no seat runs again. When Seating seats it, the council runs again from the seats: every seat answers fresh and blind, there is one cross-check, and a fresh chair writes the block. Never add a seat to a finished reply and cross-check the old blocks a second time: that is the second cross-check the skill forbids, and it leaves lines in one block answering lines another block has since dropped.

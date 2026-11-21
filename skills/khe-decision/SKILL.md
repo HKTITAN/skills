@@ -89,7 +89,7 @@ Check these before handing over.
 
 ## Examples
 
-`examples/` holds two gold council replies, both real runs: `audience-or-launch.txt`, a startup and content decision where five brains were seated, three spoke and three disagreements were kept; and `most-seats-silent.txt`, an interface decision where three brains were left out, two of the four seats came back silent, and the two that spoke agree on the call and still split on two points. Start a reply from the one closer to your case and keep its parts. `node scripts/decision-check.mjs examples --gate` checks every gold reply.
+`examples/` holds two gold council replies, both real runs: `audience-or-launch.txt`, a startup and content decision where six brains were seated, five spoke and five disagreements were kept; and `most-seats-silent.txt`, an interface decision where four brains were left out, two of the four seats came back silent, and the two that spoke agree on the call and still split on two points. Start a reply from the one closer to your case and keep its parts. `node scripts/decision-check.mjs examples --gate` checks every gold reply.
 
 `teaching/` holds bad/good pairs ([teaching](references/teaching.md)) for diagnosing a fault, one folder per gate line; the bad halves are never starting points.
 

@@ -4,10 +4,15 @@ on:
   push:
     branches: [main]
   pull_request:
+    types: [opened, synchronize, reopened, edited]
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   skills:
@@ -28,6 +33,8 @@ jobs:
           for f in scripts/*.mjs skills/*/scripts/*.mjs; do node --check "$f"; done
       - name: Every gate passes its own self-test
         run: node skills/khe-auto/scripts/gate-all.mjs
+      - name: The PR check passes its own self-test
+        run: node scripts/pr-check.mjs --self-test
       - name: Markdown lint
         run: npx -y markdownlint-cli@0.41.0 '**/*.md' --ignore '**/node_modules/**' --config .github/markdownlint.jsonc
       - name: The skills CLI finds every skill
@@ -41,3 +48,17 @@ jobs:
           echo "$out" | grep -Eq "Found[^0-9]*${want}[^0-9]*skills" || { echo "$out"; echo "::error::npx skills add must find ${want} skills"; exit 1; }
       - name: Claude Code accepts the marketplace
         run: npx -y @anthropic-ai/claude-code@2.1.325 plugin validate . --strict
+
+  pr-body:
+    name: PR body
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: The body fills every section of the template
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: node scripts/pr-check.mjs

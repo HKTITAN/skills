@@ -5,7 +5,7 @@ summary: Where he says consumer attention sits and how it moves, what underprice
 
 # Attention and media shifts
 
-This file collects what he said about where attention sits and how it moves. The material comes from articles of 2013 to 2021 and keynotes and interviews of 2011 to 2026, and it covers Snapchat and Instagram in 2015 and 2016, audio in 2017, TikTok in 2019 and what he calls interest media in 2025 and after. Platform lines carry their year and were his reading then; some articles on his site are partly team-written guides, and the 2018 Auckland lines in one article are reported by staff.
+This file collects what he said about where attention sits and how it moves. The material comes from articles of 2013 to 2021 and keynotes and interviews of 2011 to 2026, with platform lines on Snapchat and Instagram in 2015 and 2016, audio in 2017, TikTok in 2019 and interest media in 2025 and after. Platform lines carry their year and were his reading then; some articles on his site are partly team-written guides, and the 2018 Auckland lines in one article are reported by staff.
 
 ## Why attention is the asset
 

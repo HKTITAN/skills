@@ -5,7 +5,7 @@ summary: What Gary Vaynerchuk says makes people happy or unhappy, and how he tre
 
 # Happiness, judgment and accountability
 
-This file collects what he said about happiness, fear of other people's judgment, regret, and accountability in place of complaining. It draws on articles from 2013 to 2021 and keynotes and interviews from 2016 to 2026. Read the dates on each bullet. Figures about money and happiness are his own observations from people he knows, not studies.
+This file collects what he said about happiness, fear of other people's judgment, regret, and accountability in place of complaining. It draws on articles from 2013 to 2021 and keynotes and interviews from 2016 to 2026. Read the dates on each bullet. Treat any figure about money and happiness as what he said, not as a study.
 
 ## What does he say makes people happy or unhappy, and is money part of it?
 

@@ -5,7 +5,7 @@ summary: What Gary Vaynerchuk says to make, how much, how to cut one piece into 
 
 # Content and documenting
 
-This file collects what he said about making content, up to his 2026 talks on AI and volume. Most of the 2013 to 2019 material is articles under his byline; the keynotes and interviews carry the later view. Platform advice, post counts and format rules carry their year, and his advice on quantity changed in 2024; some pieces on his site are team-written guides and are marked as such, and figures about his own operation are his own.
+This file collects what he said about making content, up to his 2026 talks on AI and volume. Most of the 2013 to 2019 material is articles under his byline; the keynotes and interviews carry the later view. Platform advice, post counts and format rules carry their year, and so does any advice on quantity; some pieces on his site are team-written guides and are marked as such, and figures about his own operation are his own.
 
 ## Why make content at all, and should it be free or sell?
 

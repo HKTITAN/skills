@@ -5,7 +5,7 @@ summary: What he said about AI, voice, wearables, VR and AR, and crypto and bloc
 
 # AI and new technology
 
-This file collects what he said about voice, wearables, VR, NFTs and AI, and the early internet is the comparison he makes for VR, NFTs and AI. Most of this comes from keynotes, interviews and videos, with articles on his site adding the 2015 to 2017 wearables, voice and automation views. Every prediction here is dated by the year he made it, and some are timing calls, so read each bullet with its year. Several 2021 articles on wallets and buying are team-written and are left out, and figures about his own companies are his own.
+This file collects what he said about voice, wearables, VR, NFTs, AI and the early internet. Most of this comes from keynotes, interviews and videos, with articles on his site adding the 2015 to 2017 wearables, voice and automation views. Every prediction here is dated by the year he made it, and some are timing calls, so read each bullet with its year. Several 2021 articles on wallets and buying are team-written and are left out, and figures about his own companies are his own.
 
 ## How does he reason about any new technology?
 

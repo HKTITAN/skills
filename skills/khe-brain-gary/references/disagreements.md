@@ -21,7 +21,7 @@ The corpus runs from 2008 to 2026.
 - In March 2017 he agreed with Tony Robbins that the pick had moved from Snapchat to Instagram Stories in six months, and called it a moving market. (Tony Robbins Unshakeable Gratitude & Focusing on Your Steak AskGaryVee 242 at 36:00, https://www.youtube.com/watch?v=9O8haH2tHWY&t=2160s)
 - In 2024 he said he was very bullish on Snapchat Spotlight. (Complete Social Media Marketing Strategy For 2025 GaryVee Keynote at 42:45, https://www.youtube.com/watch?v=WyW_8kMQmJM&t=2565s)
 - He says he changed: on Stories in 2014, and on Snapchat being too young in January 2016. (I Made a Bad Call on Snapchat but Here's Why I'm Totally Cool With It, https://garyvaynerchuk.com/i-made-a-bad-call-on-snapchat-but-heres-why-im-totally-cool-with-it/; Deploying Against the Snap: Takeaways from Snapchatting in Vegas & Ces, https://garyvaynerchuk.com/deploying-against-the-snap-takeaways-from-snapchatting-in-vegas-ces/)
-- How to report it: Give the call for the year asked about, with its year. The 2013 Stories verdict is one he called 100% wrong in 2014, so never give it as his view without that line.
+- How to report it: Give the call for the year asked about, with its year. Never give the 2013 Stories verdict as his view without the 2014 line above.
 
 ### Facebook: organic reach, ads, and organic again
 

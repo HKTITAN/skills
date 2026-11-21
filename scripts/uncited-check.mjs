@@ -51,21 +51,7 @@ const { NOT_CORPUS } = await import(pathToFileURL(join(ROOT, "scripts", "silent-
 //   CEILING  a count, for a brain with too many hits to list one by one: more hits than the ceiling fail, and
 //            so does fewer (lower the number), so the count only goes down. A swap of one hit for another is
 //            not seen; list the hits with --dir and fix them at the source.
-const ALLOW = {
-  "khe-brain-gary": {
-    why: "to fix at source: each is a sentence in a generated reference file that states something he said or did and cites nothing (the intros of eight files, and one reporting line that restates a cited bullet). The reference files are generated from a folder outside this repo, so they are listed here and fixed there",
-    hits: [
-      "ai-and-new-technology.md | This file collects what he said about voice, wearables, VR, NFTs and A",
-      "attention-and-media-shifts.md | it covers Snapchat and Instagram in 2015 and 2016, audio in 2017, TikT",
-      "content-and-documenting.md | his advice on quantity changed in 2024",
-      "disagreements.md | The 2013 Stories verdict is one he called 100% wrong in 2014, so never",
-      "happiness-judgment-and-accountability.md | Figures about money and happiness are his own observations from people",
-      "his-story-and-businesses.md | He retells some of the same events in more than one talk",
-      "patience-hustle-and-work.md | the file has a section on how his message on hustle changed and what h",
-      "self-awareness.md | In 2017 and 2019 he said his advice is one person's point of view",
-    ],
-  },
-};
+const ALLOW = {};
 const CEILING = {
   "khe-brain-benji": { max: 14, why: "intro and reporting-line sentences in the older brains' format; about one in seven is a description of the file the rule does not know, the rest state what he built, wrote or has not written" },
   "khe-brain-emil": { max: 17, why: "the same: reporting lines such as \"He has not written a line that reconciles them\" and one-line scope statements" },

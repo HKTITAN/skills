@@ -5,7 +5,7 @@ summary: His own account of his life and companies, from a Soviet-born childhood
 
 # His story and businesses
 
-This is the biography as he tells it, assembled from talks, interviews and articles across 2008 to 2026. He retells some of the same events in more than one talk, and the figures move between tellings: store revenue, headcount, company revenue, ages and dates all differ by year. Every number about his companies is his own claim, so each bullet carries the year he said it, and where two tellings disagree they sit side by side.
+This is the biography as he tells it, assembled from talks, interviews and articles across 2008 to 2026. Read each figure with the year of its telling, because store revenue, headcount, company revenue, ages and dates all differ by year. Every number about his companies is his own claim, so each bullet carries the year he said it, and where two tellings disagree they sit side by side.
 
 ## Where he comes from, and what he sold as a kid
 

@@ -5,7 +5,7 @@ summary: What Gary Vaynerchuk means by self-awareness, why he ranks it above hus
 
 # Self-awareness
 
-This file collects what he said about self-awareness, betting on your strengths, and the weaknesses he admits. It draws on articles and keynotes from 2015 onward and, from 2021, a series of long articles and talks on insecurity, candor and self-esteem. In 2017 and 2019 he said his advice is one person's point of view, so read it that way; his figures about his own companies are his own.
+This file collects what he said about self-awareness, betting on your strengths, and the weaknesses he admits. It draws on articles and keynotes from 2015 onward and, from 2021, a series of long articles and talks on insecurity, candor and self-esteem. Read his advice as one person's point of view; his figures about his own companies are his own.
 
 ## What he means by self-awareness and why he ranks it first
 

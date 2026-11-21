@@ -5,7 +5,7 @@ summary: What Gary Vaynerchuk means by patience (macro patience, micro speed, th
 
 # Patience, hustle and work
 
-This file collects what he said about patience and hustle. It includes 2014 to 2019 articles and keynotes on hustle, and a 2021 article series and 2020s interviews on patience. Read the years, since the file has a section on how his message on hustle changed and what he says he was misread on. Figures about his own hours and businesses are his own statements.
+This file collects what he said about patience and hustle. It includes 2014 to 2019 articles and keynotes on hustle, and a 2021 article series and 2020s interviews on patience. Read the years, since the file has a section on how the message on hustle changed and on being misread. Figures about his own hours and businesses are his own statements.
 
 ## What does he mean by patience, and how does it sit with speed?
 

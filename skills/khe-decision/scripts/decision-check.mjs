@@ -35,7 +35,7 @@ const READING = 'Nobody cited here wrote or endorsed it'
 // lines are reported for judgment and fail only under --strict.
 export const LINES = {
   'no-decision': ['never', 'The first line that is not a comment is not Decision:'],
-  'no-council-line': ['never', 'No Council: line, or it does not name every seat block as seated, or "N of M" has N above M or N different from the number of distinct seat blocks'],
+  'no-council-line': ['never', 'No Council: line, or it does not name every seat block as seated, or "N of M" has N above M, N different from the number of distinct seat blocks, or M different from the number of distinct brains the line names (seated plus left out)'],
   'duplicate-seat': ['never', 'The same brain seated twice; a brain is one seat however many blocks carry its name'],
   'seat-name': ['never', "A seat header whose name in parentheses is not the installed brain's heading name (checked only when that brain is installed)"],
   'too-few-seats': ['never', 'Fewer than two seat blocks, and the reply does not use the not-convened form'],
@@ -45,7 +45,7 @@ export const LINES = {
   'unlabelled-synthesis': ['never', `No line starting exactly "${LABEL}", or a Recommendation:/Verdict: line without it`],
   'no-rests-on': ['never', 'No Rests on: line with a chair citation, and the recommendation is not withheld'],
   'rests-on-prose': ['never', 'A Rests on: line that holds anything but chair citations: after every [seat: text] is removed, only whitespace, commas, semicolons, the word "and" and a final full stop may remain. The line lists chair citations and nothing else; a claim belongs on Agree:, Disagree: or the Recommendation line'],
-  'chair-citation': ['never', 'A chair citation [seat: text] naming a seat that is not in the reply, or whose whole text is not one of the citations that seat carries: an item inside its parentheses, a [n] marker\'s title, or a Source: title'],
+  'chair-citation': ['never', 'A chair citation [seat: text] naming a seat that is not in the reply, or whose whole text is not one of the citations that seat carries: one item inside its parentheses, the whole content of one parenthesised citation, a ;-separated list of items it carries, a [n] marker\'s title, or a Source: title'],
   'nearest-citation': ['never', 'A chair citation that the seat carries only on Nearest:, My reading: or Yours: lines, which are never a seat\'s position'],
   'recommendation-names': ['never', 'A Recommendation line that names a seated or left-out person or institution, a left-out brain as "the {short} brain" or "the {short} seat", its folder name, or a person a seat block quotes, or that carries a [seat: citation]; a citation never excuses a name there, and its citations live on Rests on:'],
   'unknown-chair-label': ['never', 'A line in the chair block that starts with none of Agree:, Disagree:, Not covered:, the Recommendation label, Rests on:, Would change it:, Not verified: or the reading line'],
@@ -302,6 +302,7 @@ function citeModel(seat) {
   const titleOf = (item) => titles.find((t) => item === t || (item.startsWith(t) && !/[a-z0-9]/.test(item[t.length]))) || null
   const items = new Set(titles)
   const uses = new Map() // title -> ['hard' | 'soft', ...]
+  const groups = new Set() // whole parenthesised citations, as written, outside Not in lines
   const cited = new Set() // line numbers that carry a citation of this seat
   for (const r of rows) {
     const t = r.text.trim()
@@ -310,17 +311,20 @@ function citeModel(seat) {
     const kind = SOFT_LINE.test(t) ? 'soft' : 'hard'
     const use = (title) => { cited.add(r.n); if (!notIn) uses.set(title, [...(uses.get(title) || []), kind]) }
     for (const g of t.matchAll(/\(([^()]+)\)/g)) {
+      let any = false
       for (const part of g[1].split(';')) {
         const item = flat(part)
         const title = titleOf(item)
         if (!title) continue
+        any = true
         if (!notIn) items.add(item)
         use(title)
       }
+      if (any && !notIn) groups.add(flat(g[1]))
     }
     for (const g of t.matchAll(/\[(\d+)\]/g)) if (byN.has(g[1])) use(byN.get(g[1]))
   }
-  return { titles, items, uses, titleOf, cited }
+  return { titles, items, groups, uses, titleOf, cited }
 }
 
 // People a seat block quotes: two or more capitalised words in a row, outside
@@ -487,6 +491,8 @@ export function checkReply(text, file, ctx = {}) {
     const count = t.match(/^Council:\s*(\d+)\s+of\s+(\d+)/i)
     if (count && Number(count[1]) !== distinct.length) add('no-council-line', councilRow.n, `the line says ${count[1]} seated and the reply has ${distinct.length} distinct seat block${distinct.length === 1 ? '' : 's'}`)
     if (count && Number(count[1]) > Number(count[2])) add('no-council-line', councilRow.n, `"${count[1]} of ${count[2]}": more brains seated than installed`)
+    const named = new Set([...seated, ...left])
+    if (count && Number(count[2]) !== named.size) add('no-council-line', councilRow.n, `"${count[1]} of ${count[2]}": the line names ${named.size} distinct brain${named.size === 1 ? '' : 's'}, seated plus left out; M is that number`)
     for (const b of brains.keys()) if (!seated.has(b) && !left.has(b)) add('brain-unaccounted', councilRow.n, `${b} is installed and the Council: line names it neither as seated nor as left out`)
   }
 
@@ -544,9 +550,19 @@ export function checkReply(text, file, ctx = {}) {
         const seat = bySeat.get(c.seat)
         if (!seat) { add('chair-citation', r.n, `[${c.seat}: ${c.text}] names a seat that is not in this reply (seats: ${[...bySeat.keys()].join(', ') || 'none'})`); continue }
         const item = flat(c.text)
-        if (!seat.cites.items.has(item)) { add('chair-citation', r.n, `"${c.text}" is not a citation seat ${c.seat} carries; copy the whole citation from inside its parentheses, or a Source: title, character for character`); continue }
-        const uses = seat.cites.uses.get(seat.cites.titleOf(item)) || []
-        if (uses.length && uses.every((k) => k === 'soft')) add('nearest-citation', r.n, `[${c.seat}: ${c.text}] is carried in seat ${c.seat} only on Nearest:, My reading: or Yours: lines; the brain labels those as not answering the question or as someone else's words, so the chair builds nothing on them`)
+        const parts = c.text.split(';').map(flat).filter(Boolean)
+        const asItem = seat.cites.items.has(item)
+        const asGroup = seat.cites.groups.has(item)
+        const asList = parts.length > 1 && parts.every((x) => seat.cites.items.has(x))
+        if (!asItem && !asGroup && !asList) { add('chair-citation', r.n, `"${c.text}" is not a citation seat ${c.seat} carries; copy one item the seat cites, the whole citation from inside one of its parentheses, or a Source: title, character for character (or list several of its items separated by ;)`); continue }
+        const toCheck = asItem ? [item] : parts
+        const soft = toCheck.some((x) => {
+          const title = seat.cites.titleOf(x)
+          if (!title) return false
+          const uses = seat.cites.uses.get(title) || []
+          return uses.length > 0 && uses.every((k) => k === 'soft')
+        })
+        if (soft) add('nearest-citation', r.n, `[${c.seat}: ${c.text}] is carried in seat ${c.seat} only on Nearest:, My reading: or Yours: lines; the brain labels those as not answering the question or as someone else's words, so the chair builds nothing on them`)
       }
     }
     for (const r of lines) {
@@ -1051,6 +1067,8 @@ function selfTest(opts) {
       raises('unknown-chair-label', setLine(base, /^Rests on:/, (l) => `${l}\nBottom line: ship.`), 'a "Bottom line:" line in the chair block')
       raises('unknown-chair-label', base.replace('\nNot verified:', '\n== Notes ==\nNot verified:'), 'a "== Notes ==" header after the chair')
       raises('no-council-line', setLine(base, /^Council:/, (l) => l.replace(/(\d+) of \d+/, (_, n) => `${n} of ${Number(n) - 1}`)), 'a Council: line with more seated than installed')
+      raises('no-council-line', setLine(base, /^Council:/, (l) => l.replace(/ of (\d+)/, (_, m) => ` of ${Number(m) - 1}`)), 'a Council: line whose M is one fewer than the brains it names')
+      quiet('no-council-line', base, 'the unchanged gold example, whose M is the number of brains the Council: line names')
 
       // Not verified: is the run's log. It may name a seat or a brain, and it may not put words in a mouth.
       const log = (more) => setLine(base, /^Not verified:/, (l) => `${l} ${more}`)
@@ -1190,6 +1208,19 @@ function selfTest(opts) {
     quiet('no-council-line', twice, 'a brain seated twice, counted once against "2 of 2",', fake('Zed Zimmer'))
     raises('too-few-seats', twice.split('\n').filter((l, i, all) => !(i >= all.indexOf('== Seat: khe-brain-yy (Yan Yarrow) ==') && i < all.lastIndexOf('== Seat: khe-brain-zz (Zed Zimmer) =='))).join('\n'), 'one brain in two blocks', fake('Zed Zimmer'))
     raises('no-council-line', syn.replace('2 of 2', '3 of 3'), 'a Council: count that is not the number of seat blocks', fake('Zed Zimmer'))
+
+    // One parenthesis may carry several items; the chair may copy it whole, cite one item, or group real items.
+    const multi = syn
+      .replace('The first test piece covers the thing [1].', 'The first test piece covers the thing (Alpha at 1:00; Alpha at 2:00; Alpha at 3:00).')
+      .replace('Nearest: the second test piece is about something else [2].', 'Nearest: the second test piece is about something else (Beta at 9:00).')
+      .replace('Source: [1] First Test Piece, https://example.com/one', 'Source: Alpha, https://example.com/one')
+      .replace('Source: [2] Second Test Piece, https://example.com/two', 'Source: Beta, https://example.com/two')
+    const asRests = (text) => multi.replaceAll('[zz: First Test Piece]', '[zz: Alpha at 1:00]').replace('Rests on: [zz: Alpha at 1:00]', `Rests on: [zz: ${text}]`)
+    quiet('chair-citation', asRests('Alpha at 1:00; Alpha at 2:00; Alpha at 3:00'), 'a chair citation that copies a whole multi-item parenthesis', fake('Zed Zimmer'))
+    quiet('chair-citation', asRests('Alpha at 1:00;  alpha at 3:00'), 'a chair citation that groups two real items', fake('Zed Zimmer'))
+    quiet('chair-citation', asRests('Alpha at 2:00'), 'a chair citation of one item from a multi-item parenthesis', fake('Zed Zimmer'))
+    raises('chair-citation', asRests('Alpha at 1:00; Alpha at 7:00'), 'a chair citation list with one invented item', fake('Zed Zimmer'))
+    raises('nearest-citation', asRests('Alpha at 1:00; Beta at 9:00'), 'a chair citation list with one item carried only on a Nearest: line', fake('Zed Zimmer'))
 
     // The summary counts the seats a brain's own gate judged.
     const stats = { seats: 0, judged: 0 }

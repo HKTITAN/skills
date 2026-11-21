@@ -12,7 +12,7 @@ What changed in kheSkills, newest first. One entry per day that something a user
 
 ### Changed
 
-- `khe-decision` (in `kheskills` 1.3.2) holds its two recorded councils to the strict gate from inside its self-test, so a brain added to the collection fails CI until those councils are convened again. Both were: `khe-brain-gary` takes a seat in the audience-or-launch council and speaks, and is left out of the command-menu council. A `Why:` clause now names the seat it is about.
+- `khe-decision` (in `kheskills` 1.3.2) holds its two recorded councils to the strict gate from inside its self-test, so a brain added to the collection fails CI until those councils are convened again. Both were: the audience-or-launch council ran again from the seats with `khe-brain-gary` seated, and the command-menu council leaves it out. The gate also fails a `Council:` count that differs from the brains the line names, and takes a chair citation copied as a seat's whole parenthesis. A `Why:` clause now names the seat it is about.
 - `khe-brain-varun` (in `khe-brain` 1.7.0) reads a 19th video, Why Every Great Idea Started as a Copy (20 November 2026): 83 new cited claims on starting as a copy, the 90% the same and 10% new rule, creating value against capturing it and his view of deep tech investing in India, eight glossary terms, three new disagreements and one change of mind he states himself. The corpus is now 1,461 claims from 18 hours 10 minutes of video, and its refresh date is 2026-11-20.
 
 ## 2026-11-18

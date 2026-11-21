@@ -25,6 +25,7 @@ agents/           the kheAgents, Claude Code subagents the kheskills plugin ship
 orchestration/    CLAUDE.md, the policy that uses the kheAgents, for people to paste into their own
 cheatsheets/      one Problem | Solution table per skill
 scripts/          check.mjs, the checks CI runs; marketplace.mjs, which writes every install manifest; pr-check.mjs, which reads a PR body
+PYRAMID.md       every correction placed with khe-poteto-pyramid: the mistake, where it lives now, the check and its proof
 .github/PULL_REQUEST_TEMPLATE.md   the four sections every PR body fills
 ```
 

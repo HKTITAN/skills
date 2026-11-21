@@ -7,6 +7,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { routerDomains } from "../.github/showcase/router-counts.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SKILLS = join(ROOT, "skills");
@@ -95,6 +96,17 @@ for (const n of linked) {
   if (n.startsWith("khe-")) bad(".gitmodules", `${n} is linked from another repo and must not use the khe- prefix`);
   if (!router.includes(`\`${n}\``)) bad("khe-auto", `the router never names ${n}`);
   if (!new RegExp(`\\[${n}\\]\\(https://github\\.com/`).test(readme)) bad("README.md", `${n} is not linked to its original`);
+}
+
+// The router's domain tables and the domains figure count the same skills. The figure's counts are read
+// from the tables (router-counts.mjs); the tables must hold every khe skill but khe-auto as a "here" row
+// (the figure's footer says so), and the committed SVG must be what the script draws from them.
+{
+  const here = routerDomains(router).flatMap((d) => d.here);
+  for (const n of names.filter((n) => n !== "khe-auto")) if (!here.includes(n)) bad("khe-auto", `${n} has no "here" row in a domain table of skills/khe-auto/SKILL.md, so the domains figure leaves it out: add its row to its domain's table`);
+  for (const n of here) if (!names.includes(n)) bad("khe-auto", `a domain table marks ${n} as "here", but skills/${n} is not a khe skill in this repo: fix its Whose column, or add the skill`);
+  const r = spawnSync(process.execPath, [join(ROOT, ".github", "showcase", "readme-auto.mjs"), "--check"], { encoding: "utf8" });
+  if (r.status !== 0) bad("skills/khe-auto/assets", (r.stderr || r.stdout).trim().split("\n")[0]);
 }
 
 // The khe-brain plugin: one command per brain, in that brain's own folder
